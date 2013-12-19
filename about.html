@@ -1,0 +1,18 @@
+---
+layout: page
+title: "About"
+---
+Article-Level Metrics - Alternative Measures to Gauge the Impact of Research.
+
+<h3>Authors</h3>
+{% if site.authors %}{% for author in site.authors %}
+<div class="card hovercard">
+  <img src="images/grey.png" alt=""/>
+  <div class="avatar">
+    <img src="{% gravatar %}" width="170" height="170"/>
+  </div>
+  <div class="info">
+   <div class="title">{{ author.name }}</div>
+   <div class="desc">{{ author.description }}</div>
+  </div>
+</div>{% endfor %}{% endif %}

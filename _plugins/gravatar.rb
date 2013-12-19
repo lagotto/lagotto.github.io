@@ -13,7 +13,7 @@ module Jekyll
 
     def render(context)
       site_config = context.registers[:site].config
-      email = site_config['author']['email'].downcase.strip
+      email = site_config['authors'][0]['email'].downcase.strip
       gravatar_hash = Digest::MD5.hexdigest(email)
       image_src = "http://www.gravatar.com/avatar/#{gravatar_hash}"
 
