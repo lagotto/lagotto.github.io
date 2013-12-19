@@ -36,7 +36,7 @@ production_url:  http://articlemetrics.github.io
 source_url:      http://github.com/articlemetrics/articlemetrics.github.io
 archive_path:    archive.html
 categories_path: categories.html
-tags_path:       tags.html
+tags_path:       /tags.html
 rss_path:        rss.xml
 atom_path:       atom.xml
 
