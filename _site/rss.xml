@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>Article-Level Metrics</title>
+        <description>Article-Level Metrics - Article-Level Metrics - Alternative Measures to Gauge the Impact of Research</description>
+        <link>http://articlemetrics.github.iorss.xml</link>
+        <link>http://articlemetrics.github.io</link>
+        <lastBuildDate>2013-12-19T22:57:59+01:00</lastBuildDate>
+        <pubDate>2013-12-19T22:57:59+01:00</pubDate>
+        <ttl>1800</ttl>
+
+
+        <item>
+                <title>My first post</title>
+                <description>
+&lt;p&gt;The Ruby on Rails application Article-Level Metrics (ALM) was started in March 2009 by the Open Access publisher &lt;a href=&quot;http://www.plos.org/&quot;&gt;Public Library of Science (PLOS)&lt;/a&gt;. It allows a user to aggregate relevant performance data on research articles including online usage, citations, and altmetrics. We’re continuing to expand the Article-Level Metrics application because we believe that articles should be considered on their own merits, and that the impact of an individual article should not be determined by the journal in which it happened to be published. As a result, we hope that new ways of measuring and evaluating research quality (or ‘impact’) can and will evolve.&lt;/p&gt;
+
+&lt;p&gt;To facilitate the dissemination of Article-Level Metrics, PLOS has made this application available as Open Source software under the &lt;a href=&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;&gt;Apache 2.0 license&lt;/a&gt;. To get started, users can&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Browse or search articles, or look at the most popular articles by source&lt;/li&gt;
+
+&lt;li&gt;Use the API to collect information about individual articles, or a set of articles&lt;/li&gt;
+
+&lt;li&gt;Install the Article-Level Metrics application to collect their own metrics&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following organizations have implemented Article-Level Metrics using the Open Source ALM application:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://article-level-metrics.plos.org/&quot;&gt;Public Library of Science (PLOS)&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://publications.copernicus.org/services/article_level_metrics.html&quot;&gt;Copernicus Publications&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://pkp.sfu.ca/pkp-launches-article-level-metrics-for-ojs-journals/&quot;&gt;Public Knowledge Project (PKP)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To use the API, please sign up with your &lt;a href=&quot;http://www.mozilla.org/en-US/persona/&quot;&gt;Mozilla Persona&lt;/a&gt; account and use the API key generated for you. To learn more about Article-Level Metrics, see the &lt;a href=&quot;http://www.sparc.arl.org/resource/sparc-article-level-metrics-primer&quot;&gt;SPARC ALM primer&lt;/a&gt;. For technical questions regarding the Article-Level Metrics application, visit the &lt;a href=&quot;https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers&quot;&gt;PLOS API Developers Google Group&lt;/a&gt; or use the &lt;a href=&quot;https://github.com/articlemetrics/alm/issues&quot;&gt;Github issue tracker&lt;/a&gt;.&lt;/p&gt;
+</description>
+                <link>http://articlemetrics.github.io/2013/12/19/test</link>
+                <guid>http://articlemetrics.github.io/2013/12/19/test</guid>
+                <pubDate>2013-12-19T00:00:00+01:00</pubDate>
+        </item>
+
+
+</channel>
+</rss>
