@@ -2,17 +2,17 @@
 <html lang="en">
 
     <head>
-    <title>Status</title>
+    <title>Documentation</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Martin Fenner" />
 
     <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Status" />
+    <meta property="dc:title" content="Documentation" />
     <meta property="dc:creator" content="" />
     <meta name="citation_publication_date" content=""/>
     <meta property="dc:format" content="text/html" />
     <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/status.html" />
+    <meta property="dc:identifier" content="/documentation.html" />
     <meta property="dc:rights" content="CC-BY" />
     <meta property="dc:source" content="Article-Level Metrics" />
     <meta property="dc:subject" content="Scholarly Communication" />
@@ -21,7 +21,7 @@
     <!-- Google Scholar Metadata -->
     <meta name="citation_author" content=""/>
     <meta name="citation_publication_date" content=""/>
-    <meta name="citation_title" content="Status"/>
+    <meta name="citation_title" content="Documentation"/>
     <meta name="citation_journal_title" content="Article-Level Metrics"/>
 
     <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
@@ -37,23 +37,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/bootplus.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootplus-responsive.min.css">
-    <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-        background-color: #FFF;
-      }
-
-      /* Custom container */
-      .container-narrow {
-        margin: 0 auto;
-        max-width: 700px;
-      }
-      .container-narrow > hr {
-        margin: 30px 0;
-      }
-    </style>
 
     <!-- Javascript -->
     <script src="js/d3.v3.min.js"></script>
@@ -61,53 +46,47 @@
 
 
   <body>
-    <div class="container-narrow">
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="/examples.html">Examples</a></li>
-          <li><a href="/status.html">Status</a></li>
-          <li><a href="/about.html">About</a></li>
-        </ul>
-        <h3 class="muted">Status</h3>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">ALM</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Blog</a></li>
+              <li><a href="/documentation.html">Documentation</a></li>
+              <li><a href="/examples.html">Examples</a></li>
+              <li><a href="/about.html">About</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
       </div>
+    </div>
 
-      <div class="content">
-        <div id="status">Coming soon ...</div>
+    <div class="container">
+      <div id="status">Coming soon ...</div>
 
-
-        <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+      <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
 <span
   class="Z3988"
   title="ctx_ver=Z39.88-2004
   &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
   &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Status
+  &amp;rft.title=Documentation
   &amp;rft.creator=
   &amp;rft.date=
   &amp;rft.language=EN
   &amp;rft.rights=CC0
-  &amp;rft_id=http://articlemetrics.github.io/status.html">
+  &amp;rft_id=http://articlemetrics.github.io/documentation.html">
 </span>
 
-      </div>
-      <hr>
-      <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div> <!-- /container -->
 
-      <script type="text/javascript">
+    <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '']);
   _gaq.push(['_trackPageview']);
@@ -119,7 +98,7 @@
   })();
 </script>
 
-    </div>
+
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

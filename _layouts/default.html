@@ -4,26 +4,35 @@
   {% include head.html %}
 
   <body>
-    <div class="container-narrow">
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="/examples.html">Examples</a></li>
-          <li><a href="/status.html">Status</a></li>
-          <li><a href="/about.html">About</a></li>
-        </ul>
-        <h3 class="muted">{{ page.title }}</h3>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">{{ site.name }}</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Blog</a></li>
+              <li><a href="/documentation.html">Documentation</a></li>
+              <li><a href="/examples.html">Examples</a></li>
+              <li><a href="/about.html">About</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
       </div>
-
-      <div class="content">
-        {{ content }}
-
-        {% include coins.html %}
-      </div>
-      <hr>
-      {% include comments.html %}
-      {% include analytics.html %}
     </div>
+
+    <div class="container">
+      {{ content }}
+
+      {% include coins.html %}
+    </div> <!-- /container -->
+
+    {% include analytics.html %}
+
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

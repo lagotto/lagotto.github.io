@@ -1,12 +1,15 @@
 ---
 layout: default
 ---
-
-{{ content }}
-{% unless page.tags == empty %}
-  <ul class="tag_box inline">
-    <li><i class="icon-tags"></i></li>
-    {% assign tags_list = page.tags %}
-    {% include tags_list %}
-  </ul>
-{% endunless %}
+<div class="card">
+   <div class="card-heading image">
+      <img src="http://www.gravatar.com/avatar/{{ site.authors[0].gravatar }}" alt=""/>
+      <div class="card-heading-header">
+         <h3>{{ page.title }}</h3>
+         <span>{{ page.date | date_to_string }}</span>
+      </div>
+   </div>
+   <div class="card-body">
+      {{ content }}
+   </div>
+</div>

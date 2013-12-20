@@ -1,0 +1,17 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+section {
+  background-color: #FFF;
+  padding: 20px;
+}
+.card-body {
+  margin-bottom: 10px;
+}
+@media (max-width: 980px) {
+  /* Enable use of floated navbar text */
+  .navbar-text.pull-right {
+    float: none;
+  }
+}

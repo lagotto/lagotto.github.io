@@ -37,23 +37,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/bootplus.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootplus-responsive.min.css">
-    <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-        background-color: #FFF;
-      }
-
-      /* Custom container */
-      .container-narrow {
-        margin: 0 auto;
-        max-width: 700px;
-      }
-      .container-narrow > hr {
-        margin: 30px 0;
-      }
-    </style>
 
     <!-- Javascript -->
     <script src="js/d3.v3.min.js"></script>
@@ -61,29 +46,47 @@
 
 
   <body>
-    <div class="container-narrow">
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="/examples.html">Examples</a></li>
-          <li><a href="/status.html">Status</a></li>
-          <li><a href="/about.html">About</a></li>
-        </ul>
-        <h3 class="muted">ALM</h3>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">ALM</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Blog</a></li>
+              <li><a href="/documentation.html">Documentation</a></li>
+              <li><a href="/examples.html">Examples</a></li>
+              <li><a href="/about.html">About</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
       </div>
+    </div>
 
-      <div class="content">
-        <div class="index">
-
-  <h3><a href="/2013/12/19/test">My first post</a> <small>19 Dec 2013</small></h3>
-  
+    <div class="container">
+      
+  <div class="card">
+    <div class="card-heading image">
+      <img src="http://www.gravatar.com/avatar/abfd3f212a9252ecb14687a2c62f934b" alt=""/>
+      <div class="card-heading-header">
+        <h3>My first post</h3>
+        <span>19 Dec 2013</span>
+      </div>
+    </div>
+    <div class="card-body">
+      
 <p>The Ruby on Rails application Article-Level Metrics (ALM) was started in March 2009 by the Open Access publisher <a href="http://www.plos.org/">Public Library of Science (PLOS)</a>. It allows a user to aggregate relevant performance data on research articles including online usage, citations, and altmetrics. We’re continuing to expand the Article-Level Metrics application because we believe that articles should be considered on their own merits, and that the impact of an individual article should not be determined by the journal in which it happened to be published. As a result, we hope that new ways of measuring and evaluating research quality (or ‘impact’) can and will evolve.</p>
+ <a href="/2013/12/19/test">Read more …</a>
+    </div>
+  </div>
 
 
-</div>
 
-
-        <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+      <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
 <span
   class="Z3988"
   title="ctx_ver=Z39.88-2004
@@ -97,24 +100,9 @@
   &amp;rft_id=http://articlemetrics.github.io/index.html">
 </span>
 
-      </div>
-      <hr>
-      <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div> <!-- /container -->
 
-      <script type="text/javascript">
+    <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '']);
   _gaq.push(['_trackPageview']);
@@ -126,7 +114,7 @@
   })();
 </script>
 
-    </div>
+
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

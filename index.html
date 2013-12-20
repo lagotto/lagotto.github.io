@@ -2,9 +2,18 @@
 layout: default
 title: ALM
 ---
-<div class="index">
+
 {% for post in paginator.posts %}
-  <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_string }}</small></h3>
-  {{ post.excerpt }}
+  <div class="card">
+    <div class="card-heading image">
+      <img src="http://www.gravatar.com/avatar/{{ site.authors[0].gravatar }}" alt=""/>
+      <div class="card-heading-header">
+        <h3>{{ post.title }}</h3>
+        <span>{{ post.date | date_to_string }}</span>
+      </div>
+    </div>
+    <div class="card-body">
+      {{ post.excerpt }} <a href="{{ BASE_PATH }}{{ post.url }}">Read more …</a>
+    </div>
+  </div>
 {% endfor %}
-</div>
