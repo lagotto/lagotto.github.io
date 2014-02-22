@@ -31,8 +31,10 @@ http://articlemetrics.github.io/documentation.html
 http://articlemetrics.github.io/examples.html
 http://articlemetrics.github.io/index.html
 http://articlemetrics.github.io/pages.html
+http://articlemetrics.github.io/plos.html
 http://articlemetrics.github.io/rss.xml
 http://articlemetrics.github.io/sitemap.txt
+http://articlemetrics.github.io/status.html
 
 http://articlemetrics.github.io/2014/12/05/research-findings-going-deeper-than-the-article
 http://articlemetrics.github.io/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois
