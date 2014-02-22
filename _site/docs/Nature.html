@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Blogs</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="Nature Blogs" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/Nature.html" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="Nature Blogs"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples.html">Examples</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home.html">Home</a></li>
+            <li><a href="/docs/Installation.html">Installation</a></li>
+            <li><a href="/docs/Setup.html">Setup</a></li>
+            <li><a href="/docs/Sources.html">Sources</a></li>
+            <li><a href="/docs/API.html">API</a></li>
+            <li><a href="/docs/Rake.html">Rake</a></li>
+            <li><a href="/docs/Alerts.html">Alerts</a></li>
+            <li><a href="/docs/FAQ.html">FAQ</a></li>
+            <li><a href="/docs/Roadmap.html">Roadmap</a></li>
+            <li><a href="/docs/Contributors.html">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>Nature Blogs</h1>
+        <p>
+        </p>
+      </div>
+
+      <div class="content">
+        <p>Nature Blogs is a science blog aggregator. Since May 1st 2013 API keys are <a href="http://www.nature.com/developers/documentation/api-references/blogs-api/">no longer necessary</a>.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>nature</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>staleness: [ 1.day, 1.month, 1.month, 1.month]<br/>requests_per_hour: 200</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>id<br/>url<br/>date (as published_at)</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>title<br/>blog title<br/>blog url</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>2/sec<br/>5,000/day</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://blogs.nature.com/posts.json?doi=DOI&api_key=API_KEY</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>License</strong></td>
+<td valign="top" width=80%>CC-BY-NC</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="err">post:</span> <span class="err">{</span>
+      <span class="err">percent_complex_words:</span> <span class="err">12.9994,</span>
+      <span class="err">popularity:</span> <span class="err">0,</span>
+      <span class="err">created_at:</span> <span class="nt">&quot;2009-02-05T17:12:41Z&quot;</span><span class="p">,</span>
+      <span class="err">title:</span> <span class="nt">&quot;A new link in the chain of whale evolution&quot;</span><span class="p">,</span>
+      <span class="err">body:</span> <span class="nt">&quot;Paleontologists have found a new fossil of a whale ancestor - and its announced just after I finish watching my preview DVD of Nat Geo&#39;s Morphed on whale evolution. I smell fate.Anyhow, the new whale predecessor was unveiled in a PLoS One article ...&quot;</span><span class="p">,</span>
+      <span class="err">updated_at:</span> <span class="nt">&quot;2009-09-22T23:09:56Z&quot;</span><span class="p">,</span>
+      <span class="err">flesch:</span> <span class="err">-21.5166,</span>
+      <span class="err">url:</span> <span class="nt">&quot;feedproxy.google.com/~r/observationsofanerd/~3/aMcNB2CZW_Y/new-link-in-chain-of-whale-evolution.html&quot;</span><span class="p">,</span>
+      <span class="err">blog_id:</span> <span class="err">558,</span>
+      <span class="err">id:</span> <span class="err">29082,</span>
+      <span class="err">hashed_id:</span> <span class="nt">&quot;a8b538120801f6735681c4ce346e3d27f4c1739f3bf349eec7f206d34cdba95b&quot;</span><span class="p">,</span>
+      <span class="err">blog:</span> <span class="err">{</span>
+        <span class="err">percent_complex_words:</span> <span class="err">14.0934,</span>
+        <span class="err">popularity:</span> <span class="err">2,</span>
+        <span class="err">created_at:</span> <span class="nt">&quot;2008-11-05T16:42:48Z&quot;</span><span class="p">,</span>
+        <span class="err">title:</span> <span class="nt">&quot;Observations of a Nerd&quot;</span><span class="p">,</span>
+        <span class="err">niche_tag:</span> <span class="nt">&quot;life_sciences&quot;</span><span class="p">,</span>
+        <span class="err">updated_at:</span> <span class="nt">&quot;2012-07-28T01:13:27Z&quot;</span><span class="p">,</span>
+        <span class="err">flesch:</span> <span class="err">-39.0166,</span>
+        <span class="err">feed_url:</span> <span class="nt">&quot;scienceblogs.com/observations/index.xml&quot;</span><span class="p">,</span>
+        <span class="err">url:</span> <span class="nt">&quot;http://scienceblogs.com/observations/&quot;</span><span class="p">,</span>
+        <span class="err">decided_on:</span> <span class="nt">&quot;2008-11-06T19:34:40Z&quot;</span><span class="p">,</span>
+        <span class="err">rank:</span> <span class="err">426,</span>
+        <span class="err">num_posts_per_week:</span> <span class="err">1.754,</span>
+        <span class="err">id:</span> <span class="err">558,</span>
+        <span class="err">outgoing_bloglove:</span> <span class="err">2,</span>
+        <span class="err">num_words:</span> <span class="err">5852.28,</span>
+        <span class="err">ip:</span> <span class="nt">&quot;bogus address&quot;</span><span class="p">,</span>
+        <span class="err">niche_rank:</span> <span class="err">141,</span>
+        <span class="err">header_title:</span> <span class="nt">&quot;BLOGS&quot;</span><span class="p">,</span>
+        <span class="err">fog:</span> <span class="err">46.4802,</span>
+        <span class="err">description:</span> <span class="nt">&quot;A blog about anything and everything that piques the interest of a biologist&quot;</span><span class="p">,</span>
+        <span class="err">status:</span> <span class="nt">&quot;accepted&quot;</span>
+      <span class="p">},</span>
+      <span class="err">links_to_doi:</span> <span class="p">[</span>
+        <span class="s2">&quot;10.1371/journal.pone.0004366&quot;</span>
+      <span class="p">],</span>
+      <span class="err">num_words:</span> <span class="mi">6708</span><span class="p">,</span>
+      <span class="err">published_at:</span> <span class="s2">&quot;2009-02-05T17:12:41Z&quot;</span><span class="p">,</span>
+      <span class="err">fog:</span> <span class="mf">40.0465</span>
+    <span class="err">}</span>
+  <span class="err">}</span><span class="p">,</span>
+</code></pre></div>
+<h2>Further Documentation</h2>
+
+<ul>
+<li><a href="http://www.nature.com/developers/documentation/api-references/blogs-api/">Nature Blogs API Documentation</a></li>
+</ul>
+
+
+        <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=Nature Blogs
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/Nature.html">
+</span>
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

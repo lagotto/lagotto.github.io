@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="API" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/API.html" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="API"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples.html">Examples</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home.html">Home</a></li>
+            <li><a href="/docs/Installation.html">Installation</a></li>
+            <li><a href="/docs/Setup.html">Setup</a></li>
+            <li><a href="/docs/Sources.html">Sources</a></li>
+            <li><a href="/docs/API.html">API</a></li>
+            <li><a href="/docs/Rake.html">Rake</a></li>
+            <li><a href="/docs/Alerts.html">Alerts</a></li>
+            <li><a href="/docs/FAQ.html">FAQ</a></li>
+            <li><a href="/docs/Roadmap.html">Roadmap</a></li>
+            <li><a href="/docs/Contributors.html">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>API</h1>
+        <p>
+        </p>
+      </div>
+
+      <div class="content">
+        <p>Version 3 of the API was released October 30, 2012 (ALM 2.3). Version 4 of the API (write/update/delete for admin users) was released January 22, 2014 (ALM 2.11).</p>
+
+<h2>Base URL</h2>
+
+<p>All API calls to the version 3 API start with <code>/api/v3/articles</code>.</p>
+
+<h2>Supported Media Types</h2>
+
+<ul>
+<li>JSON (default)</li>
+<li>XML</li>
+</ul>
+
+<p>The media type is set in the header, e.g. &quot;Accept: application/json&quot;. Media type negotiation via file extension (e.g. &quot;.json&quot;) is not supported. The API defaults to JSON if no media type is given, e.g. to test the API with a browser.</p>
+
+<h2>API Key</h2>
+
+<p>All API calls require an API key, use the format <code>?api_key=API_KEY</code>. A key can be obtained by registering as API user with the ALM application and this shouldn&#39;t take more than a few minutes. By default the ALM application uses <a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a>, but it can also be configured to use other services usch as OAuth and CAS. For the PLOS ALM application you need to sign in with your <a href="http://register.plos.org/ambra-registration/register.action">PLOS Journals account</a>.</p>
+
+<h2>Query for one or several Articles</h2>
+
+<p>Specify one or more articles by a comma-separated list of DOIs in the <code>ids</code> parameter. These DOIs have to be URL-escaped, e.g. <code>%2F</code> for <code>/</code>:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240
+/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413
+</code></pre></div>
+<p>Queries for up to 50 articles at a time are supported.</p>
+
+<h2>Additional Parameters</h2>
+
+<h3>type=doi|pmid|pmcid|mendeley</h3>
+
+<p>The version 3 API supports queries for DOI, PubMed ID, PubMed Central ID and Mendeley UUID. The default <code>doi</code> is used if no type is given in the query. The following queries are all for the same article:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pmed.1001361
+/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>23300388<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>pmid
+/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>PMC3531501<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>pmcid
+/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>437b07d9-bc40-4c57-b60e-1f60fefe2300<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>mendeley
+</code></pre></div>
+<h3>info=summary|detail|event|history</h3>
+
+<p>With the <strong>summary</strong> parameter no source information or metrics are provided, only article metadata such as DOI, PubMed ID, title or publication date. The only exception are summary statistics, aggregating metrics from several sources (views, shares, bookmarks and citations).</p>
+
+<p>With the <strong>event</strong> parameter all raw data sent by the source are provided.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nv">info</span><span class="o">=</span>event
+</code></pre></div>
+<p>With the <strong>history</strong> parameter all historical data are provided. This also includes metrics by day, month and year.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nv">info</span><span class="o">=</span><span class="nb">history</span>
+</code></pre></div>
+<p>With the <strong>detail</strong> parameter all historical data and all raw data sent by the source are provided. This also includes metrics by day, month and year.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nv">info</span><span class="o">=</span>detail
+</code></pre></div>
+<h3>source=x</h3>
+
+<p>Only provide metrics for a given source, or a list of sources. The response format is the same as the default response.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nb">source</span><span class="o">=</span>mendeley,crossref
+</code></pre></div>
+<h3>days=x or months=x</h3>
+
+<p>With either of these parameters, the metrics are provided for a timepoint a given number of days or months after publiation. The response format is the same as the default response.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nv">days</span><span class="o">=</span>30
+</code></pre></div>
+<h3>year=x</h3>
+
+<p>The metrics are provided for a timepoint at the end of the given year. The response format is the same as the default response.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v3/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nv">year</span><span class="o">=</span>2011
+</code></pre></div>
+<h2>Metrics</h2>
+
+<p>The metrics for every source are returned as total number, and separated in categories, e.g. <code>html</code> and <code>pdf</code> views for usage data, <code>shares</code> and <code>groups</code> for Mendeley, or <code>shares</code>, <code>likes</code> and <code>comments</code> for Facebook. The same seven categories are always returned for every source to simplify parsing of API responses:</p>
+
+<ul>
+<li><p><strong>CiteULike</strong>: shares</p></li>
+<li><p><strong>Mendeley</strong>: shares, groups</p></li>
+<li><p><strong>Twitter</strong>: comments</p></li>
+<li><p><strong>Facebook</strong>: shares, likes, comments</p></li>
+<li><p><strong>Reddit</strong>: likes, comments</p></li>
+<li><p><strong>CrossRef, PubMed, Nature Blogs, ResearchBlogging, ScienceSeeker, Wordpress.com, Wikipedia, PMC Europe Citations, PMC Europe Database Citations</strong>: citations</p></li>
+<li><p><strong>Counter, PubMed Central</strong>: html, pdf</p></li>
+</ul>
+
+<h2>Search</h2>
+
+<p>Search is not supported by the v3 API, users have to provide specific identifiers.</p>
+
+<h2>Signposts</h2>
+
+<p>Several metrics are aggregated and available in all API queries:</p>
+
+<ul>
+<li>views: counter + pmc (PLOS only)</li>
+<li>shares: facebook (+ twitter at PLOS)</li>
+<li>bookmarks: mendeley + citeulike</li>
+<li>citations: crossref (scopus at PLOS)</li>
+</ul>
+
+<h2>Date and Time Format</h2>
+
+<p>All dates and times are in ISO 8601, e.g. <code>2003-10-13T07:00:00Z</code></p>
+
+<h2>Null</h2>
+
+<p>The API returns <code>null</code> if no query was made, and <code>0</code> if the external API returns 0 events.</p>
+
+<h2>Example Response</h2>
+
+<h3>JSON</h3>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pone.0036240&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;How Academic Biologists and Physicists View Science Outreach&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0036240&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;mendeley&quot;</span><span class="p">:</span> <span class="s2">&quot;88bfe7f0-9cb4-11e1-ac31-0024e8453de6&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pmid&quot;</span><span class="p">:</span> <span class="s2">&quot;22590526&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pmcid&quot;</span><span class="p">:</span> <span class="s2">&quot;3348938&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;publication_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-05-09T07:00:00Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-17T13:33:36Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">12987</span><span class="p">,</span>
+    <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="mi">276</span><span class="p">,</span>
+    <span class="nt">&quot;bookmarks&quot;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span>
+    <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;sources&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;bloglines&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bloglines&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-03-12T00:29:00Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;citeulike&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CiteULike&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.citeulike.org/doi/10.1371/journal.pone.0036240&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-12T21:20:14Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;connotea&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Connotea&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-03-12T00:29:20Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;crossref&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CrossRef&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-10T03:17:07Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nature&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-15T16:04:54Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;postgenomic&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Postgenomic&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-03-12T00:30:06Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pubmed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;PubMed Central&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&amp;cmd=link&amp;LinkName=pubmed_pmc_refs&amp;from_uid=22590526&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-10T16:55:43Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;scopus&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Scopus&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-01T09:44:57Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;counter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Counter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.plosreports.org/services/rest?method=usage.stats&amp;doi=10.1371%2Fjournal.pone.0036240&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="mi">814</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="mi">12036</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">12886</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-17T13:33:36Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;researchblogging&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Blogging&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-17T07:59:35Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;biod&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Biod&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-17T12:52:04Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;wos&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Web of Science®&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=PARTNER_APP&amp;SrcAuth=PLoSCEL&amp;KeyUT=000305336100022&amp;DestLinkType=CitingArticles&amp;DestApp=WOS_CPL&amp;UsrCustomerID=c642dd6a62e245b029e19b27ca7f6b1c&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-16T06:13:38Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pmc&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;PubMed Central Usage Stats&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">101</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-17T02:06:31Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Facebook&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="mi">58</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">47</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">159</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-16T04:09:20Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mendeley&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mendeley&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.mendeley.com/research/academic-biologists-physicists-view-science-outreach-1/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">33</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-03T12:13:26Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Twitter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">117</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">117</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-10T19:21:40Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;wikipedia&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Wikipedia&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-05T13:18:29Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;scienceseeker&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;ScienceSeeker&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-12T14:19:53Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;relativemetric&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Relative Metric&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;shares&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">14031</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-03T04:06:33Z&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<h3>XML</h3>
+<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;articles&gt;</span>
+  <span class="nt">&lt;article&gt;</span>
+    <span class="nt">&lt;doi&gt;</span>10.1371/journal.pone.0036240<span class="nt">&lt;/doi&gt;</span>
+    <span class="nt">&lt;title&gt;</span>How Academic Biologists and Physicists View Science Outreach<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;url&gt;</span>http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0036240<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;mendeley&gt;</span>88bfe7f0-9cb4-11e1-ac31-0024e8453de6<span class="nt">&lt;/mendeley&gt;</span>
+    <span class="nt">&lt;pmid&gt;</span>22590526<span class="nt">&lt;/pmid&gt;</span>
+    <span class="nt">&lt;pmcid&gt;</span>3348938<span class="nt">&lt;/pmcid&gt;</span>
+    <span class="nt">&lt;publication_date&gt;</span>2012-05-09T07:00:00Z<span class="nt">&lt;/publication_date&gt;</span>
+    <span class="nt">&lt;update_date&gt;</span>2013-05-17T13:33:36Z<span class="nt">&lt;/update_date&gt;</span>
+    <span class="nt">&lt;views&gt;</span>12987<span class="nt">&lt;/views&gt;</span>
+    <span class="nt">&lt;shares&gt;</span>276<span class="nt">&lt;/shares&gt;</span>
+    <span class="nt">&lt;bookmarks&gt;</span>38<span class="nt">&lt;/bookmarks&gt;</span>
+    <span class="nt">&lt;citations&gt;</span>3<span class="nt">&lt;/citations&gt;</span>
+    <span class="nt">&lt;sources&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>bloglines<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Bloglines<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>0<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>0<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2009-03-12T00:29:00Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>citeulike<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>CiteULike<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url&gt;</span>http://www.citeulike.org/doi/10.1371/journal.pone.0036240<span class="nt">&lt;/events_url&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares&gt;</span>5<span class="nt">&lt;/shares&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;total&gt;</span>5<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-12T21:20:14Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>connotea<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Connotea<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>0<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>0<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2009-03-12T00:29:20Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>crossref<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>CrossRef<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>3<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>3<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-10T03:17:07Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>nature<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Nature<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>1<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>1<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-15T16:04:54Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>postgenomic<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Postgenomic<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>0<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>0<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2009-03-12T00:30:06Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>pubmed<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>PubMed Central<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url&gt;</span>http://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed<span class="ni">&amp;amp;</span>cmd=link<span class="ni">&amp;amp;</span>LinkName=pubmed_pmc_refs<span class="ni">&amp;amp;</span>from_uid=22590526<span class="nt">&lt;/events_url&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>1<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>1<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-10T16:55:43Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>scopus<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Scopus<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>0<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>0<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-02-01T09:44:57Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>counter<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Counter<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url&gt;</span>http://www.plosreports.org/services/rest?method=usage.stats<span class="ni">&amp;amp;</span>doi=10.1371%2Fjournal.pone.0036240<span class="nt">&lt;/events_url&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf&gt;</span>814<span class="nt">&lt;/pdf&gt;</span>
+          <span class="nt">&lt;html&gt;</span>12036<span class="nt">&lt;/html&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;total&gt;</span>12886<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-17T13:33:36Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>researchblogging<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Research Blogging<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>0<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>0<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-17T07:59:35Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>biod<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Biod<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;total&gt;</span>0<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-17T12:52:04Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>wos<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Web of Science®<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url&gt;</span>http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2<span class="ni">&amp;amp;</span>SrcApp=PARTNER_APP<span class="ni">&amp;amp;</span>SrcAuth=PLoSCEL<span class="ni">&amp;amp;</span>KeyUT=000305336100022<span class="ni">&amp;amp;</span>DestLinkType=CitingArticles<span class="ni">&amp;amp;</span>DestApp=WOS_CPL<span class="ni">&amp;amp;</span>UsrCustomerID=c642dd6a62e245b029e19b27ca7f6b1c<span class="nt">&lt;/events_url&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>1<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>1<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-16T06:13:38Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>pmc<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>PubMed Central Usage Stats<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf&gt;</span>19<span class="nt">&lt;/pdf&gt;</span>
+          <span class="nt">&lt;html&gt;</span>82<span class="nt">&lt;/html&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;total&gt;</span>101<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-17T02:06:31Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>facebook<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Facebook<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares&gt;</span>58<span class="nt">&lt;/shares&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments&gt;</span>54<span class="nt">&lt;/comments&gt;</span>
+          <span class="nt">&lt;likes&gt;</span>47<span class="nt">&lt;/likes&gt;</span>
+          <span class="nt">&lt;citations</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;total&gt;</span>159<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-16T04:09:20Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>mendeley<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Mendeley<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url&gt;</span>http://api.mendeley.com/research/academic-biologists-physicists-view-science-outreach-1/<span class="nt">&lt;/events_url&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares&gt;</span>33<span class="nt">&lt;/shares&gt;</span>
+          <span class="nt">&lt;groups&gt;</span>0<span class="nt">&lt;/groups&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;total&gt;</span>33<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-03T12:13:26Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>twitter<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Twitter<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>117<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>117<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-10T19:21:40Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>wikipedia<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Wikipedia<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>0<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>0<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-05T13:18:29Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>scienceseeker<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>ScienceSeeker<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations&gt;</span>0<span class="nt">&lt;/citations&gt;</span>
+          <span class="nt">&lt;total&gt;</span>0<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-12T14:19:53Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;name&gt;</span>relativemetric<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;display_name&gt;</span>Relative Metric<span class="nt">&lt;/display_name&gt;</span>
+        <span class="nt">&lt;events_url</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;metrics&gt;</span>
+          <span class="nt">&lt;pdf</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;html</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;shares</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;groups</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;comments</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;likes</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;citations</span> <span class="na">nil=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;total&gt;</span>14031<span class="nt">&lt;/total&gt;</span>
+        <span class="nt">&lt;/metrics&gt;</span>
+        <span class="nt">&lt;update_date&gt;</span>2013-05-03T04:06:33Z<span class="nt">&lt;/update_date&gt;</span>
+      <span class="nt">&lt;/source&gt;</span>
+    <span class="nt">&lt;/sources&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+<span class="nt">&lt;/articles&gt;</span>
+</code></pre></div>
+<h2>v4 API</h2>
+
+<p>The v4 API is only available to users with admin prileges and uses basic authentication with username and password instead of an API key. The API supports the following REST actions:</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<th valign="top" width=30%>HTTP Verb</td>
+<th valign="top" width=40%>Path</td>
+<th valign="top" width=30%>Action</td>
+</tr>
+<tr>
+<td valign="top" width=30%>GET</td>
+<td valign="top" width=40%>/api/v4/articles</td>
+<td valign="top" width=30%>index</td>
+</tr>
+<tr>
+<td valign="top" width=30%>POST</td>
+<td valign="top" width=40%>/api/v4/articles</td>
+<td valign="top" width=30%>create</td>
+</tr>
+<tr>
+<td valign="top" width=30%>GET</td>
+<td valign="top" width=40%>/api/v4/articles/info:doi/DOI</td>
+<td valign="top" width=30%>show</td>
+</tr>
+<tr>
+<td valign="top" width=30%>PUT</td>
+<td valign="top" width=40%>/api/v4/articles/info:doi/DOI</td>
+<td valign="top" width=30%>update</td>
+</tr>
+<tr>
+<td valign="top" width=30%>DELETE</td>
+<td valign="top" width=40%>/api/v4/articles/info:doi/DOI</td>
+<td valign="top" width=30%>delete</td>
+</tr>
+</tbody>
+</table>
+
+<p>The API response to get a list of articles or a single article is the same as for the v3 API. You can also use one of the other supported identifiers (pmid, pmcid, mendeley_uuid) instead of the DOI.</p>
+
+<h3>Create article</h3>
+
+<p>A sample curl API call to create a new article would look like this:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;doi&quot;:&quot;10.1371/journal.pone.0036790&quot;,&quot;year&quot;:2012,&quot;month&quot;:5,&quot;day&quot;:15,&quot;title&quot;:&quot;Test title&quot;}}&#39;</span> http://HOST/api/v4/articles
+</code></pre></div>
+<p>When an article has been created successfully, the server reponds with <code>Status 201 Created</code> and the following JSON (the <code>data</code> object will include all article attributes):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Article created.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
+</code></pre></div>
+<h3>Update article</h3>
+
+<p>A sample curl API call to update an article would look like this:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;pmid&quot;:&quot;22615813&quot;}}&#39;</span> http://HOST/api/v4/articles/info:doi/10.1371/journal.pone.0036790
+</code></pre></div>
+<p>When an article has been updated successfully, the server reponds with <code>Status 200 Ok</code> and the following JSON (the <code>data</code> object will include all article attributes):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Article updated.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
+</code></pre></div>
+<h3>Delete article</h3>
+
+<p>A sample curl API call to delete an article would look like this:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;pmid&quot;:&quot;22615813&quot;}}&#39;</span> http://HOST/api/v4/articles/info:doi/10.1371/journal.pone.0036790
+</code></pre></div>
+<p>When an article has been deleted successfully, the server reponds with <code>Status 200 Ok</code> and the following JSON (the <code>data</code> object will include all article attributes):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Article deleted.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
+</code></pre></div>
+
+        <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=API
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/API.html">
+</span>
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

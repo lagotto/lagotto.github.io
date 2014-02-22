@@ -1,15 +1,5 @@
 ---
 layout: default
 ---
-<div class="card">
-   <div class="card-heading image">
-      <img src="http://www.gravatar.com/avatar/{{ site.authors[0].gravatar }}" alt=""/>
-      <div class="card-heading-header">
-         <h3>{{ page.title }}</h3>
-         <span>{{ page.date | date_to_string }}</span>
-      </div>
-   </div>
-   <div class="card-body">
-      {{ content }}
-   </div>
-</div>
+
+{{ content }}

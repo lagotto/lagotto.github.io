@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="Setup" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/Setup.html" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="Setup"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples.html">Examples</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home.html">Home</a></li>
+            <li><a href="/docs/Installation.html">Installation</a></li>
+            <li><a href="/docs/Setup.html">Setup</a></li>
+            <li><a href="/docs/Sources.html">Sources</a></li>
+            <li><a href="/docs/API.html">API</a></li>
+            <li><a href="/docs/Rake.html">Rake</a></li>
+            <li><a href="/docs/Alerts.html">Alerts</a></li>
+            <li><a href="/docs/FAQ.html">FAQ</a></li>
+            <li><a href="/docs/Roadmap.html">Roadmap</a></li>
+            <li><a href="/docs/Contributors.html">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>Setup</h1>
+        <p>
+        </p>
+      </div>
+
+      <div class="content">
+        <p>To configure the ALM application, the following steps are necessary:</p>
+
+<ul>
+<li>add users (we need at least one admin user)</li>
+<li>configure sources</li>
+<li>add articles (or seed a set of sample articles)</li>
+<li>start workers (start collecting data from external APIs)</li>
+<li>configure maintenance tasks (only in production system)</li>
+</ul>
+
+<h2>Adding Users</h2>
+
+<p>The ALM application supports the following user roles:</p>
+
+<ul>
+<li>API user - only API key</li>
+<li>staff - read-only access to admin area</li>
+<li>admin - full access to admin area</li>
+</ul>
+
+<p>The ALM application supports the following forms of authentication:</p>
+
+<ul>
+<li>username/password (<a href="/users/sign_in">Login</a>) for admin and staff users</li>
+<li>authentication with <a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a> for all user roles</li>
+<li>authentication with CAS (currently PLOS only)</li>
+</ul>
+
+<p>The first user created in the system automatically has an admin role, and this user can be created with any of the authentication methods listed above. From then on all user accounts are created with an API user role, and users have to create their own account using third-party authentication with Persona (or CAS). Admin users can change the user role after an account has been created, but can&#39;t create user accounts</p>
+
+<p>Third-party authentication is configured in <code>config/settings.yml</code>. To use Persona, make sure the folling setting exists: <code>persona: true</code> (the default). No other configuration is necessary. Authentication via username/password is always enabled.</p>
+
+<p>Users automatically obtain an API key, and they can sign up to the monthly report in CSV format. Admin users can sign up for additional reports (error report, status report, disabled source report).</p>
+
+<h2>Configuring Sources</h2>
+
+<p>Unless this has already been done during installation, sources have to be installed and activated through the web interface <code>Sources -&gt; Installation</code>:</p>
+
+<p><img src="installation.png" alt="Installation"></p>
+
+<p>All sources can be installed, but some sources require additional configuration settings such as API keys before they can be activated. The <a href="Sources">documentation for sources</a> contains information about how to obtain API keys and other required source-specific settings.</p>
+
+<p>The following addiotional configuration options are available via the web interface:</p>
+
+<ul>
+<li>whether the source is automatically queueing jobs and not running via cron job (default true)</li>
+<li>whether the results can be shared via the API (default true)</li>
+<li>number of max. workers for the job queue (default 1)</li>
+<li>job<em>batch</em>size: number of articles per job (default 200)</li>
+<li>batch<em>time</em>interval (default 1 hour)</li>
+<li>staleness: update interval depending on article publication date (default daily the first 31 days, then 4 times a month up until one year, then monthly)</li>
+<li>rate-limiting (default 10,000)</li>
+<li>timeout (default 30 sec)</li>
+<li>maximum number of failed queries allowed before being disabled (default 200)</li>
+<li>maximum number of failed queries allowed in a time interval (default 24 hours)</li>
+<li>disable delay after too many failed queries (default 10 sec)</li>
+</ul>
+
+<p><img src="configuration.png" alt="Configuration"></p>
+
+<p>Through these setup options the behavior of sources can be fine-tuned, but the default settings should almost always work. The default rate-limiting settings should only be increased if your application has been whitelisted with that source.</p>
+
+<h2>Adding Articles</h2>
+
+<p>Articles can be added in one of several ways:</p>
+
+<ul>
+<li>admin dashboard (admin user)</li>
+<li>seeding of sample articles</li>
+<li>command line rake task</li>
+<li>API</li>
+</ul>
+
+<p>Adding or changing articles via the admin dashboard is mainly for testing purposes, or to fix errors in the title or publication date of specific articles.</p>
+
+<h3>Seeding articles</h3>
+
+<p>A set of about 30 sample articles is loaded during installation when using Vagrant and <code>seed_sample_articles</code> in <code>node.json</code>is set to <code>true</code>. They can also be seeded later via rake task:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:seed
+</code></pre></div>
+<h3>Command line rake task</h3>
+
+<p>We can use a rake command line task to automate the import of a large number of articles. The import file (e.g. IMPORT.TXT) is a text file with one article per line, and the required fields DOI, publication date and title separated by a space:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">DOI Date<span class="o">(</span>YYYY-MM-DD<span class="o">)</span> Title
+</code></pre></div>
+<p>The rake taks loads all these articles at once, ignoring (but counting) invalid ones and those that already exist in the database:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:load &lt;IMPORT.TXT
+</code></pre></div>
+<p>In a production environment this rake task (like all other rake tasks used in production) has to be slightly modified to:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:load &lt;IMPORT.TXT <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</code></pre></div>
+<p>The rake task splits on white space for the first two elements, and then takes the rest of the line (title) as one element including any whitespace in the title.</p>
+
+<p>Most users will automate the importing of articles via a cron job, and will integrate the rake task into a larger workflow.</p>
+
+<h3>API</h3>
+
+<p>Articles can also be added (and updated or deleted) via the v4 <a href="API">API</a>. The v4 API uses basic authentication and is only available to admin and staff users. A sample curl API call to create a new article would look like this:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;doi&quot;:&quot;10.1371/journal.pone.0036790&quot;,&quot;published_on&quot;:&quot;2012-05-15&quot;,&quot;title&quot;:&quot;Test title&quot;}}&#39;</span> http://HOST/api/v4/articles
+</code></pre></div>
+<p>The DOI, publication date and title are again all required fields, but you can also include other fields such as the Pubmed ID. See the <a href="API">API</a> page for more information, e.g. how to update or delete articles.</p>
+
+<h2>Starting Workers</h2>
+
+<p>The ALM application talks to external data sources to collect metrics about a set of articles. Metrics are added by calling external APIs in the background, using the <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a> queuing system. The results are stored in CouchDB. This can be done in one of two ways:</p>
+
+<h3>Ad-hoc workers</h3>
+
+<p>To collect metrics once for a set of articles, or for testing purposes the workers can be run ad-hoc using the <a href="https://github.com/ddollar/foreman">foreman</a> utility that is installed with the ALM application. To make sure foreman detects the correct environment you are running (<code>development</code> or <code>production</code>), make sure the file <code>.env</code> in the root folder of your application has the correct information:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">RAILS_ENV</span><span class="o">=</span>development
+</code></pre></div>
+<p>You then have to decide what articles you want updated. This can be either a specific DOI, all articles, all articles for a list of specified sources, or all articles published in a specific time interval. Issue one of the following commands (and include <code>RAILS_ENV=production</code> in production mode):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake queue:one<span class="o">[</span>10.1371/journal.pone.0036790<span class="o">]</span>
+bundle <span class="nb">exec </span>rake queue:all
+bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed,mendeley<span class="o">]</span>
+bundle <span class="nb">exec </span>rake queue:all <span class="nv">START_DATE</span><span class="o">=</span>2013-02-01 <span class="nv">END_DATE</span><span class="o">=</span>2014-02-08
+bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed,mendeley<span class="o">]</span> <span class="nv">START_DATE</span><span class="o">=</span>2013-02-01 <span class="nv">END_DATE</span><span class="o">=</span>2014-02-08
+</code></pre></div>
+<p>You can then start the workers with:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">foreman start -c <span class="nv">worker</span><span class="o">=</span>3
+</code></pre></div>
+<p><code>-c</code> tells you the number of workers you want to run in parallel (or use <code>foreman start</code> to run one worker). To stop the workers, kill foreman with <code>ctrl-c</code>.</p>
+
+<h3>Background workers</h3>
+
+<p>In a continously updating production system we want to run the workers in the background. This can be done in several ways, the recommended approach is to use the <a href="http://upstart.ubuntu.com/">Upstart</a> system utility that is used by many Linux distributions. The scripts needed by Upstart can be created using the <a href="https://github.com/ddollar/foreman">foreman</a> utility that is installed with the ALM application. To have foreman detect the production environment, make sure the file <code>.env</code> in the root folder of your application has the following content:</p>
+
+<p>When we have to update the metrics for an article (determined by the staleness interval), a job is added to the background queue for that source. A delayed<em>job worker will then process this job in the background. We need to run at least one delayed</em>job to do this.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</code></pre></div>
+<p>This file is created automatically if you use Vagrant. Use the path to the Rails log folder and the username of the user running the application:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">sudo foreman <span class="nb">export </span>upstart -a alm /etc/init -l /PATH_TO_LOG_FOLDER/log -u USER -c <span class="nv">worker</span><span class="o">=</span>3
+</code></pre></div>
+<p>This command creates three upstart scripts that will run in parallel. The number of workers you will need depends on the number of articles (and sources) and the available RAM on your server, a rough estimate is one worker per 5,000-10,000 articles and 5 workers for a 2 Gb server.</p>
+
+<p>Once the upstart scripts have been created, the background processes can then be started or stopped using Upstart:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">sudo start alm
+sudo stop alm
+</code></pre></div>
+<p>Foreman also supports bluepill, inittab and runit, read the <a href="http://ddollar.github.io/foreman/">man page</a> for more information.</p>
+
+<h2>Configuring Maintenance Tasks</h2>
+
+<p>The ALM application uses a number of maintenance tasks in production mode - they are not necessary for a development instance.</p>
+
+<p>Many of the maintenance taks are <code>rake</code> tasks, and they are listed on a <a href="Rake">separate page</a>. All rake tasks are issued from the application root folder. You want to prepend your rake command with <code>bundle exec</code> and <code>RAILS_ENV=production</code> should be appended to the rake command when running in production, e.g.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:load &lt;IMPORT.TXT <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</code></pre></div>
+<h3>Cron jobs</h3>
+
+<p>The ALM application uses the <a href="https://github.com/javan/whenever">Whenever</a> gem to make it easy to generate cron jobs. The configuration is stored in <code>config/schedule.rb</code>:</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">set</span> <span class="ss">:output</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">path</span><span class="si">}</span><span class="s2">/log/cron.log&quot;</span>
+
+<span class="c1"># Create alerts by filtering API responses and mail them</span>
+<span class="c1"># Restart worker queues in case they got stuck</span>
+<span class="c1"># Delete resolved alerts</span>
+<span class="c1"># Delete API request information, keeping the last 1,000 requests</span>
+<span class="c1"># Delete API response information, keeping responses from the last 24 hours</span>
+<span class="c1"># Generate a monthly report</span>
+<span class="n">every</span> <span class="mi">1</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="ss">at</span><span class="p">:</span> <span class="s2">&quot;4:00 AM&quot;</span> <span class="k">do</span>
+  <span class="n">rake</span> <span class="s2">&quot;filter:all&quot;</span>
+  <span class="n">rake</span> <span class="s2">&quot;mailer:error_report&quot;</span>
+  <span class="n">rake</span> <span class="s2">&quot;queue:start&quot;</span>
+
+  <span class="n">rake</span> <span class="s2">&quot;db:api_requests:delete&quot;</span>
+  <span class="n">rake</span> <span class="s2">&quot;db:api_responses:delete&quot;</span>
+<span class="k">end</span>
+
+<span class="n">every</span> <span class="ss">:monday</span><span class="p">,</span> <span class="ss">at</span><span class="p">:</span> <span class="s2">&quot;4:30 AM&quot;</span> <span class="k">do</span>
+  <span class="n">rake</span> <span class="s2">&quot;mailer:status_report&quot;</span>
+  <span class="n">rake</span> <span class="s2">&quot;db:alerts:delete&quot;</span>
+<span class="k">end</span>
+
+<span class="c1"># every 10th of the month at 5 AM</span>
+<span class="n">every</span> <span class="s1">&#39;0 5 10 * *&#39;</span> <span class="k">do</span>
+  <span class="n">rake</span> <span class="s2">&quot;report:all_stats&quot;</span>
+  <span class="n">rake</span> <span class="s2">&quot;mailer:article_statistics_report&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>You can display this information in cron format by:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>whenever
+</code></pre></div>
+<p>To write this information to your crontab file, use</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>whenever --update-crontab alm
+</code></pre></div>
+<h3>Filters</h3>
+
+<p>Filters check all API responses of the last 24 hours for errors and potential anti-gaming activity, and they are typically run as cron job. They can be activated and configured (e.g. to set limits) individually in the admin panel:</p>
+
+<p><img src="filters.png" alt="Filters"></p>
+
+<p>These filters will generate alerts that are displayed in the admin panel in various places. More information is available on the <a href="Alerts">Alerts</a> page.</p>
+
+<h3>Reports</h3>
+
+<p>The ALM application generates a number of email reports:</p>
+
+<p><img src="profile.png" alt="Profile"></p>
+
+<p>The <strong>Article Statistics Report</strong> is available to all users, all other reports only to admin and staff users. Users can sign up for these reports in the account preferences.</p>
+
+<p>The ALM application installs the <strong>Postfix</strong> mailer and the default settings should work in most cases. Mail can otherwise me configure in <code>config/settings.yml</code>:</p>
+<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml">  <span class="l-Scalar-Plain">mail</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">address</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
+    <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">25</span>
+    <span class="l-Scalar-Plain">domain</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
+</code></pre></div>
+<p>The reports are generated via the cron jobs mentioned above. Make sure you have correct write permissions for the Article Statistics Report, it is recommended to run the rake task at least once to test for this:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake report:all_stats <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</code></pre></div>
+<p>This rake task generates the monthly report file at <code>/public/files/alm_report.zip</code> and this file is then available for download at <code>/files/alm_report.zip</code>. Users who have signed up for this report will see a download link in their account preferences. Additional reports are stored as zip file in the <code>/data</code> folder.</p>
+
+
+        <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=Setup
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/Setup.html">
+</span>
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

@@ -1,6 +1,32 @@
 
 http://articlemetrics.github.io/about.html
 http://articlemetrics.github.io/atom.xml
+http://articlemetrics.github.io/blog/index.html
+http://articlemetrics.github.io/docs/Alerts.html
+http://articlemetrics.github.io/docs/API.html
+http://articlemetrics.github.io/docs/Citeulike.html
+http://articlemetrics.github.io/docs/Contributors.html
+http://articlemetrics.github.io/docs/Copernicus.html
+http://articlemetrics.github.io/docs/Crossref.html
+http://articlemetrics.github.io/docs/Facebook.html
+http://articlemetrics.github.io/docs/FAQ.html
+http://articlemetrics.github.io/docs/Home.html
+http://articlemetrics.github.io/docs/Installation.html
+http://articlemetrics.github.io/docs/Mendeley.html
+http://articlemetrics.github.io/docs/Nature.html
+http://articlemetrics.github.io/docs/Openedition.html
+http://articlemetrics.github.io/docs/Pmc.html
+http://articlemetrics.github.io/docs/PmcEurope.html
+http://articlemetrics.github.io/docs/PmcEuropeData.html
+http://articlemetrics.github.io/docs/Pubmed.html
+http://articlemetrics.github.io/docs/Rake.html
+http://articlemetrics.github.io/docs/Reddit.html
+http://articlemetrics.github.io/docs/Roadmap.html
+http://articlemetrics.github.io/docs/Scienceseeker.html
+http://articlemetrics.github.io/docs/Setup.html
+http://articlemetrics.github.io/docs/Sources.html
+http://articlemetrics.github.io/docs/Twittersearch.html
+http://articlemetrics.github.io/docs/Wikipedia.html
 http://articlemetrics.github.io/documentation.html
 http://articlemetrics.github.io/examples.html
 http://articlemetrics.github.io/index.html
@@ -8,4 +34,5 @@ http://articlemetrics.github.io/pages.html
 http://articlemetrics.github.io/rss.xml
 http://articlemetrics.github.io/sitemap.txt
 
-http://articlemetrics.github.io/2013/12/19/test
+http://articlemetrics.github.io/2014/12/05/research-findings-going-deeper-than-the-article
+http://articlemetrics.github.io/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois

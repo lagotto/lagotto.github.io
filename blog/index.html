@@ -1,0 +1,9 @@
+---
+layout: default
+title: Blog
+---
+
+{% for post in paginator.posts %}
+  <h3>{{ post.title }} <small>{{ post.date | date_to_string }}</small></h3>
+  {{ post.excerpt }} <a href="{{ BASE_PATH }}{{ post.url }}">Read more …</a>
+{% endfor %}

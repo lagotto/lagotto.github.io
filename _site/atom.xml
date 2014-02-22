@@ -4,7 +4,7 @@
  <title>Article-Level Metrics</title>
  <link href="http://articlemetrics.github.io/atom.xml" rel="self"/>
  <link href="http://articlemetrics.github.io"/>
- <updated>2013-12-20T11:27:22+01:00</updated>
+ <updated>2014-02-22T18:57:42+01:00</updated>
  <id>http://articlemetrics.github.io</id>
  
  <author>
@@ -16,34 +16,321 @@
 
  
  <entry>
-   <title>My first post</title>
-   <link href="http://articlemetrics.github.io/2013/12/19/test"/>
-   <updated>2013-12-19T00:00:00+01:00</updated>
-   <id>http://articlemetrics.github.io/2013/12/19/test</id>
-   <content type="html">
-&lt;p&gt;The Ruby on Rails application Article-Level Metrics (ALM) was started in March 2009 by the Open Access publisher &lt;a href=&quot;http://www.plos.org/&quot;&gt;Public Library of Science (PLOS)&lt;/a&gt;. It allows a user to aggregate relevant performance data on research articles including online usage, citations, and altmetrics. We’re continuing to expand the Article-Level Metrics application because we believe that articles should be considered on their own merits, and that the impact of an individual article should not be determined by the journal in which it happened to be published. As a result, we hope that new ways of measuring and evaluating research quality (or ‘impact’) can and will evolve.&lt;/p&gt;
+   <title>Research findings: going deeper than the article</title>
+   <link href="http://articlemetrics.github.io/2014/12/05/research-findings-going-deeper-than-the-article"/>
+   <updated>2014-12-05T00:00:00+01:00</updated>
+   <id>http://articlemetrics.github.io/2014/12/05/research-findings-going-deeper-than-the-article</id>
+   <content type="html">&lt;p&gt;We have recently released two new Article-Level Metrics (ALM) data
+sources: &lt;strong&gt;Europe PMC Database Citations&lt;/strong&gt; and &lt;strong&gt;DataCite&lt;/strong&gt;. The data
+from both sources are displayed on the metrics tab of PLOS articles, are
+available through the &lt;a href=&quot;http://api.plos.org/alm/using-the-alm-api/&quot;&gt;PLOS ALM
+API&lt;/a&gt;, and are available to
+all users of the &lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;open source ALM
+application&lt;/a&gt;. These new sources
+are both related to research data, and they represent a new breed of
+metrics in our ALM suite.&lt;/p&gt;
 
-&lt;p&gt;To facilitate the dissemination of Article-Level Metrics, PLOS has made this application available as Open Source software under the &lt;a href=&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;&gt;Apache 2.0 license&lt;/a&gt;. To get started, users can&lt;/p&gt;
+&lt;p&gt;Not only are &lt;strong&gt;Europe PMC Database Citations&lt;/strong&gt; and &lt;strong&gt;DataCite&lt;/strong&gt; our
+first ALM sources that track research data that mention a particular
+PLOS article. But these ALM sources are also different from other ALM
+sources: although there can of course be additional research data that
+cite an article post-publication&lt;em&gt;,&lt;/em&gt; they typically link datasets
+associated with an article and created by the same research
+group.&lt;em&gt; &lt;/em&gt;These ALM sources discover links &lt;em&gt;from the research data to the
+article&lt;/em&gt; and in an ideal world should be consistent with the links &lt;em&gt;from
+the article to the research data&lt;/em&gt;. Unfortunately we know from the work
+by Jo McEntyre and others at Europe PMC (see the May 2013 &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pone.0063184&quot;&gt;PLOS ONE
+article by Kafkas et
+al&lt;/a&gt;.) that the overlap
+between &lt;em&gt;article-to-database&lt;/em&gt; citations and &lt;em&gt;database-to-article&lt;/em&gt;
+citations is surprisingly small.&lt;/p&gt;
+
+&lt;p&gt;PLOS and other publishers should of course do a better job helping
+authors to properly cite research data in their submitted manuscripts,
+and the recently published &lt;a href=&quot;http://codata.org/blog/2013/11/25/data-citation-synthesis-group-draft-declaration-of-data-citation-principles/&quot;&gt;Draft Declaration of Data Citation
+Principles&lt;/a&gt;
+are an excellent starting point. But providing the links from
+database-to-article as ALM can also increase the visibility of datasets
+associated with an article. We know of course that we are not the first
+publisher to do this, earth and environmental sciences research data
+deposited in the Pangaea data archive and cited in Elsevier articles
+&lt;a href=&quot;http://wiki.pangaea.de/wiki/Elsevier&quot;&gt;were highlighted since 2009&lt;/a&gt;
+using a similar mechanism – taking advantage of the database-to-article
+link provided by the DataCite DOI service.&lt;/p&gt;
+
+&lt;h2&gt;Europe PMC Database Citations&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://europepmc.org&quot;&gt;Europe PubMed Central&lt;/a&gt; is a service of the Europe
+PMC Funders’ Group working in partnership with the European
+Bioinformatics Institute, University of Manchester and the British
+Library in cooperation with the National Center for Biotechnology
+Information at the U.S. National Library of Medicine (NCBI/NLM). Europe
+PMC is not only hosting many important databases in the life sciences in
+collaboration with PubMed and others – e.g., UniProt, Protein Data Bank
+(PDB), and the European Nucleotide Archive (ENA) – but is also
+extracting the citations to journal articles in these datasets and makes
+them available via a public API. We harvest these citations in aggregate
+form and incorporate them into our newly expanded suite of ALMs. As with
+all ALMs (to the extent allowable by source), we link out to Europe PMC
+so that users can access the data from the source.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;http://www.uniprot.org/uniprot/I0XPC4?europe_pmc_bio_extredirect_Proteins=http://www.uniprot.org/uniprot/I0XPC4&quot;&gt;methylthiotransferase protein
+entry&lt;/a&gt;
+in the UniProtKB/TrEMBL database cites a &lt;a href=&quot;http://www.plosntds.org/article/info%3Adoi%2F10.1371%2Fjournal.pntd.0001853&quot;&gt;PLOS NTD
+publication&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.uniprot.org/uniprot/I0XPC4?europe_pmc_bio_extredirect_Proteins=http://www.uniprot.org/uniprot/I0XPC4&quot;&gt;&lt;img src=&quot;/images/ExDBCite-1024x544.png&quot; alt=&quot;Europe PMC DB citation example&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Different public databases will have varying levels of metadata
+available and interconnecting links from data to published results.
+EMBL’s European Nucleotide Archive is a good way forward as you can see
+in this example taken from the &lt;a href=&quot;http://www.ebi.ac.uk/ena/data/view/HE663067?europe_pmc_bio_tm_extredirect_Data_Citations=http://www.ebi.ac.uk/ena/data/view/HE663067&quot;&gt;Mycobacterium tuberculosis
+genome&lt;/a&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ExamplePMCEuropeLink.png&quot; alt=&quot;ENA Example&quot;&gt;&lt;/p&gt;
+
+&lt;h2&gt;DataCite&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.datacite.org/&quot;&gt;DataCite&lt;/a&gt; is a DOI registration agency with
+the aim to &lt;em&gt;establish easier access to research data on the Internet&lt;/em&gt;
+and to &lt;em&gt;increase acceptance of research data as legitimate, citable
+contributions to the scholarly record.&lt;/em&gt;Although DataCite focuses on
+research data, they provide DOIs for all forms of content, e.g. &lt;a href=&quot;https://peerj.com/preprints/&quot;&gt;PeerJ
+Preprints&lt;/a&gt; or all non-publisher content on
+&lt;a href=&quot;http://figshare.com&quot;&gt;Figshare&lt;/a&gt;. Most people are familiar with CrossRef
+DOIs, but they are not the only DOI registration agency (see Geoff
+Bilder’s September &lt;a href=&quot;http://crosstech.crossref.org/2013/09/dois-unambiguously-and-persistently-identify-published-trustworthy-citable-online-scholarly-literature-right.html&quot;&gt;blog
+post&lt;/a&gt;
+for more background info). CrossRef and DataCite do of course
+collaborate, e.g. in &lt;a href=&quot;http://crosscite.org/cn/&quot;&gt;DOI content
+negotiation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We have provided CrossRef ALM for a very long time, and have now added
+DataCite as ALM source. The &lt;a href=&quot;http://schema.datacite.org/&quot;&gt;DataCite metadata
+schema&lt;/a&gt; is different from CrossRef’s: we
+are searching the &lt;em&gt;relatedIdentifier&lt;/em&gt; metadata for PLOS DOIs and as of
+today we find 240 DataCite DOIs related to PLOS papers. Similar to the
+Europe PMC Database Links, most of these datasets are associated with a
+paper and submitted by the same research group. Most DataCite DOIs
+linking to PLOS papers are from datasets deposited into the
+&lt;a href=&quot;http://datadryad.org/&quot;&gt;Dryad&lt;/a&gt; data repository (disclaimer: Martin is a
+member of the Dryad Board), followed by
+&lt;a href=&quot;http://www.pangaea.de/&quot;&gt;Pangaea&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The 2011 paper by Jonathan Eisen et al., &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pone.0018011&quot;&gt;Stalking the Fourth Domain in
+Metagenomic Data&lt;/a&gt;, has
+underlying data deposited in Dryad, which is a member repository and is
+thus &lt;a href=&quot;http://search.datacite.org/ui?q=relatedIdentifier:10.1371%2Fjournal.pone.0018011&quot;&gt;linked in
+DataCite&lt;/a&gt;.
+Alternatively, we can see that &lt;a href=&quot;http://data.datacite.org/10.1594/PANGAEA.802516&quot;&gt;the “Biogeochemical measurements
+associated to deep-sea wood
+falls” dataset&lt;/a&gt; is a
+supplement to the &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pone.0053590&quot;&gt;2013 Antje Boetius, et. al
+paper&lt;/a&gt; and is cited as
+supporting data which informed the research conclusions published. Both
+PLOS papers also link to the dataset(s) using the DataCite DOI in the
+M&lt;em&gt;aterials and Methods&lt;/em&gt; section, as recommended by the &lt;a href=&quot;http://www.plosone.org/static/editorial#sharing&quot;&gt;PLOS Editorial
+Policies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Linking Research Data and Journal Articles (and People)&lt;/h2&gt;
+
+&lt;p&gt;We made a conscious decision to display both of these data-related ALMs
+in the Citations category. The &lt;a href=&quot;http://www.force11.org/datacitation&quot;&gt;Draft Declaration of Data Citation
+Principles&lt;/a&gt; states that&lt;em&gt;Data
+citations should be accorded the same importance in the scholarly record
+as citations of other research objects, such as publications.&lt;/em&gt;We think
+that the inverse is also true, i.e. citations of publications by
+datasets should have the same importance in the scholarly record and
+should be grouped together with citations by other publications. Data
+citation in both directions can enable easy reuse and verification of
+data, allow the impact of data to be tracked, and create a scholarly
+structure that recognizes and rewards data producers.&lt;/p&gt;
+
+&lt;p&gt;As a publisher, we call for a dedicated space on the article to
+seamlessly link to the public repositories where the data are available.
+At PLOS, there is much work to do as this &lt;a href=&quot;http://www.plosone.org/article/comments/info%3Adoi%2F10.1371%2Fjournal.pone.0041389&quot;&gt;example from Jonathan Eisen,
+et
+al&lt;/a&gt;clearly
+demonstrates. Eisen has diligently &lt;a href=&quot;http://phylogenomics.wordpress.com/data/phylogenomics-of-halophiles-data-from-lynch-et-al-2012/&quot;&gt;catalogued all the datasets from
+this paper on his own
+blog.&lt;/a&gt;
+But few researchers have employed this practice. More importantly, we
+need to display and preserve this information as part of the published
+record.&lt;/p&gt;
+
+&lt;p&gt;The careful observer will have noted that the two example articles by
+Jonathan Eisen and Antje Boetius mentioned above also have citations by
+other
+publications (&lt;a href=&quot;http://europepmc.org/abstract/MED/21437252#fragment-related-citations&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://europepmc.org/abstract/MED/23301092#fragment-related-citations&quot;&gt;here&lt;/a&gt;) that
+are tracked in &lt;strong&gt;Europe PMC Citations&lt;/strong&gt;, another new ALM source. And
+that Europe PMC links to their ORCID author identifier
+(&lt;a href=&quot;http://orcid.org/0000-0002-0159-2197&quot;&gt;here&lt;/a&gt; and
+&lt;a href=&quot;http://orcid.org/0000-0003-2117-4176&quot;&gt;here&lt;/a&gt;). To go full circle they
+can use the &lt;a href=&quot;http://datacite.labs.orcid-eu.org/&quot;&gt;DataCite/ORCID integration
+tool&lt;/a&gt; to also import their Dryad or
+Pangaea datasets into their ORCID profile, and then can use &lt;a href=&quot;http://feed.labs.orcid-eu.org&quot;&gt;ORCID
+content negotiation&lt;/a&gt; (disclaimer: Martin
+was involved in the development of both ORCID tools) to automatically
+generate a &lt;a href=&quot;http://feed.labs.orcid-eu.org/0000-0002-0159-2197.rss&quot;&gt;RSS
+feed&lt;/a&gt; or BibTeX
+reference manager file of all their publications and datasets.&lt;/p&gt;
+
+&lt;p&gt;In this light, we anticipate that the upcoming Data Literature
+Integration Workshop at EMBL-EBI headed by Jo McEntyre, Thomas
+Lemberger, and Ewan Birney on December 10-11, 2013 will address many of
+the much-needed issues applicable across our community and lay down
+better practices for handling data-publication interactions.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ALM Data Challenge: Metrics for a Standard Set of DOIs</title>
+   <link href="http://articlemetrics.github.io/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois"/>
+   <updated>2013-10-31T00:00:00+01:00</updated>
+   <id>http://articlemetrics.github.io/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois</id>
+   <content type="html">&lt;p&gt;As part of the ALM workshop described in more detail in the &lt;a href=&quot;http://blogs.plos.org/tech/risingtides/&quot;&gt;previous
+post&lt;/a&gt; we also met for an ALM
+Data Challenge which took place in the PLOS offices on October 12.&lt;/p&gt;
+
+&lt;p&gt;Many readers are probably familiar with a hackathon, where a group of
+people collaborate on one or more software projects for a day (or a few
+days). This is what we &lt;a href=&quot;https://sites.google.com/site/altmetricsworkshop/altmetrics-hackathon&quot;&gt;did at the ALM workshop last
+year&lt;/a&gt;,
+but this year we wanted to focus on the data, and the interesting things
+we could do with them, rather than the software development aspect. We
+thought that this makes it easier for people who are not software
+developers to get involved, to get something done in the limited time
+available, and to have something that can be continued after the
+workshop.&lt;/p&gt;
+
+&lt;p&gt;The following article-level metrics/altmetrics datasets were made
+available for workshop participants:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Browse or search articles, or look at the most popular articles by source&lt;/li&gt;
-
-&lt;li&gt;Use the API to collect information about individual articles, or a set of articles&lt;/li&gt;
-
-&lt;li&gt;Install the Article-Level Metrics application to collect their own metrics&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;Altmetric&lt;/strong&gt;: newspaper and magazine tracking data (news story URLs
+&amp;amp; DOI pairs) that have been marked up with additional information
+like country of origin, whether it’s a print / online only source
+etc. There’s lots of interesting possibilities around checking to
+see if German science is reported more by German outlets, seeing how
+much different countries rely on press releases etc.&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;ImpactStory&lt;/strong&gt;: 19 reference sets that include metric counts and
+percentiles for each of 100 randomly-selected products. 10 of the
+reference sets are of articles, 4 of github repos, 5 of dryad
+repositories. Each reference set 100 random products selected from a
+given publication year, so the last 10 years of articles (randomly
+drawn from Web of Science), last 4 years of github, etc.&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;Mendeley&lt;/strong&gt;: 140k rows from the Mendeley database that contain
+basic bibliographic data + mendeley stats + keywords, categories,
+tags + identifiers for a random selection of papers in biomedical
+science added to our database from 2010-2012. Readership values are
+from 0 to 365, average 5.7.&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;PLOS&lt;/strong&gt;: historical usage data (page views and article downloads
+per month) for all PLOS articles published since 2003, separate for
+the PLOS website (&lt;a href=&quot;%20http://dx.doi.org/10.6084/m9.figshare.816962&quot;&gt;link to data on
+figshare&lt;/a&gt;) and
+PubMed Central (&lt;a href=&quot;http://dx.doi.org/10.6084/m9.figshare.816961&quot;&gt;link to data on
+figshare&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;CrossRef&lt;/strong&gt;: June 2013 log files for the dx.doi.org DOI resolver.&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;CrossRef&lt;/strong&gt;(collected by me via the
+CrossRef &lt;a href=&quot;http://random.labs.crossref.org/&quot;&gt;RanDOIm&lt;/a&gt; service): a
+random set of 5,000 DOIs each for 2011 (&lt;a href=&quot;%20http://dx.doi.org/10.6084/m9.figshare.821209&quot;&gt;link to data on
+figshare&lt;/a&gt;) and 2012
+(&lt;a href=&quot;http://dx.doi.org/10.6084/m9.figshare.821213&quot;&gt;link to data on
+figshare&lt;/a&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The following organizations have implemented Article-Level Metrics using the Open Source ALM application:&lt;/p&gt;
+&lt;p&gt;We were about 20 people, and after describing the datasets that were
+made available, everyone introduced himself and what kind of data
+analysis he or she would be interested in. We then formed groups that
+worked on the following projects for the rest of the day:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://article-level-metrics.plos.org/&quot;&gt;Public Library of Science (PLOS)&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://publications.copernicus.org/services/article_level_metrics.html&quot;&gt;Copernicus Publications&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://pkp.sfu.ca/pkp-launches-article-level-metrics-for-ojs-journals/&quot;&gt;Public Knowledge Project (PKP)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;Science that didn’t make the news&lt;/strong&gt;: analysis of highly bookmarked
+articles in Mendeley that are not mentioned in the news or in
+science blogs using Altmetric data. Eva Amsen described the project
+in detail in a &lt;a href=&quot;http://easternblot.net/2013/10/17/the-science-that-didnt-make-the-news/&quot;&gt;blog
+post&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;DOI resolver logs and social media activity&lt;/strong&gt;: It took some time
+to load 2.4 Gb of data into a database, but then the group could
+correlate social media activity with referrer log entries on a
+timeline. One result was that only a portion of log entries actually
+had a referrer URL, and that a good chunk of these referrals came
+from the English Wikipedia.&lt;/li&gt;
+&lt;li&gt;  &lt;strong&gt;Data standardisation&lt;/strong&gt;: Compare ALM/altmetrics data from different
+service providers for the same set of articles&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;To use the API, please sign up with your &lt;a href=&quot;http://www.mozilla.org/en-US/persona/&quot;&gt;Mozilla Persona&lt;/a&gt; account and use the API key generated for you. To learn more about Article-Level Metrics, see the &lt;a href=&quot;http://www.sparc.arl.org/resource/sparc-article-level-metrics-primer&quot;&gt;SPARC ALM primer&lt;/a&gt;. For technical questions regarding the Article-Level Metrics application, visit the &lt;a href=&quot;https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers&quot;&gt;PLOS API Developers Google Group&lt;/a&gt; or use the &lt;a href=&quot;https://github.com/articlemetrics/alm/issues&quot;&gt;Github issue tracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This list is unfortunately incomplete as I was too busy to take notes
+about the other projects.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I worked in the last group and will describe this project in more
+detail. Scott Chamberlain &lt;a href=&quot;http://dx.doi.org/10.3789/isqv25no2.2013.02&quot;&gt;published a
+paper&lt;/a&gt; in July where he
+compared the metrics from ImpactStory, Altmetrics, Plum Analytics for
+the same set of PLOS articles and found that overall the numbers were
+different enough to be worried (see also &lt;a href=&quot;http://ropensci.org/blog/2013/08/01/altmetrics/&quot;&gt;Scott’s blog
+post&lt;/a&gt; and our &lt;a href=&quot;http://blogs.plos.org/tech/apples-oranges-they-dont-compare/&quot;&gt;blog
+post
+from&lt;/a&gt; from
+August). Comparable metrics from different service providers is
+obviously a big step towards &lt;a href=&quot;http://www.niso.org/topics/tl/altmetrics_initiative/&quot;&gt;standards and best practices for
+altmetrics&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We wanted to repeat this analysis with a larger set of data, and after a
+short discussion in our group (Zoreh Zahedi, Juan Alperin, Scott
+Chamberlain, Martin Fenner) decided that 5,000 articles each for 2011
+and 2012 would be good. Older articles have more citation data
+available, but often not as many altmetrics data points. We used two
+CrossRef APIs to get the set of random DOIs (limited to journal article
+content type) and the article titles. Because only the publication year
+is a required field, we set the date to January 1st for each DOI (one of
+the limitations of the datasets).&lt;/p&gt;
+
+&lt;p&gt;In a second step these 10,000 DOIs were loaded into an instance of the
+&lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;PLOS Open Source ALM
+application&lt;/a&gt; set up on Amazon AWS
+and started collecting metrics. You can visit the ALM application with
+these 10,000 DOIs at
+&lt;a href=&quot;http://almhack.crowdometer.org&quot;&gt;http://almhack.crowdometer.org&lt;/a&gt;. Some
+preliminary results can be seen in the screenshot from the ALM admin
+dashboard:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/almhack.png&quot; alt=&quot;almhack&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;More than 40% of the articles have been cited at least once or have been
+bookmarked on Mendeley, whereas the numbers for Facebook, Wikipedia and
+science blogs were much smaller. We also discovered some technical
+issues, e.g. documents labeled as “journal article” that were clearly
+something else (e.g. 16 &lt;a href=&quot;http://almhack.crowdometer.org/admin/articles?utf8=%E2%9C%93&amp;amp;query=table+of+contents&quot;&gt;table of contents
+pages&lt;/a&gt;,
+obviously with very different metrics), and &lt;a href=&quot;http://blog.martinfenner.org/2013/10/13/broken-dois/&quot;&gt;problems with getting the
+journal page URL from a
+DOI&lt;/a&gt; (this
+affected the Facebook numbers).&lt;/p&gt;
+
+&lt;p&gt;Scott Chamberlain pulled some preliminary metrics data out of the
+application using the &lt;a href=&quot;http://almhack.crowdometer.org/docs/API&quot;&gt;API of the ALM
+application&lt;/a&gt; and the &lt;a href=&quot;http://ropensci.org/packages/alm.html&quot;&gt;alm
+rOpenSci library&lt;/a&gt; for R, and Euan
+Adie ran the set of DOIs against his &lt;a href=&quot;http://altmetric.com&quot;&gt;Altmetric&lt;/a&gt;
+database. As is typical for a hackday, we couldn’t finish all that we
+wanted to accomplish, but both the set of random DOIs and the ALM data
+are available for everyone to play with.&lt;/p&gt;
+
+&lt;p&gt;The three things I want to do next is a) get the publication dates as
+exactly as possible (as you can’t really compare metrics from a January
+2012 article with a December 2012 article), b) resolve the technical
+issues (e.g. by excluding DOIs for content that is not a journal
+article) and c) compare the metrics against metrics collected by
+Altmetric, ImpactStory and Plum Analytics. Please contact me if you want
+to help with this effort and/or want admin access to the ALM
+application.&lt;/p&gt;
+
+&lt;p&gt;This was the first data challenge that I participated in. Although it
+was similar to a typical hackday in many ways, I liked the focus on data
+and on interesting questions regarding these data. Certainly a format
+worth repeating.&lt;/p&gt;
 </content>
  </entry>
  
