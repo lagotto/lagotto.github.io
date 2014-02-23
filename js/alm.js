@@ -568,8 +568,8 @@ options = {
     groups: [{ name: "viewed", display_name: "Viewed", sources: ["counter"] }]
   };
 
-var doi = d3.select("h3#example2").attr('data-doi');
-var api_key = d3.select("h3#example2").attr('data-api_key');
+var doi = d3.select("h2#example2").attr('data-doi');
+var api_key = d3.select("h2#example2").attr('data-api_key');
 
 d3.json(encodeURI("http://alm.plos.org/api/v5/articles?api_key=" + api_key + "&ids=" + doi + "&info=history"), function(error, json) {
     if (error) return console.warn(error);

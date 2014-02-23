@@ -6,7 +6,9 @@
 /* line 6, ../../app/assets/stylesheets/almviz.css.scss */
 .title {
   font-size: 1.5em;
-  color: #789aa1;
+  font-weight: bold;
+  line-height: 1.1;
+  color: #34495e;
 }
 
 /* line 11, ../../app/assets/stylesheets/almviz.css.scss */
@@ -8078,12 +8080,12 @@ h5 {
 }
 
 /* line 269, ../../app/assets/stylesheets/alm.css.scss */
-#results h4, #results p {
+#example3 h4, #example3 p {
   margin-bottom: 0;
 }
 
 /* line 270, ../../app/assets/stylesheets/alm.css.scss */
-#results p {
+#example3 p {
   line-height: 1.33;
 }
 

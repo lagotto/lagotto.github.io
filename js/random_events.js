@@ -1,6 +1,6 @@
 var data;
 var colors = ["#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#95a6a6"];
-var api_key = d3.select("h3#example1").attr('data-api_key');
+var api_key = d3.select("h2#example1").attr('data-api_key');
 
 var l = 200; // left margin
 var r = 100; // right margin
