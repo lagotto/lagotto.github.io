@@ -7965,9 +7965,9 @@ body {
 }
 
 /* line 248, ../../app/assets/stylesheets/alm.css.scss */
-.table .number, th.number, td.number {
+.table .number {
   text-align: right;
-  width: 150px;
+  width: 100px;
 }
 
 /* line 249, ../../app/assets/stylesheets/alm.css.scss */
@@ -8203,4 +8203,8 @@ p.subtitle {
   line-height: 1;
   color: #88a2bd;
   margin-top: -5px;
+}
+
+.footer {
+  text-align: center;
 }

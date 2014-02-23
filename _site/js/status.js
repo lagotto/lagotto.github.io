@@ -1,32 +1,42 @@
-var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.org", api_key: "3pezRBRXdyzYW6ztfwft" }]
-          //   { name: "ALM Data Challenge (10,000 random CrossRef DOIs)", url: "http://almhack.crowdometer.org", api_key: "cBYJpjzC5fNwmvVJPJeE" }]
+var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.org", api_key: "3pezRBRXdyzYW6ztfwft" },
+             { name: "ALM Data Challenge<br/>(10,000 random CrossRef DOIs)", url: "http://almhack.crowdometer.org", api_key: "qzcE4ciMj438fLPqyRdE" },
+             { name: "CrossRef Labs", url: "http://labs.crossref.org", api_key: "64aJra4M7NPHVAWxxCZ5" }]
 
-// queue requests, wait until we have response from all
-// using queue.js library
+// queue requests, using queue.js library: https://github.com/mbostock/queue
 var queue = queue();
 for (var i = 0; i < sites.length; i++) {
   query = sites[i]["url"] + "/api/v5/status?api_key=" + sites[i]["api_key"];
-  queue.defer(d3.json, query);
+  queue.defer(api_call, query);
 }
 queue.awaitAll(ready);
 
 var formatFixed = d3.format(",.0f");
 
-function ready(error, data) {
-  if (error) console.log("there was an error loading the data: " + error);
+// extra error handling, otherwise an error from one API call will break the queue
+function api_call(query, callback) {
+  d3.json(query, function(error, data) {
+  if (error) {
+    console.log("there was an error loading the data: " + error);
+    callback(null, { error: "An error occured.", data: null });
+  } else {
+    callback(error, data);
+  }
+});
+}
 
+function ready(error, data) {
   for (var i = 0; i < sites.length; i++) {
     var tr = d3.select("#status tbody").append("tr");
 
-    status = (data[i]["error"] === null) ? "OK" : "Failed";
-    label = (data[i]["error"] === null) ? "label-success" : "label-danger";
-    version = (data[i]["data"]) ? data[i]["data"]["version"] : "n/a";
-    articles_count = (data[i]["data"]) ? data[i]["data"]["articles_count"] : "n/a";
+    status = (data[i]["error"]) ? "Failed" : "OK";
+    label = (data[i]["error"]) ? "label-danger" : "label-success";
+    version = (data[i]["data"] === null) ? "n/a" : data[i]["data"]["version"];
+    articles_count = (data[i]["data"] === null) ? "n/a" : data[i]["data"]["articles_count"];
 
     var row = { name: sites[i]["name"], url: sites[i]["url"], status: status, label: label, version: version, articles_count: articles_count}
 
     tr.append("td")
-      .text(function(d) { return row["name"]; });
+      .html(function(d) { return row["name"]; });
     tr.append("td")
       .append("a").attr("href", function(d) { return row["url"] })
       .text(function(d) { return row["url"]; });
@@ -38,6 +48,14 @@ function ready(error, data) {
       .text(function(d) { return row["version"]; });
     tr.append("td")
       .attr("class", "number")
-      .text(function(d) { return formatFixed(row["articles_count"]); });
+      .text(function(d) { return number_with_delimiter(row["articles_count"]); });
+  }
+}
+
+function number_with_delimiter(number) {
+  if(number !== "n/a") {
+    return formatFixed(number);
+  } else {
+    return number;
   }
 }
