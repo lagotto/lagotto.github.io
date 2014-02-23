@@ -19,7 +19,7 @@ The ALM application supports the following user roles:
 
 The ALM application supports the following forms of authentication:
 
-* username/password ([Login](/users/sign_in)) for admin and staff users
+* username/password for admin and staff users
 * authentication with [Mozilla Persona](http://www.mozilla.org/en-US/persona/) for all user roles
 * authentication with CAS (currently PLOS only)
 
@@ -33,7 +33,7 @@ Users automatically obtain an API key, and they can sign up to the monthly repor
 
 Unless this has already been done during installation, sources have to be installed and activated through the web interface `Sources -> Installation`:
 
-![Installation](installation.png)
+![Installation](/docs/installation.png)
 
 All sources can be installed, but some sources require additional configuration settings such as API keys before they can be activated. The [documentation for sources](Sources) contains information about how to obtain API keys and other required source-specific settings.
 
@@ -51,7 +51,7 @@ The following addiotional configuration options are available via the web interf
 * maximum number of failed queries allowed in a time interval (default 24 hours)
 * disable delay after too many failed queries (default 10 sec)
 
-![Configuration](configuration.png)
+![Configuration](/docs/configuration.png)
 
 Through these setup options the behavior of sources can be fine-tuned, but the default settings should almost always work. The default rate-limiting settings should only be increased if your application has been whitelisted with that source.
 
@@ -97,7 +97,7 @@ Most users will automate the importing of articles via a cron job, and will inte
 
 ### API
 
-Articles can also be added (and updated or deleted) via the v4 [API](API). The v4 API uses basic authentication and is only available to admin and staff users. A sample curl API call to create a new article would look like this:
+Articles can also be added (and updated or deleted) via the v4 [API](/docs/API). The v4 API uses basic authentication and is only available to admin and staff users. A sample curl API call to create a new article would look like this:
 
 ```sh
 curl -X POST -H "Content-Type: application/json" -u USERNAME:PASSWORD -d '{"article":{"doi":"10.1371/journal.pone.0036790","published_on":"2012-05-15","title":"Test title"}}' http://HOST/api/v4/articles
@@ -162,7 +162,7 @@ Foreman also supports bluepill, inittab and runit, read the [man page](http://dd
 ## Configuring Maintenance Tasks
 The ALM application uses a number of maintenance tasks in production mode - they are not necessary for a development instance.
 
-Many of the maintenance taks are `rake` tasks, and they are listed on a [separate page](Rake). All rake tasks are issued from the application root folder. You want to prepend your rake command with `bundle exec` and `RAILS_ENV=production` should be appended to the rake command when running in production, e.g.
+Many of the maintenance taks are `rake` tasks, and they are listed on a [separate page](/docs/Rake). All rake tasks are issued from the application root folder. You want to prepend your rake command with `bundle exec` and `RAILS_ENV=production` should be appended to the rake command when running in production, e.g.
 
 ```sh
 bundle exec rake db:articles:load <IMPORT.TXT RAILS_ENV=production
@@ -215,14 +215,14 @@ bundle exec whenever --update-crontab alm
 ### Filters
 Filters check all API responses of the last 24 hours for errors and potential anti-gaming activity, and they are typically run as cron job. They can be activated and configured (e.g. to set limits) individually in the admin panel:
 
-![Filters](filters.png)
+![Filters](/docs/filters.png)
 
 These filters will generate alerts that are displayed in the admin panel in various places. More information is available on the [Alerts](Alerts) page.
 
 ### Reports
 The ALM application generates a number of email reports:
 
-![Profile](profile.png)
+![Profile](/docs/profile.png)
 
 The **Article Statistics Report** is available to all users, all other reports only to admin and staff users. Users can sign up for these reports in the account preferences.
 

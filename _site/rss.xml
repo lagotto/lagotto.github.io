@@ -5,8 +5,8 @@
         <description>Article-Level Metrics - Article-Level Metrics - Alternative Measures to Gauge the Impact of Research</description>
         <link>http://articlemetrics.github.iorss.xml</link>
         <link>http://articlemetrics.github.io</link>
-        <lastBuildDate>2014-02-22T22:08:01+01:00</lastBuildDate>
-        <pubDate>2014-02-22T22:08:01+01:00</pubDate>
+        <lastBuildDate>2014-02-23T14:43:57+01:00</lastBuildDate>
+        <pubDate>2014-02-23T14:43:57+01:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -22,13 +22,13 @@ application&lt;/a&gt;. These new sources
 are both related to research data, and they represent a new breed of
 metrics in our ALM suite.&lt;/p&gt;
 
-&lt;p&gt;Not only are &lt;strong&gt;Europe PMC Database Citations&lt;/strong&gt; and &lt;strong&gt;DataCite&lt;/strong&gt; our
+&lt;p&gt;Not only are &lt;strong&gt;Europe PMC Database Citations&lt;/strong&gt; and **DataCite** our
 first ALM sources that track research data that mention a particular
 PLOS article. But these ALM sources are also different from other ALM
 sources: although there can of course be additional research data that
-cite an article post-publication&lt;em&gt;,&lt;/em&gt; they typically link datasets
+cite an article post-publication*,* they typically link datasets
 associated with an article and created by the same research
-group.&lt;em&gt; &lt;/em&gt;These ALM sources discover links &lt;em&gt;from the research data to the
+group.* *These ALM sources discover links &lt;em&gt;from the research data to the
 article&lt;/em&gt; and in an ideal world should be consistent with the links &lt;em&gt;from
 the article to the research data&lt;/em&gt;. Unfortunately we know from the work
 by Jo McEntyre and others at Europe PMC (see the May 2013 &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pone.0063184&quot;&gt;PLOS ONE
@@ -50,7 +50,7 @@ deposited in the Pangaea data archive and cited in Elsevier articles
 using a similar mechanism – taking advantage of the database-to-article
 link provided by the DataCite DOI service.&lt;/p&gt;
 
-&lt;h2&gt;Europe PMC Database Citations&lt;/h2&gt;
+&lt;h2 id=&quot;toc_0&quot;&gt;Europe PMC Database Citations&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://europepmc.org&quot;&gt;Europe PubMed Central&lt;/a&gt; is a service of the Europe
 PMC Funders’ Group working in partnership with the European
@@ -82,12 +82,12 @@ genome&lt;/a&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/ExamplePMCEuropeLink.png&quot; alt=&quot;ENA Example&quot;&gt;&lt;/p&gt;
 
-&lt;h2&gt;DataCite&lt;/h2&gt;
+&lt;h2 id=&quot;toc_1&quot;&gt;DataCite&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.datacite.org/&quot;&gt;DataCite&lt;/a&gt; is a DOI registration agency with
-the aim to &lt;em&gt;establish easier access to research data on the Internet&lt;/em&gt;
-and to &lt;em&gt;increase acceptance of research data as legitimate, citable
-contributions to the scholarly record.&lt;/em&gt;Although DataCite focuses on
+the aim to *establish easier access to research data on the Internet*
+and to *increase acceptance of research data as legitimate, citable
+contributions to the scholarly record.*Although DataCite focuses on
 research data, they provide DOIs for all forms of content, e.g. &lt;a href=&quot;https://peerj.com/preprints/&quot;&gt;PeerJ
 Preprints&lt;/a&gt; or all non-publisher content on
 &lt;a href=&quot;http://figshare.com&quot;&gt;Figshare&lt;/a&gt;. Most people are familiar with CrossRef
@@ -122,16 +122,16 @@ supplement to the &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pone.005359
 paper&lt;/a&gt; and is cited as
 supporting data which informed the research conclusions published. Both
 PLOS papers also link to the dataset(s) using the DataCite DOI in the
-M&lt;em&gt;aterials and Methods&lt;/em&gt; section, as recommended by the &lt;a href=&quot;http://www.plosone.org/static/editorial#sharing&quot;&gt;PLOS Editorial
+M*aterials and Methods* section, as recommended by the &lt;a href=&quot;http://www.plosone.org/static/editorial#sharing&quot;&gt;PLOS Editorial
 Policies&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2&gt;Linking Research Data and Journal Articles (and People)&lt;/h2&gt;
+&lt;h2 id=&quot;toc_2&quot;&gt;Linking Research Data and Journal Articles (and People)&lt;/h2&gt;
 
 &lt;p&gt;We made a conscious decision to display both of these data-related ALMs
 in the Citations category. The &lt;a href=&quot;http://www.force11.org/datacitation&quot;&gt;Draft Declaration of Data Citation
-Principles&lt;/a&gt; states that&lt;em&gt;Data
+Principles&lt;/a&gt; states that*Data
 citations should be accorded the same importance in the scholarly record
-as citations of other research objects, such as publications.&lt;/em&gt;We think
+as citations of other research objects, such as publications.*We think
 that the inverse is also true, i.e. citations of publications by
 datasets should have the same importance in the scholarly record and
 should be grouped together with citations by other publications. Data
@@ -174,9 +174,197 @@ Lemberger, and Ewan Birney on December 10-11, 2013 will address many of
 the much-needed issues applicable across our community and lay down
 better practices for handling data-publication interactions.&lt;/p&gt;
 </description>
-                <link>http://articlemetrics.github.io/2014/12/05/research-findings-going-deeper-than-the-article</link>
+                <link>http://articlemetrics.github.io/2014/12/05/research-findings-going-deeper-than-the-article/</link>
                 <guid>http://articlemetrics.github.io/2014/12/05/research-findings-going-deeper-than-the-article</guid>
                 <pubDate>2014-12-05T00:00:00+01:00</pubDate>
+        </item>
+
+        <item>
+                <title>Evaluating Impact: What’s your number?</title>
+                <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;a href=&quot;http://www.nature.com/spoton/event/spoton-london-2013-whats-your-number-altmetrics-session/&quot;&gt;What’s
+your number?&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt; This
+Saturday, we (MF) will be addressing this very question at the SpotOn
+London conference with &lt;a href=&quot;http://twitter.com/pixievondust&quot;&gt;Marie Boran&lt;/a&gt;,
+&lt;a href=&quot;http://www.dcscience.net/&quot;&gt;David Colquhoun&lt;/a&gt;, &lt;a href=&quot;http://www.altmetric.com/blog/&quot;&gt;Jean
+Liu&lt;/a&gt; and &lt;a href=&quot;http://occamstypewriter.org/scurry/&quot;&gt;Stephen
+Curry&lt;/a&gt;. In advance of the
+discussion on the role of altmetrics in evaluating scientific research,
+we offer our views from a historical perspective.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/number_17.jpg&quot; alt=&quot;Flickr photo by
+[szczel](http://www.flickr.com/photos/57976131@N00/4489011281/).&quot;&gt; In the last few decades,
+research has grown from an activity of a
+relative small number of academics working alone or in small groups into
+a large-scale operation that involves large numbers of people and money.
+One of the consequences of this trend is the increasing difficulty of
+making decisions about acceptance for publication, academic positions,
+and grant funding. If you work in a relatively obscure field such as
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Josiah_S._Carberry&quot;&gt;psychoceramics&lt;/a&gt;, you
+might know the work of everyone in this field, but that is no longer
+true for research fields such as the &lt;em&gt;genetics of breast cancer&lt;/em&gt;. The
+trend is only increasing towards Big Science. High-energy physics
+provides an easy example as &lt;a href=&quot;http://river-valley.tv/tag/salvatore-mele/&quot;&gt;Salvatore
+Mele&lt;/a&gt; from &lt;em&gt;CERN&lt;/em&gt; will
+discuss in his SpotOn London keynote: &lt;strong&gt;&lt;a href=&quot;http://www.nature.com/spoton/event/spoton-london-2013-keynote-1-boson-50-years-50003-scientists-understanding-our-universe-through-global-scientific-collaboration-and-open-access/&quot;&gt;1 boson, 50 years, 50,003
+scientists: understanding our universe through global scientific
+collaboration and Open
+Access&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_0&quot;&gt;I. Modern peer review begins…&lt;/h3&gt;
+
+&lt;p&gt;Around the beginning of the Higgs boson adventure, the state of
+scholarly communications looked quite different. Peer review was only
+introduced relatively recently to solve this problem. It is often
+overlooked that the famous &lt;a href=&quot;http://www.nature.com/nature/dna50/watsoncrick.pdf&quot;&gt;Watson and Crick paper on the structure of
+DNA&lt;/a&gt; &lt;a href=&quot;http://dx.doi.org/10.1242/dmm.001388&quot;&gt;wasn’t peer
+reviewed&lt;/a&gt; in 1953. The journal
+&lt;em&gt;Nature&lt;/em&gt; implemented peer review during this decade. Journal editors
+were increasingly overwhelmed by the sheer amount of research papers
+submitted and by the increasing specialization of science, and they
+needed help from subject area experts to make publication decisions. We
+think it is likely also that universities and research funders really
+began to rely on external peer review to help make decisions sometime
+around this era as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/number_6.jpg&quot; alt=&quot;Flickr photo by
+[LEOL30](http://www.flickr.com/photos/49968232@N00/7804231764/)&quot;&gt; Peer review
+does not &lt;em&gt;measure*the quality of research but rather is a
+subjective evaluation aimed at a specific end, whether it be journal
+publication or proposed grant award decision-making. In the best case,
+the process works well. However, most universities, journals, and
+funders do not have the resources to do this properly. Amy Brand
+(&lt;a href=&quot;http://www.faculty.harvard.edu/about-office/our-team&quot;&gt;Assistant Provost for Faculty Appointments and
+Information&lt;/a&gt;) has
+&lt;a href=&quot;http://article-level-metrics.plos.org/files/2013/10/Brand.pptx&quot;&gt;spoken about&lt;/a&gt;
+the Harvard University process of faculty appointments at the recent ALM
+workshop. It was clear that their elaborate and labor-intensive review
+process seems to work well for them but isn’t easily translated to
+smaller institutions or those without dedicated resources governing and
+running this process. In the worst case as a subjective evaluation, peer
+review can actually be harmful. Walker-Eyre and Stoletzki’s &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pbio.1001675&quot;&gt;recent
+analysis in PLOS
+Biology&lt;/a&gt; showed little
+correlation between the subjective assessment of merit in the datasets
+they studied and conclude that &lt;/em&gt;subjective assessments are an
+error-prone, biased, and expensive method by which to assess merit*.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_1&quot;&gt;II. … And then bibliometrics enters…&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/number_3003.jpg&quot; alt=&quot;Flickr photo by
+[magannie](http://www.flickr.com/photos/24453920@N00/214486419/)&quot;&gt; To overcome
+the subjectivity and other limitations of peer review, we
+increasingly began to use bibliometrics such as citation counts in the
+1970s. As quality of research cannot be directly measured, bibliometrics
+created a construct of impact based on how research is perceived and
+consumed by the scientific community. Citations in the scholarly
+literature were used as this proxy, and higher citation counts were
+constructed to represent higher scientific impact. This construct has
+two major limitations: a conceptual one (by using impact as a proxy for
+quality, we create undesired incentives) and a practical one (citation
+counts are influenced by many other factors, e.g discipline). It has
+given birth to unintended and undesired consequences, of which a
+principal one is the privileging of things that can be measured with
+this construct (namely, journal articles instead of other research
+outputs as well as research that is more likely to be cited).&lt;/p&gt;
+
+&lt;p&gt;One of the first bibliometric indicators that became widely used was the
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Impact_factor&quot;&gt;Journal Impact Factor&lt;/a&gt;. The
+decision to focus on the journal and not the individual article were
+rooted in practical and environmental reasons no longer applicable.
+Counting citations was painful manual work before digital publishing
+became the norm in the 1990s. We also didn’t have norms for uniquely
+identifying journals articles until DOIs were introduced in the 2000s.
+The short citation window and document type asymmetry were also due to
+&lt;a href=&quot;http://www.slideshare.net/StefanieHaustein/haustein-asist-panel&quot;&gt;concerns for
+cost-efficiency&lt;/a&gt;.
+Today, there are many reasons for why &lt;a href=&quot;http://blogs.plos.org/tech/article-level-metrics-learning-to-walk-run-do-algebra/&quot;&gt;using the Journal Impact factor
+for individual level bibliometrics are a bad
+idea&lt;/a&gt;.
+Panelist Stephen Curry’s remarks on the subject are particularly well
+communicated here: &lt;a href=&quot;http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/&quot;&gt;Sick of Impact
+Factors&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_2&quot;&gt;III. What next? ALM, Altmetrics, but we also need more&lt;/h3&gt;
+
+&lt;p&gt;These two historical moments provide some background as to how we have
+arrived at the current state. But separate from this narrative, we
+believe that quality of research is something that really can’t be fully
+captured or measured in numbers. This is true for all creative work
+(&lt;a href=&quot;http://m.newyorker.com/online/blogs/books/2013/11/should-literature-be-useful.html&quot;&gt;including
+literature&lt;/a&gt;)
+and should come as no surprise to anyone involved in research endeavors.&lt;/p&gt;
+
+&lt;p&gt;But should we stop right here, give up, and go back to our business of
+doing science? In the last few years, three important trends have begun
+to pave a way out of the current muck and change how we use
+bibliometrics:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  metrics for individual articles instead of journal-based metrics&lt;/li&gt;
+&lt;li&gt;  metrics that go beyond citations, including usage statistics and
+social media activity&lt;/li&gt;
+&lt;li&gt;  metrics for research outputs other than journal articles&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These trends have been summarized with the terms a&lt;a href=&quot;http://dx.doi.org/10.1371/journal.pbio.1001687&quot;&gt;rticle-level
+metrics&lt;/a&gt; and
+&lt;a href=&quot;http://altmetrics.org/manifesto/&quot;&gt;altmetrics&lt;/a&gt; and will be the focus of
+the panel next Saturday. As altmetrics is still a young discipline, more
+work needs to be done before they become part of mainstream
+bibliometrics. That said, the &lt;a href=&quot;http://www.issi2013.org/programme.html&quot;&gt;number of altmetrics presentations at the
+latest international bibliometrics
+conference&lt;/a&gt; (with the &lt;a href=&quot;http://www.wlv.ac.uk/default.aspx?page=35163&quot;&gt;Eugene
+Garfield Doctoral Dissertation Scholarship for 2013 awarded to Ehsan
+Mohammadi&lt;/a&gt; for altmetrics
+work), as well as the July 2013 Sloan grant for &lt;a href=&quot;http://www.niso.org/topics/tl/altmetrics_initiative/&quot;&gt;NISO to develop
+altmetrics standards and best
+practices&lt;/a&gt; are
+good indicators that the prefix “alt-” might not be meaningful much
+longer.&lt;/p&gt;
+
+&lt;p&gt;We can use altmetrics to overcome many of the shortcomings of
+citation-based bibliometrics currently in use, and the &lt;a href=&quot;http://article-level-metrics.plos.org/&quot;&gt;PLOS
+Article-Level Metrics&lt;/a&gt; project
+has always been an important part of this change. We and others are
+working on &lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;open source tools that make it affordable for everyone to
+collect article-level metrics&lt;/a&gt;,
+better tools to &lt;a href=&quot;http://almreports.plos.org&quot;&gt;analyze and visualize article-level
+metrics&lt;/a&gt;, &lt;a href=&quot;http://dx.doi.org/10.3789/isqv25no2.2013.04&quot;&gt;standards for grouping metrics
+into categories&lt;/a&gt;,
+&lt;a href=&quot;http://blogs.plos.org/tech/alm-data-challenge-metrics-for-a-standard-set-of-dois/&quot;&gt;standards for data collection&lt;/a&gt;,
+and more. We are positive that we will make good progress developing
+these new metrics in the coming years, but they will not solve the
+problem we started out with: *The quality of research is something that
+can’t be measured in numbers.*&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pbio.1001677&quot;&gt;&lt;em&gt;PLOS Biology&lt;/em&gt; editorial&lt;/a&gt; discussing
+the &lt;em&gt;PLOS Biology&lt;/em&gt; paper by Walker-Eyre and Stoletzki goes into a bit
+more detail discussing the concept of &lt;strong&gt;merit&lt;/strong&gt;, saying that &lt;em&gt;merit
+is not a single measurable quantity&lt;/em&gt; and that we should &lt;em&gt;identify
+multivariate metrics that are more appropriate to 21st Century
+science.&lt;/em&gt; Maybe we should go one step further: altmetrics are a big
+improvement over traditional journal-based metrics and over subjective
+evaluation by a handful of peers, but at the end of the day they are
+still a construct that measures something different. We should therefore
+be painfully aware of unintended consequences, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  we create incentives for researchers to do things that “count” and
+to not engage in activities that “don’t count”&lt;/li&gt;
+&lt;li&gt;  we spend more and more time evaluating research rather than doing
+and discussing research.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We have the opportunity to address both of these issues as well as
+continue to reconsider how our assessment activities represent our
+values as a research community. The methods of evaluation always
+implicitly reflect some set of ideas about what is important (and what
+is not). Whether they are ones we would explicitly embrace or ones that
+disappoint… &lt;em&gt;that is up to all of us in the research community.&lt;/em&gt;&lt;/p&gt;
+</description>
+                <link>http://articlemetrics.github.io/2013/11/06/evaluating-impact-whats-your-number/</link>
+                <guid>http://articlemetrics.github.io/2013/11/06/evaluating-impact-whats-your-number</guid>
+                <pubDate>2013-11-06T00:00:00+01:00</pubDate>
         </item>
 
         <item>
@@ -324,9 +512,661 @@ was similar to a typical hackday in many ways, I liked the focus on data
 and on interesting questions regarding these data. Certainly a format
 worth repeating.&lt;/p&gt;
 </description>
-                <link>http://articlemetrics.github.io/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois</link>
+                <link>http://articlemetrics.github.io/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois/</link>
                 <guid>http://articlemetrics.github.io/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois</guid>
                 <pubDate>2013-10-31T00:00:00+01:00</pubDate>
+        </item>
+
+        <item>
+                <title>Rising Tides & the Open Horizon for ALM</title>
+                <description>&lt;p&gt;With support from the Sloan Foundation, PLOS hosted the &lt;a href=&quot;http://article-level-metrics.plos.org/alm-workshop-2013/&quot;&gt;second annual
+ALM workshop&lt;/a&gt;
+on Oct 10-12, 2013. Presentation slides and links to post-workshop
+write-ups from the community have been linked
+on &lt;a href=&quot;http://lanyrd.com/2013/alm13/&quot;&gt;Lanyrd&lt;/a&gt;. Over 80 participants
+registered for the 26 “black diamond” presentations in the first two
+days of the program. And 20 people participated in the Data Challenge on
+the closing day. We had representation from a wide spectrum of the
+scholarly research ecosystem – researchers, publishers, academic
+institutions, funders, technology providers, etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/View_of_the_boats_in_the_ocean_from_Robert_N._Dennis_collection_of_stereoscopic_views.png&quot; alt=&quot;Robert N. Dennis collection of stereoscopic views. / United States. /
+States / Rhode Island. / Stereoscopic views, possibly of Newport, Rhode
+Island, or vicinity.
+&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Robert N. Dennis collection of stereoscopic views. / United States. /
+States / Rhode Island. / Stereoscopic views, possibly of Newport, Rhode
+Island, or vicinity.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Since the&lt;a href=&quot;http://article-level-metrics.plos.org/alm-workshop-2012/&quot;&gt; first ALM workshop&lt;/a&gt; just
+a year ago there have been exciting developments on a number of fronts.
+We welcome you to revisit the &lt;a href=&quot;http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828&quot;&gt;2012 technical
+report&lt;/a&gt; documenting
+where the conversation started. We have a richer body of knowledge to
+draw on this year: more data to better understand the properties of
+these emerging metrics, more analysis on the evolving behaviors of the
+research community captured and revealed, and more demonstrations of
+their application in research discovery and assessment. And yet it was
+clearly expressed by all parties at the workshop that this is just the
+beginning. We have only begun to develop, understand, and use these new
+metrics.&lt;/p&gt;
+
+&lt;p&gt;We spent a lot of time listening to the conversations at the workshop,
+and since then, thinking about future directions for the field. One way
+to sum up our view of these occurences – no matter how disparate – is
+with the following phrase taken from Adam Smith: &lt;strong&gt;a rising tide lifts
+all boats&lt;/strong&gt;. Certainly, there is an open horizon before us, but we
+envision a number of developments over the course of the upcoming year.
+These forecasts are encouraging ones, which will give buoyancy not just
+to the individual  players currently in the ALM arena. They will benefit
+all participants in scholarly research.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ALM Data Environment&lt;/strong&gt;: we forecast an expansion in the suite of
+metrics covered beyond the existing set to capture not only more
+quantitative measures but also qualitative ones. We see more
+bibliometrics research that will give the community clearer descriptions
+of the ALM data from each source so that we can begin to parse out
+meaning from the metrics.&lt;/p&gt;
+
+&lt;p&gt;We also expect to gain greater understanding of the impact that these
+new metrics will have across the scholarly landscape (across fields,
+institutions, geographies, etc.). We forecast more programmatic access
+to the data and greater consolidation of data collection practices for
+metrics across publishers. And lastly, we see a deepening sense of trust
+for ALM data amongst the research community as data stewardship and data
+integrity programs mature.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Applications of ALM:&lt;/strong&gt; we expect more investment on behalf of
+publishers and technology providers in finding novel ways to visualize
+the data.  We also anticipate significant interest in making use of the
+data for developing tools that support discoverability in scholarly
+literature.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Communications of ALM:&lt;/strong&gt; we forecast more formalized channels for the
+sharing and reporting of these research metrics by researchers,
+institutions, and funders, including evolving best practices for at
+least some aspects of communicating ALM.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Going beyond ALM&lt;/strong&gt;: lastly, we hope that we see more activity around
+metrics that are not about articles, but other research outputs, from
+monographs to research data to software.&lt;/p&gt;
+</description>
+                <link>http://articlemetrics.github.io/2013/10/24/risingtides/</link>
+                <guid>http://articlemetrics.github.io/2013/10/24/risingtides</guid>
+                <pubDate>2013-10-24T00:00:00+02:00</pubDate>
+        </item>
+
+        <item>
+                <title>Announcing the release of ALM 2.9 – now with more errors</title>
+                <description>&lt;p&gt;We have released the latest version of the &lt;a href=&quot;https://github.com/articlemetrics/alm/releases&quot;&gt;open source Article-Level
+Metrics application&lt;/a&gt; that PLOS
+is using to track how many times each article has been viewed, saved,
+discussed, recommended, and cited. Since it is an open source
+application, everyone can install this software and &lt;a href=&quot;http://blogs.plos.org/plos/2013/10/even-more-journals-display-alms/&quot;&gt;collect metrics for
+a different set of
+articles&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This version has seen the most work since the 2.0 release in July 2012.
+This includes fixing a number of annoying small bugs and refactoring a
+lot of code–for example, how we make http requests to external APIs and
+how we run background processes.&lt;/p&gt;
+
+&lt;p&gt;ALM 2.9 also includes a number of new sources, most interestingly
+perhaps a new kind of metric: how many times has a PLOS article been
+&lt;a href=&quot;http://europepmc.org/RestfulWebService&quot;&gt;cited by a database entry in PubMed Central
+Europe&lt;/a&gt;. We find these database
+links for 21% of all PLOS articles, and some of them have been cited
+more than 10,000 times.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_0&quot;&gt;More errors&lt;/h3&gt;
+
+&lt;p&gt;The most interesting feature of ALM 2.9 is probably something else: the
+application is creating more errors than previous releases. This is of
+course intentional, and is caused by a new feature called filters.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/filters.png&quot; alt=&quot;filters&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Filters run every 24 hours and look at the API responses during that
+time. A lot of things can go wrong, and we try to catch at least some of
+these things automatically. Filters are written in an extensible
+architecture similar to sources and we hope to add more complex filters
+over time. One example filter checks whether the usage stats or social
+media activity for an article increases very fast (our current threshold
+is 500/day). This usually means an article that is just popular, but can
+of course also be a sign of gaming.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/increasing.png&quot; alt=&quot;increasing&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;An example of unusual activity would be the article pictured above: the
+article saw 162 HTML views for the whole month of September, but already
+2472 HTML views in the first week of October, including 1909 HTML views
+in the last 24 hours. Since there is only moderate activity on Twitter,
+Facebook, etc. for this article, we don’t find any blog posts discussing
+this article, and only one citation by a scholarly article, the most
+likely explanation for this spike in HTML views is another event, e.g. a
+newspaper article. This requires further investigation, but the example
+illustrates how filters can pick up articles that behave in an unusual
+way.&lt;/p&gt;
+
+&lt;p&gt;Filters are not just for detecting errors. A good example would be the
+filter that finds articles that have reached a citation milestone: 50,
+100, 150, etc. citations. We can use this filter to alert the authors of
+these papers, or to take a closer look at why these papers are so
+popular. The papers below have all reached milestones of high Facebook
+activity:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/milestones1.png&quot; alt=&quot;milestones&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The list of possible filters is long, especially since filters can have
+custom settings. Sometimes more errors is good, and we hope that this
+will allow us to improve the overall quality of our ALM data.&lt;/p&gt;
+</description>
+                <link>http://articlemetrics.github.io/2013/10/09/announcing-the-release-of-alm-2-9-now-with-more-errors/</link>
+                <guid>http://articlemetrics.github.io/2013/10/09/announcing-the-release-of-alm-2-9-now-with-more-errors</guid>
+                <pubDate>2013-10-09T00:00:00+02:00</pubDate>
+        </item>
+
+        <item>
+                <title>Article-Level Metrics – Learning to Walk, Run & Do Algebra</title>
+                <description>&lt;p&gt;Article-Level Metrics (ALM) may have outgrown the infant stage, but the
+“terrible two’s and three’s” have now arrived when it must learn to
+walk, run, and… do algebra.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/catalgeb.png&quot; alt=&quot;catalgeb&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;As ALM begins to count toes, we are fortunate to have bibliometrics
+scholars Paul Wouters and Wolfgang Glänzel weigh in on what are
+appropriate uses of bibliometrics for the assessment of individual
+researchers – the use of bibliometrics most people are probably
+interested in, but also the most controversial.&lt;/p&gt;
+
+&lt;p&gt;Paul Wouters and Wolfgang Glänzel gave a thoughtful and entertaining
+presentation on the topic at the ISSI (International Society of
+Scientometrics and Informetrics) &lt;a href=&quot;http://www.issi2013.org/&quot;&gt;conference&lt;/a&gt;
+in July, followed by commentators Henk Moed and Gunnar Sivertsen, and a
+discussion in the plenary. Their slides are available at
+&lt;a href=&quot;http://www.slideshare.net/paulwouters1/issi2013-wg-pw&quot;&gt;Slideshare&lt;/a&gt; and
+Paul Wouters has also written a &lt;a href=&quot;http://citationculture.wordpress.com/2013/07/29/bibliometrics-of-individual-researchers/&quot;&gt;blog
+post&lt;/a&gt;
+about this session. The discussion continued today at the&lt;a href=&quot;http://www.forschungsinfo.de/STI2013/start.asp?programXXXProgram&quot;&gt;STI
+conference&lt;/a&gt;
+in Berlin.&lt;/p&gt;
+
+&lt;p&gt;The presentation was called **The dos and don’ts in individual level
+bibliometrics**and is an attempt by the bibliometrics community to
+provide some guidance and best practices for researchers and research
+administrators on how to use – and not use – bibliometrics to assess
+individuals. They complement the recent San Francisco Declaration on
+Research Assessment (&lt;a href=&quot;http://am.ascb.org/dora/&quot;&gt;DORA&lt;/a&gt;), and they add the
+context of extensive bibliometrics research. We start with the 10 Don’ts
+and have reprinted the list in full, interleaved with pieces of
+commentary from our perspective as a publisher.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10 DON’TS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; *Don’t reduce individual research performance to a single number
+-* Context is critical to honest metrics. While normalization aims
+to provide some level of context, the diversity of dependent and
+independent variables can not be wholly captured. Furthermore, we
+believe multiple types or, as &lt;a href=&quot;http://arxiv.org/abs/1203.4745&quot;&gt;Priem; Piwowar; and
+Hemminger&lt;/a&gt;, suggest, flavors of
+impact exist, applicable to a host of different needs and goals,
+none of which are best served by a single number used by all and for
+all.&lt;/li&gt;
+&lt;li&gt; &lt;em&gt;Don’t use impact factors as measure of quality for individual
+researchers&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt; &lt;em&gt;Don’t apply (hidden) bibliometric filters for selection, e.g.
+minimum IF for inclusion in publication lists&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt; *Don’t apply arbitrary weights to co-authorship. Algorithms bases on
+author position might be problematic -* We foresee that the current
+trend of expanding research collaborations continues, both in terms
+of size as well as research specializations involved. In this light,
+the traditional list of authors on a paper will no longer suffice.
+A number of efforts have been underway to establish a more granular
+system of attribution beyond author order on papers, none of which
+have gained full adoption by the research communities, but is a true
+possibility in the future. To the extent that this calculation may
+apply weights of some kind, we agree that it cannot be arbitrary
+(c.f. Do #2).&lt;/li&gt;
+&lt;li&gt; &lt;em&gt;Don’t rank scientists according to one indicator. Ranking should
+not be merely based on bibliometrics&lt;/em&gt; – Very much related to Don’t
+#1, we will add that this action would more intensely fan the
+flames of activity that intentionally inflates the counts for higher
+scores (i.e., gaming).  Taking a multi-dimensional view of
+assessment not only better reflects the values supporting each type
+of evaluation effort, but also builds in additional protection for
+data integrity with a suite of indicators that matter.&lt;/li&gt;
+&lt;li&gt; *Don’t merge incommensurable measures, e.g. citation counts from
+different sources:*Splicing incommensurable measures
+(&amp;amp; &lt;a href=&quot;http://blogs.plos.org/tech/apples-oranges-they-dont-compare/&quot;&gt;fruits&lt;/a&gt;) are
+a big taboo for us at PLOS. The intent behind and interest in
+aggregating sources together is both practical and reasonable,
+offering a sound summary of the data that can be easily understood
+and communicated. Nobody wants to tote around a suitcase full of 15+
+metrics in their portfolios. That said, we do engage in considerable
+discussion (often heated!) about what commensurability entails. The
+work is not so much a balancing act, since fidelity to the research
+activity captured always prevails, so much as a continued discussion
+with research communities about how to soundly showcase groups of
+metrics together when it makes sense alongside continued
+bibliometrics research on the behavior of these metrics, testing
+their potential compatibility with each other.&lt;/li&gt;
+&lt;li&gt; &lt;em&gt;Don’t use flawed statistics&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt; &lt;em&gt;Don’t blindly trust one-hit wonders. Don’t evaluate scientists on
+the basis of one top paper&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt; &lt;em&gt;Don’t compare apples and oranges, e.g. research and communication
+in different domains&lt;/em&gt; – While there is much bibliometric work to be
+done, we can still normalize within a single source for time. This
+allows us to compare the views and downloads for a paper published
+in the early 2000′s at the advent of digital publishing of scholarly
+literature to a paper published a decade later. That said, the
+instinct to normalize across &lt;em&gt;types of activity&lt;/em&gt; captured (e.g.,
+between tweets, Mendeley bookmarks, media references, etc.) does not
+a best practice make. Finally, the crystal ball is clouded over for
+comparisons between research areas. Boundaries within life sciences
+and biomedical research are increasingly blurring as the trend
+towards specialization and cross-hybridization continues. Here, the
+authors refer to large domains of knowledge - “humanities,
+mathematics, and life sciences” – but these demarcations are also
+getting fuzzier at the edges.  With respect to the changing research
+environment, we’re not certain what limitations may prove necessary
+as more bibliometric analysis is applied to larger sets of data.&lt;/li&gt;
+&lt;li&gt;*Don’t allow deadlines and workload to compel you to drop good
+bibliometric practices -* Research impact measurement takes diligent
+and sustained work. Neither the advances of ALMs nor any simple,
+single metric will give us the answer we deserve without some degree
+of thoughtful interpretation of the data.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This list (and the related 10 dos) may satisfy our desire to simplify
+the world into discrete elements (&lt;a href=&quot;http://www.listsofnote.com/2012/01/henry-millers-11-commandments.html&quot;&gt;and sometimes they are
+inspiring!&lt;/a&gt;).
+But we see it as more than a set of edicts or commandments. They chart a
+general road towards healthy adulthood, a robust and responsible metrics
+ecosystem, even while rapid internal changes are an intrinsic part of
+any growth spurt.&lt;/p&gt;
+
+&lt;p&gt;The list focuses on key issues, and by this simplification some of the
+details might get lost. But the primary audience is probably not
+bibliometricians, but the rest of the research community, and this
+initiative is an attempt to close the growing gap between what
+bibliometricians have learned about these issues over the years, and how
+these metrics are increasingly and often wrongly applied by researchers
+and administrators to make important funding and hiring decisions.&lt;/p&gt;
+
+&lt;p&gt;This is an ongoing discussion that we hope to continue at the PLOS ALM
+workshop in October. We posted the &lt;a href=&quot;http://article-level-metrics.plos.org/alm-workshop-2013-preliminary-program/&quot;&gt;preliminary conference
+agenda&lt;/a&gt;
+yesterday, and it is not too late to register
+&lt;a href=&quot;http://almworkshop13.eventbrite.com/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+                <link>http://articlemetrics.github.io/2013/09/05/article-level-metrics-learning-to-walk-run-do-algebra/</link>
+                <guid>http://articlemetrics.github.io/2013/09/05/article-level-metrics-learning-to-walk-run-do-algebra</guid>
+                <pubDate>2013-09-05T00:00:00+02:00</pubDate>
+        </item>
+
+        <item>
+                <title>Eat your own dogfood: lessons learned from building an API</title>
+                <description>&lt;p&gt;The PLOS &lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;Article-Level Metrics
+application&lt;/a&gt; is open source
+software that collects a variety of metrics about scholarly articles.
+The application talks to a number of APIs, and in return provides these
+metrics via an API. Work on this application therefore involves a lot of
+work on APIs, and some of the lessons I learned are summarized below,
+including changes we made in the latest &lt;a href=&quot;https://github.com/articlemetrics/alm/releases/tag/v.2.8&quot;&gt;ALM
+2.8&lt;/a&gt; release.
+Most of the things I mention are fairly obvious, but some of them could
+be starting points for a discussion. Good APIs are important for
+scholarly content, as we increasingly use computers to extract relevant
+information out of papers – see for example the cool projects done at
+the &lt;a href=&quot;http://hack4ac.com/&quot;&gt;hack4ac event&lt;/a&gt; last month, including the one
+on &lt;a href=&quot;https://www.writelatex.com/blog/32-hack4ac-text-mining-and-analyzing-author-contributions-in-plos-articles&quot;&gt;PLOS author
+contributions&lt;/a&gt; that
+I participated in.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_0&quot;&gt;Eat your own dogfood&lt;/h3&gt;
+
+&lt;p&gt;The first rule for building a good API is to use it yourself. The PLOS
+ALM API is used by the PLOS journal websites, &lt;a href=&quot;http://almreports.plos.org/&quot;&gt;ALM
+Reports&lt;/a&gt;, and the &lt;a href=&quot;http://blogs.plos.org/plos/2010/06/search-faster-and-smarter-with-plos/&quot;&gt;PLOS
+Search&lt;/a&gt;
+indexer, altogether more than 8 million API requests every month.
+Heavily using your own API makes sure that you quickly find and fix
+bugs, and that you build an API that is fun to use.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/jbcurio/3910689175/&quot; title=&quot;Vintage Ad #910: Doggie Donuts von jbcurio bei Flickr&quot;&gt;&lt;img src=&quot;http://farm3.staticflickr.com/2430/3910689175_f6d9fc2bc9.jpg&quot; alt=&quot;Vintage Ad \#910: Doggie
+Donuts&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Doggie Donuts. Flickr Foto by &lt;a href=&quot;http://www.flickr.com/photos/jbcurio/&quot;&gt;Jamie&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I use the &lt;a href=&quot;http://ropensci.github.io/rplos/&quot;&gt;rplos&lt;/a&gt; and
+&lt;a href=&quot;https://github.com/ropensci/alm&quot;&gt;alm&lt;/a&gt; R packages to retrieve data from
+the PLOS Search and PLOS ALM APIs for most of my visualizations – the R
+statistical computing language is great for this purpose. Working with
+these APIs via an R client library can again provide valuable feedback
+not only for improving the ALM API, but also to make the &lt;strong&gt;rplos&lt;/strong&gt; and
+&lt;strong&gt;alm&lt;/strong&gt; packages better – and Scott Chamberlain from the
+&lt;a href=&quot;http://ropensci.org/&quot;&gt;rOpenSci&lt;/a&gt; project is very quick with updates.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_1&quot;&gt;Document your API&lt;/h3&gt;
+
+&lt;p&gt;Documentation is important for all software, and that of course also
+includes APIs. The documentation for the PLOS ALM API is in the Github
+&lt;a href=&quot;https://github.com/articlemetrics/alm/wiki/API&quot;&gt;wiki&lt;/a&gt;. In the latest
+ALM release we have included the documentation right in the ALM
+application to make it easier to use, e.g. with the documentation for
+the PubMed API right next to the PubMed configuration tab. You also see
+the documentation when you sign up for an API key (see below).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/documentation.png&quot; alt=&quot;documentation&quot;&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_2&quot;&gt;Make it simple to sign up for an API key&lt;/h3&gt;
+
+&lt;p&gt;Most APIs require API keys, although some of them (e.g. Wikipedia) are
+fine with identification via the U*ser-Agent* header. API keys are not
+so much passwords to gain access to restricted information, but rather
+identifiers so that API providers know who is talking to them. For
+access to restricted resources we need something more secure e.g.
+authentication via &lt;a href=&quot;https://dev.twitter.com/docs/auth/oauth&quot;&gt;OAuth&lt;/a&gt; or
+restriction by IP address.&lt;/p&gt;
+
+&lt;p&gt;In ALM 2.8 we made it much easier to register for an API key: simply
+sign in to &lt;a href=&quot;http://alm.plos.org&quot;&gt;alm.plos.org&lt;/a&gt; using your &lt;a href=&quot;http://register.plos.org&quot;&gt;PLOS
+Journals&lt;/a&gt; account – the same account you use
+to receive &lt;a href=&quot;http://blogs.plos.org/everyone/2013/07/31/new-customized-plos-one-email-alerts-by-subject-area/&quot;&gt;customized email alerts for new
+articles&lt;/a&gt;,
+or to make article comments (we are using the
+&lt;a href=&quot;http://www.jasig.org/cas&quot;&gt;CAS&lt;/a&gt; protocol for this).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/login.png&quot; alt=&quot;login&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;For other organizations installing the ALM software we provide two other
+options: &lt;a href=&quot;http://www.mozilla.org/en-US/persona/&quot;&gt;Mozilla
+Persona&lt;/a&gt; and &lt;a href=&quot;http://developer.github.com/v3/oauth/&quot;&gt;Github
+OAuth&lt;/a&gt;. Persona doesn’t require
+any configuration and is very straightforward to use, Github OAuth is
+nice since many API users probably already have a Github account.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/persona.png&quot; alt=&quot;persona&quot;&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_3&quot;&gt;Version your API&lt;/h3&gt;
+
+&lt;p&gt;No API is perfect and you will make changes over time. The only way to
+strike the right balance between a stable API that doesn’t break, and
+making changes that improve the API is to use API versioning, giving
+users time to transition to a new API. The ALM API is currently at
+version 3, and you indicate the API version in the URL:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;http://alm.plos.org/api/v3/articles?api_key=123&amp;amp;ids=10.1371%2Fjournal.pmed.0020124
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We will retire the old v2 APi that was launched in July 2012 on
+September 15.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_4&quot;&gt;REST is not REST&lt;/h3&gt;
+
+&lt;p&gt;Most modern APIs are REST APIs. But there are many different ways how
+details can be implemented. I am mostly following the &lt;a href=&quot;http://shop.oreilly.com/product/0636920021575.do&quot;&gt;REST API Design
+Rulebook&lt;/a&gt;, and this
+also includes this rule:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;File extensions should not be included in URIs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The ALM API supports both JSON and XML responses, and the format has to
+be specified using the &lt;em&gt;Content-Type&lt;/em&gt; header, defaulting to JSON. I’m
+considering adding a query string such as &lt;strong&gt;&amp;amp;format=xml&lt;/strong&gt; to make it
+easier for web browsers to do content negotiation.&lt;/p&gt;
+
+&lt;p&gt;Another example is returning the &lt;strong&gt;404&lt;/strong&gt; (**Not Found**) status code
+when a resource can’t be found. Mendeley is the only API that the ALM
+application is talking to itself that is also following this
+recommendation, the other APIs return a &lt;strong&gt;200&lt;/strong&gt; (**OK**) status code
+even when they have no information about an article.&lt;/p&gt;
+
+&lt;p&gt;Something that almost never works in my experience is “automatic” REST
+APIs that automatically translate your database model. I very much
+prefer an intermediate layer between model and API (I use
+the &lt;a href=&quot;https://github.com/drapergem/draper&quot;&gt;Draper&lt;/a&gt; decorator and
+the &lt;a href=&quot;https://github.com/nesquena/rabl&quot;&gt;RABL&lt;/a&gt; templating system) that
+lets me decide how I present the information in the API. Another reason
+is the versioning mentioned above: it is much easier to do versioning
+when the API code is not in the model, but in the presentation layer.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_5&quot;&gt;Make your API fast&lt;/h3&gt;
+
+&lt;p&gt;Many factors go into the speed of an API, and I only want to mention
+three things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  speed is important, in particular when looking at metrics for more
+than a handful articles&lt;/li&gt;
+&lt;li&gt;  caching is essential (we use extensive &lt;a href=&quot;http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works&quot;&gt;fragment
+caching&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;  monitoring the performance of your API can help find bottlenecks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We collect the duration of all API requests and display the last 10,000
+graphically using the &lt;a href=&quot;http://d3js.org/&quot;&gt;d3.js&lt;/a&gt; and
+&lt;a href=&quot;http://square.github.io/crossfilter/&quot;&gt;crossfilter&lt;/a&gt; Javascript
+libraries. You can see that a typical request takes 150-300 ms, whereas
+a cached request can be as quick as 10 ms. This tool was very helpful in
+fine-tuning the performance of the API during development.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/duration1.png&quot; alt=&quot;duration&quot;&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_6&quot;&gt; Listen to feedback&lt;/h3&gt;
+
+&lt;p&gt;This is an area where we could do much better. There is a &lt;a href=&quot;https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers&quot;&gt;PLOS API
+mailing list&lt;/a&gt;
+and a &lt;a href=&quot;https://github.com/articlemetrics/alm/issues&quot;&gt;Github issue tracker&lt;/a&gt;, and we would
+love to get feedback in either of these places. Feedback is important,
+as we can’t possible anticipate all the uses of the API.&lt;/p&gt;
+</description>
+                <link>http://articlemetrics.github.io/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api/</link>
+                <guid>http://articlemetrics.github.io/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api</guid>
+                <pubDate>2013-08-22T00:00:00+02:00</pubDate>
+        </item>
+
+        <item>
+                <title>Apples & Oranges – they don’t compare</title>
+                <description>&lt;p&gt;One of the challenges of introducing new metrics to measure the
+scholarly impact of journal articles is that we want these metrics to be
+consistent and reproducible. This task ranges from easy (single
+authoritative source), hard (mediated by middlemen), and very hard
+(multiple sources).  Twitter falls in the last group – there is no
+single, defined set of tweets about a paper as Twitter itself doesn’t
+make old tweets available. But there are multiple ways to get around the
+problem using a plethora of online services (e.g., multiple Twitter
+APIs, Topsy, private, in-house applications, etc.). The second category
+is common amongst ALM providers, including PLOS: we collect citations,
+bookmarks, etc. from CrossRef, Web of Science, Mendeley, etc. and then
+display these numbers next to our journal articles.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/thebusybrain/2492945625/&quot; title=&quot;Apples &amp;amp; Oranges - They Don&amp;#39;t Compare by TheBusyBrain, on Flickr&quot;&gt;&lt;img src=&quot;http://farm3.staticflickr.com/2123/2492945625_e7f1c078b3.jpg&quot; alt=&quot;Apples &amp;amp; Oranges - They Don&amp;#39;t
+Compare&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Apples &amp;amp; Oranges – They don’t Compare. Flickr photo from &lt;a href=&quot;http://www.flickr.com/photos/thebusybrain/2492945625/&quot;&gt;thebusybrain&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Scott Chamberlain from the &lt;a href=&quot;http://ropensci.org&quot;&gt;rOpenSci&lt;/a&gt; project has
+shed light on this problem, analyzing ALM data harvested by each of the
+following four metrics providers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  &lt;a href=&quot;http://www.altmetric.com&quot;&gt;Altmetric.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  &lt;a href=&quot;http://impactstory.org&quot;&gt;ImpactStory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  &lt;a href=&quot;http://www.plumanalytics.com&quot;&gt;Plum Analytics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  PLOS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(rOpenSci is a larger project to provide wrappers for all science APIs
+for the R  statistical programming environment. This includes packages
+that talk to the metrics providers listed above.)&lt;/p&gt;
+
+&lt;p&gt;He compared the following metrics for a single set of 565 papers
+published by PLOS:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Scopus&lt;/li&gt;
+&lt;li&gt;  PLOS usage stats&lt;/li&gt;
+&lt;li&gt;  PubMed Central usage stats&lt;/li&gt;
+&lt;li&gt;  Mendeley&lt;/li&gt;
+&lt;li&gt;  CiteULike&lt;/li&gt;
+&lt;li&gt;  Facebook&lt;/li&gt;
+&lt;li&gt;  Twitter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Scott found that most metrics are similar between providers, but the
+consistency could be better overall:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/chamberlain.png&quot; alt=&quot;A comparison of 7 different metrics from Altmetric.com, ImpactStory
+and PLOS on a set of 20 PLOS DOIs&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;A comparison of 7 different metrics from Altmetric.com, ImpactStory and
+PLOS on a set of 20 PLOS DOIs. Fig. 3 from &lt;a href=&quot;http://dx.doi.org/10.3789/isqv25no2.2013.02&quot;&gt;http://dx.doi.org/10.3789/isqv25no2.2013.02&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;He identified two reasons for these inconsistencies: different
+collection dates and different methods of data collection (most
+prominently for Twitter). To address the disparity, the refresh date
+specifying the last update is critical and should also be accompanied by
+a link to the original data source (ex: Scopus or Mendeley page showing
+citation counts or bookmarks). At the moment, most article-level metrics
+providers, including PLOS, do provide this information when possible
+(ex: CrossRef, Facebook, etc. do not have a reference page for each
+article) .&lt;/p&gt;
+
+&lt;p&gt;Read the full set of findings for more insights on the work ahead for
+this maturing set of metrics, published in Information Standards
+Quarterly last week: &lt;a href=&quot;http://dx.doi.org/10.3789/isqv25no2.2013.02&quot;&gt;Consuming article-level metrics: observations and
+lessons from comparing aggregator provider
+data&lt;/a&gt;. The source code for
+his analysis is available on
+&lt;a href=&quot;https://github.com/SChamberlain/isqaltms&quot;&gt;Github&lt;/a&gt;, and he has written
+a&lt;a href=&quot;http://ropensci.org/blog/2013/08/01/altmetrics/&quot;&gt;blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We as the data providers have to become better in providing consistent
+numbers across providers and, when there’s variance, explain the
+difference. The &lt;a href=&quot;http://article-level-metrics.plos.org/alm-workshop-2013/&quot;&gt;ALM Workshop
+2013&lt;/a&gt; should
+provide that venue as we raise these issues together with the
+community-at-large and collectively identify practices that represent
+good data stewardship.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, we run the risk that all the consumers (of these data) lose
+their appetite for these fresh new fruits and return to old, boring fare
+that only comes in a single citation flavor and is already dried up
+(i.e., at least two years old).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/tusnelda/5747071185/&quot; title=&quot;Have been drying apples today by storebukkebruse, on Flickr&quot;&gt;&lt;img src=&quot;http://farm4.staticflickr.com/3032/5747071185_2d46d1e08c.jpg&quot; alt=&quot;Have been drying apples
+today&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Have been drying apples today. Flickr photo from &lt;a href=&quot;http://www.flickr.com/photos/tusnelda/5747071185/&quot;&gt;tusnelda&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;8/9/13: Updated post to include to blog post by Scott Chamberlain.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_0&quot;&gt;References&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Chamberlain, S&lt;/strong&gt;. (2013). Consuming Article-Level Metrics:
+Observations and Lessons. &lt;em&gt;Information Standards Quarterly&lt;/em&gt;, 25(2), 4.
+National Information Standards Organization.
+doi:&lt;a href=&quot;http://dx.doi.org/10.3789/isqv25no2.2013.02&quot;&gt;10.3789/isqv25no2.2013.02&lt;/a&gt;&lt;/p&gt;
+</description>
+                <link>http://articlemetrics.github.io/2013/08/08/apples-oranges-they-dont-compare/</link>
+                <guid>http://articlemetrics.github.io/2013/08/08/apples-oranges-they-dont-compare</guid>
+                <pubDate>2013-08-08T00:00:00+02:00</pubDate>
+        </item>
+
+        <item>
+                <title>Let’s stop wandering the altmetrics grocery store…</title>
+                <description>&lt;p&gt;As a research community, we have long gone hungry for ways to assess
+research. With journal-based evaluation, we were feeding off of flies –
+perfect for a frog but not enough for a researcher. Today, we have
+entered into the golden era of the Altmetrics Grocery Store, filled with
+a diversity of fresh produce. &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/postaletrice/3194325451/&quot; title=&quot;For All Your Grocery and Hardware Needs: Maison Laurent! (1905) by postaletrice, on Flickr&quot;&gt;&lt;img src=&quot;http://farm4.staticflickr.com/3337/3194325451_e3abfb45b9.jpg&quot; alt=&quot;For All Your Grocery and Hardware
+Needs: Maison Laurent!
+(1905)&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;For All Your Grocery and Hardware Needs: Maison Laurent! (1905). &lt;a href=&quot;http://www.flickr.com/photos/postaletrice/3194325451/&quot;&gt;On
+Flickr&lt;/a&gt;, by Ana y
+Esteban.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The dangers of going shopping when hungry are tried and true. But
+there’s no need to wander the grocery store once you have directions to
+the food you need. We can erect signs in the aisles to figure out where
+to go and what to buy. We can develop standard categories for the
+growing set of altmetrics to give us the &lt;em&gt;right&lt;/em&gt; – i.e., best suited for
+our particular need – measurements of the type of impact for the
+research outputs at hand.&lt;/p&gt;
+
+&lt;p&gt;What is in a &lt;em&gt;category&lt;/em&gt;? First, it would subdivide the metrics into like
+components. Secondly, it would inform the most appropriate use of the
+new metrics in a way that is prudent and apropos to the activity
+captured. And thirdly, the classifications overall provide a cohesive
+structure to think about the whole kit and caboodle.&lt;/p&gt;
+
+&lt;p&gt;As we discuss in the article &lt;em&gt;Altmetrics in Evolution&lt;/em&gt;, &lt;a href=&quot;http://www.niso.org/publications/isq/2013/v25no2/lin/&quot;&gt;published
+Tuesday in Information Standards
+Quarterly&lt;/a&gt;, PLOS
+embarked on an effort to renegotiate all its existing categories used in
+displaying its ALMs and forming the analytic infrastructure that power
+the journals’ navigational tools. Timed with the publication of the
+article, this week we have launched a redesigned metrics tab that uses
+these new categories:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/categories.png&quot; alt=&quot;Redesigned metrics tab for Why Most Published Research Findings Are
+False.&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Redesigned metrics tab for &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pmed.0020124&quot;&gt;Why Most Published Research Findings Are
+False&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;You may have noticed that the renamed categories are the same as those
+&lt;a href=&quot;http://blog.impactstory.org/2012/09/14/31524247207/&quot;&gt;used by
+ImpactStory&lt;/a&gt; with
+one important difference: we feel that we can’t clearly distinguish
+between metrics showing scholarly vs. public impact. But we hope that
+the article (and this blog post) help spark a discussion. Because we
+want to maker it easier for people going into different grocery stores
+to find the stuff they want. Not every store should look the same, but
+maybe we can agree that we find cereals in one aisle and ice cream
+somewhere else.&lt;/p&gt;
+
+&lt;p&gt;The article is part of a &lt;a href=&quot;http://www.niso.org/publications/isq/2013/v25no2/&quot;&gt;special ISQ issue on
+Altmetrics&lt;/a&gt;, with a
+total of five articles on the topic, an
+&lt;a href=&quot;http://www.niso.org/publications/isq/2013/v25no2/fenner/&quot;&gt;editorial&lt;/a&gt; by
+one of us (Martin), and
+a &lt;a href=&quot;http://www.niso.org/publications/isq/2013/v25no2/nr1&quot;&gt;report&lt;/a&gt; about
+the recently announced Sloan Altmetrics grant to NISO. The articles
+touch on a variety of aspects:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Scott Chamberlain: &lt;a href=&quot;http://www.niso.org/publications/isq/2013/v25no2/chamberlain&quot;&gt;Consuming Article-Level Metrics: Observations
+and
+Lessons&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  Robin Chin Roemer and Rachel Borchardt: &lt;a href=&quot;http://www.niso.org/publications/isq/2013/v25no2/roemer/&quot;&gt;Institutional Altmetrics
+and Academic
+Libraries&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  Mike Taylor: &lt;a href=&quot;http://www.niso.org/publications/isq/2013/v25no2/taylor/&quot;&gt;Exploring the Boundaries: How Altmetrics Can Expand
+Our Vision of Scholarly Communication and Social
+Impact&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  William Gunn: &lt;a href=&quot;http://www.niso.org/publications/isq/2013/v25no2/gunn/&quot;&gt;Social Signals Reflect Academic Impact: What it Means
+When a Scholar Adds a Paper to
+Mendeley&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When you are done reading the articles, and are still hungry, head to
+the PLOS ALM website to &lt;a href=&quot;http://article-level-metrics.plos.org/alm-workshop-2013/&quot;&gt;register for the ALM
+workshop&lt;/a&gt; that
+takes place October 10-11 in San Francisco. Because you know that San
+Francisco is famous for its food, and a number of famous chefs have
+already signed up to participate.&lt;/p&gt;
+</description>
+                <link>http://articlemetrics.github.io/2013/08/01/lets-stop-wandering-the-altmetrics-grocery-store/</link>
+                <guid>http://articlemetrics.github.io/2013/08/01/lets-stop-wandering-the-altmetrics-grocery-store</guid>
+                <pubDate>2013-08-01T00:00:00+02:00</pubDate>
         </item>
 
 

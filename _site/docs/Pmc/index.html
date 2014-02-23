@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PubMed Central</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="PubMed Central" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/Pmc/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="PubMed Central"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/status">Status</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home">Home</a></li>
+            <li><a href="/docs/Installation">Installation</a></li>
+            <li><a href="/docs/Setup">Setup</a></li>
+            <li><a href="/docs/Sources">Sources</a></li>
+            <li><a href="/docs/API">API</a></li>
+            <li><a href="/docs/Rake">Rake</a></li>
+            <li><a href="/docs/Alerts">Alerts</a></li>
+            <li><a href="/docs/FAQ">FAQ</a></li>
+            <li><a href="/docs/Roadmap">Roadmap</a></li>
+            <li><a href="/docs/Contributors">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>PubMed Central</h1>
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p><a href="http://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a> is a free full-text archive of biomedical and life sciences journal literature at the U.S. National Institutes of Health&#39;s National Library of Medicine. PubMed Central usage stats are available to publishers of these journal articles. The usage stats are available as individual XML files for a given journal, month and year.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=20%><strong>ALM Name</strong></td>
+<td valign="top" width=80%>pmc</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>id (as doi, pmid and pmcid)</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>none</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>HTTP</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>XML</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>yes</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://www.pubmedcentral.nih.gov/utils/publisher/pmcstat/pmcstat.cgi?year=YEAR&month=MONTH&jrid=JOURNAL&user=USERNAME&password=PASSWORD</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example (excerpt)</h2>
+<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="nt">&lt;pmc-web-stat&gt;</span>
+  <span class="nt">&lt;request</span> <span class="na">year=</span><span class="s">&quot;2013&quot;</span> <span class="na">month=</span><span class="s">&quot;10&quot;</span> <span class="na">jrid=</span><span class="s">&quot;plosbiol&quot;</span> <span class="na">issn=</span><span class="s">&quot;1544-9173&quot;</span> <span class="na">eissn=</span><span class="s">&quot;1545-7885&quot;</span><span class="nt">&gt;&lt;/request&gt;</span>
+  <span class="nt">&lt;response</span> <span class="na">status=</span><span class="s">&quot;0&quot;</span> <span class="na">collection=</span><span class="s">&quot;PLoS Biol&quot;</span><span class="nt">&gt;&lt;/response&gt;</span>
+  <span class="nt">&lt;articles&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;PMC1043859&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;meta-data</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pbio.0030060&quot;</span> <span class="na">pmcid=</span><span class="s">&quot;PMC1043859&quot;</span> <span class="na">pubmed-id=</span><span class="s">&quot;15736975&quot;</span> <span class="na">pub-year=</span><span class="s">&quot;2005&quot;</span> <span class="na">volume=</span><span class="s">&quot;3&quot;</span> <span class="na">issue=</span><span class="s">&quot;4&quot;</span> <span class="na">first-page=</span><span class="s">&quot;e60&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;usage</span> <span class="na">unique-ip=</span><span class="s">&quot;3&quot;</span> <span class="na">full-text=</span><span class="s">&quot;1&quot;</span> <span class="na">pdf=</span><span class="s">&quot;1&quot;</span> <span class="na">abstract=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-summary=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-page-browse=</span><span class="s">&quot;0&quot;</span> <span class="na">figure=</span><span class="s">&quot;4&quot;</span> <span class="na">supp-data=</span><span class="s">&quot;0&quot;</span> <span class="na">cited-by=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;PMC1043860&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;meta-data</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pbio.0030085&quot;</span> <span class="na">pmcid=</span><span class="s">&quot;PMC1043860&quot;</span> <span class="na">pubmed-id=</span><span class="s">&quot;15723116&quot;</span> <span class="na">pub-year=</span><span class="s">&quot;2005&quot;</span> <span class="na">volume=</span><span class="s">&quot;3&quot;</span> <span class="na">issue=</span><span class="s">&quot;3&quot;</span> <span class="na">first-page=</span><span class="s">&quot;e85&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;usage</span> <span class="na">unique-ip=</span><span class="s">&quot;118&quot;</span> <span class="na">full-text=</span><span class="s">&quot;128&quot;</span> <span class="na">pdf=</span><span class="s">&quot;90&quot;</span> <span class="na">abstract=</span><span class="s">&quot;2&quot;</span> <span class="na">scanned-summary=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-page-browse=</span><span class="s">&quot;0&quot;</span> <span class="na">figure=</span><span class="s">&quot;13&quot;</span> <span class="na">supp-data=</span><span class="s">&quot;0&quot;</span> <span class="na">cited-by=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;PMC1043861&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;meta-data</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pbio.0030114&quot;</span> <span class="na">pmcid=</span><span class="s">&quot;PMC1043861&quot;</span> <span class="na">pubmed-id=</span><span class="s">&quot;0&quot;</span> <span class="na">pub-year=</span><span class="s">&quot;2005&quot;</span> <span class="na">volume=</span><span class="s">&quot;3&quot;</span> <span class="na">issue=</span><span class="s">&quot;3&quot;</span> <span class="na">first-page=</span><span class="s">&quot;e114&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;usage</span> <span class="na">unique-ip=</span><span class="s">&quot;4&quot;</span> <span class="na">full-text=</span><span class="s">&quot;4&quot;</span> <span class="na">pdf=</span><span class="s">&quot;0&quot;</span> <span class="na">abstract=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-summary=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-page-browse=</span><span class="s">&quot;0&quot;</span> <span class="na">figure=</span><span class="s">&quot;0&quot;</span> <span class="na">supp-data=</span><span class="s">&quot;0&quot;</span> <span class="na">cited-by=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;PMC1043862&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;meta-data</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pbio.0030122&quot;</span> <span class="na">pmcid=</span><span class="s">&quot;PMC1043862&quot;</span> <span class="na">pubmed-id=</span><span class="s">&quot;15736988&quot;</span> <span class="na">pub-year=</span><span class="s">&quot;2005&quot;</span> <span class="na">volume=</span><span class="s">&quot;3&quot;</span> <span class="na">issue=</span><span class="s">&quot;4&quot;</span> <span class="na">first-page=</span><span class="s">&quot;e122&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;usage</span> <span class="na">unique-ip=</span><span class="s">&quot;1&quot;</span> <span class="na">full-text=</span><span class="s">&quot;1&quot;</span> <span class="na">pdf=</span><span class="s">&quot;1&quot;</span> <span class="na">abstract=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-summary=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-page-browse=</span><span class="s">&quot;0&quot;</span> <span class="na">figure=</span><span class="s">&quot;0&quot;</span> <span class="na">supp-data=</span><span class="s">&quot;0&quot;</span> <span class="na">cited-by=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;PMC1044830&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;meta-data</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pbio.0030063&quot;</span> <span class="na">pmcid=</span><span class="s">&quot;PMC1044830&quot;</span> <span class="na">pubmed-id=</span><span class="s">&quot;15736976&quot;</span> <span class="na">pub-year=</span><span class="s">&quot;2005&quot;</span> <span class="na">volume=</span><span class="s">&quot;3&quot;</span> <span class="na">issue=</span><span class="s">&quot;3&quot;</span> <span class="na">first-page=</span><span class="s">&quot;e63&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;usage</span> <span class="na">unique-ip=</span><span class="s">&quot;29&quot;</span> <span class="na">full-text=</span><span class="s">&quot;25&quot;</span> <span class="na">pdf=</span><span class="s">&quot;6&quot;</span> <span class="na">abstract=</span><span class="s">&quot;7&quot;</span> <span class="na">scanned-summary=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-page-browse=</span><span class="s">&quot;0&quot;</span> <span class="na">figure=</span><span class="s">&quot;0&quot;</span> <span class="na">supp-data=</span><span class="s">&quot;0&quot;</span> <span class="na">cited-by=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;PMC1044831&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;meta-data</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pbio.0030064&quot;</span> <span class="na">pmcid=</span><span class="s">&quot;PMC1044831&quot;</span> <span class="na">pubmed-id=</span><span class="s">&quot;15736977&quot;</span> <span class="na">pub-year=</span><span class="s">&quot;2005&quot;</span> <span class="na">volume=</span><span class="s">&quot;3&quot;</span> <span class="na">issue=</span><span class="s">&quot;3&quot;</span> <span class="na">first-page=</span><span class="s">&quot;e64&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;usage</span> <span class="na">unique-ip=</span><span class="s">&quot;10&quot;</span> <span class="na">full-text=</span><span class="s">&quot;10&quot;</span> <span class="na">pdf=</span><span class="s">&quot;2&quot;</span> <span class="na">abstract=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-summary=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-page-browse=</span><span class="s">&quot;0&quot;</span> <span class="na">figure=</span><span class="s">&quot;0&quot;</span> <span class="na">supp-data=</span><span class="s">&quot;0&quot;</span> <span class="na">cited-by=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;PMC1044832&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;meta-data</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pbio.0030071&quot;</span> <span class="na">pmcid=</span><span class="s">&quot;PMC1044832&quot;</span> <span class="na">pubmed-id=</span><span class="s">&quot;15736978&quot;</span> <span class="na">pub-year=</span><span class="s">&quot;2005&quot;</span> <span class="na">volume=</span><span class="s">&quot;3&quot;</span> <span class="na">issue=</span><span class="s">&quot;3&quot;</span> <span class="na">first-page=</span><span class="s">&quot;e71&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;usage</span> <span class="na">unique-ip=</span><span class="s">&quot;8&quot;</span> <span class="na">full-text=</span><span class="s">&quot;10&quot;</span> <span class="na">pdf=</span><span class="s">&quot;1&quot;</span> <span class="na">abstract=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-summary=</span><span class="s">&quot;0&quot;</span> <span class="na">scanned-page-browse=</span><span class="s">&quot;0&quot;</span> <span class="na">figure=</span><span class="s">&quot;0&quot;</span> <span class="na">supp-data=</span><span class="s">&quot;0&quot;</span> <span class="na">cited-by=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;/articles&gt;</span>
+<span class="nt">&lt;/pmc-web-stat&gt;</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/pmc.rb">here</a>.</p>
+
+<h2 id="toc_2">Further Documentation</h2>
+
+<ul>
+<li><a href="http://www.ncbi.nlm.nih.gov/pmc/about/faq/#q26">PubMed Central usage stats</a></li>
+</ul>
+
+            <hr>
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=PubMed Central
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/Pmc/">
+</span>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

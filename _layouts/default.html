@@ -6,17 +6,24 @@
     <div class="container">
       <div class="page-header">
         <h1>{{ page.title }}</h1>{% if page.title != "Blog" %}
-        <p>{% if page.date %}{{ page.date | date_to_long_string }} by
+        <p class="subtitle">{% if page.date %}{{ page.date | date_to_long_string }} by
           {% if page.authors %}{% for author in page.authors %}
-{% if author.orcid %}<a href="{{author.orcid}}">{{ author.given-names }} {{ author.surname }}</a>{% else %}<a href="mailto:{{ author.email }}">{{ author.given-names }} {{ author.surname }}</a>{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}{% endif %}
+{% if author.orcid %}<a href="{{author.orcid}}">{{ author.given-names }} {{ author.surname }}</a>{% else %}<a href="mailto:{{ author.email }}">{{ author.given-names }} {{ author.surname }}</a>{% endif %}{% if forloop.rindex0 > 1 %}, {% elsif forloop.rindex0 == 1 %} and {% endif %}{% endfor %}{% endif %}{% endif %}
         </p>{% endif %}
       </div>
 
       <div class="content">
-        {{ content }}
-        <hr>
-        {% include coins.html %}
-        {% include comments.html %}
+        <div class="row">
+          <div class="col-md-9">
+            {% if page.title == "Blog" %}<a href="/rss.xml" class="pull-right"><img src="/images/feed-icon-28x28.png"></a>{% endif %}
+            {{ content }}
+            <hr>
+            {% include coins.html %}
+            {% include comments.html %}
+          </div>
+        </div>
+
+
       </div>
     </div> <!-- /container -->
 

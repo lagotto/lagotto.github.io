@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rake</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="Rake" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/Rake/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="Rake"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/status">Status</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home">Home</a></li>
+            <li><a href="/docs/Installation">Installation</a></li>
+            <li><a href="/docs/Setup">Setup</a></li>
+            <li><a href="/docs/Sources">Sources</a></li>
+            <li><a href="/docs/API">API</a></li>
+            <li><a href="/docs/Rake">Rake</a></li>
+            <li><a href="/docs/Alerts">Alerts</a></li>
+            <li><a href="/docs/FAQ">FAQ</a></li>
+            <li><a href="/docs/Roadmap">Roadmap</a></li>
+            <li><a href="/docs/Contributors">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>Rake</h1>
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p>There are several ALM-specific rake tasks that help with administration of the ALM application. They can be listed with the following command:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake -T
+</code></pre></div>
+<p>Depending on your server setup you may have to use <code>bundle exec rake</code> instead of <code>rake</code>.</p>
+
+<h3 id="toc_0">db.rake</h3>
+
+<p>Bulk-load a file consisting of DOIs, one per line. It&#39;ll ignore (but count) invalid ones and those that already exist in the database:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:articles:load &lt;DOI_DUMP
+</code></pre></div>
+<p>Format for import file</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">DOI Date<span class="o">(</span>YYYY-MM-DD<span class="o">)</span> Title
+</code></pre></div>
+<p>The rake task splits on white space for the first two elements, and then takes the rest of the line (title) as one element including any whitespace in the title.</p>
+
+<p>Loads 25 sample articles</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:articles:seed
+</code></pre></div>
+<p>Deletes all articles and associated rows in retrieval_statuses and retrieval_histories. For safety reasons doesn&#39;t work in the production environment.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:articles:delete_all
+</code></pre></div>
+<p>Bulk-load a file consisting of DOIs, one per line. It&#39;ll ignore (but count) invalid DOIs, and will delete all articles with matching DOIs:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:articles:delete &lt;DOI_DUMP
+</code></pre></div>
+<p>Format for import file:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">DOI Date<span class="o">(</span>YYYY-MM-DD<span class="o">)</span> Title
+</code></pre></div>
+<p>The rake task splits on white space for the first two elements, and then takes the rest of the line (title) as one element including any whitespace in the title.</p>
+
+<p>Removes all HTML and XML tags from title field (for legacy data).</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:articles:sanitize_title
+</code></pre></div>
+<p>Isnstall sources. Provide one or more source names as arguments, e.g. <code>rake db:sources:install[pmc]</code> or install all available sources without arguments:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:sources:install
+</code></pre></div>
+<p>Uninstall sources. Provide one or more source names as arguments, e.g. <code>rake db:sources:uninstall[pmc]</code>:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:sources:uninstall
+</code></pre></div>
+<p>Deletes all resolved alerts:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:alerts:delete
+</code></pre></div>
+<p>Delete old API requests (only keep the last 10,000):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:api_requests:delete
+</code></pre></div>
+<p>Delete all resolved API responses older than 24 hours:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake db:api_responses:delete
+</code></pre></div>
+<p>The last three rake tasks should run regularly, and can be set up to run as a daily cron task with <code>bundle exec whenever -w</code>.</p>
+
+<h3 id="toc_1">queue.rake</h3>
+
+<p>Queue all articles</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake queue:all
+</code></pre></div>
+<p>Queue article with given DOI:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake queue:one<span class="o">[</span>DOI<span class="o">]</span>
+</code></pre></div>
+<p>Start job queue</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake queue:start
+</code></pre></div>
+<p>Stop job queue</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake queue:stop
+</code></pre></div>
+<p>By default the rake tasks above run for all sources. Do have them run for one or more specific sources, add the source names as parameters:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake queue:all<span class="o">[</span>mendeley,citeulike<span class="o">]</span>
+</code></pre></div>
+<h3 id="toc_2">pmc.rake</h3>
+
+<p>Import latest PubMed Central usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake pmc:update
+</code></pre></div>
+<p>Import all PubMed Central usage stats since month/year.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake pmc:update<span class="o">[</span>month,year<span class="o">]</span>
+</code></pre></div>
+<h3 id="toc_3">workers.rake</h3>
+
+<p>Start all the workers.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake workers:start_all
+</code></pre></div>
+<p>Stop all the workers.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake workers:stop_all
+</code></pre></div>
+<h3 id="toc_4">filter.rake</h3>
+
+<p>Create alerts by filtering API responses</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake filter:all
+</code></pre></div>
+<p>Unresolve all alerts that have been filtered (e.g. to re-run filters with new settings)</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake filter:unresolve
+</code></pre></div>
+<h3 id="toc_5">mailer.rake</h3>
+
+<p>Send all reports</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake mailer:all
+</code></pre></div>
+<p>Send error report</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake mailer:error_report
+</code></pre></div>
+<p>Send status report</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake mailer:status_report
+</code></pre></div>
+            <hr>
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=Rake
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/Rake/">
+</span>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

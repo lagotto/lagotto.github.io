@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossRef</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="CrossRef" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/Crossref/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="CrossRef"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/status">Status</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home">Home</a></li>
+            <li><a href="/docs/Installation">Installation</a></li>
+            <li><a href="/docs/Setup">Setup</a></li>
+            <li><a href="/docs/Sources">Sources</a></li>
+            <li><a href="/docs/API">API</a></li>
+            <li><a href="/docs/Rake">Rake</a></li>
+            <li><a href="/docs/Alerts">Alerts</a></li>
+            <li><a href="/docs/FAQ">FAQ</a></li>
+            <li><a href="/docs/Roadmap">Roadmap</a></li>
+            <li><a href="/docs/Contributors">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>CrossRef</h1>
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p><a href="http://www.crossref.org">CrossRef</a> is a non-profit organization that enables cross-publisher citation linking of the scholarly literature via Digital Object Identifiers (DOIs). CrossRef member organizations can use the <strong>Cited-by</strong> Linking service that provides basic information about the scholarly literature citing a particular DOI. All other users can use the CrossRef <strong>OpenURL</strong> service which provides citation counts (the `fl_count&#39; attribute), but no information about the citing literature. The ALM application handles both scenarios.</p>
+
+<h3 id="toc_0">Cited-by</h3>
+
+<p>Add your DOI prefix as <code>doi_prefix</code> in <code>config/settings.yml</code>, then add username and password in the CrossRef configuration settings.</p>
+
+<h3 id="toc_1">OpenURL</h3>
+
+<p>For articles that don&#39;t mactch the DOI prefix in <code>config/settings.yml</code>, or when this setting is left empty, the username in the CrossRef configuration settings will be used. You can register for a username <a href="http://www.crossref.org/requestaccount/">here</a>.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>crossref</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>id (as doi)<br/>url (as http://dx.doi.org/DOI)<br/>contributor(s)</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>ISSN<br/>journal title<br/>journal abbreviation<br/>title<br/>volume<br/>issue<br/>first page<br/>year<br/>publication type<br/>citation count</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>XML</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>username and password</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL Cited-By</strong></td>
+<td valign="top" width=80%>http://doi.crossref.org/servlet/getForwardLinks?usr=USERNAME&pwd=PASSWORD&doi=DOI</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL OpenURL</strong></td>
+<td valign="top" width=80%>http://www.crossref.org/openurl/?pid=USERNAME&id=doi:DOI&noredirect=true</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Limitations</strong></td>
+<td valign="top" width=80%>Publication date may be incomplete<br/>No unique identifiers for contributors</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_2">Example Response Cited-By</h2>
+<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;crossref_result</span> <span class="na">version=</span><span class="s">&quot;2.0&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.crossref.org/qrschema/2.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.crossref.org/qrschema/2.0 http://www.crossref.org/qrschema/crossref_query_output2.0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;query_result&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;doi_batch_id&gt;</span>none<span class="nt">&lt;/doi_batch_id&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;forward_link</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pone.0006022&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;journal_cite</span> <span class="na">fl_count=</span><span class="s">&quot;17&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;issn</span> <span class="na">type=</span><span class="s">&quot;print&quot;</span><span class="nt">&gt;</span>0028-0836<span class="nt">&lt;/issn&gt;</span>
+          <span class="nt">&lt;issn</span> <span class="na">type=</span><span class="s">&quot;electronic&quot;</span><span class="nt">&gt;</span>1476-4687<span class="nt">&lt;/issn&gt;</span>
+          <span class="nt">&lt;journal_title&gt;</span>Nature<span class="nt">&lt;/journal_title&gt;</span>
+          <span class="nt">&lt;journal_abbreviation&gt;</span>Nature<span class="nt">&lt;/journal_abbreviation&gt;</span>
+          <span class="nt">&lt;article_title&gt;</span>Metrics: A profusion of measures<span class="nt">&lt;/article_title&gt;</span>
+          <span class="nt">&lt;contributors&gt;</span>
+            <span class="nt">&lt;contributor</span> <span class="na">first-author=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;given_name&gt;</span>Richard<span class="nt">&lt;/given_name&gt;</span>
+              <span class="nt">&lt;surname&gt;</span>Van Noorden<span class="nt">&lt;/surname&gt;</span>
+            <span class="nt">&lt;/contributor&gt;</span>
+          <span class="nt">&lt;/contributors&gt;</span>
+          <span class="nt">&lt;volume&gt;</span>465<span class="nt">&lt;/volume&gt;</span>
+          <span class="nt">&lt;issue&gt;</span>7300<span class="nt">&lt;/issue&gt;</span>
+          <span class="nt">&lt;first_page&gt;</span>864<span class="nt">&lt;/first_page&gt;</span>
+          <span class="nt">&lt;year&gt;</span>2010<span class="nt">&lt;/year&gt;</span>
+          <span class="nt">&lt;publication_type&gt;</span>full_text<span class="nt">&lt;/publication_type&gt;</span>
+          <span class="nt">&lt;doi</span> <span class="na">type=</span><span class="s">&quot;journal_article&quot;</span><span class="nt">&gt;</span>10.1038/465864a<span class="nt">&lt;/doi&gt;</span>
+        <span class="nt">&lt;/journal_cite&gt;</span>
+      <span class="nt">&lt;/forward_link&gt;</span>
+      <span class="nt">&lt;forward_link</span> <span class="na">doi=</span><span class="s">&quot;10.1371/journal.pone.0006022&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;journal_cite</span> <span class="na">fl_count=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;issn</span> <span class="na">type=</span><span class="s">&quot;print&quot;</span><span class="nt">&gt;</span>18788750<span class="nt">&lt;/issn&gt;</span>
+          <span class="nt">&lt;journal_title&gt;</span>World Neurosurgery<span class="nt">&lt;/journal_title&gt;</span>
+          <span class="nt">&lt;journal_abbreviation&gt;</span>World Neurosurgery<span class="nt">&lt;/journal_abbreviation&gt;</span>
+          <span class="nt">&lt;article_title&gt;</span>Finding a Way Through the Scientific Literature: Indexes and Measures<span class="nt">&lt;/article_title&gt;</span>
+          <span class="nt">&lt;contributors&gt;</span>
+            <span class="nt">&lt;contributor</span> <span class="na">first-author=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;given_name&gt;</span>Thomas<span class="nt">&lt;/given_name&gt;</span>
+              <span class="nt">&lt;surname&gt;</span>Jones<span class="nt">&lt;/surname&gt;</span>
+            <span class="nt">&lt;/contributor&gt;</span>
+            <span class="nt">&lt;contributor</span> <span class="na">first-author=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;given_name&gt;</span>Sarah<span class="nt">&lt;/given_name&gt;</span>
+              <span class="nt">&lt;surname&gt;</span>Huggett<span class="nt">&lt;/surname&gt;</span>
+            <span class="nt">&lt;/contributor&gt;</span>
+            <span class="nt">&lt;contributor</span> <span class="na">first-author=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;given_name&gt;</span>Judith<span class="nt">&lt;/given_name&gt;</span>
+              <span class="nt">&lt;surname&gt;</span>Kamalski<span class="nt">&lt;/surname&gt;</span>
+            <span class="nt">&lt;/contributor&gt;</span>
+          <span class="nt">&lt;/contributors&gt;</span>
+          <span class="nt">&lt;volume&gt;</span>76<span class="nt">&lt;/volume&gt;</span>
+          <span class="nt">&lt;issue&gt;</span>1-2<span class="nt">&lt;/issue&gt;</span>
+          <span class="nt">&lt;first_page&gt;</span>36<span class="nt">&lt;/first_page&gt;</span>
+          <span class="nt">&lt;year&gt;</span>2011<span class="nt">&lt;/year&gt;</span>
+          <span class="nt">&lt;publication_type&gt;</span>full_text<span class="nt">&lt;/publication_type&gt;</span>
+          <span class="nt">&lt;doi</span> <span class="na">type=</span><span class="s">&quot;journal_article&quot;</span><span class="nt">&gt;</span>10.1016/j.wneu.2011.01.015<span class="nt">&lt;/doi&gt;</span>
+        <span class="nt">&lt;/journal_cite&gt;</span>
+      <span class="nt">&lt;/forward_link&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/query_result&gt;</span>
+<span class="nt">&lt;/crossref_result&gt;</span>
+</code></pre></div>
+<h2 id="toc_3">Example Response OpenURL</h2>
+<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;crossref_result</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.crossref.org/qrschema/2.0&quot;</span> <span class="na">version=</span><span class="s">&quot;2.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.crossref.org/qrschema/2.0 http://www.crossref.org/schema/queryResultSchema/crossref_query_output2.0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;query_result&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;doi_batch_id&gt;</span>none<span class="nt">&lt;/doi_batch_id&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;query</span> <span class="na">status=</span><span class="s">&quot;resolved&quot;</span> <span class="na">fl_count=</span><span class="s">&quot;49&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;doi</span> <span class="na">type=</span><span class="s">&quot;journal_article&quot;</span><span class="nt">&gt;</span>10.1371/journal.pone.0006022<span class="nt">&lt;/doi&gt;</span>
+        <span class="nt">&lt;issn</span> <span class="na">type=</span><span class="s">&quot;electronic&quot;</span><span class="nt">&gt;</span>1932-6203<span class="nt">&lt;/issn&gt;</span>
+        <span class="nt">&lt;journal_title&gt;</span>PLoS ONE<span class="nt">&lt;/journal_title&gt;</span>
+        <span class="nt">&lt;contributors&gt;</span>
+          <span class="nt">&lt;contributor</span> <span class="na">sequence=</span><span class="s">&quot;first&quot;</span> <span class="na">contributor_role=</span><span class="s">&quot;editor&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;given_name&gt;</span>Thomas<span class="nt">&lt;/given_name&gt;</span>
+            <span class="nt">&lt;surname&gt;</span>Mailund<span class="nt">&lt;/surname&gt;</span>
+          <span class="nt">&lt;/contributor&gt;</span>
+          <span class="nt">&lt;contributor</span> <span class="na">sequence=</span><span class="s">&quot;first&quot;</span> <span class="na">contributor_role=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;given_name&gt;</span>Johan<span class="nt">&lt;/given_name&gt;</span>
+            <span class="nt">&lt;surname&gt;</span>Bollen<span class="nt">&lt;/surname&gt;</span>
+          <span class="nt">&lt;/contributor&gt;</span>
+          <span class="nt">&lt;contributor</span> <span class="na">sequence=</span><span class="s">&quot;additional&quot;</span> <span class="na">contributor_role=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;given_name&gt;</span>Herbert<span class="nt">&lt;/given_name&gt;</span>
+            <span class="nt">&lt;surname&gt;</span>Van de Sompel<span class="nt">&lt;/surname&gt;</span>
+          <span class="nt">&lt;/contributor&gt;</span>
+          <span class="nt">&lt;contributor</span> <span class="na">sequence=</span><span class="s">&quot;additional&quot;</span> <span class="na">contributor_role=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;given_name&gt;</span>Aric<span class="nt">&lt;/given_name&gt;</span>
+            <span class="nt">&lt;surname&gt;</span>Hagberg<span class="nt">&lt;/surname&gt;</span>
+          <span class="nt">&lt;/contributor&gt;</span>
+          <span class="nt">&lt;contributor</span> <span class="na">sequence=</span><span class="s">&quot;additional&quot;</span> <span class="na">contributor_role=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;given_name&gt;</span>Ryan<span class="nt">&lt;/given_name&gt;</span>
+            <span class="nt">&lt;surname&gt;</span>Chute<span class="nt">&lt;/surname&gt;</span>
+          <span class="nt">&lt;/contributor&gt;</span>
+        <span class="nt">&lt;/contributors&gt;</span>
+        <span class="nt">&lt;volume&gt;</span>4<span class="nt">&lt;/volume&gt;</span>
+        <span class="nt">&lt;issue&gt;</span>6<span class="nt">&lt;/issue&gt;</span>
+        <span class="nt">&lt;first_page&gt;</span>e6022<span class="nt">&lt;/first_page&gt;</span>
+        <span class="nt">&lt;year</span> <span class="na">media_type=</span><span class="s">&quot;online&quot;</span><span class="nt">&gt;</span>2009<span class="nt">&lt;/year&gt;</span>
+        <span class="nt">&lt;publication_type&gt;</span>full_text<span class="nt">&lt;/publication_type&gt;</span>
+        <span class="nt">&lt;article_title&gt;</span>A Principal Component Analysis of 39 Scientific Impact Measures<span class="nt">&lt;/article_title&gt;</span>
+      <span class="nt">&lt;/query&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/query_result&gt;</span>
+<span class="nt">&lt;/crossref_result&gt;</span>
+</code></pre></div>
+<h2 id="toc_4">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/cross_ref.rb">here</a>.</p>
+
+<h2 id="toc_5">Further Documentation</h2>
+
+<ul>
+<li><a href="http://www.crossref.org/citedby.html">CrossRef Cited-by Linking</a></li>
+<li><a href="http://help.crossref.org/#using_the_open_url_resolver">CrossRef OpenURL</a></li>
+<li><a href="http://www.crossref.org/requestaccount/">Registration for CrossRef OpenURL account</a></li>
+</ul>
+
+            <hr>
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=CrossRef
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/Crossref/">
+</span>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

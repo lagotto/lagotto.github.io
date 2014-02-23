@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataCite</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="DataCite" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/datacite/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="DataCite"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/status">Status</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home">Home</a></li>
+            <li><a href="/docs/Installation">Installation</a></li>
+            <li><a href="/docs/Setup">Setup</a></li>
+            <li><a href="/docs/Sources">Sources</a></li>
+            <li><a href="/docs/API">API</a></li>
+            <li><a href="/docs/Rake">Rake</a></li>
+            <li><a href="/docs/Alerts">Alerts</a></li>
+            <li><a href="/docs/FAQ">FAQ</a></li>
+            <li><a href="/docs/Roadmap">Roadmap</a></li>
+            <li><a href="/docs/Contributors">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>DataCite</h1>
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p><a href="http://www.datacite.org">DataCite</a> is a DOI registration agency for datasets.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>datacite</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>url (as DOI)<br/>contributor (as creator)</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>title<br/>publisher</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON or XML</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://search.datacite.org/api?q=relatedIdentifier:DOI&fl=relatedIdentifier,doi,creator,title,publisher,publicationYear&fq=is_active:true&fq=has_metadata:true&indent=true</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;responseHeader&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;QTime&quot;</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;numFound&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.5061/DRYAD.8515&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;relatedIdentifier&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;HasPart:DOI:10.5061/DRYAD.8515/1&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;HasPart:DOI:10.5061/DRYAD.8515/2&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;IsReferencedBy:DOI:10.1371/JOURNAL.PPAT.1000446&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;IsReferencedBy:DOI:&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Ollomo, Benjamin&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Durand, Patrick&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Prugnolle, Franck&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Douzery, Emmanuel J. P.&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Arnathau, Céline&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Nkoghe, Dieudonné&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Leroy, Eric&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Renaud, François&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Dryad Digital Repository&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Data from: A new malaria agent in African hominids.&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;publicationYear&quot;</span><span class="p">:</span> <span class="s2">&quot;2011&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/datacite.rb">here</a>.</p>
+
+<h2 id="toc_2">Further Documentation</h2>
+
+<ul>
+<li><a href="http://search.datacite.org/help.html">DataCite Metadata Search</a></li>
+</ul>
+
+            <hr>
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=DataCite
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/datacite/">
+</span>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenEdition</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="OpenEdition" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/Openedition/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="OpenEdition"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/status">Status</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home">Home</a></li>
+            <li><a href="/docs/Installation">Installation</a></li>
+            <li><a href="/docs/Setup">Setup</a></li>
+            <li><a href="/docs/Sources">Sources</a></li>
+            <li><a href="/docs/API">API</a></li>
+            <li><a href="/docs/Rake">Rake</a></li>
+            <li><a href="/docs/Alerts">Alerts</a></li>
+            <li><a href="/docs/FAQ">FAQ</a></li>
+            <li><a href="/docs/Roadmap">Roadmap</a></li>
+            <li><a href="/docs/Contributors">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>OpenEdition</h1>
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p><a href="http://www.openedition.org/">OpenEdition</a> is the umbrella portal for OpenEdition Books, Revues.org, Hypotheses and Calenda, four platforms dedicated to electronic resources in the humanities and social sciences.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>openedition</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>rate-limit: 1000</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>url (as link)<br/>contributor (as creator)<br/>date</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>title<br/>description</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>XML</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>"http://search.openedition.org/feed.php?op%5B%5D=AND&q%5B%5D=URL&field%5B%5D=All&pf=Hypotheses.org"</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="nt">&lt;rdf:RDF</span> <span class="na">xmlns:rdf=</span><span class="s">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://purl.org/rss/1.0/&quot;</span> <span class="na">xmlns:dc=</span><span class="s">&quot;http://purl.org/dc/elements/1.1/&quot;</span> <span class="na">xmlns:dcterms=</span><span class="s">&quot;http://purl.org/dc/terms/&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;channel</span> <span class="na">rdf:about=</span><span class="s">&quot;http%3A%2F%2Fsearch.openedition.org%2Ffeed.php%3Fop%255B%255D%3DAND%26q%255B%255D%3D10.2307%252F683422%26field%255B%255D%3DAll%26pf%3DHypotheses.org&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>10.2307/683422 - Recherche OpenEdition<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Flux RSS de votre recherche: 10.2307/683422<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;link&gt;</span>http://search.openedition.org<span class="nt">&lt;/link&gt;</span>
+    <span class="nt">&lt;items&gt;</span>
+      <span class="nt">&lt;rdf:Seq&gt;</span>
+        <span class="nt">&lt;rdf:li</span> <span class="na">resource=</span><span class="s">&quot;http://ruedesfacs.hypotheses.org/?p=1666&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/rdf:Seq&gt;</span>
+    <span class="nt">&lt;/items&gt;</span>
+  <span class="nt">&lt;/channel&gt;</span>
+  <span class="nt">&lt;item</span> <span class="na">rdf:about=</span><span class="s">&quot;http://ruedesfacs.hypotheses.org/?p=1666&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link&gt;</span>http://ruedesfacs.hypotheses.org/?p=1666<span class="nt">&lt;/link&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Saartjie Baartman : la Vénus Hottentote<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;dc:date&gt;</span>2013-05-27<span class="nt">&lt;/dc:date&gt;</span>
+    <span class="nt">&lt;dc:creator&gt;</span>ruedesfacs<span class="nt">&lt;/dc:creator&gt;</span>
+    <span class="nt">&lt;dcterms:isPartOf</span> <span class="na">rdf:resource=</span><span class="s">&quot;http://ruedesfacs.hypotheses.org&quot;</span><span class="nt">&gt;</span>Rue des facs<span class="nt">&lt;/dcterms:isPartOf&gt;</span>
+    <span class="nt">&lt;description&gt;</span>
+      <span class="cp">&lt;![CDATA[</span>
+<span class="cp">        ... , no 3 (1 septembre 2000): 606 607. doi:&lt;em&gt;10.2307&lt;/em&gt;/&lt;em&gt;683422&lt;/em&gt;. « The Hottentot Venus Is Going Home ». The Journal of Blacks in Higher Education no 35 (1 avril 2002): 63. doi:&lt;em&gt;10.2307&lt;/em&gt;/3133845. Vous trouverez toutes ...</span>
+<span class="cp">      ]]&gt;</span>
+    <span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;/item&gt;</span>
+<span class="nt">&lt;/rdf:RDF&gt;</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/openedition.rb">here</a>.</p>
+
+            <hr>
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=OpenEdition
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/Openedition/">
+</span>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

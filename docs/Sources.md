@@ -5,36 +5,36 @@ title: "Sources"
 The ALM application provides a number of public sources. Most sources require a user account with the service (see table below). The private ALM sources not made available here either use an internal application that is not available via public API (PLOS Usage Stats, PubMed Central Usage Stats, PLOS Biodiversity Hub, Twitter, figshare) or require a contract with the provider (Scopus, Web of Science, F1000).
 
 ### Viewed
-* [PubMed Central Usage Stats](Pmc)
-* [Copernicus](Copernicus)
+* [PubMed Central Usage Stats](/docs/Pmc)
+* [Copernicus](/docs/Copernicus)
 
 ### Discussed
-* [Facebook](Facebook)
-* [Twitter](Twittersearch)
-* [Nature Blogs](Nature)
-* [Research Blogging](Researchblogging)
-* [ScienceSeeker](Scienceseeker)
-* [Wordpress.com](Wordpress)
-* [Wikipedia](Wikipedia)
-* [Reddit](Reddit)
-* [OpenEdition](Openedition)
+* [Facebook](/docs/Facebook)
+* [Twitter](/docs/Twittersearch)
+* [Nature Blogs](/docs/Nature)
+* [Research Blogging](/docs/Researchblogging)
+* [ScienceSeeker](/docs/Scienceseeker)
+* [Wordpress.com](/docs/Wordpress)
+* [Wikipedia](/docs/Wikipedia)
+* [Reddit](/docs/Reddit)
+* [OpenEdition](/docs/Openedition)
 
 ### Saved
-* [CiteULike](Citeulike)
-* [Mendeley](Mendeley)
+* [CiteULike](/docs/Citeulike)
+* [Mendeley](/docs/Mendeley)
 
 ### Cited
-* [CrossRef](Crossref)
-* [PubMed Central Citations](Pubmed)
-* [PMC Europe Citations](PmcEurope)
-* [PMC Europe Database Citations](PmcEuropeData)
+* [CrossRef](/docs/Crossref)
+* [PubMed Central Citations](/docs/Pubmed)
+* [PMC Europe Citations](/docs/PmcEurope)
+* [PMC Europe Database Citations](/docs/PmcEuropeData)
 
 ### Private Sources
-* [PLOS Usage Stats](Counter)
-* [PLOS Figshare Usage Stats](Figshare)
-* [Web of Science](Wos)
-* [Scopus](Scopus)
-* [F1000Prime](F1000)
+* [PLOS Usage Stats](/docs/Counter)
+* [PLOS Figshare Usage Stats](/docs/Figshare)
+* [Web of Science](/docs/Wos)
+* [Scopus](/docs/Scopus)
+* [F1000Prime](/docs/F1000)
 
 Please use the [Issue Tracker](https://github.com/articlemetrics/alm/issues) for questions or feedback regarding sources.
 

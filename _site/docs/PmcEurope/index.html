@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europe PMC</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="Europe PMC" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/PmcEurope/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="Europe PMC"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/status">Status</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home">Home</a></li>
+            <li><a href="/docs/Installation">Installation</a></li>
+            <li><a href="/docs/Setup">Setup</a></li>
+            <li><a href="/docs/Sources">Sources</a></li>
+            <li><a href="/docs/API">API</a></li>
+            <li><a href="/docs/Rake">Rake</a></li>
+            <li><a href="/docs/Alerts">Alerts</a></li>
+            <li><a href="/docs/FAQ">FAQ</a></li>
+            <li><a href="/docs/Roadmap">Roadmap</a></li>
+            <li><a href="/docs/Contributors">Contributors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>Europe PMC</h1>
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p>Europe PubMed Central (<a href="http://europepmc.org/">Europe PMC</a>) is an archive of life sciences journal literature. PMC Europe tracks the citations for a given publication.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=20%><strong>ALM Name</strong></td>
+<td valign="top" width=80%>pmceurope</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>count</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>none</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://www.ebi.ac.uk/europepmc/webservices/rest/MED/PMID/citations/1/json</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;3.0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;hitCount&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;17183631&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;citationList&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;citation&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19749171&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The transient receptor potential vanilloid-1 channel in thermoregulation: a thermosensor it is not.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Romanovsky AA, Almeida MC, Garami A, Steiner AA, Norman MH, Morrison SF, Nakamura K, Burmeister JJ, Nucci TB.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Pharmacol. Rev.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;61&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;228-261&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">31</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19776281&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Parallel preoptic pathways for thermoregulation.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Yoshida K, Li X, Cano G, Lazarus M, Saper CB.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;J. Neurosci.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;29&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;38&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;11954-11964&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">26</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19308318&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;A dynamic reinfection hypothesis of latent tuberculosis infection.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Cardona PJ.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Infection&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;37&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;80-86&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">23</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21196160&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Central neural pathways for thermoregulation.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Morrison SF, Nakamura K.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Front Biosci (Landmark Ed)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;16&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;74-104&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">22</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;20107070&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Contributions of different modes of TRPV1 activation to TRPV1 antagonist-induced hyperthermia.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Garami A, Shimansky YP, Pakai E, Oliveira DL, Gavva NR, Romanovsky AA.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;J. Neurosci.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;1435-1440&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">19</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;17275915&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Leptin: at the crossroads of energy balance and systemic inflammation.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Steiner AA, Romanovsky AA.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Prog. Lipid Res.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2007</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;46&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;89-107&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">16</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21270352&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;2010 Carl Ludwig Distinguished Lectureship of the APS Neural Control and Autonomic Regulation Section: Central neural pathways for thermoregulatory cold defense.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Morrison SF.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;J. Appl. Physiol.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;110&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;1137-1149&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">14</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21116297&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Stress responses: the contribution of prostaglandin E(2) and its receptors.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Furuyashiki T, Narumiya S.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Nat Rev Endocrinol&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;163-175&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">10</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;17927775&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Stress- and lipopolysaccharide-induced c-fos expression and nNOS in hypothalamic neurons projecting to medullary raphe in rats: a triple immunofluorescent labeling study.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Sarkar S, Zaretskaia MV, Zaretsky DV, Moreno M, DiMicco JA.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Eur. J. Neurosci.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2007</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;26&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;2228-2238&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">7</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19949811&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Multiple thermoregulatory effectors with independent central controls.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;McAllen RM, Tanaka M, Ootsuka Y, McKinley MJ.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Eur. J. Appl. Physiol.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;109&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;27-33&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">7</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18413319&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Complete sequence of the floR-carrying multiresistance plasmid pAB5S9 from freshwater Aeromonas bestiarum.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Gordon L, Cloeckaert A, Doublet B, Schwarz S, Bouju-Albert A, Ganiere JP, Le Bris H, Le Fleche-Mateos A, Giraud E.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;J. Antimicrob. Chemother.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;62&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;65-71&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">7</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19252922&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Proliferation of neuronal progenitor cells and neuronal differentiation in the hypothalamus are enhanced in heat-acclimated rats.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Matsuzaki K, Katakura M, Hara T, Li G, Hashimoto M, Shido O.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Pflugers Arch.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;458&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;661-673&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">7</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19515980&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Cyclooxygenase-1 or -2--which one mediates lipopolysaccharide-induced hypothermia?&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Steiner AA, Hunter JC, Phipps SM, Nucci TB, Oliveira DL, Roberts JL, Scheck AC, Simmons DL, Romanovsky AA.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Am. J. Physiol. Regul. Integr. Comp. Physiol.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;297&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;R485-94&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">5</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18617624&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nicotine administration and withdrawal affect survival in systemic inflammation models.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Steiner AA, Oliveira DL, Roberts JL, Petersen SR, Romanovsky AA.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;J. Appl. Physiol.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;105&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;1028-1034&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">5</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18386391&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The preoptic anterior hypothalamic area mediates initiation of the hypotensive response induced by LPS in male rats.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Yilmaz MS, Millington WR, Feleder C.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Shock&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;29&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;232-237&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">4</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;20393159&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Food deprivation alters thermoregulatory responses to lipopolysaccharide by enhancing cryogenic inflammatory signaling via prostaglandin D2.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Krall CM, Yao X, Hass MA, Feleder C, Steiner AA.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Am. J. Physiol. Regul. Integr. Comp. Physiol.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;298&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;R1512-21&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">2</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;20416284&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Estrogen in the medial preoptic nucleus of the hypothalamus modulates cold responses in female rats.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Uchida Y, Tokizawa K, Nakamura M, Mori H, Nagashima K.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Brain Res.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;1339&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;49-59&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">2</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22389645&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Central control of brown adipose tissue thermogenesis.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Morrison SF, Madden CJ, Tupone D.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Front Endocrinol (Lausanne)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2012</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">2</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18686574&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The oasis effect: response of birds to exurban development in a southwestern savanna.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Bock CE, Jones ZF, Bock JH.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Ecol Appl&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;18&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;1093-1106&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19937527&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Characterization of an intravenous lipopolysaccharide inflammation model in broiler chickens.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;De Boever S, Croubels S, Meyer E, Sys S, Beyaert R, Ducatelle R, De Backer P.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Avian Pathol.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2009</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;38&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;403-411&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21113688&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Efficient expression from one CMV enhancer controlling two core promoters.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Andersen CR, Nielsen LS, Baer A, Tolstrup AB, Weilguny D.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Mol. Biotechnol.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;48&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;128-137&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21142998&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Real behavior in virtual environments: psychology experiments in a simple virtual-reality paradigm using video games.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Kozlov MD, Johansen MK.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;Cyberpsychol Behav Soc Netw&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;711-714&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22823405&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;A novel hierarchical clustering algorithm for gene sequences.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Wei D, Jiang Q, Wei Y, Wang S.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalAbbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;BMC Bioinformatics&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="mi">2012</span><span class="p">,</span>
+        <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;174&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/pmc_europe.rb">here</a>.</p>
+
+<h2 id="toc_2">API Documentation</h2>
+
+<ul>
+<li><a href="http://europepmc.org/RestfulWebService">PMC Europe RESTful Web Service</a></li>
+</ul>
+
+            <hr>
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=Europe PMC
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/PmcEurope/">
+</span>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

@@ -2,13 +2,13 @@
 layout: post
 title: "Research findings: going deeper than the article"
 authors:
+ - surname: Lin
+   given-names: Jennifer
+   email: jlin@plos.org
  - surname: Fenner
    given-names: Martin
    orcid: http://orcid.org/0000-0003-1419-2405
    email: mfenner@plos.org
- - surname: Lin
-   given-names: Jennifer
-   email: jlin@plos.org
 ---
 
 We have recently released two new Article-Level Metrics (ALM) data
