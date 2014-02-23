@@ -17,9 +17,12 @@
           <div class="col-md-9">
             {% if page.title == "Blog" %}<a href="/rss.xml" class="pull-right"><img src="/images/feed-icon-28x28.png"></a>{% endif %}
             {{ content }}
-            <hr>
+
             {% include coins.html %}
-            {% include comments.html %}
+            {% if page.id %}
+              <hr>
+              {% include comments.html %}
+            {% endif %}
             <hr>
             {% include footer.html %}
           </div>
