@@ -7965,14 +7965,14 @@ body {
 }
 
 /* line 248, ../../app/assets/stylesheets/alm.css.scss */
-.table .number {
+.table .number, th.number, td.number {
   text-align: right;
-  width: 180px;
+  width: 150px;
 }
 
 /* line 249, ../../app/assets/stylesheets/alm.css.scss */
 .table .name {
-  width: 300px;
+  width: 250px;
 }
 
 /* line 250, ../../app/assets/stylesheets/alm.css.scss */
