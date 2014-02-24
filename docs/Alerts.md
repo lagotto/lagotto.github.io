@@ -18,7 +18,7 @@ The number of error messages received in the last 24 hours is reported in variou
 
 Since ALM 2.9 we not only collect errors messages, but also other unusual activities, and have therefore renamed error messages to alerts. Also since ALM 2.9 alerts are also shown next to the articles they belong to. This makes it easier to resolve errors.
 
-![Article Alert](alert-article.png)
+![Article Alert](/docs/alert-article.png)
 
 ## Filters
 
@@ -32,7 +32,7 @@ Filters are used to detect unusual actiivty in the data collected from external 
 
 The last filter detects milestones reached by articles, all other filters listed here detect errors with the application. Some filters can be configured, and all filters can be disabled.
 
-![Filters](filters.png)
+![Filters](/docs/filters.png)
 
 Filters are relatively easy to write, so please create a Github issue if you have an idea for a new filter. A daily report is then sent out to all admin and staff users who have signed up for this report in their account profile. The report only contains summary information.
 

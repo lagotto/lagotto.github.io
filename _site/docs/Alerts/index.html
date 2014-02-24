@@ -58,16 +58,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">ALM</a>
+      <a class="navbar-brand" href="#">ALM</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/about">About</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/examples">Examples</a></li>
-        <li><a href="/status">Status</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Introduction</a></li>
+            <li><a href="/metrics">Metrics</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/plos">Public Library of Science</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/docs/Home">Home</a></li>
             <li><a href="/docs/Installation">Installation</a></li>
@@ -81,6 +90,9 @@
             <li><a href="/docs/Contributors">Contributors</a></li>
           </ul>
         </li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/status">Status</a></li>
       </ul>
     </div>
   </div>
@@ -114,7 +126,7 @@
 
 <p>Since ALM 2.9 we not only collect errors messages, but also other unusual activities, and have therefore renamed error messages to alerts. Also since ALM 2.9 alerts are also shown next to the articles they belong to. This makes it easier to resolve errors.</p>
 
-<p><img src="alert-article.png" alt="Article Alert"></p>
+<p><img src="/docs/alert-article.png" alt="Article Alert"></p>
 
 <h2 id="toc_2">Filters</h2>
 
@@ -130,7 +142,7 @@
 
 <p>The last filter detects milestones reached by articles, all other filters listed here detect errors with the application. Some filters can be configured, and all filters can be disabled.</p>
 
-<p><img src="filters.png" alt="Filters"></p>
+<p><img src="/docs/filters.png" alt="Filters"></p>
 
 <p>Filters are relatively easy to write, so please create a Github issue if you have an idea for a new filter. A daily report is then sent out to all admin and staff users who have signed up for this report in their account profile. The report only contains summary information.</p>
 
@@ -196,13 +208,13 @@
             <hr>
             <footer class="footer" role="contentinfo">
   <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
 
   <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
 
   <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe>
+  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
 
   <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
   Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>

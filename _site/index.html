@@ -3,12 +3,12 @@
     <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>About Article-Level Metrics</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Martin Fenner" />
 
     <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Home" />
+    <meta property="dc:title" content="About Article-Level Metrics" />
     <meta property="dc:creator" content="" />
     <meta name="citation_publication_date" content=""/>
     <meta property="dc:format" content="text/html" />
@@ -22,7 +22,7 @@
     <!-- Google Scholar Metadata -->
     <meta name="citation_author" content=""/>
     <meta name="citation_publication_date" content=""/>
-    <meta name="citation_title" content="Home"/>
+    <meta name="citation_title" content="About Article-Level Metrics"/>
     <meta name="citation_journal_title" content="Article-Level Metrics"/>
 
     <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
@@ -58,16 +58,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">ALM</a>
+      <a class="navbar-brand" href="#">ALM</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/about">About</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/examples">Examples</a></li>
-        <li><a href="/status">Status</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Introduction</a></li>
+            <li><a href="/metrics">Metrics</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/plos">Public Library of Science</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/docs/Home">Home</a></li>
             <li><a href="/docs/Installation">Installation</a></li>
@@ -81,13 +90,16 @@
             <li><a href="/docs/Contributors">Contributors</a></li>
           </ul>
         </li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/status">Status</a></li>
       </ul>
     </div>
   </div>
 </nav>
     <div class="container">
       <div class="page-header">
-        <h1>Home</h1>
+        <h1>About Article-Level Metrics</h1>
         <p class="subtitle">
         </p>
       </div>
@@ -96,30 +108,42 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p>The Ruby on Rails application Article-Level Metrics (ALM) was started in March 2009 by the Open Access publisher <a href="http://www.plos.org/">Public Library of Science (PLOS)</a>. It allows a user to aggregate relevant performance data on research articles, including how often an article has been vited, cited, saved, discussed and recommended. We’re continuing to expand the Article-Level Metrics application because we believe that articles should be considered on their own merits, and that the impact of an individual article should not be determined by the journal in which it happened to be published. As a result, we hope that new ways of measuring and evaluating research quality (or ‘impact’) can and will evolve. To learn more about Article-Level Metrics, see the <a href="http://www.sparc.arl.org/resource/sparc-article-level-metrics-primer">SPARC ALM primer</a>.</p>
+            <!-- this page provides information on the following:
+- full description of what ALMs are
+- summary of ALM application as a data harvester
+- range of article activity captured through the 5 categories
+-->
 
-<img src="/images/usage.png" alt="Usage">
-<p><em>From: Fenner M, Lin J (2013). Altmetrics in Evolution: Defining &amp; Redefining the Ontology of Article-Level Metrics. <a href="http://dx.doi.org/10.3789/isqv25no2.2013.04">http://dx.doi.org/10.3789/isqv25no2.2013.04</a>.</em></p>
+<h2 id="toc_0">ALM</h2>
 
-<h2>For Users</h2>
-
-<p>As a user you will typically see Article-Level Metrics displayed on journal pages or in specialized web applications. You can sign up with your <a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a> account here if you want direct access to the underlying data - this will give you an API key for <a href="/docs/API">API access</a> and will alert you when the monthly summary stats are available for download. The online documentation gives detailed instructions on how data from external <a href="/docs/Sources">sources</a> are collected.</p>
-
-<h2>For Publishers and Providers</h2>
-
-<p>To facilitate the dissemination of Article-Level Metrics, PLOS has made this application available as Open Source software under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 license</a>. Detailed instructions on how to <a href="/docs/Installation">install</a> and <a href="/docs/Setup">setup</a> the ALM application are available in the documentation, and the installation and setup can be done in under an hour.</p>
-
-<p>The following organizations have implemented Article-Level Metrics using the Open Source ALM application:</p>
+<p>Traditionally, the impact of research articles has been measured by the publication journal. But a more informative view is one that examines the overall performance and reach of the articles themselves. Article-Level Metrics capture the manifold ways in which research is disseminated and used, including:</p>
 
 <ul>
-<li><a href="http://article-level-metrics.plos.org/">Public Library of Science (PLOS)</a></li>
-<li><a href="http://publications.copernicus.org/services/article_level_metrics.html">Copernicus Publications</a></li>
-<li><a href="http://pkp.sfu.ca/pkp-launches-article-level-metrics-for-ojs-journals/">Public Knowledge Project (PKP)</a></li>
+<li>viewed</li>
+<li>shared</li>
+<li>discussed</li>
+<li>cited</li></li>
+<li>recommended.</li>
 </ul>
 
-<h2>For Developers</h2>
+<p>Each of the metrics fall under one of these activities. But as an entire set, they paint a comprehensive portrait of the overall footprint of how the scholarly and public are engaging with the research.</p></p>
 
-<p>We always welcome feedback and code contributions, and we have a growing list of <a href="/docs/Contributors">contributors</a>. For technical questions regarding the Article-Level Metrics application, visit the <a href="https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers">PLOS API Developers Google Group</a> or use the <a href="https://github.com/articlemetrics/alm/issues">Github issue tracker</a>.</p>
+<p><img src="/images/usage.png" alt="Usage"></p>
+
+<p><em>From: Fenner M, Lin J (2013). Altmetrics in Evolution: Defining &amp; Redefining the Ontology of Article-Level Metrics. <a href="http://dx.doi.org/10.3789/isqv25no2.2013.04">http://dx.doi.org/10.3789/isqv25no2.2013.04</a>.</em></p>
+
+<p>ALM offer a dynamic and real-time view of the latest activity. Researchers can stay up-to-date with their published work and share information about the impact of their publications with collaborators, funders, institutions, and the research community at large. These metrics are also a powerful way to navigate and discover others’ work. They can be customized based on the unique needs of researchers, publishers, institutional decision-makers, and funders.</p>
+
+<h2 id="toc_1">ALM Application</h2>
+
+<p>The ALM application collects and aggregates the data from external sources where article activity is occurring. It was developed in 2009 as an open source application by PLOS. To date, the community of <a href="/docs/Contributors">contributors to the application</a> has rapidly grown as more publishers and other providers are implementing the system.</p>
+
+<p>The application retrieves data from a wide set of services (<a href="/docs/Sources">sources</a>). Some of these sources represent the actual channels where users are directly viewing, sharing, discussing, citing, recommending the articles (e.g., Twitter and Mendeley). Others are third-party vendors which provide this information (e.g., CrossRef for citations). All data is fetched via an API from the sources. Each source has a unique set of specifications for query volume, frequency, and speed. In order to ensure that the metrics reflect the latest activity, we queue each article for every source to be refreshed based upon its publication date and the upper thresholds for each source. The system then programmatically harvests data for each article and each source at its appointed time.</p>
+
+<p>The platform contains a default set of public sources, available for all with a user account. Publishers and providers have also implemented additional private sources either because the sources either use an internal application, which is not available via public API (journal usage stats, figshare usage, journal comments, etc.) or require a contract with the provider (Scopus, Web of Science, F1000). Additional sources (public or private) can be easily configured to extend the collection of article activity.</p>
+
+<p>The ALM application automatically monitors the harvest of successfully returned data, query errors, elevated counts that are flagged as suspicious. The system surfaces potential issues for investigation on the administrative dashboard as well as through email notifications. It also contains a basic set of reporting tools for article statistics, source status, errors, etc.</p>
+
 
             <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
 <span
@@ -127,7 +151,7 @@
   title="ctx_ver=Z39.88-2004
   &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
   &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Home
+  &amp;rft.title=About Article-Level Metrics
   &amp;rft.creator=
   &amp;rft.date=
   &amp;rft.language=EN
@@ -139,13 +163,13 @@
             <hr>
             <footer class="footer" role="contentinfo">
   <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
 
   <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
 
   <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe>
+  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
 
   <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
   Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>

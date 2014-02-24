@@ -5,11 +5,12 @@ title: "Public Library of Science (PLOS)"
 
 <!--insert live graph of the sources and number of articles with at least one event-->
 
-At PLOS, we believe that research articles should primarily be judged on their individual merits, rather than on the basis of the journal in which they were published. In March 2009, we inaugurated a program to provide Article-Level Metrics (ALM) on every article across all journals. Article-Level Metrics (ALMs) capture the manifold ways in which research is disseminated and can help users determine the value of an article to them and to their scientific community. The regularly updated data include the following metrics:</p>
+<p>At PLOS, we believe that research articles should primarily be judged on their individual merits, rather than on the basis of the journal in which they were published. In March 2009, we inaugurated a program to provide Article-Level Metrics (ALM) on every article across all journals. Article-Level Metrics (ALMs) capture the manifold ways in which research is disseminated and can help users determine the value of an article to them and to their scientific community. The regularly updated data include the following metrics:</p>
 
+<!--insert image of PLOS ALM SUITE, added to Images folder-->
 <img src="/images/plos_alm.png">
 
-The article metrics are made available rapidly after publication and are continually updated. Each source captures different behaviors and thus its natural activity will vary by time (i.e., publication age) and research area of the article. Further discussion of known limitations to individual metrics is detailed in the <a href="#knownIssues">section below</a>.
+<p> The article metrics are made available rapidly after publication and are continually updated. Each source captures different behaviors and thus its natural activity will vary by time (i.e., publication age) and research area of the article. Further discussion of known limitations to individual metrics is detailed in the <a href="#knownIssues">section below</a>.</p>
 
 <!--<p>PLOS is committed to the open provision of these metrics; we encourage researchers to investigate and analyze them in new and interesting ways. Therefore, the entire dataset of all ALMs are made available as a summary Excel file. This file will be updated monthly. We also provide an <a href="#">API and accompanying documentation</a> for the automatic retrieval of the full set of ALM data. </p>
 -->
@@ -104,17 +105,17 @@ For each service, the count reflects the number of blog articles which have disc
 <h4>Views-downloads ratio</h4>
 <p>Though the research community engages with the article in numerous ways, the most basic mode is article access ("Usage").  The views-downloads ratio gives readers a view into the level of engagement on this particular dimension, based on the premise that a PDF download denotes expanded consideration of an article.  We divide the HTML views by the PDF downloads to arrive at the percentage of views leading to a download. This ratio automatically normalizes articles by article age. In the event that an external link points directly to an article's PDF download, readers will arrive at the PDF download without creating an imprint on the HTML page. This occurrence will slightly inflate the proportion of downloads and lead to a lower views-downloads ratio.</p>
 
-<h4>Average Usage</h4>
-<p>The average usage calculation is a proximate measure of how a paper's total usage compares to the overall usage of a group of related papers.  We define this reference set based on likeness across two dimensions, subject area and age, and then calculate the average from the usage count amongst this group.  We use the median as the measure for central tendency.</p>
+#### Average Usage
 
-<p>We group articles based on age so as to control for large-scale institutional changes in reader behavior over time.  We then group based on the seed article's subject matter, using its first and second level subject categories based on user selection.  From this reference set of related papers, we calculate the average usage on a month-by-month basis.  In this fashion, month X usage of the focal article is compared directly to the average usage for month X usage of all papers in its cohort and controls for the small variations in publication age amongst this set.  Results are displayed as a line overlaid on the historical cumulative usage chart of the seed article.</p>
+The average usage calculation is a proximate measure of how a paper's total usage compares to the overall usage of a group of related papers.  We define this reference set based on likeness across two dimensions, subject area and age, and then calculate the average from the usage count amongst this group.  We use the median as the measure for central tendency.
+
+We group articles based on age so as to control for large-scale institutional changes in reader behavior over time.  We then group based on the seed article's subject matter, using its first and second level subject categories based on user selection.  From this reference set of related papers, we calculate the average usage on a month-by-month basis.  In this fashion, month X usage of the focal article is compared directly to the average usage for month X usage of all papers in its cohort and controls for the small variations in publication age amongst this set.  Results are displayed as a line overlaid on the historical cumulative usage chart of the seed article.
 
 #### Considerations
 
 The context provided in the average usage is limited to the PLOS corpus as usage data is not widely available beyond PLOS journals at the moment.  We begin displaying the average usage three months after an article's publication date to ensure there is sufficient data to compute a summary statistic.  Due to the average usage methodological design, which groups articles based on publication year, an article may display a curtailed line depending on its publication date relative to the calendar year.  Younger articles will reach a point in which they have been fully calculated and no longer have data to contribute to the monthly calculation.  We cease to calculate the average usage at the point in which the first article drops out of the reference set.  In the event that a reference set does not meet the minimum size for statistical significance (less than 25 articles) or usage data availability disruptions occur for an article in the reference set, the average usage is not computed.  In the former, we suppress the subject category so that it is does not appear as a selection item.  This situation may arise in certain niche subject areas that are not frequently covered.   In the latter, the average usage line will be displayed up to the point in which such event occurs.
 
 ## Discontinued metrics
-
 PLOS no longer collects data from the following discontinued services:
 
 * Postgenomic
