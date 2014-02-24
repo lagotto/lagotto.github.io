@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Let’s stop wandering the altmetrics grocery store…"
+category: blog
 authors:
  - surname: Lin
    given-names: Jennifer

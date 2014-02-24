@@ -1,0 +1,18 @@
+---
+layout: default
+title: Examples
+---
+
+Source code and source data (if not retrieved via live API call) are included with all examples.
+
+{% for post in site.categories.examples %}
+  <h3 class="post_list"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_string }}</small></h3>
+  {{ post.excerpt }}
+  {% unless post.tags == empty %}
+  <ul class="tag_box inline tag_list">
+    <li><span class="glyphicon glyphicon-tags"></span></li>
+    {% assign tags_list = post.tags %}
+    {% include tags_list %}
+  </ul>
+{% endunless %}
+{% endfor %}

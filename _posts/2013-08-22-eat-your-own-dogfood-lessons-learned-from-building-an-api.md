@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Eat your own dogfood: lessons learned from building an API"
+category: blog
 authors:
  - surname: Fenner
    given-names: Martin

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Article-Level Metrics – Learning to Walk, Run & Do Algebra"
+category: blog
 authors:
  - surname: Lin
    given-names: Jennifer

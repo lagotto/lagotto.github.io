@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Research findings: going deeper than the article"
+category: blog
 authors:
  - surname: Lin
    given-names: Jennifer

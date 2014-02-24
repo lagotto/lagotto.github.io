@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ALM Data Challenge: Metrics for a Standard Set of DOIs"
+category: blog
 authors:
  - surname: Fenner
    given-names: Martin

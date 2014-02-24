@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Apples & Oranges – they don’t compare"
+category: blog
 authors:
  - surname: Fenner
    given-names: Martin

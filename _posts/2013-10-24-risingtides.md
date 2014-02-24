@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Rising Tides & the Open Horizon for ALM"
+category: blog
 authors:
  - surname: Lin
    given-names: Jennifer

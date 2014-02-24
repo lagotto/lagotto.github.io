@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Announcing the release of ALM 2.9 – now with more errors"
+category: blog
 authors:
  - surname: Fenner
    given-names: Martin

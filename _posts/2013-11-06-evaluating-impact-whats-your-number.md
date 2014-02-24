@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Evaluating Impact: What’s your number?"
+category: blog
 authors:
  - surname: Fenner
    given-names: Martin

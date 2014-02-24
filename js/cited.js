@@ -1,5 +1,5 @@
 var data;
-var api_key = d3.select("h2#example3").attr('data-api_key');
+var api_key = d3.select("p#example3").attr('data-api_key');
 var query = "http://alm.plos.org/api/v5/articles?api_key=" + api_key;
 query += "&order=wikipedia&source=wikipedia&q=dinosaur";
 
