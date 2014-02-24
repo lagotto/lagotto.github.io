@@ -4,7 +4,7 @@
  <title>Article-Level Metrics</title>
  <link href="http://articlemetrics.github.io/atom.xml" rel="self"/>
  <link href="http://articlemetrics.github.io"/>
- <updated>2014-02-24T14:52:35+01:00</updated>
+ <updated>2014-02-24T20:37:30+01:00</updated>
  <id>http://articlemetrics.github.io</id>
  
  <author>
@@ -14,6 +14,81 @@
  </author>
 
 
+ 
+ <entry>
+   <title>One Step Closer to Article-Level Metrics openly available for all Scholarly Content</title>
+   <link href="http://articlemetrics.github.io/blog/2014/02/24/alms/"/>
+   <updated>2014-02-24T00:00:00+01:00</updated>
+   <id>http://articlemetrics.github.io/blog/2014/02/24/alms</id>
+   <content type="html">&lt;p&gt;Since PLOS embarked on the Article-Level Metrics (ALM) work in 2009, we
+have always imagined a future in which ALMs would be freely available
+regardless of publisher. Metrics would be compiled to facilitate
+comparisons between articles and add even greater value to the scholarly
+community.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/doge-300x300.jpeg&quot; alt=&quot;doge&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;PLOS built the ALM application to handle our own substantial publishing
+enterprise, and it has been running well for us for almost exactly 5
+years now. We made the &lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;ALM software available as open source
+software&lt;/a&gt; in 2011, and last year
+a number of &lt;a href=&quot;http://blogs.plos.org/plos/2013/10/even-more-journals-display-alms/&quot;&gt;publishers have started to use the ALM
+software&lt;/a&gt;
+for their own journals. As more publishers are expressing interest in
+collecting and displaying the data, as well as the ongoing efforts to
+discuss altmetrics standards and best practices, in particular the &lt;a href=&quot;http://www.niso.org/topics/tl/altmetrics_initiative/&quot;&gt;NISO
+Altmetrics
+Initiative&lt;/a&gt;, we
+have seen the discussion shift from WHAT (are ALMs and should we
+care) to HOW (can we implement ALM)?&lt;/p&gt;
+
+&lt;p&gt;As part of this increased interest in ALM we today are launching the
+&lt;a href=&quot;http://articlemetrics.github.io/&quot;&gt;ALM community site&lt;/a&gt;. This site
+contains a lot of content previously available in a number of separate
+places, and we plan to add more content in the coming months. We like
+the &lt;a href=&quot;http://articlemetrics.github.io/examples/&quot;&gt;Examples&lt;/a&gt; section which
+showcases ALM visualizations of done with d3.js and R, with source code
+and data openly available to make it easier for people to get started
+using ALM data.&lt;/p&gt;
+
+&lt;p&gt;With the launch of the CrossRef Labs ALM application
+&lt;a href=&quot;http://crosstech.crossref.org/2014/02/many-metrics-such-data-wow.html&quot;&gt;today&lt;/a&gt;,
+we get another big step closer to that goal. For the first time, the
+latest ALMs will be available for journal articles and other content
+items (books chapters, data, theses, technical reports) from thousands
+of scholarly and professional publishers around the globe. The
+publications span the entire spectrum of scholarly research, including
+life sciences, physical sciences, humanities, social science, etc. As
+this CrossRef Labs experiment is just getting started, it will take a
+couple of months to begin collecting data for the 11 million+
+publications from 2010 onwards, currently included. But there’s no need
+to wait until then. We encourage everyone to start using the data that
+has already been harvested, which is expanding to cover more of
+CrossRef’s collection on a daily basis. All data are freely available
+&lt;a href=&quot;http://alm.labs.crossref.org/articles&quot;&gt;online&lt;/a&gt; or via
+&lt;a href=&quot;http://alm.labs.crossref.org/docs/API&quot;&gt;API&lt;/a&gt; for customized, bulk
+requests.&lt;/p&gt;
+
+&lt;p&gt;We invite everyone across the scholarly research ecosystem –
+researchers, bibliometricians, institutions, funders, librarians,
+technology providers, etc. – to think big with us. Now that we have
+systematic data about the activity surrounding research publications,
+how do we turn it into useful information for discovery and evaluation?
+This is a work in progress, not yet a formal service. But the launch of
+the ALM application by CrossRef Labs is a monumental step towards making
+ALMs an underlying and integral part of the infrastructure that supports
+the research process and facilitates its progress.&lt;/p&gt;
+
+&lt;p&gt;When testing out the CrossRef Labs ALM application, please keep in mind
+that this a lab experiment. Not only are there some differences in the
+available data sources for a variety of reasons, but the number of
+articles managed by the CrossRef Labs ALM application is larger by
+orders of magnitude. So please be patient as you try out this new
+resource. As an open source project, it is under active development, so
+look out for continued improvements and new types of article activity
+soon coming.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Most cited PLOS articles on Wikipedia with Dinosaur in the title</title>

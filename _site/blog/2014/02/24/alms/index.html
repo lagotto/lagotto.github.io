@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Step Closer to Article-Level Metrics openly available for all Scholarly Content</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="One Step Closer to Article-Level Metrics openly available for all Scholarly Content" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content="2014-02-24T00:00:00+01:00"/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/blog/2014/02/24/alms/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content="Jennifer Lin"/>
+    <meta name="citation_author" content="Martin Fenner"/>
+    <meta name="citation_publication_date" content="2014-02-24"/>
+    <meta name="citation_title" content="One Step Closer to Article-Level Metrics openly available for all Scholarly Content"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Introduction</a></li>
+            <li><a href="/metrics">Metrics</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/plos">Public Library of Science</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home">Home</a></li>
+            <li><a href="/docs/Installation">Installation</a></li>
+            <li><a href="/docs/Setup">Setup</a></li>
+            <li><a href="/docs/Sources">Sources</a></li>
+            <li><a href="/docs/API">API</a></li>
+            <li><a href="/docs/Rake">Rake</a></li>
+            <li><a href="/docs/Alerts">Alerts</a></li>
+            <li><a href="/docs/FAQ">FAQ</a></li>
+            <li><a href="/docs/Roadmap">Roadmap</a></li>
+            <li><a href="/docs/Contributors">Contributors</a></li>
+          </ul>
+        </li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/status">Status</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>One Step Closer to Article-Level Metrics openly available for all Scholarly Content</h1>
+        <p class="subtitle">24 February 2014 by
+          
+<a href="mailto:jlin@plos.org">Jennifer Lin</a> and 
+<a href="http://orcid.org/0000-0003-1419-2405">Martin Fenner</a>
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p>Since PLOS embarked on the Article-Level Metrics (ALM) work in 2009, we
+have always imagined a future in which ALMs would be freely available
+regardless of publisher. Metrics would be compiled to facilitate
+comparisons between articles and add even greater value to the scholarly
+community.</p>
+
+<p><img src="/images/doge-300x300.jpeg" alt="doge"></p>
+
+<p>PLOS built the ALM application to handle our own substantial publishing
+enterprise, and it has been running well for us for almost exactly 5
+years now. We made the <a href="https://github.com/articlemetrics/alm">ALM software available as open source
+software</a> in 2011, and last year
+a number of <a href="http://blogs.plos.org/plos/2013/10/even-more-journals-display-alms/">publishers have started to use the ALM
+software</a>
+for their own journals. As more publishers are expressing interest in
+collecting and displaying the data, as well as the ongoing efforts to
+discuss altmetrics standards and best practices, in particular the <a href="http://www.niso.org/topics/tl/altmetrics_initiative/">NISO
+Altmetrics
+Initiative</a>, we
+have seen the discussion shift from WHAT (are ALMs and should we
+care) to HOW (can we implement ALM)?</p>
+
+<p>As part of this increased interest in ALM we today are launching the
+<a href="http://articlemetrics.github.io/">ALM community site</a>. This site
+contains a lot of content previously available in a number of separate
+places, and we plan to add more content in the coming months. We like
+the <a href="http://articlemetrics.github.io/examples/">Examples</a> section which
+showcases ALM visualizations of done with d3.js and R, with source code
+and data openly available to make it easier for people to get started
+using ALM data.</p>
+
+<p>With the launch of the CrossRef Labs ALM application
+<a href="http://crosstech.crossref.org/2014/02/many-metrics-such-data-wow.html">today</a>,
+we get another big step closer to that goal. For the first time, the
+latest ALMs will be available for journal articles and other content
+items (books chapters, data, theses, technical reports) from thousands
+of scholarly and professional publishers around the globe. The
+publications span the entire spectrum of scholarly research, including
+life sciences, physical sciences, humanities, social science, etc. As
+this CrossRef Labs experiment is just getting started, it will take a
+couple of months to begin collecting data for the 11 million+
+publications from 2010 onwards, currently included. But there’s no need
+to wait until then. We encourage everyone to start using the data that
+has already been harvested, which is expanding to cover more of
+CrossRef’s collection on a daily basis. All data are freely available
+<a href="http://alm.labs.crossref.org/articles">online</a> or via
+<a href="http://alm.labs.crossref.org/docs/API">API</a> for customized, bulk
+requests.</p>
+
+<p>We invite everyone across the scholarly research ecosystem –
+researchers, bibliometricians, institutions, funders, librarians,
+technology providers, etc. – to think big with us. Now that we have
+systematic data about the activity surrounding research publications,
+how do we turn it into useful information for discovery and evaluation?
+This is a work in progress, not yet a formal service. But the launch of
+the ALM application by CrossRef Labs is a monumental step towards making
+ALMs an underlying and integral part of the infrastructure that supports
+the research process and facilitates its progress.</p>
+
+<p>When testing out the CrossRef Labs ALM application, please keep in mind
+that this a lab experiment. Not only are there some differences in the
+available data sources for a variety of reasons, but the number of
+articles managed by the CrossRef Labs ALM application is larger by
+orders of magnitude. So please be patient as you try out this new
+resource. As an open source project, it is under active development, so
+look out for continued improvements and new types of article activity
+soon coming.</p>
+
+
+
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=One Step Closer to Article-Level Metrics openly available for all Scholarly Content
+  &amp;rft.creator=
+  &amp;rft.date=2014-02-24
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/blog/2014/02/24/alms/">
+</span>
+
+            
+              <hr>
+              <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+            
+            <hr>
+            <footer class="footer" role="contentinfo">
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
+
+  <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
+  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
+</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
