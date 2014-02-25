@@ -46,6 +46,7 @@ http://articlemetrics.github.io/status/
 http://articlemetrics.github.io/tags/
 http://articlemetrics.github.io/blog/page2/
 
+http://articlemetrics.github.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia/
 http://articlemetrics.github.io/blog/2014/02/24/alms/
 http://articlemetrics.github.io/examples/2014/02/23/most-cited-plos-articles-on-wikipedia-with-dinosaur-in-the-title/
 http://articlemetrics.github.io/examples/2014/02/23/html-views-and-pdf-downloads-over-time/

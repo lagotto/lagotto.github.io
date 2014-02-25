@@ -3,17 +3,17 @@
     <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Most cited PLOS articles on Wikipedia with Dinosaur in the title</title>
+    <title>Most cited 2014 articles on Wikipedia</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Martin Fenner" />
 
     <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Most cited PLOS articles on Wikipedia with Dinosaur in the title" />
+    <meta property="dc:title" content="Most cited 2014 articles on Wikipedia" />
     <meta property="dc:creator" content="" />
-    <meta name="citation_publication_date" content="2014-02-23T00:00:00+01:00"/>
+    <meta name="citation_publication_date" content="2014-02-25T00:00:00+01:00"/>
     <meta property="dc:format" content="text/html" />
     <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/examples/2014/02/23/most-cited-plos-articles-on-wikipedia-with-dinosaur-in-the-title/" />
+    <meta property="dc:identifier" content="/examples/2014/02/25/most-cited-2014-articles-on-wikipedia/" />
     <meta property="dc:rights" content="CC-BY" />
     <meta property="dc:source" content="Article-Level Metrics" />
     <meta property="dc:subject" content="Scholarly Communication" />
@@ -21,8 +21,8 @@
 
     <!-- Google Scholar Metadata -->
     <meta name="citation_author" content="Martin Fenner"/>
-    <meta name="citation_publication_date" content="2014-02-23"/>
-    <meta name="citation_title" content="Most cited PLOS articles on Wikipedia with Dinosaur in the title"/>
+    <meta name="citation_publication_date" content="2014-02-25"/>
+    <meta name="citation_title" content="Most cited 2014 articles on Wikipedia"/>
     <meta name="citation_journal_title" content="Article-Level Metrics"/>
 
     <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
@@ -99,8 +99,8 @@
 </nav>
     <div class="container">
       <div class="page-header">
-        <h1>Most cited PLOS articles on Wikipedia with Dinosaur in the title</h1>
-        <p class="subtitle">23 February 2014 by
+        <h1>Most cited 2014 articles on Wikipedia</h1>
+        <p class="subtitle">25 February 2014 by
           
 <a href="http://orcid.org/0000-0003-1419-2405">Martin Fenner</a>
         </p>
@@ -110,23 +110,23 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p id="example" data-api_key="Cyr783ZiaqNNe4ysByfj">Although we need access to the article metadata for complex queries, we can retrieve a set of most-recent or most-cited articles via the ALM API. Data generated live from <a href="http://alm.plos.org">alm.plos.org</a>.</p>
+            <p id="example" data-api_key="64aJra4M7NPHVAWxxCZ5">Although we need access to the article metadata for complex queries, we can retrieve a set of most-recent or most-cited articles via the ALM API. The following Wikipedias were covered: English, Dutch, German, Swedish and French. Data generated live from <a href="http://alm.labs.crossref.org">alm.labs.crossref.org</a>.</p>
 
 <div id="example"></div>
 
-<script src="/js/cited.js"></script>
+<script src="/js/cited2.js"></script>
 
 <h3 id="toc_0">Source code</h3>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">data</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">api_key</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;p#example3&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-api_key&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="s2">&quot;http://alm.plos.org/api/v5/articles?api_key=&quot;</span> <span class="o">+</span> <span class="nx">api_key</span><span class="p">;</span>
-<span class="nx">query</span> <span class="o">+=</span> <span class="s2">&quot;&amp;order=wikipedia&amp;source=wikipedia&amp;q=dinosaur&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">api_key</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;p#example&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-api_key&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="s2">&quot;http://alm.labs.crossref.org/api/v5/articles?api_key=&quot;</span> <span class="o">+</span> <span class="nx">api_key</span><span class="p">;</span>
+<span class="nx">query</span> <span class="o">+=</span> <span class="s2">&quot;&amp;order=wikipedia&quot;</span><span class="p">;</span>
 
 <span class="nx">d3</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">data</span> <span class="o">=</span> <span class="nx">json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">];</span>
 
   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;div#example3&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;div#example&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;alert alert-info&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;No articles found&quot;</span><span class="p">);</span>
@@ -139,18 +139,18 @@
   <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">article</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 
-    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;div#example3&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;h4&quot;</span><span class="p">)</span>
+    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;div#example&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;h4&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;article&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;http://alm.plos.org/articles/info:doi/&quot;</span> <span class="o">+</span> <span class="nx">article</span><span class="p">[</span><span class="s2">&quot;doi&quot;</span><span class="p">];</span> <span class="p">})</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;http://alm.labs.crossref.org/articles/info:doi/&quot;</span> <span class="o">+</span> <span class="nx">article</span><span class="p">[</span><span class="s2">&quot;doi&quot;</span><span class="p">];</span> <span class="p">})</span>
       <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">article</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]);</span>
-    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;div#example3&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
+    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;div#example&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">iso8601ToDate</span><span class="p">(</span><span class="nx">article</span><span class="p">[</span><span class="s2">&quot;publication_date&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;. &quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;http://dx.doi.org/&quot;</span> <span class="o">+</span> <span class="nx">article</span><span class="p">[</span><span class="s2">&quot;doi&quot;</span><span class="p">];</span> <span class="p">})</span>
       <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;http://dx.doi.org/&quot;</span> <span class="o">+</span> <span class="nx">article</span><span class="p">[</span><span class="s2">&quot;doi&quot;</span><span class="p">]);</span>
-    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;div#example3&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
+    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;div#example&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">signpostsToString</span><span class="p">(</span><span class="nx">article</span><span class="p">));</span>
   <span class="p">};</span>
 
@@ -198,12 +198,12 @@
   title="ctx_ver=Z39.88-2004
   &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
   &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Most cited PLOS articles on Wikipedia with Dinosaur in the title
+  &amp;rft.title=Most cited 2014 articles on Wikipedia
   &amp;rft.creator=
-  &amp;rft.date=2014-02-23
+  &amp;rft.date=2014-02-25
   &amp;rft.language=EN
   &amp;rft.rights=CC0
-  &amp;rft_id=http://articlemetrics.github.io/examples/2014/02/23/most-cited-plos-articles-on-wikipedia-with-dinosaur-in-the-title/">
+  &amp;rft_id=http://articlemetrics.github.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia/">
 </span>
 
             
