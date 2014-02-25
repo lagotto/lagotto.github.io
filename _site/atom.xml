@@ -4,7 +4,7 @@
  <title>Article-Level Metrics</title>
  <link href="http://articlemetrics.github.io/atom.xml" rel="self"/>
  <link href="http://articlemetrics.github.io"/>
- <updated>2014-02-25T12:17:22+01:00</updated>
+ <updated>2014-02-25T12:32:29+01:00</updated>
  <id>http://articlemetrics.github.io</id>
  
  <author>
@@ -20,7 +20,7 @@
    <link href="http://articlemetrics.github.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia/"/>
    <updated>2014-02-25T00:00:00+01:00</updated>
    <id>http://articlemetrics.github.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia</id>
-   <content type="html">&lt;p id=&quot;example&quot; data-api_key=&quot;64aJra4M7NPHVAWxxCZ5&quot;&gt;Although we need access to the article metadata for complex queries, we can retrieve a set of most-recent or most-cited articles via the ALM API. The following Wikipedias were covered: English, Dutch, German, Swedish and French. Data generated live from &lt;a href=&quot;http://alm.labs.crossref.org&quot;&gt;alm.labs.crossref.org&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p id=&quot;example&quot; data-api_key=&quot;64aJra4M7NPHVAWxxCZ5&quot;&gt;Although we need access to the article metadata for complex queries, we can retrieve a set of most-recent or most-cited articles via the ALM API. The following Wikipedias were covered: English, Dutch, German, Swedish and French. This is not a complete set of 2014 articles, and some articles were published in 2013. Data generated live from &lt;a href=&quot;http://alm.labs.crossref.org&quot;&gt;alm.labs.crossref.org&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
 

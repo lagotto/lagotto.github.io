@@ -10,7 +10,7 @@ authors:
    email: mfenner@plos.org
 ---
 
-<p id="example" data-api_key="64aJra4M7NPHVAWxxCZ5">Although we need access to the article metadata for complex queries, we can retrieve a set of most-recent or most-cited articles via the ALM API. The following Wikipedias were covered: English, Dutch, German, Swedish and French. Data generated live from <a href="http://alm.labs.crossref.org">alm.labs.crossref.org</a>.</p>
+<p id="example" data-api_key="64aJra4M7NPHVAWxxCZ5">Although we need access to the article metadata for complex queries, we can retrieve a set of most-recent or most-cited articles via the ALM API. The following Wikipedias were covered: English, Dutch, German, Swedish and French. This is not a complete set of 2014 articles, and some articles were published in 2013. Data generated live from <a href="http://alm.labs.crossref.org">alm.labs.crossref.org</a>.</p>
 
 <div id="example"></div>
 
