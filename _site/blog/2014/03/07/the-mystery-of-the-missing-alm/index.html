@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mystery of the Missing ALM</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="The Mystery of the Missing ALM" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content="2014-03-07T00:00:00+01:00"/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/blog/2014/03/07/the-mystery-of-the-missing-alm/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content="Martin Fenner"/>
+    <meta name="citation_author" content="Jennifer Lin"/>
+    <meta name="citation_publication_date" content="2014-03-07"/>
+    <meta name="citation_title" content="The Mystery of the Missing ALM"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Introduction</a></li>
+            <li><a href="/metrics">Metrics</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/plos">Public Library of Science</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/Home">Home</a></li>
+            <li><a href="/docs/Installation">Installation</a></li>
+            <li><a href="/docs/Setup">Setup</a></li>
+            <li><a href="/docs/Sources">Sources</a></li>
+            <li><a href="/docs/API">API</a></li>
+            <li><a href="/docs/Rake">Rake</a></li>
+            <li><a href="/docs/Alerts">Alerts</a></li>
+            <li><a href="/docs/FAQ">FAQ</a></li>
+            <li><a href="/docs/Roadmap">Roadmap</a></li>
+            <li><a href="/docs/Contributors">Contributors</a></li>
+          </ul>
+        </li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/status">Status</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>The Mystery of the Missing ALM</h1>
+        <p class="subtitle">07 March 2014 by
+          
+<a href="http://orcid.org/0000-0003-1419-2405">Martin Fenner</a> and 
+<a href="mailto:jlin@plos.org">Jennifer Lin</a>
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p><em>What is ten years old and has 1.2 billion interactions a day?</em></p>
+
+<p>No, it’s not the Large Hadron Collider. Nor is it a philosophical
+riddle, but rather a commonly known fact in the tech world (<a href="http://mashable.com/2014/02/04/facebook-too-big-to-fail/">news
+here</a>).
+Facebook, the largest social network, is bigger than LinkedIn, Twitter,
+and Google+ – combined. At the same time, it is largely absent in the
+scholarly communications conversations, which focus on Twitter and
+Mendeley.</p>
+
+<p>Facebook is seen by many as a social network for private and
+semi-private conversations while most public discussions around
+scholarly communication take place on Twitter. Certainly, we see
+Facebook activity for PLOS papers which have more mainstream appeal. But
+this circumstance does not reveal the bigger picture, and may yet veil
+the wider view:</p>
+
+<p><img src="/images/barplot_january_2014.png" alt="barplot\_january\_2014"></p>
+
+<p>In fact, one out of every three of articles published last year was
+commented on, liked or shared in Facebook. That number is far greater
+than the number of <a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0029797">the world’s tiny
+frogs</a>,
+which would fit in the <a href="http://dirtyboss.net/wp/wp-content/uploads/2013/03/Paedophryne-amauensis.jpg">palm of a
+hand</a>. For
+this reason, it has emerged as one of the most important Article-Level
+Metrics (ALM) data sources over the past couple of years. The combined
+number of Facebook comments, likes and shares is far higher than the
+number of tweets, about 750,000 vs. about 200,000 for all PLOS articles
+(not just 2013). And yet its presence has largely gone unnoticed.</p>
+
+<p>Due in part to its absence in the community’s conversations, much less
+is actually known about the nature of Facebook usage with scholarly
+research.  For example, we see that Facebook activity seems to correlate
+with traffic to the PLOS website in our corpus, rather than to PubMed
+Central.  (One caveat: we collect Facebook activity for URLs pointing to
+the PLOS website, but we do not capture the links to the article version
+that resides in PMC).</p>
+
+<p><img src="/images/facebook_usage.png" alt="facebook\_usage"></p>
+
+<p>Out of these patterns, Facebook emerges as a valuable data source,
+especially with respect to the ongoing question of public versus
+scholarly interest in PLOS articles. The <a href="http://alm.plos.org/articles?order=facebook">most popular PLOS articles on
+Facebook</a> also reveal the
+kinds of content (and the paper titles) of interest to Facebook users.</p>
+
+<p>Facebook is also under-appreciated amongst the data providers. From a
+technical perspective, the challenge is that its data quality relies
+heavily on the practices of publishers to make their content compatible
+with all other systems in the broader digital environment.</p>
+
+<p>Facebook works great as a data source when it works.  It has an open API
+that is fast, unrestricted by tough rate-limits frequently levied by
+others to ensure up-to-date data even in large corpuses, and comes
+equipped with <a href="https://developers.facebook.com/docs/reference/fql/link_stat/">good
+documentation</a> and
+tool support for developers. Furthermore, Facebook nicely understands
+that all the different URLs pointing to an article – the DOI, the
+publisher journal page, any intermediary pages –  are the same object,
+which means that the data provider only needs to provide a single DOI to
+the Facebook API to retrieve activity counts for all instantiations of
+the article in one fell swoop. For low volume calls this even works
+without API key:</p>
+
+<blockquote>
+<p><a href="https://api.facebook.com/method/fql.query?format=json&amp;query=select%20url,like_count,comment_count,share_count,total_count%20from%20link_stat%20where%20url%20=%20&#x27;http://dx.doi.org/10.1371%2Fjournal.pone.0084896&#x27;">https://api.facebook.com/method/fql.query?format=json&amp;query=select
+url,like count,comment count,share count,total count from link_stat
+where url =
+‘http://dx.doi.org/10.1371%2Fjournal.pone.0084896′</a></p>
+</blockquote>
+
+<p>As of January 2013, Facebook transitioned to using a <a href="https://support.google.com/webmasters/answer/139066?hl=en">canonical
+URL</a> in
+their systems. PLOS encountered this change in Facebook’s methods when
+we noticed aberrant counts and investigated the elevated numbers. We
+have shared what we learned in
+the<a href="http://articlemetrics.github.io/docs/Facebook/"> documentation</a> found
+on the new ALM community website about how the ALM application collects
+Facebook metrics. Later in 2013 we found that while the requirement for
+the canonical URL is automatically satisfied by many websites, meta
+tags **link rel=canonical** and **property og:url** ensure that
+different URLs are recognized as pointing to the same page.</p>
+
+<p>As Google and Facebook, along with an increasing number of web services,
+employ similar methods in collecting and organizing content pulled
+across the internet based on the canonical URL, we see a set of best
+practices emerging for producers of this content – publishers alike – to
+make sure that it is accessible not only to their human readers but
+machine consumers as well.</p>
+
+<p>Facebook provides a nice <a href="https://developers.facebook.com/tools/debug">Debugger
+Page</a> to test URLs to
+confirm that their content complies. Every publisher (or anyone else)
+can input a DOI into the service, and then see what canonical URL
+Facebook will use and whether it generates any errors. Some of the
+problems we have seen include:</p>
+
+<ul>
+<li>  pages that require human intervention (e.g. to accept a cookie or to
+click on one of two choices)</li>
+<li>  journal pages that use <strong>link rel=canonical</strong>wrong, usually linking
+to a page from where users are redirected somewhere else</li>
+<li>  indefinite redirect loops</li>
+<li>  journal pages that are human-readable, but send back an “access not
+allowed” status</li>
+</ul>
+
+<p>All these examples confuse Facebook robots (and likely Google ones as
+well) such that they cannot accurately collect metrics for a page. While
+we did not systematically investigate this across other websites, it is
+clear this is not a small problem given the aberrations encountered in
+our initial investigations. Luckily the fix is easy and probably in
+every publisher’s interest, as this not only improves the quality of the
+Facebook numbers, but probably affects how people can find the journal
+article using Google and other search engines, as well.</p>
+
+<p>The only workaround for getting metrics from publishers where the
+canonical URL is broken is to use a different Facebook API. Facebook
+also provides an API to public wall posts that include a link to an
+article. The advantage of this API is that we don’t need to worry about
+canonical URLs and can get the text of the public wall post. and not
+just numbers for comments, likes and shares. The big disadvantage is
+that the numbers retrieved are only a small subset of the total Facebook
+activity around an article.</p>
+
+<p>We believe that canonical URLs have become standard practice not just
+for users of Google and Facebook, but have evolved as a best practice
+that is also relevant to scholarly publishers and article-level metrics.</p>
+
+
+
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=The Mystery of the Missing ALM
+  &amp;rft.creator=
+  &amp;rft.date=2014-03-07
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/blog/2014/03/07/the-mystery-of-the-missing-alm/">
+</span>
+
+            
+              <hr>
+              <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+            
+            <hr>
+            <footer class="footer" role="contentinfo">
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
+
+  <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
+  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
+</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
