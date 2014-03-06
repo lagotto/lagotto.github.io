@@ -35,7 +35,7 @@ In fact, one out of every three of articles published last year was
 commented on, liked or shared in Facebook. That number is far greater
 than the number of [the world’s tiny
 frogs](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0029797),
-which would fit in the [palm of a hand](http://dirtyboss.net/wp/wp-content/uploads/2013/03/Paedophryne-amauensis.jpg).For this reason, it has emerged as one of the most important Article-Level
+which would fit in the [palm of a hand](http://dirtyboss.net/wp/wp-content/uploads/2013/03/Paedophryne-amauensis.jpg). For this reason, it has emerged as one of the most important Article-Level
 Metrics (ALM) data sources over the past couple of years. The combined
 number of Facebook comments, likes and shares is far higher than the
 number of tweets, about 750,000 vs. about 200,000 for all PLOS articles
