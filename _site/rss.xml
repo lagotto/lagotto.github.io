@@ -5,8 +5,8 @@
         <description>Article-Level Metrics - Article-Level Metrics - Alternative Measures to Gauge the Impact of Research</description>
         <link>http://articlemetrics.github.iorss.xml</link>
         <link>http://articlemetrics.github.io</link>
-        <lastBuildDate>2014-03-07T00:34:50+01:00</lastBuildDate>
-        <pubDate>2014-03-07T00:34:50+01:00</pubDate>
+        <lastBuildDate>2014-03-07T00:47:57+01:00</lastBuildDate>
+        <pubDate>2014-03-07T00:47:57+01:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -35,9 +35,7 @@ the wider view:&lt;/p&gt;
 commented on, liked or shared in Facebook. That number is far greater
 than the number of &lt;a href=&quot;http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0029797&quot;&gt;the world’s tiny
 frogs&lt;/a&gt;,
-which would fit in the &lt;a href=&quot;http://dirtyboss.net/wp/wp-content/uploads/2013/03/Paedophryne-amauensis.jpg&quot;&gt;palm of a
-hand&lt;/a&gt;. For
-this reason, it has emerged as one of the most important Article-Level
+which would fit in the &lt;a href=&quot;http://dirtyboss.net/wp/wp-content/uploads/2013/03/Paedophryne-amauensis.jpg&quot;&gt;palm of a hand&lt;/a&gt;.For this reason, it has emerged as one of the most important Article-Level
 Metrics (ALM) data sources over the past couple of years. The combined
 number of Facebook comments, likes and shares is far higher than the
 number of tweets, about 750,000 vs. about 200,000 for all PLOS articles
@@ -93,7 +91,7 @@ the&lt;a href=&quot;http://articlemetrics.github.io/docs/Facebook/&quot;&gt; do
 on the new ALM community website about how the ALM application collects
 Facebook metrics. Later in 2013 we found that while the requirement for
 the canonical URL is automatically satisfied by many websites, meta
-tags **link rel=canonical** and **property og:url** ensure that
+tags &amp;quot;link rel=canonical&amp;quot; and &amp;quot;property og:url&amp;quot; ensure that
 different URLs are recognized as pointing to the same page.&lt;/p&gt;
 
 &lt;p&gt;As Google and Facebook, along with an increasing number of web services,
@@ -113,7 +111,7 @@ problems we have seen include:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;  pages that require human intervention (e.g. to accept a cookie or to
 click on one of two choices)&lt;/li&gt;
-&lt;li&gt;  journal pages that use &lt;strong&gt;link rel=canonical&lt;/strong&gt;wrong, usually linking
+&lt;li&gt;  journal pages that use &lt;strong&gt;link rel=canonical&lt;/strong&gt; wrong, usually linking
 to a page from where users are redirected somewhere else&lt;/li&gt;
 &lt;li&gt;  indefinite redirect loops&lt;/li&gt;
 &lt;li&gt;  journal pages that are human-readable, but send back an “access not

@@ -11,6 +11,7 @@ authors:
    given-names: Jennifer
    email: jlin@plos.org
 ---
+
 *What is ten years old and has 1.2 billion interactions a day?*
 
 No, it’s not the Large Hadron Collider. Nor is it a philosophical
@@ -34,9 +35,7 @@ In fact, one out of every three of articles published last year was
 commented on, liked or shared in Facebook. That number is far greater
 than the number of [the world’s tiny
 frogs](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0029797),
-which would fit in the [palm of a
-hand](http://dirtyboss.net/wp/wp-content/uploads/2013/03/Paedophryne-amauensis.jpg). For
-this reason, it has emerged as one of the most important Article-Level
+which would fit in the [palm of a hand](http://dirtyboss.net/wp/wp-content/uploads/2013/03/Paedophryne-amauensis.jpg).For this reason, it has emerged as one of the most important Article-Level
 Metrics (ALM) data sources over the past couple of years. The combined
 number of Facebook comments, likes and shares is far higher than the
 number of tweets, about 750,000 vs. about 200,000 for all PLOS articles
@@ -90,7 +89,7 @@ the[ documentation](http://articlemetrics.github.io/docs/Facebook/) found
 on the new ALM community website about how the ALM application collects
 Facebook metrics. Later in 2013 we found that while the requirement for
 the canonical URL is automatically satisfied by many websites, meta
-tags **link rel=canonical** and **property og:url** ensure that
+tags "link rel=canonical" and "property og:url" ensure that
 different URLs are recognized as pointing to the same page.
 
 As Google and Facebook, along with an increasing number of web services,
@@ -109,7 +108,7 @@ problems we have seen include:
 
 -   pages that require human intervention (e.g. to accept a cookie or to
     click on one of two choices)
--   journal pages that use **link rel=canonical**wrong, usually linking
+-   journal pages that use **link rel=canonical** wrong, usually linking
     to a page from where users are redirected somewhere else
 -   indefinite redirect loops
 -   journal pages that are human-readable, but send back an “access not
