@@ -23,7 +23,7 @@ discussion on the role of altmetrics in evaluating scientific research,
 we offer our views from a historical perspective.
 
 ![Flickr photo by
-[szczel](http://www.flickr.com/photos/57976131@N00/4489011281/).](/images/number_17.jpg) In the last few decades,
+[szczel](http://www.flickr.com/photos/57976131@N00/4489011281/).](/assets/number_17.jpg) In the last few decades,
 research has grown from an activity of a
 relative small number of academics working alone or in small groups into
 a large-scale operation that involves large numbers of people and money.
@@ -58,7 +58,7 @@ began to rely on external peer review to help make decisions sometime
 around this era as well.
 
 ![Flickr photo by
-[LEOL30](http://www.flickr.com/photos/49968232@N00/7804231764/)](/images/number_6.jpg) Peer review
+[LEOL30](http://www.flickr.com/photos/49968232@N00/7804231764/)](/assets/number_6.jpg) Peer review
 does not *measure*the quality of research but rather is a
 subjective evaluation aimed at a specific end, whether it be journal
 publication or proposed grant award decision-making. In the best case,
@@ -82,7 +82,7 @@ error-prone, biased, and expensive method by which to assess merit*.
 ### II. … And then bibliometrics enters…
 
 ![Flickr photo by
-[magannie](http://www.flickr.com/photos/24453920@N00/214486419/)](/images/number_3003.jpg) To overcome
+[magannie](http://www.flickr.com/photos/24453920@N00/214486419/)](/assets/number_3003.jpg) To overcome
 the subjectivity and other limitations of peer review, we
 increasingly began to use bibliometrics such as citation counts in the
 1970s. As quality of research cannot be directly measured, bibliometrics

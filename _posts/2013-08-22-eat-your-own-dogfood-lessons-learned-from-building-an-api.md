@@ -60,7 +60,7 @@ application to make it easier to use, e.g. with the documentation for
 the PubMed API right next to the PubMed configuration tab. You also see
 the documentation when you sign up for an API key (see below).
 
-![documentation](/images/documentation.png)
+![documentation](/assets/documentation.png)
 
 ### Make it simple to sign up for an API key
 
@@ -80,7 +80,7 @@ articles](http://blogs.plos.org/everyone/2013/07/31/new-customized-plos-one-emai
 or to make article comments (we are using the
 [CAS](http://www.jasig.org/cas) protocol for this).
 
-![login](/images/login.png)
+![login](/assets/login.png)
 
 For other organizations installing the ALM software we provide two other
 options: [Mozilla
@@ -89,7 +89,7 @@ OAuth](http://developer.github.com/v3/oauth/). Persona doesn’t require
 any configuration and is very straightforward to use, Github OAuth is
 nice since many API users probably already have a Github account.
 
-![persona](/images/persona.png)
+![persona](/assets/persona.png)
 
 ### Version your API
 
@@ -151,7 +151,7 @@ libraries. You can see that a typical request takes 150-300 ms, whereas
 a cached request can be as quick as 10 ms. This tool was very helpful in
 fine-tuning the performance of the API during development.
 
-![duration](/images/duration1.png)
+![duration](/assets/duration1.png)
 
 ### Listen to feedback
 

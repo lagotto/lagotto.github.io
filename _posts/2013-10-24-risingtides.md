@@ -26,7 +26,7 @@ institutions, funders, technology providers, etc.
 ![Robert N. Dennis collection of stereoscopic views. / United States. /
 States / Rhode Island. / Stereoscopic views, possibly of Newport, Rhode
 Island, or vicinity.
-](/images/View_of_the_boats_in_the_ocean_from_Robert_N._Dennis_collection_of_stereoscopic_views.png)
+](/assets/View_of_the_boats_in_the_ocean_from_Robert_N._Dennis_collection_of_stereoscopic_views.png)
 
 *Robert N. Dennis collection of stereoscopic views. / United States. /
 States / Rhode Island. / Stereoscopic views, possibly of Newport, Rhode

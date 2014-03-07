@@ -12,7 +12,7 @@ authors:
 
 Citation counts between journal articles vary widely within a journal, making the median (or mean) journal citation count a poor proxy for an individual article. A density plot rather than a histogram was used to better show the right skewed distribution. Source data in CSV format available [here](/data/alm_report_plos_biology_2013-05-20.csv).
 
-![Fig. 1](/images/2013-12-11_figure_1.svg)
+![Fig. 1](/assets/2013-12-11_figure_1.svg)
 
 **Citation counts for PLOS Biology articles published in 2010.** *Scopus citation counts plotted as a probability distribution for all 197 PLOS Biology research articles published in 2010. Data collected May 20, 2013. Median 19 citations; 10% of papers have at least 50 citations. Originally published as Fig. 1 in [http://dx.doi.org/10.1371/journal.pbio.1001687](http://dx.doi.org/10.1371/journal.pbio.1001687).*
 

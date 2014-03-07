@@ -19,7 +19,7 @@ Traditionally, the impact of research articles has been measured by the publicat
 
 Each of the metrics fall under one of these activities. But as an entire set, they paint a comprehensive portrait of the overall footprint of how the scholarly and public are engaging with the research.</p>
 
-![Usage](/images/usage.png)
+![Usage](/assets/usage.png)
 
 *From: Fenner M, Lin J (2013). Altmetrics in Evolution: Defining & Redefining the Ontology of Article-Level Metrics. [http://dx.doi.org/10.3789/isqv25no2.2013.04](http://dx.doi.org/10.3789/isqv25no2.2013.04).*
 

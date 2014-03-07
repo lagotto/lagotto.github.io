@@ -16,7 +16,7 @@ Article-Level Metrics (ALM) may have outgrown the infant stage, but the
 “terrible two’s and three’s” have now arrived when it must learn to
 walk, run, and… do algebra.
 
-![catalgeb](/images/catalgeb.png)
+![catalgeb](/assets/catalgeb.png)
 
 As ALM begins to count toes, we are fortunate to have bibliometrics
 scholars Paul Wouters and Wolfgang Glänzel weigh in on what are

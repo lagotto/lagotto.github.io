@@ -1,7 +1,8 @@
 ---
 layout: page
-title: "ResearchBlogging"
+title: "Research Blogging"
 ---
+
 Research Blogging is a science blog aggregator.
 
 <table width=100% border="0" cellspacing="0" cellpadding="0">

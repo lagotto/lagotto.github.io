@@ -71,7 +71,7 @@ entry](http://www.uniprot.org/uniprot/I0XPC4?europe_pmc_bio_extredirect_Proteins
 in the UniProtKB/TrEMBL database cites a [PLOS NTD
 publication](http://www.plosntds.org/article/info%3Adoi%2F10.1371%2Fjournal.pntd.0001853).
 
-[![Europe PMC DB citation example](/images/ExDBCite-1024x544.png)](http://www.uniprot.org/uniprot/I0XPC4?europe_pmc_bio_extredirect_Proteins=http://www.uniprot.org/uniprot/I0XPC4)
+[![Europe PMC DB citation example](/assets/ExDBCite-1024x544.png)](http://www.uniprot.org/uniprot/I0XPC4?europe_pmc_bio_extredirect_Proteins=http://www.uniprot.org/uniprot/I0XPC4)
 
 Different public databases will have varying levels of metadata
 available and interconnecting links from data to published results.
@@ -80,7 +80,7 @@ in this example taken from the [Mycobacterium tuberculosis
 genome](http://www.ebi.ac.uk/ena/data/view/HE663067?europe_pmc_bio_tm_extredirect_Data_Citations=http://www.ebi.ac.uk/ena/data/view/HE663067)
 .
 
-![ENA Example](/images/ExamplePMCEuropeLink.png)
+![ENA Example](/assets/ExamplePMCEuropeLink.png)
 
 ## DataCite
 

@@ -2,6 +2,7 @@
 layout: page
 title: "Rake"
 ---
+
 There are several ALM-specific rake tasks that help with administration of the ALM application. They can be listed with the following command:
 
 ```sh

@@ -50,7 +50,7 @@ article, this week we have launched a redesigned metrics tab that uses
 these new categories:
 
 ![Redesigned metrics tab for Why Most Published Research Findings Are
-False.](/images/categories.png)
+False.](/assets/categories.png)
 
 *Redesigned metrics tab for [Why Most Published Research Findings Are
 False](http://dx.doi.org/10.1371/journal.pmed.0020124).*

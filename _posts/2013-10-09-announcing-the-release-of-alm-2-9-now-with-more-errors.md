@@ -35,7 +35,7 @@ The most interesting feature of ALM 2.9 is probably something else: the
 application is creating more errors than previous releases. This is of
 course intentional, and is caused by a new feature called filters.
 
-![filters](/images/filters.png)
+![filters](/assets/filters.png)
 
 Filters run every 24 hours and look at the API responses during that
 time. A lot of things can go wrong, and we try to catch at least some of
@@ -46,7 +46,7 @@ media activity for an article increases very fast (our current threshold
 is 500/day). This usually means an article that is just popular, but can
 of course also be a sign of gaming.
 
-![increasing](/images/increasing.png)
+![increasing](/assets/increasing.png)
 
 An example of unusual activity would be the article pictured above: the
 article saw 162 HTML views for the whole month of September, but already
@@ -66,7 +66,7 @@ these papers, or to take a closer look at why these papers are so
 popular. The papers below have all reached milestones of high Facebook
 activity:
 
-![milestones](/images/milestones1.png)
+![milestones](/assets/milestones1.png)
 
 The list of possible filters is long, especially since filters can have
 custom settings. Sometimes more errors is good, and we hope that this

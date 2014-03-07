@@ -731,8 +731,8 @@ html {
 /* line 27, ../../../var/lib/gems/1.9.1/gems/bootstrap-sass-3.1.0.2/vendor/assets/stylesheets/bootstrap/_scaffolding.scss */
 body {
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.4375;
+  font-size: 18px;
+  line-height: 1.444;
   color: #34495e;
   background-color: white;
 }

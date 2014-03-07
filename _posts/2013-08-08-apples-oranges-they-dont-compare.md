@@ -58,7 +58,7 @@ Scott found that most metrics are similar between providers, but the
 consistency could be better overall:
 
 ![A comparison of 7 different metrics from Altmetric.com, ImpactStory
-and PLOS on a set of 20 PLOS DOIs](/images/chamberlain.png)
+and PLOS on a set of 20 PLOS DOIs](/assets/chamberlain.png)
 
 *A comparison of 7 different metrics from Altmetric.com, ImpactStory and
 PLOS on a set of 20 PLOS DOIs. Fig. 3 from [http://dx.doi.org/10.3789/isqv25no2.2013.02](http://dx.doi.org/10.3789/isqv25no2.2013.02).*

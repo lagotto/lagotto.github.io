@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ALM Data Challenge: Metrics for a Standard Set of DOIs"
-category: blog
+category: bloga
 authors:
  - surname: Fenner
    given-names: Martin
@@ -112,7 +112,7 @@ these 10,000 DOIs at
 preliminary results can be seen in the screenshot from the ALM admin
 dashboard:
 
-![almhack](/images/almhack.png)
+![almhack](/assets/almhack.png)
 
 More than 40% of the articles have been cited at least once or have been
 bookmarked on Mendeley, whereas the numbers for Facebook, Wikipedia and

@@ -29,7 +29,7 @@ Facebook activity for PLOS papers which have more mainstream appeal. But
 this circumstance does not reveal the bigger picture, and may yet veil
 the wider view:
 
-![barplot\_january\_2014](/images/barplot_january_2014.png)
+![barplot\_january\_2014](/assets/barplot_january_2014.png)
 
 In fact, one out of every three of articles published last year was
 commented on, liked or shared in Facebook. That number is far greater
@@ -49,7 +49,7 @@ Central.  (One caveat: we collect Facebook activity for URLs pointing to
 the PLOS website, but we do not capture the links to the article version
 that resides in PMC).
 
-![facebook\_usage](/images/facebook_usage.png)
+![facebook\_usage](/assets/facebook_usage.png)
 
 Out of these patterns, Facebook emerges as a valuable data source,
 especially with respect to the ongoing question of public versus

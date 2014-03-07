@@ -12,7 +12,7 @@ authors:
 
 There is relatively little overlap between the PLOS Biology research articles recommended by F1000Prime and those articles mentioned in Wikipedia, indicating different audiences. Source data in CSV format available [here](/data/alm_report_plos_biology_2013-05-20.csv).
 
-![Fig. 5](/images/2013-12-11_figure_5.svg)
+![Fig. 5](/assets/2013-12-11_figure_5.svg)
 
 **PLOS Biology articles: sites of recommendation and discussion.** *Number of PLOS Biology research articles published up to May 20, 2013 that have been recommended by F1000Prime (red) or mentioned in Wikipedia (blue). Originally published as Fig. 5 in [http://dx.doi.org/10.1371/journal.pbio.1001687](http://dx.doi.org/10.1371/journal.pbio.1001687).*
 

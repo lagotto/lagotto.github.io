@@ -2,6 +2,7 @@
 layout: page
 title: "Mendeley"
 ---
+
 [Mendeley](http://www.mendeley.com) is a reference manager and social bookmarking tool.
 
 The Mendeley API returns incomplete API responses for articles where they don't have enough information, and we ignore those:

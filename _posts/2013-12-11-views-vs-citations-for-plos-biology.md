@@ -12,7 +12,7 @@ authors:
 
 Bubble charts can help visualize a large set of articles, e.g. all articles published by a journal in a given year. Source data in CSV format available [here](/data/alm_report_plos_biology_2013-05-20.csv).
 
-![Fig. 3](/images/2013-12-11_figure_3.svg)
+![Fig. 3](/assets/2013-12-11_figure_3.svg)
 
 **Figure 3. Views vs. citations for PLOS Biology articles published in 2010.** *All 304 PLOS Biology articles published in 2010. Bubble size correlates with number of Scopus citations. Research articles are labeled green; all other articles are grey. Red arrows indicate the two most highly cited papers. Data collected May 20, 2013. Originally published as Fig. 3 in [http://dx.doi.org/10.1371/journal.pbio.1001687](http://dx.doi.org/10.1371/journal.pbio.1001687).*
 

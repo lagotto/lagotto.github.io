@@ -12,7 +12,7 @@ authors:
 
 Percentage of all PLOS Biology research articles published until May 20, 2013 that were mentioned at least once by each of the listed data sources. The numbers for Facebook and Twitter are much higher for more recently published articles. Source data in CSV format available [here](/data/alm_report_plos_biology_2013-05-20.csv).
 
-![Fig. 4](/images/2013-12-11_figure_4.svg)
+![Fig. 4](/assets/2013-12-11_figure_4.svg)
 
 **Article-level metrics for PLOS Biology.** *Proportion of all 1,706 PLOS Biology research articles published up to May 20, 2013 mentioned by particular article-level metrics source. Colors indicate categories (Viewed, Cited, Saved, Discussed, Recommended), as used on the PLOS website. Originally published as Fig. 4 in [http://dx.doi.org/10.1371/journal.pbio.1001687](http://dx.doi.org/10.1371/journal.pbio.1001687).*
 
