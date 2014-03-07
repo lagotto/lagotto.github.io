@@ -8,7 +8,7 @@ title: "Public Library of Science (PLOS)"
 <p>At PLOS, we believe that research articles should primarily be judged on their individual merits, rather than on the basis of the journal in which they were published. In March 2009, we inaugurated a program to provide Article-Level Metrics (ALM) on every article across all journals. Article-Level Metrics (ALMs) capture the manifold ways in which research is disseminated and can help users determine the value of an article to them and to their scientific community. The regularly updated data include the following metrics:</p>
 
 <!--insert image of PLOS ALM SUITE, added to Images folder-->
-<img src="/assetsplos_alm.png">
+<img src="/assets/plos_alm.png">
 
 <p> The article metrics are made available rapidly after publication and are continually updated. Each source captures different behaviors and thus its natural activity will vary by time (i.e., publication age) and research area of the article. Further discussion of known limitations to individual metrics is detailed in the <a href="#knownIssues">section below</a>.</p>
 
