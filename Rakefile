@@ -74,7 +74,7 @@ end
 
 def check_destination
   unless Dir.exist? CONFIG["destination"]
-    sh "git clone #{CONFIG["destination_repo"]} #{CONFIG["destination"]}"
+    sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{CONFIG["github_user"]}/#{CONFIG["destination_repo"]}.git #{CONFIG["destination"]}"
   end
 end
 
@@ -201,8 +201,7 @@ namespace :site do
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     Dir.chdir(CONFIG["destination"]) do
       sh "git add ."
-      sh "git commit -m 'Updating to articlemetrics/gh-pages@#{sha}.'"
-      sh "curl -H 'Authorization: token #{ENV['GH_TOKEN']}' #{CONFIG["destination_repo"]}"
+      sh "git commit -m 'Updating to #{CONFIG['github_user']}/#{CONFIG['source_repo']}@#{sha}.'"
       sh "git push origin master"
       puts 'Done.'
     end
