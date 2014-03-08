@@ -175,7 +175,7 @@ namespace :site do
     end
 
     # Ensure we have the latest version
-    sh "git pull origin"
+    sh "git pull origin master"
 
     # Generate the site
     sh "jekyll build"
@@ -185,7 +185,7 @@ namespace :site do
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     sh "git add ."
     sh "git commit -m 'Updating to #{sha}.'"
-    sh "git push origin"
+    sh "git push origin master"
     puts 'Done.'
   end
 
