@@ -8,6 +8,7 @@ exclude:
   - Rakefile
   - changelog.md
   - "*.Rmd"
+  - vendor
 
 safe: true
 
