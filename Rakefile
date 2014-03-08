@@ -167,6 +167,10 @@ namespace :site do
 
   desc "Generate the site and push changes to remote origin"
   task :deploy do
+    # Configure git
+    git config --global user.email mfenner@plos.org
+    git config --global user.name mfenner
+
     # Ensure we have the latest version
     sh "git pull origin"
 
