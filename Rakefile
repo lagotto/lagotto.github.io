@@ -161,18 +161,18 @@ namespace :site do
   desc "Generate the site"
   task :build do
     check_destination
-    sh "jekyll build"
+    sh "bundle exec jekyll build"
   end
 
   desc "Generate the site and serve locally"
   task :serve do
     check_destination
-    sh "jekyll serve"
+    sh "bundle exec jekyll serve"
   end
 
   desc "Generate the site, serve locally and watch for changes"
   task :watch do
-    sh "jekyll serve --watch"
+    sh "bundle exec jekyll serve --watch"
   end
 
   desc "Generate the site and push changes to remote origin"
@@ -194,16 +194,15 @@ namespace :site do
     check_destination
 
     # Generate the site
-    sh "jekyll build"
+    sh "bundle exec jekyll build"
 
-    # Commit and push.
-    puts "Committing and pushing updated destination repo to GitHub Pages..."
+    # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     Dir.chdir(CONFIG["destination"]) do
       sh "git add ."
       sh "git commit -m 'Updating to #{CONFIG['github_user']}/#{CONFIG['source_repo']}@#{sha}.'"
       sh "git push origin master"
-      puts 'Done.'
+      puts "Updated destination repo pushed to GitHub Pages"
     end
   end
 
@@ -240,26 +239,5 @@ namespace :site do
       sh "git push origin gh-pages"
     end
     puts 'Done.'
-  end
-
-  desc "Create a nicely formatted history page for the jekyll site based on the repo history."
-  task :history do
-    if File.exist?("History.markdown")
-      history_file = File.read("History.markdown")
-      front_matter = {
-        "layout" => "docs",
-        "title" => "History",
-        "permalink" => "/docs/history/",
-        "prev_section" => "contributing"
-      }
-      Dir.chdir('site/docs/') do
-        File.open("history.md", "w") do |file|
-          file.write("#{front_matter.to_yaml}---\n\n")
-          file.write(converted_history(history_file))
-        end
-      end
-    else
-      abort "You seem to have misplaced your History.markdown file. I can haz?"
-    end
   end
 end
