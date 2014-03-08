@@ -202,6 +202,7 @@ namespace :site do
     Dir.chdir(CONFIG["destination"]) do
       sh "git add ."
       sh "git commit -m 'Updating to articlemetrics/gh-pages@#{sha}.'"
+      sh "curl -H 'Authorization: token #{ENV['GH_TOKEN']}' #{CONFIG["destination_repo"]}"
       sh "git push origin master"
       puts 'Done.'
     end
