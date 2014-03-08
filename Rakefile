@@ -149,6 +149,8 @@ end
 #
 #############################################################################
 
+REPO_URL = "https://github.com/articlemetrics/articlemetrics.github.io.git"
+
 namespace :site do
   desc "Generate the site"
   task :build do
@@ -175,7 +177,7 @@ namespace :site do
     end
 
     # Ensure we have the latest version
-    sh "git pull origin master"
+    sh "git pull #{REPO_URL} master"
 
     # Generate the site
     sh "jekyll build"
@@ -185,7 +187,7 @@ namespace :site do
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     sh "git add ."
     sh "git commit -m 'Updating to #{sha}.'"
-    sh "git push origin master"
+    sh "git push #{REPO_URL} master"
     puts 'Done.'
   end
 
