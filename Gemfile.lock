@@ -60,5 +60,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  github-pages
+  github-pages (~> 15)
   rake (~> 10.1.1)
