@@ -182,14 +182,11 @@ namespace :site do
       sh "git config --global push.default simple"
     end
 
-    # Ensure we have the latest version
-    sh "git pull #{REPO_URL} master"
-
     # Generate the site
     sh "jekyll build"
 
     # Commit and push.
-    puts "Committing and pushing _site folderto GitHub Pages..."
+    puts "Committing and pushing _site folder to GitHub Pages..."
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     Dir.chdir('_site') do
       sh "git add ."
