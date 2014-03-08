@@ -149,7 +149,7 @@ end
 #
 #############################################################################
 
-REPO_URL = "https://github.com/articlemetrics/articlemetrics.github.io.git"
+REPO_URL = "https://$#{ENV['GH_TOKEN']}@github.com/articlemetrics/articlemetrics.github.io.git"
 
 namespace :site do
   desc "Generate the site"
@@ -169,15 +169,18 @@ namespace :site do
 
   desc "Generate the site and push changes to remote origin"
   task :deploy do
-    # Configure git if this is run in Travis CI
-    if ENV["TRAVIS"] == "true"
-      sh "git config --global user.email mfenner@plos.org"
-      sh "git config --global user.name mfenner"
-      sh "git config --global push.default simple"
+    # Detect pull request
+    if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
+      puts 'Pull request detected. Not proceeding with deploy.'
+      exit
     end
 
-    # Ensure we have the latest version
-    sh "git pull #{REPO_URL} master"
+    # Configure git if this is run in Travis CI
+    if ENV["TRAVIS"] == "true"
+      sh "git config user.name '#{ENV['GIT_NAME']}'"
+      sh "git config user.email '#{ENV['GIT_EMAIL']}'"
+      sh "git config --global push.default simple"
+    end
 
     # Generate the site
     sh "jekyll build"
