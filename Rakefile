@@ -167,9 +167,12 @@ namespace :site do
 
   desc "Generate the site and push changes to remote origin"
   task :deploy do
-    # Configure git
-    sh "git config --global user.email mfenner@plos.org"
-    sh "git config --global user.name mfenner"
+    # Configure git if this is run in Travis CI
+    if ENV["TRAVIS"] == "true"
+      sh "git config --global user.email mfenner@plos.org"
+      sh "git config --global user.name mfenner"
+      sh "git config --global push.default simple"
+    end
 
     # Ensure we have the latest version
     sh "git pull origin"
