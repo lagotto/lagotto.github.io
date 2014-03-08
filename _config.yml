@@ -6,6 +6,8 @@ paginate_path: "blog/page:num"
 exclude:
   - README.md
   - Rakefile
+  - Gemfile
+  - Gemfile.lock
   - changelog.md
   - "*.Rmd"
   - vendor
