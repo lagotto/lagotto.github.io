@@ -6,7 +6,7 @@ relative_source: ../gh-pages/
 destination: ../articlemetrics.github.io/
 
 # Settings for deploy rake task
-destination_repo: git@github.com:articlemetrics/articlemetrics.github.io.git
+destination_repo: https://github.com/articlemetrics/articlemetrics.github.io.git
 
 permalink: pretty
 

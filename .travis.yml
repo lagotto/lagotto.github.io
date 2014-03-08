@@ -1,6 +1,5 @@
 language: ruby
 script: bundle exec rake site:deploy
-before_script: 'echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config'
 env:
   global:
     secure: "HvM5LUkDsjElDA4lNCjCXpM/s8Kqh6ticcrwJm9uyhiftcwAJKO4xn/8beTs+3XyK1BEcgkNNIxGHhKtDBaz4uep89VFJUXOCXhbxY2S/PDcbhGJI+0oTQceC+jCr182bUPt45KBg3Aeuuv663a519uT8ZNHfp1QoUCt3i4Hckk="
