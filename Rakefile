@@ -183,12 +183,14 @@ namespace :site do
     sh "jekyll build"
 
     # Commit and push.
-    puts "Committing and pushing to GitHub Pages..."
+    puts "Committing and pushing _site folder to GitHub Pages..."
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    sh "git add ."
-    sh "git commit -m 'Updating to #{sha}.'"
-    sh "git push #{REPO_URL} master"
-    puts 'Done.'
+    Dir.chdir('_site') do
+      sh "git add ."
+      sh "git commit -m 'Updating to #{sha}.'"
+      sh "git push #{REPO_URL} master"
+      puts 'Done.'
+    end
   end
 
   desc "Commit the local site to the gh-pages branch and publish to GitHub Pages"
