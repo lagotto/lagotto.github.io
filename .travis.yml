@@ -2,4 +2,4 @@ language: ruby
 script: bundle exec rake site:deploy
 env:
   global:
-    secure: "HvM5LUkDsjElDA4lNCjCXpM/s8Kqh6ticcrwJm9uyhiftcwAJKO4xn/8beTs+3XyK1BEcgkNNIxGHhKtDBaz4uep89VFJUXOCXhbxY2S/PDcbhGJI+0oTQceC+jCr182bUPt45KBg3Aeuuv663a519uT8ZNHfp1QoUCt3i4Hckk="
+    secure: "Mh5J68ymWH2zI9yMGY6uD61Inv+OJIJlFYY+nGILDNXXXxYt6rJ8j2byy1Al1uAqKw6XmhJ0ELpqP0wAT007tG0cuhhyDCy3MCivaASzyYcUIImO++jxwEn1z22LW6RsGe5YKcrGj7kztJTxLUkeyH4wL+SyS297bNKuczQMvFk="
