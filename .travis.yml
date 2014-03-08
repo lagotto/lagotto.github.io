@@ -1,5 +1,8 @@
 language: ruby
+branches:
+  only:
+    - source
 script: bundle exec rake site:deploy
 env:
   global:
-    secure: ofKpm1RY5Q/spavVYDdoCkBswjXpJuGXloX70S/V5I3JcYaA7/7wFJsEUEc8l2rnWvtg+NoZ8AnX4MM+CfTR6sgr46ecw7PuuQexxKRbQjObQu++LjBQItgJI5MruQr56IB5JZfKg5qbrq8qUR9DY5HSUrO1c5mvxT9jtTU/BtE=
+    secure: "HvM5LUkDsjElDA4lNCjCXpM/s8Kqh6ticcrwJm9uyhiftcwAJKO4xn/8beTs+3XyK1BEcgkNNIxGHhKtDBaz4uep89VFJUXOCXhbxY2S/PDcbhGJI+0oTQceC+jCr182bUPt45KBg3Aeuuv663a519uT8ZNHfp1QoUCt3i4Hckk="
