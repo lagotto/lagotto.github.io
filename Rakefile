@@ -9,6 +9,8 @@ require 'rake'
 require 'date'
 require 'yaml'
 
+CONFIG = YAML.load(File.read('_config.yml'))
+
 #############################################################################
 #
 # Helper functions
@@ -182,15 +184,19 @@ namespace :site do
       sh "git config --global push.default simple"
     end
 
+    # Make sure destination folder exists
+    destination = CONFIG["destination"]
+    Dir.mkdir destination unless Dir.exist? destination
+
     # Generate the site
     sh "jekyll build"
 
     # Commit and push.
     puts "Committing and pushing _site folder to GitHub Pages..."
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir('_site') do
+    Dir.chdir(destination) do
       sh "git add ."
-      sh "git commit -m 'Updating to #{sha}.'"
+      sh "git commit -m 'Updating to articlemetrics/gh-pages@#{sha}.'"
       sh "git push #{REPO_URL} master"
       puts 'Done.'
     end
