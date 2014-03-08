@@ -1,3 +1,7 @@
+safe: true
+lsi: false
+pygments: true
+
 permalink: pretty
 
 paginate: 10
@@ -12,13 +16,9 @@ exclude:
   - "*.Rmd"
   - vendor
 
-safe: true
-
 markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "strikethrough", "superscript", "autolink", "tables", "with_toc_data"]
-
-pygments: true
 
 title: Article-Level Metrics
 name: ALM
