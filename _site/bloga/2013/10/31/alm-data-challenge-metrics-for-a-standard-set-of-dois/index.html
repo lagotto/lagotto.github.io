@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALM Data Challenge: Metrics for a Standard Set of DOIs</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="ALM Data Challenge: Metrics for a Standard Set of DOIs" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content="2013-10-31T00:00:00+01:00"/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/bloga/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content="Martin Fenner"/>
+    <meta name="citation_publication_date" content="2013-10-31"/>
+    <meta name="citation_title" content="ALM Data Challenge: Metrics for a Standard Set of DOIs"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Introduction</a></li>
+            <li><a href="/metrics">Metrics</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/plos">Public Library of Science</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/">Home</a></li>
+            <li><a href="/docs/installation">Installation</a></li>
+            <li><a href="/docs/setup">Setup</a></li>
+            <li><a href="/docs/sources">Sources</a></li>
+            <li><a href="/docs/api">API</a></li>
+            <li><a href="/docs/rake">Rake</a></li>
+            <li><a href="/docs/alerts">Alerts</a></li>
+            <li><a href="/docs/faq">FAQ</a></li>
+            <li><a href="/docs/roadmap">Roadmap</a></li>
+            <li><a href="/docs/contributors">Contributors</a></li>
+          </ul>
+        </li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/status">Status</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>ALM Data Challenge: Metrics for a Standard Set of DOIs</h1>
+        <p class="subtitle">31 October 2013 by
+          
+<a href="http://orcid.org/0000-0003-1419-2405">Martin Fenner</a>
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p>As part of the ALM workshop described in more detail in the <a href="http://blogs.plos.org/tech/risingtides/">previous
+post</a> we also met for an ALM
+Data Challenge which took place in the PLOS offices on October 12.</p>
+
+<p>Many readers are probably familiar with a hackathon, where a group of
+people collaborate on one or more software projects for a day (or a few
+days). This is what we <a href="https://sites.google.com/site/altmetricsworkshop/altmetrics-hackathon">did at the ALM workshop last
+year</a>,
+but this year we wanted to focus on the data, and the interesting things
+we could do with them, rather than the software development aspect. We
+thought that this makes it easier for people who are not software
+developers to get involved, to get something done in the limited time
+available, and to have something that can be continued after the
+workshop.</p>
+
+<p>The following article-level metrics/altmetrics datasets were made
+available for workshop participants:</p>
+
+<ul>
+<li>  <strong>Altmetric</strong>: newspaper and magazine tracking data (news story URLs
+&amp; DOI pairs) that have been marked up with additional information
+like country of origin, whether it’s a print / online only source
+etc. There’s lots of interesting possibilities around checking to
+see if German science is reported more by German outlets, seeing how
+much different countries rely on press releases etc.</li>
+<li>  <strong>ImpactStory</strong>: 19 reference sets that include metric counts and
+percentiles for each of 100 randomly-selected products. 10 of the
+reference sets are of articles, 4 of github repos, 5 of dryad
+repositories. Each reference set 100 random products selected from a
+given publication year, so the last 10 years of articles (randomly
+drawn from Web of Science), last 4 years of github, etc.</li>
+<li>  <strong>Mendeley</strong>: 140k rows from the Mendeley database that contain
+basic bibliographic data + mendeley stats + keywords, categories,
+tags + identifiers for a random selection of papers in biomedical
+science added to our database from 2010-2012. Readership values are
+from 0 to 365, average 5.7.</li>
+<li>  <strong>PLOS</strong>: historical usage data (page views and article downloads
+per month) for all PLOS articles published since 2003, separate for
+the PLOS website (<a href="%20http://dx.doi.org/10.6084/m9.figshare.816962">link to data on
+figshare</a>) and
+PubMed Central (<a href="http://dx.doi.org/10.6084/m9.figshare.816961">link to data on
+figshare</a>).</li>
+<li>  <strong>CrossRef</strong>: June 2013 log files for the dx.doi.org DOI resolver.</li>
+<li>  <strong>CrossRef</strong>(collected by me via the
+CrossRef <a href="http://random.labs.crossref.org/">RanDOIm</a> service): a
+random set of 5,000 DOIs each for 2011 (<a href="%20http://dx.doi.org/10.6084/m9.figshare.821209">link to data on
+figshare</a>) and 2012
+(<a href="http://dx.doi.org/10.6084/m9.figshare.821213">link to data on
+figshare</a>).</li>
+</ul>
+
+<p>We were about 20 people, and after describing the datasets that were
+made available, everyone introduced himself and what kind of data
+analysis he or she would be interested in. We then formed groups that
+worked on the following projects for the rest of the day:</p>
+
+<ul>
+<li>  <strong>Science that didn’t make the news</strong>: analysis of highly bookmarked
+articles in Mendeley that are not mentioned in the news or in
+science blogs using Altmetric data. Eva Amsen described the project
+in detail in a <a href="http://easternblot.net/2013/10/17/the-science-that-didnt-make-the-news/">blog
+post</a>.</li>
+<li>  <strong>DOI resolver logs and social media activity</strong>: It took some time
+to load 2.4 Gb of data into a database, but then the group could
+correlate social media activity with referrer log entries on a
+timeline. One result was that only a portion of log entries actually
+had a referrer URL, and that a good chunk of these referrals came
+from the English Wikipedia.</li>
+<li>  <strong>Data standardisation</strong>: Compare ALM/altmetrics data from different
+service providers for the same set of articles</li>
+</ul>
+
+<p><em>This list is unfortunately incomplete as I was too busy to take notes
+about the other projects.</em></p>
+
+<p>I worked in the last group and will describe this project in more
+detail. Scott Chamberlain <a href="http://dx.doi.org/10.3789/isqv25no2.2013.02">published a
+paper</a> in July where he
+compared the metrics from ImpactStory, Altmetrics, Plum Analytics for
+the same set of PLOS articles and found that overall the numbers were
+different enough to be worried (see also <a href="http://ropensci.org/blog/2013/08/01/altmetrics/">Scott’s blog
+post</a> and our <a href="http://blogs.plos.org/tech/apples-oranges-they-dont-compare/">blog
+post
+from</a> from
+August). Comparable metrics from different service providers is
+obviously a big step towards <a href="http://www.niso.org/topics/tl/altmetrics_initiative/">standards and best practices for
+altmetrics</a>.</p>
+
+<p>We wanted to repeat this analysis with a larger set of data, and after a
+short discussion in our group (Zoreh Zahedi, Juan Alperin, Scott
+Chamberlain, Martin Fenner) decided that 5,000 articles each for 2011
+and 2012 would be good. Older articles have more citation data
+available, but often not as many altmetrics data points. We used two
+CrossRef APIs to get the set of random DOIs (limited to journal article
+content type) and the article titles. Because only the publication year
+is a required field, we set the date to January 1st for each DOI (one of
+the limitations of the datasets).</p>
+
+<p>In a second step these 10,000 DOIs were loaded into an instance of the
+<a href="https://github.com/articlemetrics/alm">PLOS Open Source ALM
+application</a> set up on Amazon AWS
+and started collecting metrics. You can visit the ALM application with
+these 10,000 DOIs at
+<a href="http://almhack.crowdometer.org">http://almhack.crowdometer.org</a>. Some
+preliminary results can be seen in the screenshot from the ALM admin
+dashboard:</p>
+
+<p><img src="/assets/almhack.png" alt="almhack"></p>
+
+<p>More than 40% of the articles have been cited at least once or have been
+bookmarked on Mendeley, whereas the numbers for Facebook, Wikipedia and
+science blogs were much smaller. We also discovered some technical
+issues, e.g. documents labeled as “journal article” that were clearly
+something else (e.g. 16 <a href="http://almhack.crowdometer.org/admin/articles?utf8=%E2%9C%93&amp;query=table+of+contents">table of contents
+pages</a>,
+obviously with very different metrics), and <a href="http://blog.martinfenner.org/2013/10/13/broken-dois/">problems with getting the
+journal page URL from a
+DOI</a> (this
+affected the Facebook numbers).</p>
+
+<p>Scott Chamberlain pulled some preliminary metrics data out of the
+application using the <a href="http://almhack.crowdometer.org/docs/API">API of the ALM
+application</a> and the <a href="http://ropensci.org/packages/alm.html">alm
+rOpenSci library</a> for R, and Euan
+Adie ran the set of DOIs against his <a href="http://altmetric.com">Altmetric</a>
+database. As is typical for a hackday, we couldn’t finish all that we
+wanted to accomplish, but both the set of random DOIs and the ALM data
+are available for everyone to play with.</p>
+
+<p>The three things I want to do next is a) get the publication dates as
+exactly as possible (as you can’t really compare metrics from a January
+2012 article with a December 2012 article), b) resolve the technical
+issues (e.g. by excluding DOIs for content that is not a journal
+article) and c) compare the metrics against metrics collected by
+Altmetric, ImpactStory and Plum Analytics. Please contact me if you want
+to help with this effort and/or want admin access to the ALM
+application.</p>
+
+<p>This was the first data challenge that I participated in. Although it
+was similar to a typical hackday in many ways, I liked the focus on data
+and on interesting questions regarding these data. Certainly a format
+worth repeating.</p>
+
+
+
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=ALM Data Challenge: Metrics for a Standard Set of DOIs
+  &amp;rft.creator=
+  &amp;rft.date=2013-10-31
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/bloga/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois/">
+</span>
+
+            
+              <hr>
+              <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+            
+            <hr>
+            <footer class="footer" role="contentinfo">
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
+
+  <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
+  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
+</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
