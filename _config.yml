@@ -2,6 +2,9 @@ safe: true
 lsi: false
 pygments: true
 
+relative_source: ../gh-pages/
+destination: ../articlemetrics.github.io/
+
 permalink: pretty
 
 paginate: 10
@@ -15,6 +18,7 @@ exclude:
   - changelog.md
   - "*.Rmd"
   - vendor
+  - .travis.yml
 
 markdown: redcarpet
 redcarpet:

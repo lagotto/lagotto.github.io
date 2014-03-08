@@ -1,7 +1,4 @@
 language: ruby
-branches:
-  only:
-    - source
 script: bundle exec rake site:deploy
 env:
   global:
