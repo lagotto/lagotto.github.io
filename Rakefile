@@ -149,7 +149,7 @@ end
 #
 #############################################################################
 
-REPO_URL = "https://$#{GH_TOKEN}@github.com/articlemetrics/articlemetrics.github.io.git"
+REPO_URL = "https://$#{ENV['GH_TOKEN']}@github.com/articlemetrics/articlemetrics.github.io.git"
 
 namespace :site do
   desc "Generate the site"
