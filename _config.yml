@@ -5,6 +5,9 @@ pygments: true
 relative_source: ../gh-pages/
 destination: ../articlemetrics.github.io/
 
+# Settings for deploy rake task
+destination_repo: git@github.com:articlemetrics/articlemetrics.github.io.git
+
 permalink: pretty
 
 paginate: 10

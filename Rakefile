@@ -72,6 +72,12 @@ def parameterize(string, sep = '-')
   parameterized_string.downcase
 end
 
+def check_destination
+  unless Dir.exist? CONFIG["destination"]
+    sh "git clone #{CONFIG["destination_repo"]} #{CONFIG["destination"]}"
+  end
+end
+
 #############################################################################
 #
 # Post and page tasks
@@ -151,16 +157,16 @@ end
 #
 #############################################################################
 
-REPO_URL = "https://$#{ENV['GH_TOKEN']}@github.com/articlemetrics/articlemetrics.github.io.git"
-
 namespace :site do
   desc "Generate the site"
   task :build do
+    check_destination
     sh "jekyll build"
   end
 
   desc "Generate the site and serve locally"
   task :serve do
+    check_destination
     sh "jekyll serve"
   end
 
@@ -184,20 +190,19 @@ namespace :site do
       sh "git config --global push.default simple"
     end
 
-    # Make sure destination folder exists
-    destination = CONFIG["destination"]
-    Dir.mkdir destination unless Dir.exist? destination
+    # Make sure destination folder exists as git repo
+    check_destination
 
     # Generate the site
     sh "jekyll build"
 
     # Commit and push.
-    puts "Committing and pushing _site folder to GitHub Pages..."
+    puts "Committing and pushing updated destination repo to GitHub Pages..."
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(destination) do
+    Dir.chdir(CONFIG["destination"]) do
       sh "git add ."
       sh "git commit -m 'Updating to articlemetrics/gh-pages@#{sha}.'"
-      sh "git push #{REPO_URL} master"
+      sh "git push origin master"
       puts 'Done.'
     end
   end
