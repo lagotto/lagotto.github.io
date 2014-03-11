@@ -2,13 +2,17 @@ safe: true
 lsi: false
 pygments: true
 
-relative_source: ../gh-pages/
-destination: ../articlemetrics.github.io/
+relative_source: ../articlemetrics.github.io/
+destination: ../articlemetrics.github.io-pages/
 
 # Settings for deploy rake task
-github_user: articlemetrics
-source_repo: gh-pages
-destination_repo: articlemetrics.github.io
+# Username and repo of Github repo, e.g.
+# https://github.com/USERNAME/REPO.git
+# username defaults to ENV['GIT_NAME'] used by Travis
+# repo defaults to USERNAME.github.io
+# Branch defaults to "source" for USERNAME.github.io
+# or "master" otherwise
+username: articlemetrics
 
 permalink: pretty
 
