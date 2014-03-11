@@ -1,6 +1,0 @@
-language: ruby
-install: bundle install
-script: bundle exec rake site:deploy
-env:
-  global:
-    secure: "Mh5J68ymWH2zI9yMGY6uD61Inv+OJIJlFYY+nGILDNXXXxYt6rJ8j2byy1Al1uAqKw6XmhJ0ELpqP0wAT007tG0cuhhyDCy3MCivaASzyYcUIImO++jxwEn1z22LW6RsGe5YKcrGj7kztJTxLUkeyH4wL+SyS297bNKuczQMvFk="
