@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scopus</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="Scopus" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/scopus/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="Scopus"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Introduction</a></li>
+            <li><a href="/metrics">Metrics</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/plos">Public Library of Science</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/">Home</a></li>
+            <li><a href="/docs/installation">Installation</a></li>
+            <li><a href="/docs/setup">Setup</a></li>
+            <li><a href="/docs/sources">Sources</a></li>
+            <li><a href="/docs/api">API</a></li>
+            <li><a href="/docs/rake">Rake</a></li>
+            <li><a href="/docs/alerts">Alerts</a></li>
+            <li><a href="/docs/faq">FAQ</a></li>
+            <li><a href="/docs/roadmap">Roadmap</a></li>
+            <li><a href="/docs/contributors">Contributors</a></li>
+          </ul>
+        </li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/status">Status</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>Scopus</h1>
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <p><a href="http://www.scopus.com">Scopus</a> is an abstract and citation database of peer-reviewed literature. Information about access to the Scopus API can be found <a href="http://www.developers.elsevier.com/cms/restful-api-authentication-new">here</a>.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>scopus</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>id (as doi)<br/>url (as http://dx.doi.org/DOI)<br/>contributor(s)</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>ISSN<br/>journal title<br/>journal abbreviation<br/>title<br/>volume<br/>issue<br/>first page<br/>year<br/>publication type<br/>citation count<br/>Scopus ID</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON or XML</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>API key and institutional token</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL Cited-By</strong></td>
+<td valign="top" width=80%>https://api.elsevier.com/content/search/index:SCOPUS?query=DOI(DOI)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;search-results&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;opensearch:totalResults&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opensearch:startIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opensearch:itemsPerPage&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opensearch:Query&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;@role&quot;</span><span class="p">:</span> <span class="s2">&quot;request&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;@searchTerms&quot;</span><span class="p">:</span> <span class="s2">&quot;DOI%2810.1371%2Fjournal.pmed.0030442%29&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;@startPage&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;@_fa&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;@ref&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;@href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.elsevier.com:80/content/search/index:scopus?start=0&amp;count=25&amp;query=DOI(10.1371/journal.pmed.0030442)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;@_fa&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;@ref&quot;</span><span class="p">:</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;@href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.elsevier.com:80/content/search/index:scopus?start=0&amp;count=25&amp;query=DOI(10.1371/journal.pmed.0030442)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;@_fa&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="nt">&quot;@_fa&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;@ref&quot;</span><span class="p">:</span> <span class="s2">&quot;self&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;@href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.elsevier.com/content/abstract/scopus_id:33845338724&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="nt">&quot;@_fa&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;@ref&quot;</span><span class="p">:</span> <span class="s2">&quot;scopus&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;@href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.scopus.com/inward/record.url?partnerID=HzOxMe3b&amp;scp=33845338724&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="nt">&quot;@_fa&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;@ref&quot;</span><span class="p">:</span> <span class="s2">&quot;scopus-citedby&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;@href&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.scopus.com/inward/citedby.url?partnerID=HzOxMe3b&amp;scp=33845338724&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;prism:url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.elsevier.com/content/abstract/scopus_id:33845338724&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;dc:identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;SCOPUS_ID:33845338724&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;eid&quot;</span><span class="p">:</span> <span class="s2">&quot;2-s2.0-33845338724&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;dc:title&quot;</span><span class="p">:</span> <span class="s2">&quot;Projections of global mortality and burden of disease from 2002 to 2030&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;dc:creator&quot;</span><span class="p">:</span> <span class="s2">&quot;Mathers, C.D.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:publicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;PLoS Medicine&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:issn&quot;</span><span class="p">:</span> <span class="s2">&quot;15491277&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:eIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;15491676&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:volume&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:issueIdentifier&quot;</span><span class="p">:</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:pageRange&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-2030&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:coverDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2006-11-01&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:coverDisplayDate&quot;</span><span class="p">:</span> <span class="s2">&quot;November 2006&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pmed.0030442&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedby-count&quot;</span><span class="p">:</span> <span class="s2">&quot;1814&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;affiliation&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="nt">&quot;@_fa&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;affilname&quot;</span><span class="p">:</span> <span class="s2">&quot;Organisation Mondiale de la Santé&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;affiliation-city&quot;</span><span class="p">:</span> <span class="s2">&quot;Geneve&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;affiliation-country&quot;</span><span class="p">:</span> <span class="s2">&quot;Switzerland&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;pubmed-id&quot;</span><span class="p">:</span> <span class="s2">&quot;17132052&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prism:aggregationType&quot;</span><span class="p">:</span> <span class="s2">&quot;Journal&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;subtype&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;subtypeDescription&quot;</span><span class="p">:</span> <span class="s2">&quot;Article&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/scopus.rb">here</a>.</p>
+
+<h2 id="toc_2">Further Documentation</h2>
+
+<ul>
+<li><a href="http://www.developers.elsevier.com/cms/scopus-citedby-retrieval">Scopus Cited-by Linking</a></li>
+<li><a href="http://www.developers.elsevier.com/cms/restful-api-authentication-new#toc_RESTful_APIs_Authentication_-_Institutional_Token">Scopus API Authentication - Institutional Token</a></li>
+</ul>
+
+
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=Scopus
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/scopus/">
+</span>
+
+            
+            <hr>
+            <footer class="footer" role="contentinfo">
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
+
+  <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
+  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
+</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
