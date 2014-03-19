@@ -35,8 +35,8 @@ Traditionally, the impact of research articles has been measured by the publicat
 
 Article-Level Metrics are available, upon publication, for every article published by PLOS. Researchers can stay up-to-date with their published work and share information about the impact of their publications with collaborators, funders, institutions, and the research community at large. These metrics are also a powerful way to navigate and discover others’ work. Metrics can be customized to address the needs of researchers, publishers, institutional decision-makers, or funders.
 
+### Article-Level Metrics are useful to:
 <a id="ALMvalue" name="ALMvalue"></a>
-### Article-Level Metrics are valuable to:
 
 #### Researchers
 * Track the impact of your research and share with others (funders, promotion boards, etc.)
@@ -66,3 +66,8 @@ Article-Level Metrics are available, upon publication, for every article publish
 * Provide content distributors data on downstream impact of publications
 * Gain comprehensive understanding of how publications are disseminated and accessed
 * Report on the usage of the article in ways that suit your business needs
+
+### ALM & the Research Process
+<a id="Researchprocess" name="Researchprocess"></a>
+Article-Level Metrics are an integral part of the entire research process:
+![Benefiting from ALM across all stages of research](/assets/researchprocess.png)

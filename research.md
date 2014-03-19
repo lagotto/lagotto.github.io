@@ -14,7 +14,7 @@ The growing body of literature examining ALM data reflects the growth of ALM. A 
 * [NISO ISQ Special Issue on Altmetics](http://wwww.xxxxxxxxx)
 * Did Science do a collection on altmetrics?
 
-#### Research Publications
+#### Publications
 <a id="bibliography" name="bibliography"></a>
 The following set of articles represent only a subset of the growing body of work on ALM:
 * [martin's PLOS Bio paper]
@@ -32,5 +32,5 @@ http://www.mendeley.com/groups/586171/altmetrics/
 #### Scholarly Conferences
 * [Altmetrics11]
 * [Altmetrics12]
-* [ALM2012]
-* [ALM2013]
+* [ALM Workshop 2012](http://article-level-metrics.plos.org/alm-workshop-2012/): [workshop technical report](http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828)
+* [ALM Workshop 2013](http://article-level-metrics.plos.org/alm-workshop-2013/): [workshop presentations](http://lanyrd.com/2013/alm13/) links to post-workshop write-ups from the community are available

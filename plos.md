@@ -12,8 +12,7 @@ title: "Public Library of Science (PLOS)"
 
 <p> The article metrics are made available rapidly after publication and are continually updated. Each source captures different behaviors and thus its natural activity will vary by time (i.e., publication age) and research area of the article. Further discussion of known limitations to individual metrics is detailed in the <a href="#knownIssues">section below</a>.</p>
 
-<!--<p>PLOS is committed to the open provision of these metrics; we encourage researchers to investigate and analyze them in new and interesting ways. Therefore, the entire dataset of all ALMs are made available as a summary Excel file. This file will be updated monthly. We also provide an <a href="#">API and accompanying documentation</a> for the automatic retrieval of the full set of ALM data. </p>
--->
+<p>PLOS is committed to the open provision of these metrics. The entire dataset of all cumulative ALMs are made available as a <a href="ADDLINKHERE">summary file</a>, updated monthly. We also provide an <a href="http://api.plos.org/alm/using-the-alm-api/">API and accompanying documentation</a> for the automatic retrieval of ALM data. </p>
 
 <a id="usageInfo" name="usageInfo"></a>
 <h2>Viewed</h2>
@@ -21,7 +20,7 @@ title: "Public Library of Science (PLOS)"
 <ul>
 	<li>PLOS: PLOS articles are provided in three different formats&ndash; page views, PDF downloads, and XML downloads &ndash; and we record the online activity of users across these three formats. This "usage," comprised of the three types, is provided as an aggregate metric or broken down, month-by-month in graphical format. Online usage via the PLOS platform is presented according to industry standard definitions of usage and is COUNTER-compliant. </li>
 	<li>Pubmed Central: We also display COUNTER 3-compliant PubMed Central (PMC) usage data for each article. PMC individually counts the number of page views and PDF downloads of the article on their site. The results are only made available to PLOS once a month, not in real-time. As a result, articles may experience a lag with the display of PMC data of up to one month. This will also impact the data shown on recently published articles, which may not show PMC usage data for their first month of publication. The total article usage data displayed on the Metrics Tab is an aggregate of both PLOS and PMC usage.</li>
-	<li>figshare: All PLOS figures, tables, and supporting information files are available on figshare. figshare individually counts the views, downloads, and shares on its site. These counts are aggregated individually for each figure and table, but presented as a cumulative count for the supporting information package. The detailed breakdown for the three counts are available on the respective figshared page, which is individually linked.</li>
+	<li>figshare: All PLOS figures, tables, and supporting information files are available on figshare. figshare individually counts the views, downloads, and shares on its site. These counts are aggregated individually for each figure and table, but presented as a cumulative number for the supporting information package. The detailed breakdown for the three counts are available on the respective figshared page.</li>
 	</ul>
 
 <h4>Considerations</h4>
@@ -29,7 +28,7 @@ title: "Public Library of Science (PLOS)"
 
 <p>Robot activity may impact online usage data. PLOS has excluded all that are identified on this growing list, however PMC will be excluding a different list. No robot list is exhaustive and some level of robot usage will undoubtedly remain in the data. Differences in PLOS usage data for article published prior to July 1st, 2005: Usage data reported for these articles is shown as an HTML view but actually represents a "combined" figure made up of the 3 view types. This primarily affects articles published in PLOS Biology and PLOS Medicine. Usage between HTML, PDF and XML view types cannot be separated due to problems with early log files before July 1st, 2005.</p>
 
-<p>PubMed Central usage data: PMC statistics are COUNTER 3- compliant to the extent that they exclude internal use and crawlers/bots, and do not count duplicate requests for HTML pages or PDFs that are made within the limits specified by the standard. They are not compliant in that NLM does not provide usage data by specific IP, user, or organization. PMC began to make their usage data available to PLOS on January of 2010. Articles published before that point will not have PMC data prior to that time. We receive monthly reports from PMC of the prior month's usage and so there may be a lag in the display of data up to one month's time.</p>
+<p>PubMed Central usage data: PMC statistics are COUNTER 3-compliant to the extent that they exclude internal use and crawlers/bots, and do not count duplicate requests for HTML pages or PDFs that are made within the limits specified by the standard. They are not compliant in that NLM does not provide usage data by specific IP, user, or organization. PMC began making their usage data available to PLOS on January of 2010. Articles published before then will not have PMC data prior to that date. We receive monthly reports from PMC of the prior month's usage and so there may be a lag in the display of data up to one month's time.</p>
 
 <a id="citationInfo" name="citationInfo"></a>
 <h2>Cited</h2>
@@ -76,9 +75,9 @@ For each service, the count reflects the number of blog articles which have disc
 <h4>Social media</h4>
 <p>We also track the dissemination activity of articles through Twitter, Facebook, and Reddit. Given the ease and scope of digital propagation, researchers increasingly employ this social channel to recommend and discuss articles. This activity thus represents interest in the article, in a similar manner as usage data and provides insight into the reach of the article.</p>
 <ul>
-	<li>Twitter: a social networking and microblogging service. The application tracks the sharing of articles on Twitter and provides the total number of tweets. </li>
-	<li>Facebook: the largest social network. The Facebook count reflects the aggregate number of Facebook Likes, "shares," "posts," and "comments" on an article.</li>
-	<li>Reddit: a user-generated news links site. The system aggregates the number of posts and comments. It also collects the Reddit score based on the number of upvotes and downvotes for the post, which contains the article mention.</li>
+	<li>Twitter: number of tweets which share an article on Twitter, a social networking and microblogging service.</li>
+	<li>Facebook: aggregate number of Facebook Likes, "shares," "posts," and "comments" for an article on the largest social network.</li>
+	<li>Reddit: aggregate number of posts and comments on the user-generated news links site. The score based on the number of upvotes and downvotes for the post containing the article mention is also included.</li>
 	</ul>
 
 <h4>General online activity</h4>
@@ -90,13 +89,13 @@ For each service, the count reflects the number of blog articles which have disc
 <h4>Considerations</h4>
 <p>Social media: appropriate use of the social network data types will aid the discovery of related papers as well as reveal the article's readership reach. In collaboration with Cameron Neylon, this <a href="http://vimeo.com/channels/plosconversations/5696434">informational video</a> discusses the power of such metrics as a research and discovery tool.</p>
 
-<p>Twitter: We began collecting tweets for PLOS articles on June 1, 2012, and the Twitter ALM count does not include data prior to this time period. We search and pull tweets based upon the DOI of the article, which is embedded in the article URL. Shortened URLs substantially modify this original URL structure, however. To the extent possible we attempt to reconstruct the long-form, original tweet URL and collect it for display.</p>
+<p>Twitter: we began collecting tweets for PLOS articles on June 1, 2012, and the Twitter ALM count does not include data prior to this time period. We search and pull tweets based upon the DOI of the article, which is embedded in the article URL. Shortened URLs substantially modify this original URL structure, however. To the extent possible we attempt to reconstruct the long-form, original tweet URL and collect it for display.</p>
 
 <p>Blogs: in many cases, blog authors do not reference the article in a way that allows for automated aggregation, and the aggregating services we link to cover only a selection of all possible blogs. Therefore, there will potentially be many more blogs about an article than these aggregators are able to identify.</p>
 
 <a id="recommended" name="recommended"></a>
 <h2>Recommended</h2>
-<p>We provide data on sources that capture formal endorsements of PLOS research articles via a platform such as an online recommendation channel. F1000Prime is a directory of recommended articles by their expert team of scientists and clinical researchers in biology and medicine. Each reviewer provides a numerical score to their qualitative evaluation. The metric is thus a sum of the scores from all the reviews, which the recommended article has received.</p>
+<p>We provide data on sources that capture formal endorsements of PLOS research articles via a platform such as an online recommendation channel. F1000Prime is a directory of recommended articles by their expert team of scientists and clinical researchers in biology and medicine. Each reviewer provides a numerical score to their qualitative evaluation. The metric is the cumulative score from all reviews, received by the recommended article.</p>
 
 <a id="relativeMetrics" name="relativeMetrics"></a>
 <h2>Relative Metrics</h2>
@@ -117,8 +116,7 @@ The context provided in the average usage is limited to the PLOS corpus as usage
 
 ## Discontinued metrics
 PLOS no longer collects data from the following discontinued services:
-
 * Postgenomic
 * Bloglines
 * Connotea
-* Biod
+* Biodiversity Hub
