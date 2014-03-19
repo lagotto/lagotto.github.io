@@ -19,11 +19,10 @@ title: "Overview"
 -->
 
 <a id="ALMoverview" name="ALMoverview"></a>
-## Overview
-
 #### Article-Level Metrics measure the dissemination and reach of published research articles.
 
 Traditionally, the impact of research articles has been measured by the publication journal. But a more informative view is one that examines the overall performance and reach of the articles themselves. Article-Level Metrics are a comprehensive set of impact indicators that enable numerous ways to assess and navigate research most relevant to the field itself, including:
+
 * usage
 * citations
 * social bookmarking and dissemination activity

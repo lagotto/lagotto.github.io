@@ -27,10 +27,11 @@ The following set of articles represent only a subset of the growing body of wor
 * [Mutable Mobiles: Online Journals and the Evolving Genre Ecosystem of Science](http://repository.lib.ncsu.edu/ir/handle/1840.16/3905) by C Casper, Department of Communication, Rhetoric and Digital Media, North Carolina State University, USA. This dissertation uses both quantitative and qualitative/critical methods to analyze possible new interactions between online texts that differ from those of print texts.
 * [Analysis: Correlating the PLOS Article-level metrics](http://larsjuhljensen.wordpress.com/2010/01/15/analysis-correlating-the-plos-article-level-metrics/) by L Juhl Jensen, Novo Nordisk Foundation Center for Protein Research, Copenhagen. This blog post analyses how various categories of metrics (such as bookmarks, blog posts, citations, downloads, ratings and trackbacks) correlate with each other. Interestingly, the author finds that after downloads, bookmarks have the next highest correlation with citations.
 
-http://www.mendeley.com/groups/586171/altmetrics/
+<!--http://www.mendeley.com/groups/586171/altmetrics/
+-->
 
 #### Scholarly Conferences
-* [Altmetrics11]
-* [Altmetrics12]
+* [Altmetrics11](http://altmetrics.org/workshop2011/)
+* [Altmetrics12](http://altmetrics.org/altmetrics12/)
 * [ALM Workshop 2012](http://article-level-metrics.plos.org/alm-workshop-2012/): [workshop technical report](http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828)
 * [ALM Workshop 2013](http://article-level-metrics.plos.org/alm-workshop-2013/): [workshop presentations](http://lanyrd.com/2013/alm13/) links to post-workshop write-ups from the community are available
