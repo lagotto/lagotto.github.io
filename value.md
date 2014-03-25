@@ -3,21 +3,6 @@ layout: page
 title: "Value"
 ---
 
-<!--Body-->
-<!--
-<table class="table">
-<tbody>
-<tr>
-  <th>Viewed</th>
-  <th>Saved</th>
-  <th>Discussed</th>
-  <th>Cited</th>
-  <th>Recommended</th>
-</tr>
-</tbody>
-</table>
--->
-
 <a id="value" name="value"></a>
 #### Article-Level Metrics measure the dissemination and reach of published research articles.
 
@@ -30,7 +15,6 @@ Traditionally, the impact of research articles has been measured by the publicat
 * discussion activity and ratings
 * recommendation reviews
 
-<!-- [COUNTER 3](http://www.projectcounter.org/) maintains a defined list of robots that should be excluded in each publisher's usage reports.-->
 
 Article-Level Metrics are available, upon publication, for every article published by PLOS. Researchers can stay up-to-date with their published work and share information about the impact of their publications with collaborators, funders, institutions, and the research community at large. These metrics are also a powerful way to navigate and discover others’ work. Metrics can be customized to address the needs of researchers, publishers, institutional decision-makers, or funders.
 
