@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Releases</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Martin Fenner" />
+
+    <!-- RDFa Metadata (in DublinCore) -->
+    <meta property="dc:title" content="Releases" />
+    <meta property="dc:creator" content="" />
+    <meta name="citation_publication_date" content=""/>
+    <meta property="dc:format" content="text/html" />
+    <meta property="dc:language" content="en" />
+    <meta property="dc:identifier" content="/docs/releases/" />
+    <meta property="dc:rights" content="CC-BY" />
+    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:subject" content="Scholarly Communication" />
+    <meta property="dc:type" content="website" />
+
+    <!-- Google Scholar Metadata -->
+    <meta name="citation_author" content=""/>
+    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_title" content="Releases"/>
+    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+
+    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/github.css">
+
+    <!-- Javascript -->
+    <script src="/js/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ALM</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Introduction</a></li>
+            <li><a href="/metrics">Metrics</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/plos">Public Library of Science</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs/">Home</a></li>
+            <li><a href="/docs/installation">Installation</a></li>
+            <li><a href="/docs/setup">Setup</a></li>
+            <li><a href="/docs/sources">Sources</a></li>
+            <li><a href="/docs/api">API</a></li>
+            <li><a href="/docs/rake">Rake</a></li>
+            <li><a href="/docs/alerts">Alerts</a></li>
+            <li><a href="/docs/faq">FAQ</a></li>
+            <li><a href="/docs/releases">Releases</a></li>
+            <li><a href="/docs/roadmap">Roadmap</a></li>
+            <li><a href="/docs/contributors">Contributors</a></li>
+          </ul>
+        </li>
+        <li><a href="/examples">Examples</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/status">Status</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div class="page-header">
+        <h1>Releases</h1>
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-9">
+            
+            <h2 id="toc_0"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.13.2">ALM 2.13.2</a></h2>
+
+<p>ALM 2.13.2 was released on March 27, 2014 with a focus on bug fixes:</p>
+
+<ul>
+<li>OAuth2 authentication for Mendeley</li>
+<li>switch to Scopus REST API (from SOAP)</li>
+<li>partial publication dates (year or year-month)</li>
+<li>limit number of active workers per source</li>
+<li>better monitoring of background workers and jobs</li>
+<li>Rails 3.2.17</li>
+</ul>
+
+<h4 id="toc_1">Upgrade</h4>
+
+<p>Migrate to new date format (year, month, day):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:date_parts <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</code></pre></div>
+<p>Add number of workers in <code>config/settings.yml</code></p>
+<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span> <span class="nl">&amp;defaults</span>
+  <span class="l-Scalar-Plain">workers</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3</span>
+</code></pre></div>
+<p>Update Mendeley configuration (after getting <code>client ID</code> and <code>secret</code> from Mendeley):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">Url
+https://api-oauth2.mendeley.com/oapi/documents/details/%<span class="o">{</span>id<span class="o">}</span>
+
+Url with <span class="nb">type</span>
+https://api-oauth2.mendeley.com/oapi/documents/details/%<span class="o">{</span>id<span class="o">}</span>/?type<span class="o">=</span>%<span class="o">{</span>doc_type<span class="o">}</span>
+
+Url with title
+https://api-oauth2.mendeley.com/oapi/documents/search/%<span class="o">{</span>title<span class="o">}</span>/?items<span class="o">=</span>10
+
+Authentication url
+https://api-oauth2.mendeley.com/oauth/token
+
+Related articles url
+https://api-oauth2.mendeley.com/oapi/documents/related/%<span class="o">{</span>id<span class="o">}</span>
+
+Client id
+EXAMPLE
+
+Secret
+EXAMPLE
+</code></pre></div>
+<p>Add Scopus source (after getting <code>api_key</code> and <code>insttoken</code> from Scopus):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">api_key
+EXAMPLE
+
+insttoken
+EXAMPLE
+</code></pre></div>
+<h2 id="toc_2"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.12.1">ALM 2.12.1</a></h2>
+
+<p>ALM 2.12.1 was released on February 10, 2014 with the following changes:</p>
+
+<ul>
+<li>hotfix for Facebook source</li>
+<li>added Postgres support (with big help from @CottageLabs)</li>
+<li>queue articles by publication date</li>
+<li>changed how we get the canonical URL for a DOI</li>
+<li>updated documentation, in particular how we setup ALM</li>
+</ul>
+
+<h4 id="toc_3">Upgrade</h4>
+
+<p>Update Facebook configuration:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">URL
+https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class="o">{</span>access_token<span class="o">}</span><span class="p">&amp;</span><span class="nv">q</span><span class="o">=</span><span class="k">select </span>url, share_count, like_count, comment_count, click_count, total_count from link_stat where <span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;%{query_url}&#39;</span>
+</code></pre></div>
+<h2 id="toc_4"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.11.2">ALM 2.11.2</a></h2>
+
+<p>ALM 2.11.2 was released on January 22, 2014. Changes in this release include:</p>
+
+<ul>
+<li>sources, status and api_requests in the admin dashboard are loaded via cached API requests for better performance</li>
+<li>included performance improvements from @CottageLabs, in particular additional MySQL indexes</li>
+<li>included ALM visualization code from @jalperin</li>
+<li>upgraded to Bootstrap 3, many small visual changes in the frontend</li>
+<li>added Twitter source</li>
+<li>added monthly CSV report that is automatically generated</li>
+<li>fixed bug that could cause wrong login credentials</li>
+</ul>
+
+<h4 id="toc_5">Upgrade</h4>
+
+<p>Update CouchDB design docs (needed for reports):</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X PUT -d @design-doc/reports.json <span class="s1">&#39;http://localhost:5984/alm/_design/reports&#39;</span>
+</code></pre></div>
+<p>Remove HTML and XML from article titles:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>db:articles:sanitize_title
+</code></pre></div>
+<h2 id="toc_6"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.10.1">ALM 2.10.1</a></h2>
+
+<p>ALM 2.10.1 was released on November 13, 2013 with the following features:</p>
+
+<ul>
+<li>improve dashboard performance</li>
+<li>improve reporting</li>
+<li>merged DOI import code from CrossRef</li>
+</ul>
+
+<h2 id="toc_7"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.15">ALM 2.9.15</a></h2>
+
+<p>ALM 2.9.15 was released on November 3, 2013. This release contains fixes for the mailer functionality and two new reports:</p>
+
+<ul>
+<li>status report</li>
+<li>disabled source report</li>
+</ul>
+
+<p>A new source has been added:</p>
+
+<ul>
+<li>DataCite</li>
+</ul>
+
+<h2 id="toc_8"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.7">ALM 2.9.7</a></h2>
+
+<p>ALM 2.9.7 was released on October 3, 2013. This release fixes many small bugs of the 2.9 release and adds the following new sources:</p>
+
+<ul>
+<li>PMC Europe Citations</li>
+<li>PMC Europe Database Links</li>
+<li>Reddit</li>
+<li>Wordpress.com</li>
+<li>OpenEdition</li>
+</ul>
+
+<h2 id="toc_9"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9">ALM 2.9</a></h2>
+
+<p>ALM 2.9 was released on September 16, 2013. This version contains numerous bug fixes, and some important parts of the application were refactored</p>
+
+<ul>
+<li>all HTTP calls to external APIs now use the Faraday library, with automatic JSON decoding and central error logging</li>
+<li>the duration of responses from external APIs is now logged and displayed</li>
+<li>XML parsing was cleaned up and consolidated into the nokogiri gem</li>
+<li>background processing has been simplified</li>
+<li>the automatic installation with Vagrant was improved and the documentation updated</li>
+</ul>
+
+<p>The major new feature in this release is error tracking via filters. Filters can easily be added and customized, and they will generate a daily error report that is sent out via email</p>
+
+<h2 id="toc_10"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.8">ALM 2.8</a></h2>
+
+<p>ALM 2.8 was released on July 22, 2013. The development work focused on user account management.</p>
+
+<h2 id="toc_11">User accounts</h2>
+
+<p>Prior to this release, the ALM application allowed only a single user account. We can now have multiple user accounts, plus different roles for them:</p>
+
+<ul>
+<li>API user - to obtain an API key</li>
+<li>staff - read-only access to the admin dashboard</li>
+<li>admin - full access to the admin dashboard</li>
+</ul>
+
+<p>A new user admin dashboard facilitates user management.</p>
+
+<h3 id="toc_12">Social login</h3>
+
+<p>To facilitate account management for users and ALM admins, new user accounts can only be created via social login with one of these services:</p>
+
+<ul>
+<li><a href="http://developer.github.com/v3/oauth/">Github OAuth</a></li>
+<li><a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a></li>
+</ul>
+
+<p>The ALM application can be configured to use one of these services (but not both), or to use the old system of only a single admin user. The documentation has been updated to reflect these changes.</p>
+
+<h3 id="toc_13">API keys</h3>
+
+<p>Now that API keys are created within the ALM application, we can check for valid API keys in every API request. This is currently only done to allow access to private sources for admins, and to enable create/update/delete in the REST API. For security reasons create/update/delete only works from requests originating from the same computer.</p>
+
+<h2 id="toc_14">Documentation</h2>
+
+<p>The documentation in the wiki is now included in the application, making it easier for users to find documentation. We use the <a href="http://rubygems.org/gems/github-markdown">github-markdown gem</a> for this. The documentation has been updated with the changes in ALM 2.8, and other updates.</p>
+
+<h2 id="toc_15">Other Changes</h2>
+
+<p>Many small changes and bug fixes. We now use memcached for caching, and we added to cron jobs to clean up temporary tables (error_messages and api_requests).</p>
+
+<h2 id="toc_16"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.7">ALM 2.7</a></h2>
+
+<p>ALM 2.7 was released on May 16, 2013. The development work focused on adding Javascript libraries that talk to the ALM API and can be embedded in other web sites.</p>
+
+<h3 id="toc_17">Javascript single article visualizations</h3>
+
+<p>We added visualizations for single articles using the d3.js library, including time-based visualizations by day, month and year. We have created a new <a href="https://github.com/articlemetrics/almviz">Github repository</a> that will hold all future work on Javascript libraries talking to the ALM API. To make these visualizations easier we made two changes to the <a href="API">v3 ALM API</a>:</p>
+
+<ul>
+<li>added signposts (views, shares, bookmarks, citations) as summary information</li>
+<li>added metrics by day, month and year for every source</li>
+</ul>
+
+<h3 id="toc_18">Other Changes</h3>
+
+<p>We have made it easier to install the ALM application by adding and testing support for Amazon AWS via Vagrant. We added rake tasks to seed or delete articles, and to delete resolved errors and old API requests. Many small bugs were fixed and the ALM application was updated to use the latest Rails version (3.2.13).</p>
+
+<h2 id="toc_19"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.6">ALM 2.6</a></h2>
+
+<p>ALM 2.6 was released on March 19, 2013. The development work focused on two areas: API performance and easy installation.</p>
+
+<h3 id="toc_20">API Performance</h3>
+
+<p>The API code was refactored, adding the <a href="https://github.com/drapergem/draper">Draper Decorator</a> between the model and the <a href="https://github.com/nesquena/rabl">RABL Views</a>. We added caching, using Russian Doll fragment caching as described <a href="http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works">here</a>. It required some extra work to make this work with RABL and Draper. We also added a visualization of API requests to the admin dashboard, using d3.js and the <a href="http://square.github.com/crossfilter/">crossfiler</a> library.</p>
+
+<h3 id="toc_21">Easy Installation</h3>
+
+<p>To make it easier to install the ALM application, we have updated and throughoutly tested the <a href="installation">manual installation</a> instructions, updated the Chef / Vagrant automated installation (now using Ubuntu 12.04 and linking directly to the Chef Cookbook repository), and provided a VMware image of ALM application (535 MB <a href="http://dl.dropbox.com/u/9406373/alm_ubuntu_12.04_vmware.tar.gz">download</a>, username/password: alm). The VMware image file is still experimental and feedback is appreciated.</p>
+
+<p>An updated version of <a href="http://docs.vagrantup.com/v2/getting-started/index.html">Vagrant</a> (1.1) was released days after ALM 2.6, and this version now supports VMware and AWS. We will support these platforms in a future ALM release to again make it easier to test or install the ALM application.</p>
+
+<h3 id="toc_22">Other Changes</h3>
+
+<p>This release includes many small fixes and improvements. Of particular interest are the RSS feeds for the most popular articles by source, published in the last 7 days, 30 days, 12 months, or all-time. The RSS feeds are link from the most-cited lists for each source, e.g. <a href="http://alm.plos.org/sources/twitter">here</a>.</p>
+
+<h2 id="toc_23"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.5">ALM 2.5</a></h2>
+
+<p>ALM 2.5 was released on February 1st, 2013.</p>
+
+<ul>
+<li>admin dashboard</li>
+<li>First visualizations based on d3.js</li>
+<li>RSS feeds</li>
+<li>Rails 3.2.11</li>
+</ul>
+
+<h2 id="toc_24"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.4">ALM 2.4</a></h2>
+
+<p>ALM 2.4 was released on December 20, 2012.</p>
+
+<p>In this release we added a new source (<a href="http://scienceseeker.org/">ScienceSeeker</a>, a blog aggregator), fix many errors with sources and added tests for background and Rake tasks.</p>
+
+<h2 id="toc_25"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.3">ALM 2.3</a></h2>
+
+<p>ALM 2.3 was released on October 30, 2012.</p>
+
+<ul>
+<li>updated API (v3)</li>
+</ul>
+
+<h2 id="toc_26"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.2">ALM 2.2</a></h2>
+
+<p>ALM 2.2 was released on October 5, 2012.</p>
+
+<ul>
+<li>added Twitter Bootstrap CSS framework</li>
+<li>many small bug fixes and tweaks</li>
+<li>Rails 3.2.8</li>
+</ul>
+
+<h2 id="toc_27"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.1">ALM 2.1</a></h2>
+
+<p>ALM 2.1 was released on September 13, 2012.</p>
+
+<ul>
+<li>moved source code to Github</li>
+<li>added Rspec and Cucumber test coverage</li>
+<li>added installation script using Vagrant and Chef</li>
+<li>added Wikipedia source</li>
+<li>Rails 3.2.7</li>
+</ul>
+
+<h2 id="toc_28"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.0">ALM 2.0</a></h2>
+
+<p>ALM 2.0 was released on July 31, 2012.</p>
+
+<ul>
+<li>Ruby 1.9.3 and Rails 3.2.3</li>
+<li>switched from workling/starling to delayed_job for workers</li>
+<li>major refactoring of background processes</li>
+<li>store source data in CouchDB</li>
+</ul>
+
+
+            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
+<span
+  class="Z3988"
+  title="ctx_ver=Z39.88-2004
+  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
+  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
+  &amp;rft.title=Releases
+  &amp;rft.creator=
+  &amp;rft.date=
+  &amp;rft.language=EN
+  &amp;rft.rights=CC0
+  &amp;rft_id=http://articlemetrics.github.io/docs/releases/">
+</span>
+
+            
+            <hr>
+            <footer class="footer" role="contentinfo">
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
+
+  <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
+  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
+</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
