@@ -82,9 +82,11 @@ published: true
 <div>
 <div>We discussed a variety of chart formats including sunburst plots, heat maps, dot charts, tree maps among several others and settled on two versions to implement during the hackathon.</div>
 <div></div>
+<br>
 <div><strong>Multiple article metrics: </strong></div>
 <div>For multiple articles, we decided to work on trying to improve bubble charts, and see if we could find meaningful trends when visualizing large number of articles (&gt; 100).  Although we found some interesting patterns, it was difficult to make sense of large datasets (in our case ~2000 articles). One version we implemented was using heat maps to look at article metrics across different PLOS journals (all from the same funder) on a scale of months.</div>
 <div></div>
+<br>
 <div><strong>Single article metrics:</strong></div>
 <div>For single articles, we decided that using spark lines might be a powerful yet minimalist representation to visualize metrics. When stacked for multiple articles, it provides a quick visual way to compare metrics across articles. We implemented spark lines using a jquery plugin called <a href="http://benpickles.github.com/peity/">Piety</a>. A quick demo is available on our group's web page. In the short time we had, we also implemented a wordpress plugin for the Piety spark lines visualization for tweets and downloads. &lt;example link&gt;</div>
 </div>
