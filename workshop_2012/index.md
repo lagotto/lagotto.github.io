@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "ALM Workshop 2012"
+title: ALM Workshop 2012
+published: true
 ---
 
 Building off last year’s Beyond Impact Workshop; altmetrics11 &amp; 12; and a storm of activity they have since catalyzed, PLOS hosted  the 2012 ALM Workshop on November 1-3, 2012 in San Francisco. We convened various groups across the research ecosystem – researchers, institutions, publishers, funders, technology and service providers – for 3 days of collaborative breakout sessions amongst and between these groups.
@@ -15,16 +16,9 @@ Building off last year’s Beyond Impact Workshop; altmetrics11 &amp; 12; and a
 <strong>Format: </strong>
 We employed a blend of “unconference” and traditional programming.  As a group, we generated a list of issue topics of interest to the participants.  A smaller group, which coalesced during a clustering process, served as the basis for our first breakout session. The aim of S1 was to articulate a concrete problem statement for each topic.  The groups then generated an initial list of potential solutions in S2.  And from a subset of these solutions, the final session S3 aim was to design an action plan.
 
-<strong>Possible Outcomes</strong>:
-<ul>
-	<li>Set of draft best practices (collection, display, and use) to serve as basis for future standards-building efforts</li>
-	<li>Advocacy strategy for the publishing community with a list of potential candidates for ALM adoption</li>
-	<li>Recommended practices and methodology for altmetrics-supported funding assessment</li>
-	<li>Working groups organized with vision established for each group</li>
-	<li>Prototypes of altmetrics tools to serve custom needs of each community</li>
-</ul>
-<strong>Final Deliverables</strong>:
-Actionable plan for a small subset of solutions chosen by the group
+<strong>Final Outputs:</strong>
+The outputs of each session is archived <a href="http://articlemetrics.github.io/workshop_2012/outputs/">here</a>. And the full set of workshop work is fully documented in the final <a href="http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828">ALM Workshop 2012 Report</a>
+
 <div><strong><span style="font-size: medium;">Altmetrics Hackathon Overview</span></strong></div>
 <div></div>
 <div><em>Co-hosted by PLOS and ImpactStory: </em><a href="http://altmetricshackathon2012.eventbrite.com/">Invitation and Registration Page</a></div>
