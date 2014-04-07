@@ -120,13 +120,13 @@
 
 <div></div>
 
+<p><br>
 <div><strong>Description:</strong>
 <div>The purpose of the event was to bring the research community together to articulate concrete problem areas for altmetrics.  Together, we worked with developers to seed technical solutions and raised awareness of the pressing need for expanded altmetrics tool development.</div>
 <div>The list of registrants can be found on the <a href="http://altmetricshackathon2012.eventbrite.com/">Invitation and Registration Page.</a>
 </div>
-
 <div></div>
-
+<br>
 <div><strong>Purpose and Aims</strong>:
 <ul>
     <li>Identify Problems: Convene the community to articulate and concretize technical issues and challenges in the application of altmetrics data</li>
@@ -143,7 +143,7 @@
 </ul>
 </ul>
 <div></div>
-</div>
+</div></p>
 
 <div>Full listing of application ideas board, development resources, attendees interests can be found <a href="http://tinyurl.com/covnyjv">here</a>.</div>
 
@@ -151,11 +151,11 @@
 
 <div>
 <ul>
-    <li><strong><span style="font-size: x-small"><a href="#rerank">ReRank It</a></span></strong></li>
-    <li><strong><span style="font-size: x-small"><a href="#altviz">AltViz</a></span></strong></li>
-    <li><strong><span style="font-size: x-small"><a href="#author">Author Centrality Measure</a></span></strong></li>
-    <li><strong><span style="font-size: x-small"><a href="#onearticle">One Article, Many URLs</a></span></strong></li>
-    <li><strong><span style="font-size: x-small"><a href="#altgaming">AltGaming</a></span></strong></li>
+    <li><strong><a href="#rerank">ReRank It</a></span></strong></li>
+    <li><strong><a href="#altviz">AltViz</a></span></strong></li>
+    <li><strong><a href="#author">Author Centrality Measure</a></span></strong></li>
+    <li><strong><a href="#onearticle">One Article, Many URLs</a></span></strong></li>
+    <li><strong><a href="#altgaming">AltGaming</a></span></strong></li>
 </ul>
 </div>
 
@@ -180,10 +180,9 @@
     <li>Jason Priem</li>
 </ul>
 </div>
-<div><em><span style="font-size: x-small">* Voted winner of the Audience Award at the end of the hackday.</span></em></div>
-<div><em><span style="font-size: x-small">
-</span></em></div>
+<div><em>* Voted winner of the Audience Award at the end of the hackday.</em></div>
 <div></div>
+<br>
 <div><strong><a name="altviz"></a>Project II: AltViz</strong></div>
 <div></div>
 <div>The altviz (altmetrics visualization) group worked on better ways to visualize altmetric data at various levels (single article, multiple articles). Our goal was to find ideal ways to present the data in a non-interactive way (so it could easily be embedded into a variety of platforms).</div>
@@ -222,6 +221,7 @@
 <div></div>
 <div><strong>
 </strong></div>
+<br>
 <div><strong><a name="author"></a>Project III: Author Centrality Measure</strong></div>
 <div>
 <div></div>
@@ -253,6 +253,7 @@ With additional contributions from Tim McCormick, Patrick Hayes, and others.
 <div></div>
 </div>
 </div>
+<br>
 <div><strong><a name="altgaming"></a>Project V: AltGaming - aka - BatSignal</strong></div>
 <div><strong>Background to our back</strong></div>
 <div>One of the topics that got quite a bit of discussion at the workshop was the topic of gaming of ALMs. We are still in a domain with respect to ALMs that gaming has not become a serious issues. Over the course of the meeting only one specific example of gaming of pdf downloads, wrt to <a href="http://www.ssrn.com/">SSRN</a>was alluded to. Nonetheless, as more people discuss ALMs the question on what to do about them comes up every now and again. In the session during the workshop we came up with 6 strong technical ideas for addressing this issue. Probably the biggest insight in the workshop was that for consumers of ALMs, such as funders, all they want to know is that the data you are providing is reliable. It’s probably even better to not even mention gaming, one should simply be in a position to be able to give assurances around data quality.</div>
@@ -274,11 +275,11 @@ With additional contributions from Tim McCormick, Patrick Hayes, and others.
 <p>When it came to the day of the hackathon there were enough people interested in the general topic that we decided to have a go at something. We only had a few hours, so we decided to pick a simple atomic example of trying to find a signal in the data. There was a lot of discussion around whether this would be useful, if we didn’t initially know what that signal would represent, and that is a fair point, however there was sufficient interest to give it a go.</p>
 
 <p>The idea is that changes in altmetrics activity express the changing levels of interest in a research artefact. The specific pattern of activity depends on the metric being considered (e.g., journal page views, Tweets, bookmark, etc.). Spikes in activity are of interest as they may indicate either sudden interest in a paper (e.g., mainstream news coverage, prize awarded to an author) or manipulation of metrics (i.e., gaming). We wanted to get some data, apply a tool suitable for detecting a signal, and show that such a tool could be used with altmetric data. We were then going to visualise the events. We felt that a working demo could be extended to a more generally applicable tool for the whole ALM community.
-<h2><strong style="font-size: 13px">What we did</strong></h2>
+<h2><strong>What we did</strong></h2>
 To begin, we packaged the data to construct time sequence vectors for each of our sample articles, a subset of 2000 articles in the PLOS corpus. We then identified a set of possible approaches to evaluate the data: hidden or semi-hidden Markov models, switching Poisson (SP) process, Rank Surprise method, etc. The most recent applications are capable of adaptive event detection by incorporating Bayesian learning to Poisson models. We didn’t have much time, and after identifying a set of algorithms that might do the job for us, we did a search for ready to hand implementations in R. We found a recently released <a href="http://cran.r-project.org/web/packages/bursts/index.html">R package that applies Kleinberg’s burst detection algorithm</a>, and given that was available we decided to apply that. The data we had prepared was not in exactly the right format, so we wrote one more data processing step to wrangle the data a bit more, and we ran the algorithm on some real data.</p>
 
 <p><img alt="" src="https://lh5.googleusercontent.com/-gEVChjytyI8/UJdEyzimduI/AAAAAAAAqKc/pP4rv0uXhtI/s860/20121103-P1100604.jpg" height="50%" />
-<h2><strong style="font-size: 13px">Results</strong></h2>
+<h2><strong>Results</strong></h2>
 We hoped to find a sampling of bursts then to visualize in order to study the spike train and its event arrival intervals. No bursts were identified from our data set when we implemented the program. Whether this was due to the technical implementation of the algorithm; the data; or the suitability of the algorithm, we need to conduct further preliminary work such as testing this model with a simpler method that examines the variance of article activity change across the corpus. We hope to continue to build an open source, automatic ALM burst detection tool that can be used across altmetrics providers.</p>
 
 <p><strong>Resources</strong></p>
