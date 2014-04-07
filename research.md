@@ -6,15 +6,16 @@ title: "Research"
 Analysis of ALM data for scholarly research, while still relatively new, is a growing enterprise, critical to ensuring consistent, appropriate usage of the metrics. A community made of bibliometricians; librarians; and researchers is building on decades of citation analysis, broadening the traditional focus to better understand the activity captured across the various channels of research engagement available today online. 
 
 #### Collections
-<a id="ONEcollection" name="ONECollection"></a>
+
 * [PLOS ONE Altmetrics Collection](http://www.ploscollections.org/article/browseIssue.action?issue=info:doi/10.1371/issue.pcol.v02.i19): a PLOS ONE collection og papers to seed further study and use of altmetrics. It covers a range of subjects including statistical analysis of altmetrics data sources; metric validation, and identification of biases in measurements; validation of models of scientific discovery/recommendation based on altmetrics; qualitative research describing the scholarly use of online tools and environments; empirically-supported theory guiding altmetrics’ uses; and other research relating to scholarly impact in online tools and environments. The Collection is open for continued submissions across these areas.
 
 * [NISO ISQ Special Issue on Altmetics](http://www.niso.org/apps/group_public/download.php/10409/isqv25no2.pdf)
 
 
 #### Publications
-<a id="bibliography" name="bibliography"></a>
+
 The following set of articles represent only a subset of the growing body of work on ALM:
+
 * [What Can Article-Level Metrics Do For You?](http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001687) by Martin Fenner. This editorial explains why article-level metrics are an important extension of traditional citation-based journal metrics and provide a number of example from ALM data collected for PLOS Biology.
 
 * [The weakening relationship between the Impact Factor and papers’ citations in the digital age](http://arxiv.org/abs/1205.4328) by George A. Lozano, Vincent Lariviere, Yves Gingras.
