@@ -22,7 +22,7 @@ Migrate to new date format (year, month, day):
 bundle exec rake db:articles:date_parts RAILS_ENV=production
 ```
 
-Add number of workers in `config/settings.yml`
+Add number of workers in `config/settings.yml`:
 
 ```yaml
 defaults: &defaults
