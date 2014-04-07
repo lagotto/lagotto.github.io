@@ -4,13 +4,14 @@ title: "ALM Workshop 2013"
 ---
 
 <h3><strong>October 10-12, 2013. Fort Mason Center, San Francisco, CA</strong></h3>
-<h3><strong><a href="http://almdatachallenge.eventbrite.com/">Data Challenge Info</a></strong></h3>
 <h3><a href="http://lanyrd.com/2013/alm13/">Full ALM Event on Lanyrd </a>with slides and post-conference commentary</h3>
 &nbsp;
 
 <strong>ALM Workshop 2013 (#alm13):</strong> As article-level metrics (ALM) come of age, the question is no longer whether we need them, but rather how we implement them. Building upon the successful <a href="http://article-level-metrics.plos.org/alm-workshop-2012/">ALM Workshop in November 2012</a>, PLOS invites you to the second ALM Workshop 2013 on October 10-12, 2013 in San Francisco.
 
-This year, we want to move the community conversations beyond the basics to focus on success stories and challenges encountered, latest analyses on the growing data corpus, as well as deep dives into the technical details behind it all. The format in the first two days will consist of a series of talks and panel discussions with ample mingling time to encourage in-depth sharing. For the third day of the workshop, we will organize a data challenge (data hackathon), giving participants the opportunity to do data analysis and data visualization on a variety of ALM datasets from different sources. The workshop is open to all.  Supported by The Alfred P. Sloan Foundation and PLOS, there is no registration cost. A full list of registrants <a href="http://almworkshop13.eventbrite.com/">here.</a>
+This year, we want to move the community conversations beyond the basics to focus on success stories and challenges encountered, latest analyses on the growing data corpus, as well as deep dives into the technical details behind it all. The format in the first two days will consist of a series of talks and panel discussions with ample mingling time to encourage in-depth sharing. For the third day of the workshop, we will organize a data challenge (data hackathon), giving participants the opportunity to do data analysis and data visualization on a variety of ALM datasets from different sources. The workshop is open to all.  Supported by The Alfred P. Sloan Foundation and PLOS, there is no registration cost. A full list of registrants can be found <a href="http://almworkshop13.eventbrite.com/">here.</a>
+
+On the last day of the workshop, we held an <strong><a href="http://almdatachallenge.eventbrite.com/">ALM Data Challenge</a></strong>.
 
 <strong>Workshop 2013 Program</strong>
 <table dir="ltr" cellspacing="0" cellpadding="0"><col width="72" /> <col width="240" /> <col width="375" />
