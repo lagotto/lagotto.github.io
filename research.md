@@ -15,6 +15,7 @@ Analysis of ALM data for scholarly research, while still relatively new, is a gr
 #### Publications
 
 The following set of articles represent only a subset of the growing body of work on ALM:
+
 * [What Can Article-Level Metrics Do For You?](http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001687) by Martin Fenner. This editorial explains why article-level metrics are an important extension of traditional citation-based journal metrics and provide a number of example from ALM data collected for PLOS Biology.
 
 * [The weakening relationship between the Impact Factor and papers’ citations in the digital age](http://arxiv.org/abs/1205.4328) by George A. Lozano, Vincent Lariviere, Yves Gingras.
