@@ -165,14 +165,15 @@ To begin, we packaged the data to construct time sequence vectors for each of ou
 <img alt="" src="https://lh5.googleusercontent.com/-gEVChjytyI8/UJdEyzimduI/AAAAAAAAqKc/pP4rv0uXhtI/s860/20121103-P1100604.jpg" height="50%" />
 <br>
 <strong>Results</strong>
+<br>
 We hoped to find a sampling of bursts then to visualize in order to study the spike train and its event arrival intervals. No bursts were identified from our data set when we implemented the program. Whether this was due to the technical implementation of the algorithm; the data; or the suitability of the algorithm, we need to conduct further preliminary work such as testing this model with a simpler method that examines the variance of article activity change across the corpus. We hope to continue to build an open source, automatic ALM burst detection tool that can be used across altmetrics providers.
-
+<br>
 <strong>Resources</strong>
-
+<br>
 The code we generated is on <a href="https://github.com/SChamberlain/altgaming">github</a>. We used the literature in the <a href="http://www.mendeley.com/groups/2732131/burst-detection/">Mendeley burst detection group</a> to help focus on algorithms that might help. The data sets that we generated are in a <a href="https://www.dropbox.com/sh/wrev1s6ryex8ib5/KjzcPDk7m6">dropbox folder</a>. We generated one <a href="https://www.dropbox.com/s/76fq0jb17oqz6mq/dataset_larger.zip">large dataset</a> that can be used for testing algorithms against, however it will need to be converted into time series sub-data sets.
-
+<br>
 <strong>Some Takeaways</strong>
-
+<br>
 A lot of our time during the hack was spent getting data. In the end we had about three data sets floating around, with some differences in the scale of time that they covered, and the sources of information that were in them. A lot time was spent manipulating the data to generate a time series set in the right format for the algorithm we wanted to run, and we also ran into a few limitations of the API. One outcome is that our work picked up a bug in the PLOS ALM API which is now being fixed!
 
 It was fun working in a small group, I’ve previously been involved in a couple of hackathons where I ended up working on my own ideas, still fun, but not as much fun.
@@ -182,9 +183,9 @@ Even with a really tightly focussed group, with the number of data sets that we 
 We applied a state of the art algorithm, and ran into some difficulty because we didn’t really understand the domain of applicability of the algorithm. but from my own personal point of view, even though we didn’t
 
 In terms of being productive at a hackathon, I think next time have a data set in the format you want it in, or an API in the format you want it in, leaves you in a better starting position, so either get the data ready before hand, or restrict the scope of what you are going to do, to ideas that interface really well with the format of the data that you have to hand.
-
+<br>
 <strong>What's next?</strong>
-
+<br>
 We could see, in an infamous paper about bats, that there were a couple of clear spikes of attention, so we know, a-priori, that there are events that show up in the kind of data that we have access to. We know that it would be interesting to be able to automate both the retrospective discovery of these kinds of events, and the ability to analyse a live stream of signals to see upticks in activity. We know that there are a bunch of algorithms out there that are well tuned to this task, so there is good scope to iterate on this work and set up some nice clean stream data, and some data work-flows for generating this kind of data from available APIs, while at the same time finding a suite of algorithms to toss the data at. At the same time there was a lot of discussion around how to understand the context of ALM numbers, or events, and we need to keep an eye on what it all means, and whether the events we might be able to pick up can be related to things happening in the real world.
 
 <em>(As a personal aside, I’ve been interested in Kleinberg’s algorithm since about 2007, but I never had the mathematical chops to code up my own version of the algorithm, and I never got the perl version to run, so I was delighted to find a package that I could try out, even if, in the end, it didn’t work. - Ian).</em>
