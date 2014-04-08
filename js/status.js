@@ -1,5 +1,6 @@
 var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.org", api_key: "3pezRBRXdyzYW6ztfwft" },
              { name: "Copernicus Publications", url: "http://metricus.copernicus.org", api_key: "Dxkwpz8FRe7JHw4EGC1v" },
+             { name: "Public Knowledge Project", url: "http://pkp-alm.lib.sfu.ca/", api_key: "WYjzU11DdSr8PEJRuhGX" },
              { name: "ALM Data Challenge<br/>(10,000 random CrossRef DOIs)", url: "http://almhack.crowdometer.org", api_key: "qzcE4ciMj438fLPqyRdE" },
              { name: "CrossRef Labs", url: "http://alm.labs.crossref.org", api_key: "64aJra4M7NPHVAWxxCZ5" }]
 
