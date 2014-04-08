@@ -14,7 +14,7 @@ Building off last year’s Beyond Impact Workshop; altmetrics11 &amp; 12; and a
 	<li>Coordinate plans for building best-practices, development of tools, and outreach/advocacy of altmetrics</li>
 </ul>
 <strong>Format: </strong>
-We employed a blend of “unconference” and traditional programming.  As a group, we generated a list of issue topics of interest to the participants.  A smaller group, which coalesced during a clustering process, served as the basis for our first breakout session. The aim of S1 was to articulate a concrete problem statement for each topic.  The groups then generated an initial list of potential solutions in S2.  And from a subset of these solutions, the final session S3 aim was to design an action plan.
+We employed a blend of “unconference” and traditional programming.  As a group, we generated a list of issue topics of interest to the participants.  A smaller group, which coalesced during a clustering process, served as the basis for our first breakout session. The aim of this session was to articulate a concrete problem statement for each topic.  The groups then generated an initial list of potential solutions in the second session.  And from a subset of these solutions, the final session was aimed at designing an action plan.
 
 <strong>Final Outputs:</strong>
-The full outputs of each session are archived <a href="http://articlemetrics.github.io/workshop_2012/outputs/">here</a>. And the full set of workshop work is fully documented in the final technical <a href="http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828">ALM Workshop 2012 Report</a>.
+The full outputs of each session are archived <a href="http://articlemetrics.github.io/workshop_2012/outputs/">here</a>. The final technical documentation is found in the <a href="http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828">ALM Workshop 2012 Report</a>.
