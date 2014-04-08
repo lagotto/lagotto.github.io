@@ -13,7 +13,7 @@ This year, we want to move the community conversations beyond the basics to focu
 
 On the last day of the workshop, we held an <strong><a href="http://almdatachallenge.eventbrite.com/">ALM Data Challenge</a></strong>.
 
-<strong>Workshop 2013 Program</strong>
+<h3>Workshop 2013 Program</h3>
 <table dir="ltr" cellspacing="0" cellpadding="0"><col width="72" /> <col width="240" /> <col width="375" />
 <tbody>
 <tr>
@@ -374,7 +374,7 @@ On the last day of the workshop, we held an <strong><a href="http://almdatachall
 </tbody>
 </table>
 
-<h3>Call for Papers</h3>
+<strong>Call for Papers</strong>
 <p dir="ltr">As ALMs continue to develop, we have an even richer body of knowledge to draw on: more data to better understand the properties of these emerging metrics, more analysis on the evolving behaviors of the research community captured and revealed, and more demonstrations of their application in research discovery and assessment. Come share this ongoing work with the broader research community at the ALM Workshop 2013.</p>
 <p dir="ltr">We invite a range of presentations: experimental results, technical reports on working tools, position papers, etc. We welcome viewpoints from researchers, funders, librarians, research administrators, publishers, and tool developers alike. All areas of ALMs and altmetrics are applicable, including:</p>
 
@@ -388,7 +388,7 @@ On the last day of the workshop, we held an <strong><a href="http://almdatachall
 &nbsp;
 <p dir="ltr">To propose a presentation, please submit abstracts (not exceeding 500 words) via email to <a href="mailto:alm@plos.org">alm [at] plos.org</a> by August 11, 2013.  We will notify applicants of decisions by mid-September.  Limited travel support is available for students selected to present a paper.</p>
 
-<h4><b>Pre-Workshop Meetups</b></h4>
+<strong><b>Pre-Workshop Meetups</b></strong>
 Leading up to the big event, we will host a few online meetups to carry on the working group efforts and broaden them out to jump-start the larger group conversations.  Please join as your schedule permits to share recent experiences, concerns, and questions centered around topics. Two tracks will be available: Outreach (Ambassadors, marketing, advocacy, etc.) and Technical (data analysis, API, display, software, etc.).
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
