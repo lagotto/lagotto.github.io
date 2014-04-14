@@ -1,0 +1,76 @@
+---
+layout: post
+title: "ALM in R"
+category: examples
+tags: [r]
+authors:
+ - surname: Chamberlain
+   given-names: Scott
+   orcid: http://orcid.org/0000-0003-1444-9135
+   email: scott@ropensci.org
+---
+
+The ALM application is now being used by other publishers. Since other publishers use this same application, we can access altmetrics data from all of them with a single client. rOpenSci has made an R client for interacting with the ALM application from R, called `alm`. 
+
+There are now four publishers that are using the ALM app - that is, that you can get altmetrics data from: PLOS, Crossref, Publick Knowledge Project (PKP), and Copernicus. More are likely coming on line.
+
+As a quick demonstration of the power of this single interface to many different altmetrics providers, below are a few examples. 
+
+### Install and load alm
+
+```{r eval=FALSE}
+install_github("ropensci/alm")
+```
+
+```{r messages=FALSE}
+library("alm")
+```
+
+
+### Get data
+
+#### PLOS article data
+
+The default in the `alm` package is for the PLOS ALM app. You do need to get an API key first here [http://alm.plos.org/](http://alm.plos.org/). You can pass in the `key` parameter or store in your `.Rprofile` file and pass in that way, or do `options(PlosApiKey = "yourkey")` and that will be stored for your current R session.
+
+
+```{r}
+out <- alm(doi = "10.1371/journal.pone.0036240")
+head(out)
+```
+
+#### Crossref article data
+
+You need to get a Crossref ALM API key first here [http://alm.labs.crossref.org/docs/Home](http://alm.labs.crossref.org/docs/Home), and pass in a different URL
+
+
+```{r}
+url <- "http://alm.labs.crossref.org/api/v3/articles"
+alm(doi = "10.1080/15459624.2013.816432", url = url, key = getOption("crossrefalmkey"))
+```
+
+
+#### Public Knowledge Project (PKP) article data
+
+You need to get a PKP ALM API key first here [http://pkp-alm.lib.sfu.ca/](http://pkp-alm.lib.sfu.ca/), and pass in a different URL
+
+
+```{r}
+url <- "http://pkp-alm.lib.sfu.ca/api/v3/articles"
+alm(doi = "10.3402/gha.v7.23554", url = url, key = getOption("pkpalmkey"))
+```
+
+
+#### Copernicus publishers article data
+
+You need to get a Copernicus ALM API key first here [http://metricus.copernicus.org/](http://metricus.copernicus.org/), and pass in a different URL
+
+
+```{r}
+url <- "http://metricus.copernicus.org/api/v3/articles"
+alm(doi = "10.5194/fr-17-33-2014", url = url, key = getOption("copernicusalmkey"))
+```
+
+<hr>
+
+Once you have data you can leverage the great statistics and visualization power of R easily.
