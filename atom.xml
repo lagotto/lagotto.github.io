@@ -4,7 +4,7 @@
  <title>Article-Level Metrics</title>
  <link href="http://articlemetrics.github.io/atom.xml" rel="self"/>
  <link href="http://articlemetrics.github.io"/>
- <updated>2014-04-08T05:09:56+00:00</updated>
+ <updated>2014-04-15T01:44:20+00:00</updated>
  <id>http://articlemetrics.github.io</id>
  
  <author>
@@ -14,6 +14,112 @@
  </author>
 
 
+ 
+ <entry>
+   <title>ALM in R</title>
+   <link href="http://articlemetrics.github.io/examples/2014/04/14/alm-in-r/"/>
+   <updated>2014-04-14T00:00:00+00:00</updated>
+   <id>http://articlemetrics.github.io/examples/2014/04/14/alm-in-r</id>
+   <content type="html">&lt;p&gt;The ALM application is now being used by other publishers. Since other publishers use this same application, we can access altmetrics data from all of them with a single client. rOpenSci has made an R client for interacting with the ALM application from R, called &lt;code&gt;alm&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;There are now four publishers that are using the ALM app - that is, that you can get altmetrics data from: PLOS, Crossref, Publick Knowledge Project (PKP), and Copernicus. More are likely coming on line.&lt;/p&gt;
+
+&lt;p&gt;As a quick demonstration of the power of this single interface to many different altmetrics providers, below are a few examples. &lt;/p&gt;
+
+&lt;h3 id=&quot;toc_0&quot;&gt;Install and load alm&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;install_github&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;ropensci/alm&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;alm&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;toc_1&quot;&gt;Get data&lt;/h3&gt;
+
+&lt;h4 id=&quot;toc_2&quot;&gt;PLOS article data&lt;/h4&gt;
+
+&lt;p&gt;The default in the &lt;code&gt;alm&lt;/code&gt; package is for the PLOS ALM app. You do need to get an API key first here &lt;a href=&quot;http://alm.plos.org/&quot;&gt;http://alm.plos.org/&lt;/a&gt;. You can pass in the &lt;code&gt;key&lt;/code&gt; parameter or store in your &lt;code&gt;.Rprofile&lt;/code&gt; file and pass in that way, or do &lt;code&gt;options(PlosApiKey = &amp;quot;yourkey&amp;quot;)&lt;/code&gt; and that will be stored for your current R session.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;out &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; alm&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;doi &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;10.1371/journal.pone.0036240&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+head&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;out&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##         .id  pdf  html shares groups comments likes citations total
+## 1 citeulike   NA    NA      5     NA       NA    NA        NA     5
+## 2  crossref   NA    NA     NA     NA       NA    NA         3     3
+## 3    nature   NA    NA     NA     NA       NA    NA         1     1
+## 4    pubmed   NA    NA     NA     NA       NA    NA         5     5
+## 5    scopus   NA    NA     NA     NA       NA    NA         7     7
+## 6   counter 1054 15067     NA     NA       NA    NA        NA 16163
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;toc_3&quot;&gt;Crossref article data&lt;/h4&gt;
+
+&lt;p&gt;You need to get a Crossref ALM API key first here &lt;a href=&quot;http://alm.labs.crossref.org/docs/Home&quot;&gt;http://alm.labs.crossref.org/docs/Home&lt;/a&gt;, and pass in a different URL&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;url &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;http://alm.labs.crossref.org/api/v3/articles&amp;quot;&lt;/span&gt;
+alm&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;doi &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;10.1080/15459624.2013.816432&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; url &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; url&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; key &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; getOption&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;crossrefalmkey&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##                 .id pdf html shares groups comments likes citations total
+## 1          crossref  NA   NA     NA     NA       NA    NA         0     0
+## 2          mendeley  NA   NA     NA   TRUE       NA    NA        NA     0
+## 3          facebook  NA   NA   2139     NA      461  1243        NA  3843
+## 4  researchblogging  NA   NA     NA     NA       NA    NA         0     0
+## 5               pmc  NA   NA     NA     NA       NA    NA         0     0
+## 6        copernicus  NA   NA     NA     NA       NA    NA        NA     0
+## 7    twitter_search  NA   NA     NA     NA       NA    NA         0     0
+## 8         citeulike  NA   NA      0     NA       NA    NA        NA     0
+## 9            pubmed  NA   NA     NA     NA       NA    NA         0     0
+## 10        wordpress  NA   NA     NA     NA       NA    NA         0     0
+## 11           reddit  NA   NA     NA     NA       NA    NA         0     0
+## 12        wikipedia  NA   NA     NA     NA       NA    NA         0     0
+## 13   doi_resolution  NA   NA     NA     NA       NA    NA         0     0
+## 14         datacite  NA   NA     NA     NA       NA    NA         0     0
+## 15        pmceurope  NA   NA     NA     NA       NA    NA         0     0
+## 16    pmceuropedata  NA   NA     NA     NA       NA    NA         0     0
+## 17    scienceseeker  NA   NA     NA     NA       NA    NA         0     0
+## 18           nature  NA   NA     NA     NA       NA    NA         0     0
+## 19      openedition  NA   NA     NA     NA       NA    NA         0     0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;toc_4&quot;&gt;Public Knowledge Project (PKP) article data&lt;/h4&gt;
+
+&lt;p&gt;You need to get a PKP ALM API key first here &lt;a href=&quot;http://pkp-alm.lib.sfu.ca/&quot;&gt;http://pkp-alm.lib.sfu.ca/&lt;/a&gt;, and pass in a different URL&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;url &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;http://pkp-alm.lib.sfu.ca/api/v3/articles&amp;quot;&lt;/span&gt;
+alm&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;doi &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;10.3402/gha.v7.23554&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; url &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; url&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; key &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; getOption&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;pkpalmkey&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##                 .id pdf html shares groups comments likes citations total
+## 1         citeulike  NA   NA      0     NA       NA    NA        NA     0
+## 2            pubmed  NA   NA     NA     NA       NA    NA         0     0
+## 3         wikipedia  NA   NA     NA     NA       NA    NA         0     0
+## 4          mendeley  NA   NA     NA   TRUE       NA    NA        NA     0
+## 5          facebook  NA   NA      1     NA        0     0        NA     1
+## 6            nature  NA   NA     NA     NA       NA    NA         0     0
+## 7  researchblogging  NA   NA     NA     NA       NA    NA         0     0
+## 8          crossref  NA   NA     NA     NA       NA    NA         0     0
+## 9     scienceseeker  NA   NA     NA     NA       NA    NA         0     0
+## 10        pmceurope  NA   NA     NA     NA       NA    NA         0     0
+## 11    pmceuropedata  NA   NA     NA     NA       NA    NA         0     0
+## 12      openedition  NA   NA     NA     NA       NA    NA         0     0
+## 13        wordpress  NA   NA     NA     NA       NA    NA         0     0
+## 14           reddit  NA   NA     NA     NA       NA    NA         0     0
+## 15       copernicus  NA   NA     NA     NA       NA    NA        NA     0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;toc_5&quot;&gt;Copernicus publishers article data&lt;/h4&gt;
+
+&lt;p&gt;You need to get a Copernicus ALM API key first here &lt;a href=&quot;http://metricus.copernicus.org/&quot;&gt;http://metricus.copernicus.org/&lt;/a&gt;, and pass in a different URL&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;url &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;http://metricus.copernicus.org/api/v3/articles&amp;quot;&lt;/span&gt;
+alm&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;doi &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;10.5194/fr-17-33-2014&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; url &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; url&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; key &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; getOption&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;copernicusalmkey&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##                 .id pdf html shares groups comments likes citations total
+## 1         citeulike  NA   NA      0     NA       NA    NA        NA     0
+## 2            pubmed  NA   NA     NA     NA       NA    NA         0     0
+## 3     scienceseeker  NA   NA     NA     NA       NA    NA         0     0
+## 4            nature  NA   NA     NA     NA       NA    NA         0     0
+## 5         wikipedia  NA   NA     NA     NA       NA    NA         0     0
+## 6          crossref  NA   NA     NA     NA       NA    NA         0     0
+## 7          facebook  NA   NA      0     NA        0     0        NA     0
+## 8          mendeley  NA   NA     NA   TRUE       NA    NA        NA     0
+## 9  researchblogging  NA   NA     NA     NA       NA    NA         0     0
+## 10       copernicus 248  495     NA     NA       NA    NA        NA   749
+## 11        pmceurope  NA   NA     NA     NA       NA    NA         0     0
+## 12    pmceuropedata  NA   NA     NA     NA       NA    NA         0     0
+## 13      openedition  NA   NA     NA     NA       NA    NA         0     0
+## 14        wordpress  NA   NA     NA     NA       NA    NA         1     1
+## 15           reddit  NA   NA     NA     NA       NA    NA         0     0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+
+&lt;p&gt;Once you have data you can leverage the great statistics and visualization power of R easily.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>The Mystery of the Missing ALM</title>
