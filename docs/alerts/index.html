@@ -181,10 +181,9 @@
 <ul>
 <li>job_batch_size: number of articles per job (default 200)</li>
 <li>timeout (default 30 sec)</li>
-<li>batch_time_interval (default 1 hour)</li>
 </ul>
 
-<p>If all 200 jobs take close to 3000 sec, and they will not be done within an hour, and before we process the next batch. Decrease <code>job_batch_size</code> and/or <code>timeout</code>, or increase <code>batch_time_interval</code> if you see to many of these errors for a source.</p>
+<p>If all 200 jobs take close to 3000 sec, and they will not be done within an hour, and before we process the next batch. Decrease <code>job_batch_size</code> or increase <code>timeout</code> if you see to many of these errors for a source.</p>
 
 <h4 id="toc_8">[401] Missing API key.</h4>
 

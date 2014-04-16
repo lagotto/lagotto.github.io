@@ -159,7 +159,7 @@
 <p>This is an optional step. Rename the file <code>config.json.example</code> to <code>config.json</code> and add your custom settings to it, including usernames, passwords, API keys and the MySQL password. This will automatically configure the application with your settings.</p>
 
 <p>Some custom settings for the virtual machine are stored in the <code>Vagrantfile</code>, and that includes your cloud provider access keys, the ID base virtual machine with Ubuntu 12.04 from by your cloud provider, RAM for the virtual machine, and networking settings for a local installation. A sample configuration for AWS would look like:</p>
-<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;alm&quot;</span>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;SUBDOMAIN.EXAMPLE.ORG&quot;</span>
 
 <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="ss">:aws</span> <span class="k">do</span> <span class="o">|</span><span class="n">aws</span><span class="p">,</span> <span class="n">override</span><span class="o">|</span>
   <span class="n">aws</span><span class="o">.</span><span class="n">access_key_id</span> <span class="o">=</span> <span class="s2">&quot;EXAMPLE&quot;</span>
@@ -174,18 +174,32 @@
   <span class="n">override</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">private_key_path</span> <span class="o">=</span> <span class="s2">&quot;/EXAMPLE.pem&quot;</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>The sample configuration for AWS and Digital Ocean is included in the <code>Vagrantfile</code>.</p>
+<p>For Digital Ocean the configuration could look like this:</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;SUBDOMAIN.EXAMPLE.ORG&quot;</span>
+
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="ss">:digital_ocean</span> <span class="k">do</span> <span class="o">|</span><span class="n">provider</span><span class="p">,</span> <span class="n">override</span><span class="o">|</span>
+  <span class="n">override</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">private_key_path</span> <span class="o">=</span> <span class="s1">&#39;~/.ssh/id_rsa&#39;</span>
+  <span class="n">override</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s1">&#39;digital_ocean&#39;</span>
+  <span class="n">override</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box&quot;</span>
+  <span class="n">override</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;ubuntu&quot;</span>
+
+  <span class="n">provider</span><span class="o">.</span><span class="n">client_id</span> <span class="o">=</span> <span class="s1">&#39;EXAMPLE&#39;</span>
+  <span class="n">provider</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s1">&#39;EXAMPLE&#39;</span>
+  <span class="n">provider</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="s1">&#39;1GB&#39;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>The sample configurations for AWS and Digital Ocean is included in the <code>Vagrantfile</code>.</p>
 
 <p>Then install all the required software for the ALM application with:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">git clone git://github.com/articlemetrics/alm.git
 <span class="nb">cd </span>alm
 vagrant up
 </code></pre></div>
-<p>This installs the ALM server on a Ubuntu 12.04 virtual machine and can take up to 15 min. To get into in the virtual machine, use user <code>vagrant</code> with password <code>vagrant</code> or do:</p>
+<p>This can take up to 15 min, future updates with <code>vagrant provision</code> are of course much faster. To get into in the virtual machine, use user <code>vagrant</code> with password <code>vagrant</code> or do:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">vagrant ssh
 <span class="nb">cd</span> /vagrant
 </code></pre></div>
-<p>This uses the private SSH key provided by you in the <code>Vagrantfile</code> (the default key for local installations using Virtualbox is <code>~/.vagrant.d/insecure_private_key</code>). The <code>vagrant</code> user has sudo privileges. The MySQL password is stored at <code>config/database.yml</code>, and is auto-generated during the installation. CouchDB is set up to run in <strong>Admin Party</strong> mode, i.e. without usernames or passwords. The database servers can be reached from the virtual machine or via port forwarding (configured in <code>Vagrantfile</code>). Vagrant syncs the folder on the host containing the checked out ALM git repo with the folder <code>/var/www/alm/shared</code> on the guest.</p>
+<p>This uses the private SSH key provided by you in the <code>Vagrantfile</code> (the default insecure key for local installations using Virtualbox is <code>~/.vagrant.d/insecure_private_key</code>). The <code>vagrant</code> user has sudo privileges. The MySQL password is stored at <code>config/database.yml</code>, and is auto-generated during the installation. CouchDB is set up to run in <strong>Admin Party</strong> mode, i.e. without usernames or passwords. The database servers can be reached from the virtual machine or via port forwarding (configured in <code>Vagrantfile</code>). Vagrant syncs the folder on the host containing the checked out ALM git repo with the folder <code>/var/www/alm/shared</code> on the guest.</p>
 
 <h2 id="toc_4">Deployment via Capistrano</h2>
 
@@ -238,17 +252,36 @@ bundle install
 <li>SSH keys via :ssh_options</li>
 </ul>
 
+<p>A sample <code>config/deploy/production.rb</code> could look like this:</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">set</span> <span class="ss">:stage</span><span class="p">,</span> <span class="ss">:production</span>
+<span class="n">set</span> <span class="ss">:branch</span><span class="p">,</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;REVISION&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;BRANCH_NAME&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;master&quot;</span>
+<span class="n">set</span> <span class="ss">:deploy_user</span><span class="p">,</span> <span class="s1">&#39;ubuntu&#39;</span>
+<span class="n">set</span> <span class="ss">:rails_env</span><span class="p">,</span> <span class="ss">:production</span>
+
+<span class="n">role</span> <span class="ss">:app</span><span class="p">,</span> <span class="sx">%w{ALM.EXAMPLE.ORG}</span>
+<span class="n">role</span> <span class="ss">:web</span><span class="p">,</span> <span class="sx">%w{ALM.EXAMPLE.ORG}</span>
+<span class="n">role</span> <span class="ss">:db</span><span class="p">,</span>  <span class="sx">%w{ALM.EXAMPLE.ORG}</span>
+
+<span class="n">set</span> <span class="ss">:ssh_options</span><span class="p">,</span> <span class="p">{</span>
+  <span class="ss">user</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+  <span class="ss">keys</span><span class="p">:</span> <span class="sx">%w(~/.ssh/id_rsa)</span><span class="p">,</span>
+  <span class="n">auth_methods</span><span class="p">:</span> <span class="sx">%w(publickey)</span>
+<span class="p">}</span>
+
+<span class="c1"># Set number of delayed_job workers</span>
+<span class="n">set</span> <span class="ss">:delayed_job_args</span><span class="p">,</span> <span class="s2">&quot;-n 6&quot;</span>
+</code></pre></div>
 <h4 id="toc_6">Deploy</h4>
 
 <p>We deploy the ALM application with</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>cap production deploy
 </code></pre></div>
-<p>Replace <code>production</code> with <code>staging</code> or <code>development</code> for other environments. You can pass in environment variables, e.g. to deploy a different branch: <code>cap production deploy BRANCH_NAME=develop</code>.</p>
+<p>Replace <code>production</code> with <code>staging</code> or <code>development</code> for other environments. You can pass in environment variables, e.g. to deploy a different git branch: <code>cap production deploy BRANCH_NAME=develop</code>.</p>
 
 <p>The first time this command is run it creates the folder structure required by Capistrano, by default in <code>/var/www/alm</code>. To make sure the expected folder structure is created successfully you can run:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>cap production deploy:check
 </code></pre></div>
-<p>On subsequent runs the command will pull the latest code from the Github repo, run database migrations, install the dependencies via Bundler, stop and start the background workers, and in production mode precompiles assets (CSS, Javascripts, images).</p>
+<p>On subsequent runs the command will pull the latest code from the Github repo, run database migrations, install the dependencies via Bundler, stop and start the background workers, updates the crontab file for ALM, and in production mode precompiles assets (CSS, Javascripts, images).</p>
 
 <h2 id="toc_7">Manual installation</h2>
 
@@ -382,15 +415,35 @@ sudo service apache2 reload
 </code></pre></div>
 <h3 id="toc_24">Change database adapter</h3>
 
-<p>Change the adapter in <code>config/database.yml</code> to use PostgreSQL instead of MySQL:</p>
-<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">production</span><span class="p-Indicator">:</span>
-  <span class="c1">#adapter:   mysql2</span>
-  <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">postgresql</span>
-  <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">alm_production</span>
-  <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">postgres</span>
-  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">YOUR_PASSWORD</span>
-  <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">localhost</span>
-  <span class="l-Scalar-Plain">pool</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">10</span>
+<p>Change the adapter in <code>config/database.yml</code> to use PostgreSQL instead of MySQL (change the line in defaults to <code>&lt;&lt;:postgres</code>):</p>
+<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">mysql</span><span class="p-Indicator">:</span> <span class="nl">&amp;mysql</span>
+  <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mysql2</span>
+  <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">root</span>
+  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">YOUR_PASSWORD</span>
+
+<span class="l-Scalar-Plain">postgresql</span><span class="p-Indicator">:</span> <span class="nl">&amp;postgres</span>
+  <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">postgresql</span>
+  <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">postgres</span>
+  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">YOUR_PASSWORD</span>
+  <span class="l-Scalar-Plain">pool</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span>
+  <span class="l-Scalar-Plain">min_messages</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ERROR</span>
+
+<span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span> <span class="nl">&amp;defaults</span>
+  <span class="l-Scalar-Plain">pool</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">5</span>
+  <span class="l-Scalar-Plain">timeout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">5000</span>
+  <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alm_&lt;%= Rails.env %&gt;</span>
+  <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
+
+  <span class="l-Scalar-Plain">&lt;&lt;</span><span class="p-Indicator">:</span> <span class="err">*</span><span class="l-Scalar-Plain">&lt;%= ENV[&#39;DB&#39;] || &quot;mysql&quot; %&gt;</span>
+
+<span class="l-Scalar-Plain">development</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;&lt;</span><span class="p-Indicator">:</span> <span class="nv">*defaults</span>
+
+<span class="l-Scalar-Plain">test</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;&lt;</span><span class="p-Indicator">:</span> <span class="nv">*defaults</span>
+
+<span class="l-Scalar-Plain">production</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;&lt;</span><span class="p-Indicator">:</span> <span class="nv">*defaults</span>
 </code></pre></div>
 
             <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
