@@ -21,5 +21,7 @@ The following organizations have implemented Article-Level Metrics using the Ope
 * [Public Knowledge Project (PKP)](http://pkp.sfu.ca/pkp-launches-article-level-metrics-for-ojs-journals/)
 * [CrossRef Labs](http://crosstech.crossref.org/2014/02/many-metrics-such-data-wow.html)
 
+Live status information for the publicly available ALM instances is [here](http://articlemetrics.github.io/status/).
+
 ## For Developers
 We always welcome feedback and code contributions, and we have a growing list of [contributors](/docs/contributors). For technical questions regarding the Article-Level Metrics application, visit the [PLOS API Developers Google Group](https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers) or use the [Github issue tracker](https://github.com/articlemetrics/alm/issues).
