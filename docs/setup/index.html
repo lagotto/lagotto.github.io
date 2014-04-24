@@ -327,6 +327,9 @@ bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed
     <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">25</span>
     <span class="l-Scalar-Plain">domain</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
 </code></pre></div>
+<p>We need to process CouchDB data for some sources (Mendeley, Pmc, Counter) in the <strong>Article Statistics Report</strong>, please install the CouchDB design document for this report:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X PUT -d @design_doc/reports.json <span class="s1">&#39;http://localhost:5984/alm/_design/reports&#39;</span>
+</code></pre></div>
 <p>The reports are generated via the cron jobs mentioned above. Make sure you have correct write permissions for the Article Statistics Report, it is recommended to run the rake task at least once to test for this:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake report:all_stats <span class="nv">RAILS_ENV</span><span class="o">=</span>production
 </code></pre></div>

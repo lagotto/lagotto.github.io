@@ -181,11 +181,11 @@
 </code></pre></div>
 <h3 id="toc_2">pmc.rake</h3>
 
-<p>Import latest PubMed Central usage stats.</p>
+<p>Import latest (i.e. last month&#39;s) PubMed Central usage stats.</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake pmc:update
 </code></pre></div>
 <p>Import all PubMed Central usage stats since month/year.</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake pmc:update<span class="o">[</span>month,year<span class="o">]</span>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">rake pmc:update <span class="nv">MONTH</span><span class="o">=</span>1 <span class="nv">YEAR</span><span class="o">=</span>2013
 </code></pre></div>
 <h3 id="toc_3">workers.rake</h3>
 
