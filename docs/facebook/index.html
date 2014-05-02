@@ -121,6 +121,12 @@
 
 <p>Facebook has problems with DOIs that require cookies during DOI resolution. We talk to Facebook via the <a href="https://developers.facebook.com/docs/reference/api/">Graph API</a>, the old REST API will return the same results via <a href="http://api.facebook.com/restserver.php?method=links.getStats&amp;urls=URL">http://api.facebook.com/restserver.php?method=links.getStats&amp;urls=URL</a>, but has been depreciated.</p>
 
+<h2 id="toc_0">Required configuration fields</h2>
+
+<ul>
+<li><strong>access token</strong>: can be obtained via <a href="http://developers.facebook.com/docs/howtos/login/login-as-app/">http://developers.facebook.com/docs/howtos/login/login-as-app/</a></li>
+</ul>
+
 <table width=100% border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
@@ -169,7 +175,7 @@
 </tbody>
 </table>
 
-<h2 id="toc_0">Example Response</h2>
+<h2 id="toc_1">Example Response</h2>
 <div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&quot;commentsbox_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
   <span class="nt">&quot;like_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -181,11 +187,11 @@
   <span class="nt">&quot;click_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="toc_1">Source Code</h2>
+<h2 id="toc_2">Source Code</h2>
 
 <p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/facebook.rb">here</a>.</p>
 
-<h2 id="toc_2">Further Documentation</h2>
+<h2 id="toc_3">Further Documentation</h2>
 
 <ul>
 <li><a href="http://developers.facebook.com/docs/reference/fql/link_stat/">Facebook Developer Documentation</a></li>

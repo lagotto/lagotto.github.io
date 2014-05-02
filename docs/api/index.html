@@ -113,11 +113,14 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p>Version 3 of the API was released October 30, 2012 (ALM 2.3). Version 4 of the API (write/update/delete for admin users) was released January 22, 2014 (ALM 2.11).</p>
+            <p>Version 3 of the API was released October 30, 2012 (ALM 2.3).
+Version 4 of the API (write/update/delete for admin users) was released January 22, 2014 (ALM 2.11). It extends v3.
+Version 5 of the API (simplify, drop xml, queries) was released April 24, 2014 (ALM 2.14).</p>
 
 <h2 id="toc_0">Base URL</h2>
 
-<p>All API calls to the version 3 API start with <code>/api/v3/articles</code>.</p>
+<p>API calls to the version 3 APIs start with <code>/api/v3/articles</code> and
+API calls to the version 4 APIs start with <code>/api/v4/articles</code>.</p>
 
 <h2 id="toc_1">Supported Media Types</h2>
 
@@ -129,7 +132,9 @@
 
 <h2 id="toc_2">API Key</h2>
 
-<p>All API calls require an API key, use the format <code>?api_key=API_KEY</code>. A key can be obtained by registering as API user with the ALM application and this shouldn&#39;t take more than a few minutes. By default the ALM application uses <a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a>, but it can also be configured to use other services usch as OAuth and CAS. For the PLOS ALM application you need to sign in with your <a href="http://register.plos.org/ambra-registration/register.action">PLOS account</a>.</p>
+<p>All v3 API calls require an API key, use the format <code>?api_key=API_KEY</code>. A key can be obtained by registering as API user with the ALM application and this shouldn&#39;t take more than a few minutes. By default the ALM application uses <a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a>, but it can also be configured to use other services usch as OAuth and CAS. For the PLOS ALM application you need to sign in with your <a href="http://register.plos.org/ambra-registration/register.action">PLOS account</a>.</p>
+
+<p>The v4 API uses a username/password pair and HTTP Basic authentication for article create, update, and delete. You can GET article information from the v4 endpoint using an API key as for API v3.</p>
 
 <h2 id="toc_3">Query for one or several Articles</h2>
 

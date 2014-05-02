@@ -118,6 +118,14 @@
 <p>The Mendeley API returns incomplete API responses for articles where they don&#39;t have enough information, and we ignore those:</p>
 <div class="highlight"><pre><code class="json language-json" data-lang="json">    <span class="p">{</span> <span class="err">uuid:</span> <span class="nt">&quot;182cf980-6d0c-11df-a2b2-0026b95e3eb7&quot;</span> <span class="p">}</span>
 </code></pre></div>
+<p>Mendeley uses OAuth2 authentification, we automatically obtain the access token using the <strong>client_id</strong> and <strong>secret</strong>.</p>
+
+<h2 id="toc_0">Required configuration fields</h2>
+
+<ul>
+<li><strong>client_id</strong> and <strong>secret</strong>: register your OAuth2 application at <a href="https://mix.mendeley.com/portal#/register">https://mix.mendeley.com/portal#/register</a></li>
+</ul>
+
 <table width=100% border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
@@ -162,7 +170,7 @@
 </tbody>
 </table>
 
-<h2 id="toc_0">Example Response</h2>
+<h2 id="toc_1">Example Response</h2>
 <div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span> <span class="err">abstract:</span> <span class="nt">&quot;Background: The whole blood interferon-gamma assay (QuantiFERON-TB-2G; QFT) has not been fully evaluated as a baseline tuberculosis screening test in Japanese healthcare students commencing clinical contact. The aim of this study was to compare the results from the QFT with those from the tuberculin skin test (TST) in a population deemed to be at a low risk for infection with Mycobacterium tuberculosis. Methodology/Principal Findings: Healthcare students recruited at Okayama University received both the TST and the QFT to assess the level of agreement between these two tests. The interleukin-10 levels before and after exposure to M tuberculosis-specific antigens (early-secreted antigenic target 6-kDa protein ESAT-6 and culture filtrate protein 10 CFP-10) were also measured. Of the 536 healthcare students, most of whom had been vaccinated with bacillus-Calmette-Guérin (BCG), 207 (56%) were enrolled in this study. The agreement between the QFT and the TST results was poor, with positive result rates of 1.4% vs. 27.5%, respectively. A multivariate analysis also revealed that the induration diameter of the TST was not affected by the interferon-gamma concentration after exposure to either of the antigens but was influenced by the number of BCG needle scars (p=0.046). The whole blood interleukin-10 assay revealed that after antigen exposure, the median increases in interleukin-10 concentration was higher in the subgroup with the small increase in interferon-gamma concentration than in the subgroup with the large increase in interferon-gamma concentration (0.3 vs. 0 pg/mL; p=0.004). Conclusions/Significance: As a baseline screening test for low-risk Japanese healthcare students at their course entry, QFT yielded quite discordant results, compared with the TST, probably because of the low specificity of the TST results in the BCG-vaccinated population. We also found, for the first time, that the change in the interleukin-10 level after exposure to specific antigens was inversely associated with that in the interferon-gamma level in a low-risk population.&quot;</span><span class="p">,</span>
 <span class="err">website:</span> <span class="nt">&quot;http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1950083&amp;tool=pmcentrez&amp;rendertype=abstract&quot;</span><span class="p">,</span>
 <span class="err">identifiers:</span> <span class="err">{</span>
@@ -230,11 +238,11 @@
   <span class="err">publisher:</span> <span class="s2">&quot;Public Library of Science&quot;</span><span class="err">,</span>
   <span class="err">uuid:</span> <span class="s2">&quot;182cf980-6d0c-11df-a2b2-0026b95e3eb7&quot;</span><span class="err">,</span>
 </code></pre></div>
-<h2 id="toc_1">Source Code</h2>
+<h2 id="toc_2">Source Code</h2>
 
 <p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/mendeley.rb">here</a>.</p>
 
-<h2 id="toc_2">Further Documentation</h2>
+<h2 id="toc_3">Further Documentation</h2>
 
 <ul>
 <li><a href="http://apidocs.mendeley.com">Mendeley API Documentation</a></li>

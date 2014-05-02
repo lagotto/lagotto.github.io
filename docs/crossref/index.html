@@ -115,11 +115,13 @@
             
             <p><a href="http://www.crossref.org">CrossRef</a> is a non-profit organization that enables cross-publisher citation linking of the scholarly literature via Digital Object Identifiers (DOIs). CrossRef member organizations can use the <strong>Cited-by</strong> Linking service that provides basic information about the scholarly literature citing a particular DOI. All other users can use the CrossRef <strong>OpenURL</strong> service which provides citation counts (the `fl_count&#39; attribute), but no information about the citing literature. The ALM application handles both scenarios.</p>
 
-<h3 id="toc_0">Cited-by</h3>
+<h2 id="toc_0">Required configuration fields</h2>
 
-<p>Add your DOI prefix as <code>doi_prefix</code> in <code>config/settings.yml</code>, then add username and password in the CrossRef configuration settings.</p>
+<h3 id="toc_1">Cited-by</h3>
 
-<h3 id="toc_1">OpenURL</h3>
+<p>Add your DOI prefix as <code>doi_prefix</code> in <code>config/settings.yml</code>, then add username and password provided by CrossRef in the CrossRef configuration settings.</p>
+
+<h3 id="toc_2">OpenURL</h3>
 
 <p>For articles that don&#39;t mactch the DOI prefix in <code>config/settings.yml</code>, or when this setting is left empty, the username in the CrossRef configuration settings will be used. You can register for a username <a href="http://www.crossref.org/requestaccount/">here</a>.</p>
 
@@ -175,7 +177,7 @@
 </tbody>
 </table>
 
-<h2 id="toc_2">Example Response Cited-By</h2>
+<h2 id="toc_3">Example Response Cited-By</h2>
 <div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;crossref_result</span> <span class="na">version=</span><span class="s">&quot;2.0&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.crossref.org/qrschema/2.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.crossref.org/qrschema/2.0 http://www.crossref.org/qrschema/crossref_query_output2.0.xsd&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;query_result&gt;</span>
@@ -236,7 +238,7 @@
   <span class="nt">&lt;/query_result&gt;</span>
 <span class="nt">&lt;/crossref_result&gt;</span>
 </code></pre></div>
-<h2 id="toc_3">Example Response OpenURL</h2>
+<h2 id="toc_4">Example Response OpenURL</h2>
 <div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;crossref_result</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.crossref.org/qrschema/2.0&quot;</span> <span class="na">version=</span><span class="s">&quot;2.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.crossref.org/qrschema/2.0 http://www.crossref.org/schema/queryResultSchema/crossref_query_output2.0.xsd&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;query_result&gt;</span>
@@ -281,11 +283,11 @@
   <span class="nt">&lt;/query_result&gt;</span>
 <span class="nt">&lt;/crossref_result&gt;</span>
 </code></pre></div>
-<h2 id="toc_4">Source Code</h2>
+<h2 id="toc_5">Source Code</h2>
 
 <p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/cross_ref.rb">here</a>.</p>
 
-<h2 id="toc_5">Further Documentation</h2>
+<h2 id="toc_6">Further Documentation</h2>
 
 <ul>
 <li><a href="http://www.crossref.org/citedby.html">CrossRef Cited-by Linking</a></li>
