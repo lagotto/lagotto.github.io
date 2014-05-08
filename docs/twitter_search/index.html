@@ -119,8 +119,9 @@
 
 <p><a href="https://dev.twitter.com/docs/auth/application-only-auth">Application-only authentication</a> is the preferred method of authentication because the authentication process is simpler and the rate-limits are higher. Application-only authentication uses OAuth2 and the first step is to register your application at the <a href="https://dev.twitter.com/apps">Twitter Developer website</a> and obtain an <code>API key</code> and <code>API secret</code> (they are found under the <code>API Keys</code> tab).</p>
 
-<p>Please enter <code>API key</code> and <code>API secret</code> in the ALM configuration settings. The application will automatically fetch and store an OAuth2 <code>access token</code> the first time we use the source.</p>
-
+<p>Please enter <code>API key</code> and <code>API secret</code> in the ALM configuration settings. The application will automatically fetch and store an OAuth2 <code>access token</code> the first time we use the source. To obtain the <code>access token</code> yourself, issue the following command:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -u API_KEY:API_SECRET -d <span class="nv">grant_type</span><span class="o">=</span>client_credentials https://api.twitter.com/oauth2/token
+</code></pre></div>
 <h2 id="toc_1">Required configuration fields</h2>
 
 <ul>
@@ -174,7 +175,7 @@
 </tr>
 <tr>
 <td valign="top" width=20%><strong>License</strong></td>
-<td valign="top" width=80%>[Terms of Service](https://twitter.com/tos)</td>
+<td valign="top" width=80%><a href="https://twitter.com/tos">Terms of Service</a></td>
 </tr>
 </tbody>
 </table>
