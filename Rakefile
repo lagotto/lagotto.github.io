@@ -88,8 +88,7 @@ end
 
 def check_destination
   unless Dir.exist? CONFIG["destination"]
-    sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
-  end
+    sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}" { |ok, response| puts "Error cloning repo" unless ok }
 end
 
 #############################################################################
@@ -199,26 +198,26 @@ namespace :site do
 
     # Configure git if this is run in Travis CI
     if ENV["TRAVIS"]
-      system "git config --global user.name '#{ENV['GIT_NAME']}'"
-      system "git config --global user.email '#{ENV['GIT_EMAIL']}'"
-      system "git config --global push.default simple"
+      sh "git config --global user.name '#{ENV['GIT_NAME']}'"
+      sh "git config --global user.email '#{ENV['GIT_EMAIL']}'"
+      sh "git config --global push.default simple"
     end
 
     # Make sure destination folder exists as git repo
     check_destination
 
-    system "git checkout #{SOURCE_BRANCH}"
-    Dir.chdir(CONFIG["destination"]) { system "git checkout #{DESTINATION_BRANCH}" }
+    sh "git checkout #{SOURCE_BRANCH}"
+    Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
     # Generate the site
-    system "bundle exec jekyll build"
+    sh "bundle exec jekyll build"
 
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     Dir.chdir(CONFIG["destination"]) do
-      system "git add --all ."
-      system "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
-      system "git push origin #{DESTINATION_BRANCH}"
+      sh "git add --all ."
+      sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
+      sh "git push origin #{DESTINATION_BRANCH}"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
   end
