@@ -91,6 +91,7 @@ def check_destination
     sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}" do |ok, res|
       puts "Error cloning repo" unless ok
     end
+  end
 end
 
 #############################################################################
