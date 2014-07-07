@@ -128,7 +128,11 @@
 <li><strong>api_key</strong> and <strong>api_secret</strong>: available via <a href="https://dev.twitter.com/apps">https://dev.twitter.com/apps</a>.</li>
 </ul>
 
-<h2 id="toc_2">Rate-Limiting</h2>
+<h2 id="toc_2">Query</h2>
+
+<p>The source searches the Twitter Search API by DOI and URL, e.g. <code>10.1371/journal.pmed.0020124 OR http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.0020124</code>. The Search API will find shortened URLs with this query.</p>
+
+<h2 id="toc_3">Rate-Limiting</h2>
 
 <p>The rate-limits for application-only authentication and search are 450 requests per 15 min or 1,800 requests per hour. Depending on the number of articles we might have to adjust how often we contact Twitter, the default settings are every 12 hours the first 7 days after publication, then daily for the first month, and then weekly.</p>
 
@@ -180,7 +184,7 @@
 </tbody>
 </table>
 
-<h2 id="toc_3">Example Response</h2>
+<h2 id="toc_4">Example Response</h2>
 <div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&quot;statuses&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -484,11 +488,11 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="toc_4">Source Code</h2>
+<h2 id="toc_5">Source Code</h2>
 
 <p>The source code is available <a href="https://github.com/articlemetrics/alm/blob/master/app/models/sources/twitter_search.rb">here</a>.</p>
 
-<h2 id="toc_5">Further Documentation</h2>
+<h2 id="toc_6">Further Documentation</h2>
 
 <ul>
 <li><a href="https://dev.twitter.com/">Twitter Developer Documentation</a></li>
