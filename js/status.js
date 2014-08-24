@@ -1,14 +1,14 @@
-var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.org", api_key: "3pezRBRXdyzYW6ztfwft" },
-             { name: "Copernicus Publications", url: "http://metricus.copernicus.org", api_key: "Dxkwpz8FRe7JHw4EGC1v" },
-             { name: "Public Knowledge Project", url: "http://pkp-alm.lib.sfu.ca/", api_key: "WYjzU11DdSr8PEJRuhGX" },
-             { name: "ALM Labs (ALM Test Server)", url: "http://labs.crowdometer.org", api_key: "qzcE4ciMj438fLPqyRdE" },
-             { name: "CrossRef Labs", url: "http://alm.labs.crossref.org", api_key: "64aJra4M7NPHVAWxxCZ5" },
-             { name: "eLife", url: "http://alm.svr.elifesciences.org/", api_key: "iV_ExJiwU8Qu6-FKhsTr" }]
+var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.org" },
+             { name: "Copernicus Publications", url: "http://metricus.copernicus.org" },
+             { name: "Public Knowledge Project", url: "http://pkp-alm.lib.sfu.ca/" },
+             { name: "ALM Labs (ALM Test Server)", url: "http://labs.crowdometer.org" },
+             { name: "CrossRef Labs", url: "http://alm.labs.crossref.org" },
+             { name: "eLife", url: "http://alm.svr.elifesciences.org/" }]
 
 // queue requests, using queue.js library: https://github.com/mbostock/queue
 var queue = queue();
 for (var i = 0; i < sites.length; i++) {
-  query = sites[i]["url"] + "/api/v5/status?api_key=" + sites[i]["api_key"];
+  query = sites[i]["url"] + "/heartbeat";
   queue.defer(api_call, query);
 }
 queue.awaitAll(ready);
@@ -20,7 +20,7 @@ function api_call(query, callback) {
   d3.json(query, function(error, data) {
   if (error) {
     console.log("there was an error loading the data: " + error);
-    callback(null, { error: "An error occured.", data: null });
+    callback(null, { error: "An error occured." });
   } else {
     callback(error, data);
   }
@@ -33,8 +33,8 @@ function ready(error, data) {
 
     status = (data[i]["error"]) ? "Unknown" : "OK";
     label = (data[i]["error"]) ? "label-warning" : "label-success";
-    version = (data[i]["data"] === null) ? "n/a" : data[i]["data"]["version"];
-    articles_count = (data[i]["data"] === null) ? "n/a" : data[i]["data"]["articles_count"];
+    version = (data[i]["error"]) ? "n/a" : data[i]["version"];
+    articles_count = (data[i]["error"]) ? "n/a" : data[i]["articles_count"];
 
     var row = { name: sites[i]["name"], url: sites[i]["url"], status: status, label: label, version: version, articles_count: articles_count}
 
