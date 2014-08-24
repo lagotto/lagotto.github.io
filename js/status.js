@@ -2,7 +2,7 @@ var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.o
              { name: "Copernicus Publications", url: "http://metricus.copernicus.org" },
              { name: "Public Knowledge Project", url: "http://pkp-alm.lib.sfu.ca/" },
              { name: "ALM Labs (ALM Test Server)", url: "http://labs.crowdometer.org" },
-             { name: "CrossRef Labs", url: "http://alm.labs.crossref.org" },
+             { name: "CrossRef Labs", url: "http://det.labs.crossref.org" },
              { name: "eLife", url: "http://alm.svr.elifesciences.org/" }]
 
 // queue requests, using queue.js library: https://github.com/mbostock/queue
