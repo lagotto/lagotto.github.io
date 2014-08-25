@@ -242,14 +242,27 @@ bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed
 
 <p>When we have to update the metrics for an article (determined by the staleness interval), a job is added to the background queue for that source. A delayed_job worker will then process this job in the background. We need to run at least one delayed_job to do this.</p>
 
-<h2 id="toc_9">Configuring Maintenance Tasks</h2>
+<h3 id="toc_9">List of background jobs that ALM uses</h3>
+
+<p>The default priority for jobs is 5. We have the following background jobs sorted by decreasing priority:</p>
+
+<ul>
+<li><strong>Disabled source alert</strong>. Queue name is <code>mailer</code>, priority is 1.</li>
+<li><strong>Updating sources and status cache</strong>. Queue names are <code>{name of source}-cache</code> and <code>status-cache</code>, priority is 1.</li>
+<li><strong>Article imports</strong>. Queue name is <code>article-import</code>, priority is 2.</li>
+<li><strong>Deleting CouchDB documents</strong>. A one-time maintenance task, queue name is <code>couchdb</code>, default priority is 4.</li>
+<li><strong>Updating sources</strong>. Queue name is name of the source, priority can be any integer greater than 0, default priority is 5.</li>
+<li><strong>Email reports</strong>. Queue name is <code>mailer</code>, default priority is 6.</li>
+</ul>
+
+<h2 id="toc_10">Configuring Maintenance Tasks</h2>
 
 <p>The ALM application uses a number of maintenance tasks in production mode - they are not necessary for a development instance.</p>
 
 <p>Many of the maintenance taks are <code>rake</code> tasks, and they are listed on a <a href="/docs/rake">separate page</a>. All rake tasks are issued from the application root folder. You want to prepend your rake command with <code>bundle exec</code> and <code>RAILS_ENV=production</code> should be appended to the rake command when running in production, e.g.</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:load &lt;IMPORT.TXT <span class="nv">RAILS_ENV</span><span class="o">=</span>production
 </code></pre></div>
-<h3 id="toc_10">Cron jobs</h3>
+<h3 id="toc_11">Cron jobs</h3>
 
 <p>The ALM application uses the <a href="https://github.com/javan/whenever">Whenever</a> gem to make it easy to generate cron jobs. The configuration is stored in <code>config/schedule.rb</code>:</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">env</span> <span class="ss">:PATH</span><span class="p">,</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;PATH&#39;</span><span class="o">]</span>
@@ -305,7 +318,7 @@ bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed
 </code></pre></div>
 <p>The crontab is automatically updated when you run capistrano (see <a href="/docs/installation">Installation</a>).</p>
 
-<h3 id="toc_11">Filters</h3>
+<h3 id="toc_12">Filters</h3>
 
 <p>Filters check all API responses of the last 24 hours for errors and potential anti-gaming activity, and they are typically run as cron job. They can be activated and configured (e.g. to set limits) individually in the admin panel:</p>
 
@@ -313,7 +326,7 @@ bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed
 
 <p>These filters will generate alerts that are displayed in the admin panel in various places. More information is available on the <a href="/docs/Alerts">Alerts</a> page.</p>
 
-<h3 id="toc_12">Reports</h3>
+<h3 id="toc_13">Reports</h3>
 
 <p>The ALM application generates a number of email reports:</p>
 

@@ -151,7 +151,7 @@ favor of version 5 of the API September 1st.</li>
 
 <h2 id="toc_4">Additional Parameters</h2>
 
-<h3 id="toc_5">type=doi|pmid|pmcid|mendeley</h3>
+<h3 id="toc_5">type=doi|pmid|pmcid| mendeley (v3 API) or mendeley_uuid (v5 API)</h3>
 
 <p>The API supports queries for DOI, PubMed ID, PubMed Central ID and Mendeley UUID. The default <code>doi</code> is used if no type is given in the query. The following queries are all for the same article:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pmed.1001361
@@ -163,7 +163,7 @@ favor of version 5 of the API September 1st.</li>
 
 <p>With the <strong>summary</strong> parameter no source information or metrics are provided, only article metadata such as DOI, PubMed ID, title or publication date. The only exception are summary statistics, aggregating metrics from several sources (views, shares, bookmarks and citations).</p>
 
-<p>With the <strong>detail</strong> parameter all raw data sent by the source are provided.</p>
+<p>With the <strong>detail</strong> parameter all raw data sent by the source are provided (<code>event</code> is an alias for <code>detail</code>). The <strong>history</strong> parameter has been depreciated with the ALM 3.0 release, you can use the <code>by day</code>, <code>by month</code> and <code>by year</code>response instead.</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nv">info</span><span class="o">=</span>detail
 </code></pre></div>
 <h3 id="toc_7">source=x</h3>
@@ -171,7 +171,15 @@ favor of version 5 of the API September 1st.</li>
 <p>Only provide metrics for a given source, or a list of sources. The response format is the same as the default response.</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles?api_key<span class="o">=</span>API_KEY<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nb">source</span><span class="o">=</span>mendeley,crossref
 </code></pre></div>
-<h2 id="toc_8">Metrics</h2>
+<h3 id="toc_8">page|rows</h3>
+
+<p>Results of the v5 API are paged with 50 results per page. Use <code>rows</code> to pick a smaller number (1-50) of results per page, and use <code>page</code> to page through the results.</p>
+
+<h3 id="toc_9">order</h3>
+
+<p>When used together with the <code>source</code> parameter, results are sorted by descending event count. Otherwise (the default) results are sorted by date descending.</p>
+
+<h2 id="toc_10">Metrics</h2>
 
 <p>The metrics for every source are returned as total number, and separated in categories, e.g. <code>html</code> and <code>pdf</code> views for usage data, <code>readers</code> for bookmarking services, and <code>likes</code> and <code>comments</code> for social media. The same 5 categories are always returned for every source to simplify parsing of API responses:</p>
 
@@ -186,12 +194,12 @@ favor of version 5 of the API September 1st.</li>
 
 <p>Some metrics are calculated using the total count, e.g. for Mendeley: <code>groups = total - readers</code> or Facebook: <code>shares = total - (likes + comments)</code>.</p>
 
-<h2 id="toc_9">Search</h2>
+<h2 id="toc_11">Search</h2>
 
 <p>Search is not supported by the API, users have to provide specific identifiers or retrieve batches of 50 documents
 sorted by descending date or event count.</p>
 
-<h2 id="toc_10">Signposts</h2>
+<h2 id="toc_12">Signposts</h2>
 
 <p>Several metrics are aggregated and available in all API queries:</p>
 
@@ -202,17 +210,25 @@ sorted by descending date or event count.</p>
 <li>Cited: crossref (scopus at PLOS)</li>
 </ul>
 
-<h2 id="toc_11">Date and Time Format</h2>
+<h2 id="toc_13">Date and Time Format</h2>
 
-<p>All dates and times are in ISO 8601, e.g. <code>2003-10-13T07:00:00Z</code></p>
+<p>All dates and times are in ISO 8601, e.g. <code>2003-10-13T07:00:00Z</code>. <code>date-parts</code> uses the Citeproc convention to allow incomplete dates (e.g. year only):</p>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="s2">&quot;date-parts&quot;</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="mi">2008</span><span class="p">,</span>
+      <span class="mi">10</span><span class="p">,</span>
+      <span class="mi">31</span>
+    <span class="p">]</span>
+</code></pre></div>
+<p><code>date-parts</code> is a nested array of year, month, day, with only the year being required.</p>
 
-<h2 id="toc_12">Null</h2>
+<h2 id="toc_14">Null</h2>
 
 <p>The API returns <code>null</code> if no query was made, and <code>0</code> if the external API returns 0 events.</p>
 
-<h2 id="toc_13">Example Response</h2>
+<h2 id="toc_15">Example Response</h2>
 
-<h3 id="toc_14">JSON</h3>
+<h3 id="toc_16">JSON</h3>
 <div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="nt">&quot;total_pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -227,10 +243,12 @@ sorted by descending date or event count.</p>
       <span class="nt">&quot;pmid&quot;</span><span class="p">:</span> <span class="s2">&quot;18974831&quot;</span><span class="p">,</span>
       <span class="nt">&quot;pmcid&quot;</span><span class="p">:</span> <span class="s2">&quot;2568856&quot;</span><span class="p">,</span>
       <span class="nt">&quot;issued&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;date_parts&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="mi">2008</span><span class="p">,</span>
-          <span class="mi">10</span><span class="p">,</span>
-          <span class="mi">31</span>
+        <span class="nt">&quot;date-parts&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">[</span>
+            <span class="mi">2008</span><span class="p">,</span>
+            <span class="mi">10</span><span class="p">,</span>
+            <span class="mi">31</span>
+          <span class="p">]</span>
         <span class="p">]</span>
       <span class="p">},</span>
       <span class="nt">&quot;viewed&quot;</span><span class="p">:</span> <span class="mi">80546</span><span class="p">,</span>
@@ -545,7 +563,7 @@ sorted by descending date or event count.</p>
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="toc_15">v4 API</h2>
+<h2 id="toc_17">v4 API</h2>
 
 <p>The v4 API is only available to users with admin prileges and uses basic authentication with username and password instead of an API key. The API supports the following REST actions:</p>
 
@@ -581,12 +599,17 @@ sorted by descending date or event count.</p>
 <td valign="top" width=40%>/api/v4/articles/info:doi/DOI</td>
 <td valign="top" width=30%>delete</td>
 </tr>
+<tr>
+<td valign="top" width=30%>GET</td>
+<td valign="top" width=40%>/api/v4/alerts</td>
+<td valign="top" width=30%>index</td>
+</tr>
 </tbody>
 </table>
 
-<p>The API response to get a list of articles or a single article is the same as for the v3 API. You can also use one of the other supported identifiers (pmid or pmcid) instead of the DOI.</p>
+<p>The API response to get a list of articles or a single article is the same as for the v5 API. You can also use one of the other supported identifiers (pmid or pmcid) instead of the DOI.</p>
 
-<h3 id="toc_16">Create article</h3>
+<h3 id="toc_18">Create article</h3>
 
 <p>A sample curl API call to create a new article would look like this:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;doi&quot;:&quot;10.1371/journal.pone.0036790&quot;,&quot;year&quot;:2012,&quot;month&quot;:5,&quot;day&quot;:15,&quot;title&quot;:&quot;Test title&quot;}}&#39;</span> http://HOST/api/v4/articles
@@ -616,13 +639,13 @@ Content-Type: application/json<span class="p">;</span> <span class="nv">charset<
 <ul>
 <li><p>The JSON must be valid, this means that string variables such as the DOI must be quoted in the request.
 The day, month and year are integers and can be left unquoted.</p></li>
-<li><p>The publication date must be in the past or up to a year in the future (as understood by the server&#39;s date).</p></li>
+<li><p>The publication date can&#39;t be in the future (as understood by the server&#39;s date).</p></li>
 <li><p>The login details must be correct and at must be a local login, not a third-party login such as Persona.</p></li>
 <li><p>The login must have the &#39;Admin&#39; role assigned.</p></li>
 <li><p>The DOI must not already exist in the database.</p></li>
 </ul>
 
-<h3 id="toc_17">Update article</h3>
+<h3 id="toc_19">Update article</h3>
 
 <p>A sample curl API call to update an article would look like this:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;pmid&quot;:&quot;22615813&quot;}}&#39;</span> http://HOST/api/v4/articles/info:doi/10.1371/journal.pone.0036790
@@ -630,13 +653,47 @@ The day, month and year are integers and can be left unquoted.</p></li>
 <p>When an article has been updated successfully, the server reponds with <code>Status 200 Ok</code> and the following JSON (the <code>data</code> object will include all article attributes):</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Article updated.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
 </code></pre></div>
-<h3 id="toc_18">Delete article</h3>
+<h3 id="toc_20">Delete article</h3>
 
 <p>A sample curl API call to delete an article would look like this:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;pmid&quot;:&quot;22615813&quot;}}&#39;</span> http://HOST/api/v4/articles/info:doi/10.1371/journal.pone.0036790
 </code></pre></div>
 <p>When an article has been deleted successfully, the server reponds with <code>Status 200 Ok</code> and the following JSON (the <code>data</code> object will include all article attributes):</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Article deleted.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
+</code></pre></div>
+<h3 id="toc_21">Get alerts</h3>
+
+<p>The same query parameters as in the admin web interface are supported:</p>
+
+<ul>
+<li>source</li>
+<li>class_name</li>
+<li>level</li>
+<li>query (but using <code>q</code>)</li>
+</ul>
+
+<p>By default the API returns all alerts, add <code>&amp;unresolved=1</code> to only retrieve unresolved alerts, as in the admin web interface. An example API response would be:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span>
+  <span class="s2">&quot;total&quot;</span>: 1,
+  <span class="s2">&quot;total_pages&quot;</span>: 1,
+  <span class="s2">&quot;page&quot;</span>: 1,
+  <span class="s2">&quot;error&quot;</span>: null,
+  <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&quot;id&quot;</span>: 228,
+      <span class="s2">&quot;level&quot;</span>: <span class="s2">&quot;ERROR&quot;</span>,
+      <span class="s2">&quot;class_name&quot;</span>: <span class="s2">&quot;NoMethodError&quot;</span>,
+      <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;undefined method `name&#39; for nil:NilClass&quot;</span>,
+      <span class="s2">&quot;status&quot;</span>: 422,
+      <span class="s2">&quot;hostname&quot;</span>: <span class="s2">&quot;example.org&quot;</span>,
+      <span class="s2">&quot;target_url&quot;</span>: null,
+      <span class="s2">&quot;source&quot;</span>: null,
+      <span class="s2">&quot;article&quot;</span>: null,
+      <span class="s2">&quot;unresolved&quot;</span>: <span class="nb">true</span>,
+      <span class="s2">&quot;create_date&quot;</span>: <span class="s2">&quot;2014-08-19T20:23:05Z&quot;</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
 </code></pre></div>
 
             <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->

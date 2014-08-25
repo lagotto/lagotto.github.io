@@ -113,7 +113,7 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p>The ALM application provides a number of public sources. Most sources require a user account with the service (see table below). The private ALM sources not made available here either use an internal application that is not available via public API (PLOS Usage Stats, PLOS Comments, Figshare) or require a contract with the provider (Web of Science, F1000).</p>
+            <p>The ALM application provides a number of public sources. Most sources require a user account with the service (see table below).</p>
 
 <h3 id="toc_0">Viewed</h3>
 
@@ -150,21 +150,26 @@
 <li><a href="/docs/pubmed">PubMed Central Citations</a></li>
 <li><a href="/docs/pmceurope">Europe PMC Citations</a></li>
 <li><a href="/docs/scopus">Scopus</a></li>
+<li><a href="/docs/wos">Web of Science</a></li>
 <li><a href="/docs/datacite">DataCite</a></li>
 <li><a href="/docs/pmceuropedata">Europe PMC Database Citations</a></li>
 </ul>
 
-<h3 id="toc_4">Private Sources</h3>
+<h3 id="toc_4">Recommended</h3>
+
+<ul>
+<li><a href="/docs/f1000">F1000Prime</a></li>
+</ul>
+
+<h3 id="toc_5">PLOS-specific Sources</h3>
 
 <ul>
 <li><a href="/docs/counter">PLOS Usage Stats</a></li>
 <li><a href="/docs/figshare">PLOS Figshare Usage Stats</a></li>
 <li><a href="/docs/plos_comments">PLOS Comments</a></li>
-<li><a href="/docs/wos">Web of Science</a></li>
-<li><a href="/docs/f1000">F1000Prime</a></li>
 </ul>
 
-<h3 id="toc_5">Retired Sources</h3>
+<h3 id="toc_6">Retired Sources</h3>
 
 <ul>
 <li><a href="/docs/biod">Biod</a></li>
@@ -292,7 +297,7 @@
 </tbody>
 </table>
 
-<h2 id="toc_6">Event Information</h2>
+<h2 id="toc_7">Event Information</h2>
 
 <p>Most sources return information about each individual event (citation, bookmark, etc.), and this information is summarized below. The exception are sources that don&#39;t return information about individual events because of privacy (all usage data, Facebook, Mendeley readers) or for licensing reasons (Scopus, Web of Science, F1000).</p>
 
@@ -391,7 +396,7 @@
 </tbody>
 </table>
 
-<h2 id="toc_7">Creating a new source</h2>
+<h2 id="toc_8">Creating a new source</h2>
 
 <p>Basically, each of the APIs that the ALM application is calling will be defined as a <strong>source</strong>. The ALM application provides a number of services to each source to help it get what it needs. Note the samples provided at <a href="http://github.com/articlemetrics/alm/tree/master/app/models/sources">http://github.com/articlemetrics/alm/tree/master/app/models/sources</a>.</p>
 

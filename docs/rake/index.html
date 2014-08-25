@@ -126,6 +126,8 @@
 <p>The command takes the following optional parameters via ENV variables</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">FROM_UPDATE_DATE</span><span class="o">=</span>2014-02-05
 <span class="nv">UNTIL_UPDATE_DATE</span><span class="o">=</span>2014-03
+<span class="nv">FROM_PUB_DATE</span><span class="o">=</span>2014-01-01
+<span class="nv">UNTIL_UPDATE_DATE</span><span class="o">=</span>2014-07-01
 <span class="nv">MEMBER</span><span class="o">=</span>340
 <span class="nv">TYPE</span><span class="o">=</span>journal-article
 <span class="nv">ISSN</span><span class="o">=</span>1545-7885
@@ -133,6 +135,7 @@
 </code></pre></div>
 <ul>
 <li><code>FROM_UPDATE_DATE</code> means metadata updated since (inclusive) <code>{date}</code>, <code>UNTIL_UPDATE_DATE</code> means metadata updated until (inclusive) <code>{date}</code>.</li>
+<li><code>FROM_PUB_DATE</code> means article published since (inclusive) <code>{date}</code>, <code>UNTIL_PUB_DATE</code> published until (inclusive) <code>{date}</code>.</li>
 <li><code>MEMBER</code> is the CrossRef member_id, which you find by searching the member database, e.g. <code>http://api.crossref.org/members?query=elife</code>.</li>
 <li><code>TYPE</code> is the type of the resource, e.g. <code>journal-article</code>, a listing of available types can be found at <code>http://api.crossref.org/types</code>.</li>
 <li><code>SAMPLE</code> returns a random sample of x DOIs and can be combined with the other parameters.</li>
