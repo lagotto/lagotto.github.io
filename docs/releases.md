@@ -3,6 +3,104 @@ layout: page
 title: "Releases"
 ---
 
+### [ALM 3.4.2](https://github.com/articlemetrics/alm/releases/tag/v.3.4.2)
+
+ALM 3.4.2 was released on August 24, 2014 with the following bugfix:
+
+* fixed issue with caching of the admin panel
+
+## [ALM 3.4](https://github.com/articlemetrics/alm/releases/tag/v.3.4)
+
+ALM 3.4 was released on August 22, 2014 with the following new features:
+
+* better caching of the admin panel
+* simplified admin panel navigation, and more information made available to regular users
+* publisher model with support for automated article import via CrossRef API
+* more granular error reporting with levels `INFO`, `WARN`, `ERROR`and `FATAL`
+* Alerts API for admin users
+* new `/heartbeat` API endpoint to check application health
+* many bug fixes
+
+To enable the automated daily article import via CrossRef API, add the following line to `config/settings.yml`:
+
+```yaml
+import: member
+```
+
+To import articles manually, leave import empty; or use one of the following options for automated daily import via cron:
+
+* `import: all`: All DOIs updated the last day
+* `import: sample`: A random sample of 20 from all DOIs updated the last day
+* `import: member`: All DOIs from the publishers in the publisher admin interface, updated the last day
+* `import: member_sample`: A random sample of 20 from all DOIs from the publishers in the publisher admin interface, updated the last day
+
+Publishers can now be added in the admin interface. The only functionality is currently the automated article import described above.
+
+For admin users alerts are now available via API, use the `/api/v4/alerts` endpoint and basic authentication. More details in the API documentation.
+
+There is one configuration change in error reporting: the `disabled_source_report` has been renamed to `fatal_error_report`, as an immediate email will now be sent for all errors with severity `FATAL`. To rename the report template in the database, run this rake task once (using the appropriate `RAILS_ENV`):
+
+```
+bundle exec rake mailer:rename_report RAILS_ENV=production
+```
+
+### [ALM 3.3.19](https://github.com/articlemetrics/alm/releases/tag/v.3.3.19)
+
+ALM 3.3.19 was released on August 18, 2014 with the following new feature:
+
+* set background worker priority individually for every source
+
+### [ALM 3.3.14](https://github.com/articlemetrics/alm/releases/tag/v.3.3.14)
+
+ALM 3.3.14 was released on August 15, 2014 with the following bugfix:
+
+* fixed bug with oEmbed functionality
+
+### [ALM 3.3.12](https://github.com/articlemetrics/alm/releases/tag/v.3.3.12)
+
+ALM 3.3.12 was released on August 13, 2014 with the following new feature:
+
+* added rake task to delete CouchDB history documents (which are no longer needed). Use `START_DATE` and `END_DATE`.
+
+```
+bundle exec rake couchdb:histories:delete START_DATE=2014-01-01
+```
+
+### [ALM 3.3.8](https://github.com/articlemetrics/alm/releases/tag/v.3.3.8)
+
+ALM 3.3.8 was released on August 8, 2014 with the following bugfix:
+
+* unescape URLs in the oembed controller
+
+### [ALM 3.3.5](https://github.com/articlemetrics/alm/releases/tag/v.3.3.5)
+
+ALM 3.3.5 was released on August 5, 2014 with the following bugfix:
+
+* handle larger delayed_job payloads (up to 16 MB)
+
+### [ALM 3.3.2](https://github.com/articlemetrics/alm/releases/tag/v.3.3.2)
+
+ALM 3.3.2 was released on August 3, 2014 with the following bugfixes:
+
+* fixed a problem where the same cached response was used by both the v3 and v5 API
+* fixed a bug where some dates from events where incorrently formatted
+
+### [ALM 3.3.1](https://github.com/articlemetrics/alm/releases/tag/v.3.3.1)
+
+ALM 3.3.1 was released on July 31, 2014 with the following bugfix:
+
+* allow import of articles that contain non utf-8 characters in the title
+
+## [ALM 3.3](https://github.com/articlemetrics/alm/releases/tag/v.3.3)
+
+ALM 3.3 was released on July 29, 2014 with the following features:
+
+* import of articles via the CrossRef API
+* support for oEmbed
+* performance improvements
+* better handling of not found errors
+* better support for multiple ALM servers
+
 ## [ALM 3.2](https://github.com/articlemetrics/alm/releases/tag/v.3.2)
 
 ALM 3.2 was released on July 1, 2014 with the following features:
@@ -20,7 +118,7 @@ ALM 3.1 was released on May 23, 2014 with the following features:
 * display of all events for an article by date
 * many bug fixes
 
-## [ALM 3.0](https://github.com/articlemetrics/alm/releases/tag/v.3.0)
+# [ALM 3.0](https://github.com/articlemetrics/alm/releases/tag/v.3.0)
 
 ALM 3.0 was released on May 8, 2014 with the following features:
 
@@ -40,7 +138,7 @@ ALM 2.14 was released on April 24, 2014 with the following new features:
 * improved support for Capistrano 3
 * many bug fixes
 
-## [ALM 2.13.2](https://github.com/articlemetrics/alm/releases/tag/v.2.13.2)
+### [ALM 2.13.2](https://github.com/articlemetrics/alm/releases/tag/v.2.13.2)
 
 ALM 2.13.2 was released on March 27, 2014 with a focus on bug fixes:
 
@@ -101,7 +199,7 @@ insttoken
 EXAMPLE
 ```
 
-## [ALM 2.12.1](https://github.com/articlemetrics/alm/releases/tag/v.2.12.1)
+### [ALM 2.12.1](https://github.com/articlemetrics/alm/releases/tag/v.2.12.1)
 
 ALM 2.12.1 was released on February 10, 2014 with the following changes:
 
@@ -120,7 +218,7 @@ URL
 https://graph.facebook.com/fql?access_token=%{access_token}&q=select url, share_count, like_count, comment_count, click_count, total_count from link_stat where url = '%{query_url}'
 ```
 
-## [ALM 2.11.2](https://github.com/articlemetrics/alm/releases/tag/v.2.11.2)
+### [ALM 2.11.2](https://github.com/articlemetrics/alm/releases/tag/v.2.11.2)
 
 ALM 2.11.2 was released on January 22, 2014. Changes in this release include:
 
@@ -146,7 +244,7 @@ Remove HTML and XML from article titles:
 bundle exec db:articles:sanitize_title
 ```
 
-## [ALM 2.10.1](https://github.com/articlemetrics/alm/releases/tag/v.2.10.1)
+### [ALM 2.10.1](https://github.com/articlemetrics/alm/releases/tag/v.2.10.1)
 
 ALM 2.10.1 was released on November 13, 2013 with the following features:
 
@@ -154,7 +252,7 @@ ALM 2.10.1 was released on November 13, 2013 with the following features:
 * improve reporting
 * merged DOI import code from CrossRef
 
-## [ALM 2.9.15](https://github.com/articlemetrics/alm/releases/tag/v.2.9.15)
+### [ALM 2.9.15](https://github.com/articlemetrics/alm/releases/tag/v.2.9.15)
 
 ALM 2.9.15 was released on November 3, 2013. This release contains fixes for the mailer functionality and two new reports:
 
@@ -165,7 +263,7 @@ A new source has been added:
 
 * DataCite
 
-## [ALM 2.9.7](https://github.com/articlemetrics/alm/releases/tag/v.2.9.7)
+### [ALM 2.9.7](https://github.com/articlemetrics/alm/releases/tag/v.2.9.7)
 
 ALM 2.9.7 was released on October 3, 2013. This release fixes many small bugs of the 2.9 release and adds the following new sources:
 
@@ -191,7 +289,7 @@ The major new feature in this release is error tracking via filters. Filters can
 
 ALM 2.8 was released on July 22, 2013. The development work focused on user account management.
 
-## User accounts
+#### User accounts
 
 Prior to this release, the ALM application allowed only a single user account. We can now have multiple user accounts, plus different roles for them:
 
@@ -201,7 +299,7 @@ Prior to this release, the ALM application allowed only a single user account. W
 
 A new user admin dashboard facilitates user management.
 
-### Social login
+#### Social login
 
 To facilitate account management for users and ALM admins, new user accounts can only be created via social login with one of these services:
 
@@ -210,15 +308,15 @@ To facilitate account management for users and ALM admins, new user accounts can
 
 The ALM application can be configured to use one of these services (but not both), or to use the old system of only a single admin user. The documentation has been updated to reflect these changes.
 
-### API keys
+#### API keys
 
 Now that API keys are created within the ALM application, we can check for valid API keys in every API request. This is currently only done to allow access to private sources for admins, and to enable create/update/delete in the REST API. For security reasons create/update/delete only works from requests originating from the same computer.
 
-## Documentation
+#### Documentation
 
 The documentation in the wiki is now included in the application, making it easier for users to find documentation. We use the [github-markdown gem](http://rubygems.org/gems/github-markdown) for this. The documentation has been updated with the changes in ALM 2.8, and other updates.
 
-## Other Changes
+#### Other Changes
 
 Many small changes and bug fixes. We now use memcached for caching, and we added to cron jobs to clean up temporary tables (error_messages and api_requests).
 
@@ -226,14 +324,14 @@ Many small changes and bug fixes. We now use memcached for caching, and we added
 
 ALM 2.7 was released on May 16, 2013. The development work focused on adding Javascript libraries that talk to the ALM API and can be embedded in other web sites.
 
-### Javascript single article visualizations
+#### Javascript single article visualizations
 
 We added visualizations for single articles using the d3.js library, including time-based visualizations by day, month and year. We have created a new [Github repository](https://github.com/articlemetrics/almviz) that will hold all future work on Javascript libraries talking to the ALM API. To make these visualizations easier we made two changes to the [v3 ALM API](API):
 
 * added signposts (views, shares, bookmarks, citations) as summary information
 * added metrics by day, month and year for every source
 
-### Other Changes
+#### Other Changes
 
 We have made it easier to install the ALM application by adding and testing support for Amazon AWS via Vagrant. We added rake tasks to seed or delete articles, and to delete resolved errors and old API requests. Many small bugs were fixed and the ALM application was updated to use the latest Rails version (3.2.13).
 
@@ -241,17 +339,17 @@ We have made it easier to install the ALM application by adding and testing supp
 
 ALM 2.6 was released on March 19, 2013. The development work focused on two areas: API performance and easy installation.
 
-### API Performance
+#### API Performance
 
 The API code was refactored, adding the [Draper Decorator](https://github.com/drapergem/draper) between the model and the [RABL Views](https://github.com/nesquena/rabl). We added caching, using Russian Doll fragment caching as described [here](http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works). It required some extra work to make this work with RABL and Draper. We also added a visualization of API requests to the admin dashboard, using d3.js and the [crossfiler](http://square.github.com/crossfilter/) library.
 
-### Easy Installation
+#### Easy Installation
 
 To make it easier to install the ALM application, we have updated and throughoutly tested the [manual installation](installation) instructions, updated the Chef / Vagrant automated installation (now using Ubuntu 12.04 and linking directly to the Chef Cookbook repository), and provided a VMware image of ALM application (535 MB [download](http://dl.dropbox.com/u/9406373/alm_ubuntu_12.04_vmware.tar.gz), username/password: alm). The VMware image file is still experimental and feedback is appreciated.
 
 An updated version of [Vagrant](http://docs.vagrantup.com/v2/getting-started/index.html) (1.1) was released days after ALM 2.6, and this version now supports VMware and AWS. We will support these platforms in a future ALM release to again make it easier to test or install the ALM application.
 
-### Other Changes
+#### Other Changes
 
 This release includes many small fixes and improvements. Of particular interest are the RSS feeds for the most popular articles by source, published in the last 7 days, 30 days, 12 months, or all-time. The RSS feeds are link from the most-cited lists for each source, e.g. [here](http://alm.plos.org/sources/twitter).
 
@@ -294,7 +392,7 @@ ALM 2.1 was released on September 13, 2012.
 * added Wikipedia source
 * Rails 3.2.7
 
-## [ALM 2.0](https://github.com/articlemetrics/alm/releases/tag/v.2.0)
+# [ALM 2.0](https://github.com/articlemetrics/alm/releases/tag/v.2.0)
 
 ALM 2.0 was released on July 31, 2012.
 

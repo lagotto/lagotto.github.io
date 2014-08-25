@@ -82,9 +82,13 @@ config.vm.provider :digital_ocean do |provider, override|
   override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
   override.ssh.username = "ubuntu"
 
-  provider.client_id = 'EXAMPLE'
-  provider.api_key = 'EXAMPLE'
+  provider.region = 'nyc2'
+  provider.image = 'Ubuntu 12.04.4 x64'
   provider.size = '1GB'
+
+  # please configure
+  override.vm.hostname = "ALM.EXAMPLE.ORG"
+  provider.token = 'EXAMPLE'
 end
 ```
 
@@ -147,9 +151,7 @@ set :bundle_flags, '--system'
 # don't precompile assets
 set :assets_roles, []
 
-role :app, %w{33.33.33.44}
-role :web, %w{33.33.33.44}
-role :db,  %w{33.33.33.44}
+server '33.33.33.44', roles: %w{web app db}
 
 set :ssh_options, {
   user: "vagrant",
@@ -208,7 +210,15 @@ bundle exec cap production deploy:check
 On subsequent runs the command will pull the latest code from the Github repo, run database migrations, install the dependencies via Bundler, stop and start the background workers, updates the crontab file for ALM, and in production mode precompiles assets (CSS, Javascripts, images).
 
 ## Manual installation
-These instructions assume a fresh installation of Ubuntu 12.04 and a user with sudo privileges. Installation on other Unix/Linux platforms should be similar, but may require additional steps to install Ruby 1.9.
+These instructions assume a fresh installation of Ubuntu 14.04 and a user with sudo privileges. Installation on other Unix/Linux platforms should be similar, but may require additional steps to install a recent Ruby (at least 1.9.3 is required).
+
+#### Add PPAs to install more recent versions of Ruby and CouchDB
+
+```sh
+sudo apt-get install python-software-properties
+sudo apt-add-repository ppa:brightbox/ruby-ng
+sudo add-apt-repository ppa:couchdb/stable
+```
 
 #### Update package lists
 
@@ -223,11 +233,11 @@ sudo apt-get update
 sudo apt-get install curl build-essential git-core libxml2-dev libxslt1-dev nodejs
 ```
 
-#### Install Ruby 1.9.3
+#### Install Ruby 2.1
 We only need one Ruby version and manage gems with bundler, so there is no need to install `rvm` or `rbenv`.
 
 ```sh
-sudo apt-get install ruby1.9.3
+sudo apt-get install ruby2.1 ruby2.1-dev
 ```
 
 #### Install databases
@@ -274,14 +284,14 @@ sudo apt-get install apache2 apache2-prefork-dev libapr1-dev libaprutil1-dev lib
 Passenger is a Rails application server: http://www.modrails.com. Update `passenger.load` and `passenger.conf` when you install a new version of the passenger gem.
 
 ```sh
-sudo gem install passenger -v 4.0.41
+sudo gem install passenger -v 4.0.49
 sudo passenger-install-apache2-module --auto
 
 # /etc/apache2/mods-available/passenger.load
-LoadModule passenger_module /var/lib/gems/1.9.1/gems/passenger-4.0.41/ext/apache2/mod_passenger.so
+LoadModule passenger_module /var/lib/gems/1.9.1/gems/passenger-4.0.49/ext/apache2/mod_passenger.so
 
 # /etc/apache2/mods-available/passenger.conf
-PassengerRoot /var/lib/gems/1.9.1/gems/passenger-4.0.41
+PassengerRoot /var/lib/gems/1.9.1/gems/passenger-4.0.49
 PassengerRuby /usr/bin/ruby1.9.1
 
 sudo a2enmod passenger
@@ -344,7 +354,7 @@ It is possible to connect the ALM app to MySQL and/or CouchDB running on a diffe
 
 ```sh
 cd /var/www/alm
-rake db:setup RAILS_ENV=development
+rake db:setup RAILS_ENV=production
 curl -X PUT http://localhost:5984/alm/
 ```
 
@@ -360,19 +370,7 @@ sudo service apache2 reload
 You can now access the ALM application with your web browser at the name or IP address (if it is the only virtual host) of your Ubuntu installation.
 
 ## Using PostgreSQL instead of MySQL
-The instructions above are for using MySQL, but the ALM application can also be installed with PostgreSQL with two small changes:
-
-### Install PostgreSQL gem
-Uncomment `gem 'pg'` in your `Gemfile`, comment out `gem 'mysql2'` and run `bundle update`:
-
-```ruby
-gem 'rails', '3.2.16'
-#gem 'mysql2', '0.3.13'
-gem 'pg', '~> 0.17.1'
-```
-
-### Change database adapter
-Change the adapter in `config/database.yml` to use PostgreSQL instead of MySQL (change the line in defaults to `<<:postgres`):
+The instructions above are for using MySQL, but the ALM application can also be installed with PostgreSQL by changing the database adapter in `config/database.yml` to use PostgreSQL instead of MySQL (change the line in defaults to `<<:postgres`):
 
 ```yaml
 mysql: &mysql
@@ -404,3 +402,13 @@ test:
 production:
   <<: *defaults
 ```
+
+## Running ALM on multiple servers
+
+The ALM software was developed to run on a single server, but most components scale to multiple servers. When running ALM on multiple servers, make sure that:
+
+* the name used in the load balancer is set as `public_server` in `config/settings.yml`
+* memcached should be set up as a cluster by adding a `web_servers` list with all ALM servers behind the load balancer to `config/settings.yml`, e.g. `web_servers: [example1.org, example2.org]`
+* workers should run on only one server (work is in progress to scale to multiple servers), e.g. the server with the capistrano `:db` role
+* database maintenance rake tasks should run on only one server, capistrano defaults to install the cron jobs only for the `:db` role.
+* mail services (sending emails) should run on only one server. They are part of the database maintenance tasks, so by default run only on the server with the `:db` role.
