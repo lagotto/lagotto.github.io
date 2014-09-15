@@ -113,7 +113,29 @@
         <div class="row">
           <div class="col-md-9">
             
-            <h3 id="toc_0"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4.2">ALM 3.4.2</a></h3>
+            <h3 id="toc_0"><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.5">Lagotto 3.5</a></h3>
+
+<p>With this release the ALM application was renamed to Lagotto and the license changed
+from Apache 2.0 to a MIT license. Lagotto 3.5 was released on September 14, 2014
+with the following features and bugfixes:</p>
+
+<ul>
+<li>updated automated installation with Chef/Vagrant to use Ubuntu 14.04 and Nginx,
+and simplified and tested the Chef cookbook</li>
+<li>updated the manual installation instructions, and added a new page with deployment instructions</li>
+<li>fixed a bug with caching JSONP API responses</li>
+<li>improved caching of the admin dashboard by moving to model caching for slow queries</li>
+</ul>
+
+<h3 id="toc_1"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4.8">ALM 3.4.8</a></h3>
+
+<p>ALM 3.4.8 was released on August 28, 2014 with the following bugfix:</p>
+
+<ul>
+<li>don&#39;t send email alerts for delayed_job errors</li>
+</ul>
+
+<h3 id="toc_2"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4.2">ALM 3.4.2</a></h3>
 
 <p>ALM 3.4.2 was released on August 24, 2014 with the following bugfix:</p>
 
@@ -121,7 +143,7 @@
 <li>fixed issue with caching of the admin panel</li>
 </ul>
 
-<h2 id="toc_1"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4">ALM 3.4</a></h2>
+<h2 id="toc_3"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4">ALM 3.4</a></h2>
 
 <p>ALM 3.4 was released on August 22, 2014 with the following new features:</p>
 
@@ -154,7 +176,7 @@
 <p>There is one configuration change in error reporting: the <code>disabled_source_report</code> has been renamed to <code>fatal_error_report</code>, as an immediate email will now be sent for all errors with severity <code>FATAL</code>. To rename the report template in the database, run this rake task once (using the appropriate <code>RAILS_ENV</code>):</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">bundle exec rake mailer:rename_report RAILS_ENV=production
 </code></pre></div>
-<h3 id="toc_2"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.19">ALM 3.3.19</a></h3>
+<h3 id="toc_4"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.19">ALM 3.3.19</a></h3>
 
 <p>ALM 3.3.19 was released on August 18, 2014 with the following new feature:</p>
 
@@ -162,7 +184,7 @@
 <li>set background worker priority individually for every source</li>
 </ul>
 
-<h3 id="toc_3"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.14">ALM 3.3.14</a></h3>
+<h3 id="toc_5"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.14">ALM 3.3.14</a></h3>
 
 <p>ALM 3.3.14 was released on August 15, 2014 with the following bugfix:</p>
 
@@ -170,7 +192,7 @@
 <li>fixed bug with oEmbed functionality</li>
 </ul>
 
-<h3 id="toc_4"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.12">ALM 3.3.12</a></h3>
+<h3 id="toc_6"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.12">ALM 3.3.12</a></h3>
 
 <p>ALM 3.3.12 was released on August 13, 2014 with the following new feature:</p>
 
@@ -179,7 +201,7 @@
 </ul>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">bundle exec rake couchdb:histories:delete START_DATE=2014-01-01
 </code></pre></div>
-<h3 id="toc_5"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.8">ALM 3.3.8</a></h3>
+<h3 id="toc_7"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.8">ALM 3.3.8</a></h3>
 
 <p>ALM 3.3.8 was released on August 8, 2014 with the following bugfix:</p>
 
@@ -187,7 +209,7 @@
 <li>unescape URLs in the oembed controller</li>
 </ul>
 
-<h3 id="toc_6"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.5">ALM 3.3.5</a></h3>
+<h3 id="toc_8"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.5">ALM 3.3.5</a></h3>
 
 <p>ALM 3.3.5 was released on August 5, 2014 with the following bugfix:</p>
 
@@ -195,7 +217,7 @@
 <li>handle larger delayed_job payloads (up to 16 MB)</li>
 </ul>
 
-<h3 id="toc_7"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.2">ALM 3.3.2</a></h3>
+<h3 id="toc_9"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.2">ALM 3.3.2</a></h3>
 
 <p>ALM 3.3.2 was released on August 3, 2014 with the following bugfixes:</p>
 
@@ -204,7 +226,7 @@
 <li>fixed a bug where some dates from events where incorrently formatted</li>
 </ul>
 
-<h3 id="toc_8"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.1">ALM 3.3.1</a></h3>
+<h3 id="toc_10"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.1">ALM 3.3.1</a></h3>
 
 <p>ALM 3.3.1 was released on July 31, 2014 with the following bugfix:</p>
 
@@ -212,7 +234,7 @@
 <li>allow import of articles that contain non utf-8 characters in the title</li>
 </ul>
 
-<h2 id="toc_9"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3">ALM 3.3</a></h2>
+<h2 id="toc_11"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3">ALM 3.3</a></h2>
 
 <p>ALM 3.3 was released on July 29, 2014 with the following features:</p>
 
@@ -224,7 +246,7 @@
 <li>better support for multiple ALM servers</li>
 </ul>
 
-<h2 id="toc_10"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.2">ALM 3.2</a></h2>
+<h2 id="toc_12"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.2">ALM 3.2</a></h2>
 
 <p>ALM 3.2 was released on July 1, 2014 with the following features:</p>
 
@@ -236,7 +258,7 @@
 <li>bug fixes</li>
 </ul>
 
-<h2 id="toc_11"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.1">ALM 3.1</a></h2>
+<h2 id="toc_13"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.1">ALM 3.1</a></h2>
 
 <p>ALM 3.1 was released on May 23, 2014 with the following features:</p>
 
@@ -245,7 +267,7 @@
 <li>many bug fixes</li>
 </ul>
 
-<h1 id="toc_12"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.0">ALM 3.0</a></h1>
+<h1 id="toc_14"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.0">ALM 3.0</a></h1>
 
 <p>ALM 3.0 was released on May 8, 2014 with the following features:</p>
 
@@ -257,7 +279,7 @@
 <li>Rails 3.2.18</li>
 </ul>
 
-<h2 id="toc_13"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.14">ALM 2.14</a></h2>
+<h2 id="toc_15"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.14">ALM 2.14</a></h2>
 
 <p>ALM 2.14 was released on April 24, 2014 with the following new features:</p>
 
@@ -269,7 +291,7 @@
 <li>many bug fixes</li>
 </ul>
 
-<h3 id="toc_14"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.13.2">ALM 2.13.2</a></h3>
+<h3 id="toc_16"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.13.2">ALM 2.13.2</a></h3>
 
 <p>ALM 2.13.2 was released on March 27, 2014 with a focus on bug fixes:</p>
 
@@ -282,7 +304,7 @@
 <li>Rails 3.2.17</li>
 </ul>
 
-<h4 id="toc_15">Upgrade</h4>
+<h4 id="toc_17">Upgrade</h4>
 
 <p>Migrate to new date format (year, month, day):</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:date_parts <span class="nv">RAILS_ENV</span><span class="o">=</span>production
@@ -320,7 +342,7 @@ EXAMPLE
 insttoken
 EXAMPLE
 </code></pre></div>
-<h3 id="toc_16"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.12.1">ALM 2.12.1</a></h3>
+<h3 id="toc_18"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.12.1">ALM 2.12.1</a></h3>
 
 <p>ALM 2.12.1 was released on February 10, 2014 with the following changes:</p>
 
@@ -332,13 +354,13 @@ EXAMPLE
 <li>updated documentation, in particular how we setup ALM</li>
 </ul>
 
-<h4 id="toc_17">Upgrade</h4>
+<h4 id="toc_19">Upgrade</h4>
 
 <p>Update Facebook configuration:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">URL
 https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class="o">{</span>access_token<span class="o">}</span><span class="p">&amp;</span><span class="nv">q</span><span class="o">=</span><span class="k">select </span>url, share_count, like_count, comment_count, click_count, total_count from link_stat where <span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;%{query_url}&#39;</span>
 </code></pre></div>
-<h3 id="toc_18"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.11.2">ALM 2.11.2</a></h3>
+<h3 id="toc_20"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.11.2">ALM 2.11.2</a></h3>
 
 <p>ALM 2.11.2 was released on January 22, 2014. Changes in this release include:</p>
 
@@ -352,7 +374,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>fixed bug that could cause wrong login credentials</li>
 </ul>
 
-<h4 id="toc_19">Upgrade</h4>
+<h4 id="toc_21">Upgrade</h4>
 
 <p>Update CouchDB design docs (needed for reports):</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X PUT -d @design-doc/reports.json <span class="s1">&#39;http://localhost:5984/alm/_design/reports&#39;</span>
@@ -360,7 +382,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <p>Remove HTML and XML from article titles:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>db:articles:sanitize_title
 </code></pre></div>
-<h3 id="toc_20"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.10.1">ALM 2.10.1</a></h3>
+<h3 id="toc_22"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.10.1">ALM 2.10.1</a></h3>
 
 <p>ALM 2.10.1 was released on November 13, 2013 with the following features:</p>
 
@@ -370,7 +392,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>merged DOI import code from CrossRef</li>
 </ul>
 
-<h3 id="toc_21"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.15">ALM 2.9.15</a></h3>
+<h3 id="toc_23"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.15">ALM 2.9.15</a></h3>
 
 <p>ALM 2.9.15 was released on November 3, 2013. This release contains fixes for the mailer functionality and two new reports:</p>
 
@@ -385,7 +407,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>DataCite</li>
 </ul>
 
-<h3 id="toc_22"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.7">ALM 2.9.7</a></h3>
+<h3 id="toc_24"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.7">ALM 2.9.7</a></h3>
 
 <p>ALM 2.9.7 was released on October 3, 2013. This release fixes many small bugs of the 2.9 release and adds the following new sources:</p>
 
@@ -397,7 +419,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>OpenEdition</li>
 </ul>
 
-<h2 id="toc_23"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9">ALM 2.9</a></h2>
+<h2 id="toc_25"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9">ALM 2.9</a></h2>
 
 <p>ALM 2.9 was released on September 16, 2013. This version contains numerous bug fixes, and some important parts of the application were refactored</p>
 
@@ -411,11 +433,11 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 
 <p>The major new feature in this release is error tracking via filters. Filters can easily be added and customized, and they will generate a daily error report that is sent out via email</p>
 
-<h2 id="toc_24"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.8">ALM 2.8</a></h2>
+<h2 id="toc_26"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.8">ALM 2.8</a></h2>
 
 <p>ALM 2.8 was released on July 22, 2013. The development work focused on user account management.</p>
 
-<h4 id="toc_25">User accounts</h4>
+<h4 id="toc_27">User accounts</h4>
 
 <p>Prior to this release, the ALM application allowed only a single user account. We can now have multiple user accounts, plus different roles for them:</p>
 
@@ -427,7 +449,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 
 <p>A new user admin dashboard facilitates user management.</p>
 
-<h4 id="toc_26">Social login</h4>
+<h4 id="toc_28">Social login</h4>
 
 <p>To facilitate account management for users and ALM admins, new user accounts can only be created via social login with one of these services:</p>
 
@@ -438,23 +460,23 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 
 <p>The ALM application can be configured to use one of these services (but not both), or to use the old system of only a single admin user. The documentation has been updated to reflect these changes.</p>
 
-<h4 id="toc_27">API keys</h4>
+<h4 id="toc_29">API keys</h4>
 
 <p>Now that API keys are created within the ALM application, we can check for valid API keys in every API request. This is currently only done to allow access to private sources for admins, and to enable create/update/delete in the REST API. For security reasons create/update/delete only works from requests originating from the same computer.</p>
 
-<h4 id="toc_28">Documentation</h4>
+<h4 id="toc_30">Documentation</h4>
 
 <p>The documentation in the wiki is now included in the application, making it easier for users to find documentation. We use the <a href="http://rubygems.org/gems/github-markdown">github-markdown gem</a> for this. The documentation has been updated with the changes in ALM 2.8, and other updates.</p>
 
-<h4 id="toc_29">Other Changes</h4>
+<h4 id="toc_31">Other Changes</h4>
 
 <p>Many small changes and bug fixes. We now use memcached for caching, and we added to cron jobs to clean up temporary tables (error_messages and api_requests).</p>
 
-<h2 id="toc_30"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.7">ALM 2.7</a></h2>
+<h2 id="toc_32"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.7">ALM 2.7</a></h2>
 
 <p>ALM 2.7 was released on May 16, 2013. The development work focused on adding Javascript libraries that talk to the ALM API and can be embedded in other web sites.</p>
 
-<h4 id="toc_31">Javascript single article visualizations</h4>
+<h4 id="toc_33">Javascript single article visualizations</h4>
 
 <p>We added visualizations for single articles using the d3.js library, including time-based visualizations by day, month and year. We have created a new <a href="https://github.com/articlemetrics/almviz">Github repository</a> that will hold all future work on Javascript libraries talking to the ALM API. To make these visualizations easier we made two changes to the <a href="API">v3 ALM API</a>:</p>
 
@@ -463,29 +485,29 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>added metrics by day, month and year for every source</li>
 </ul>
 
-<h4 id="toc_32">Other Changes</h4>
+<h4 id="toc_34">Other Changes</h4>
 
 <p>We have made it easier to install the ALM application by adding and testing support for Amazon AWS via Vagrant. We added rake tasks to seed or delete articles, and to delete resolved errors and old API requests. Many small bugs were fixed and the ALM application was updated to use the latest Rails version (3.2.13).</p>
 
-<h2 id="toc_33"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.6">ALM 2.6</a></h2>
+<h2 id="toc_35"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.6">ALM 2.6</a></h2>
 
 <p>ALM 2.6 was released on March 19, 2013. The development work focused on two areas: API performance and easy installation.</p>
 
-<h4 id="toc_34">API Performance</h4>
+<h4 id="toc_36">API Performance</h4>
 
 <p>The API code was refactored, adding the <a href="https://github.com/drapergem/draper">Draper Decorator</a> between the model and the <a href="https://github.com/nesquena/rabl">RABL Views</a>. We added caching, using Russian Doll fragment caching as described <a href="http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works">here</a>. It required some extra work to make this work with RABL and Draper. We also added a visualization of API requests to the admin dashboard, using d3.js and the <a href="http://square.github.com/crossfilter/">crossfiler</a> library.</p>
 
-<h4 id="toc_35">Easy Installation</h4>
+<h4 id="toc_37">Easy Installation</h4>
 
 <p>To make it easier to install the ALM application, we have updated and throughoutly tested the <a href="installation">manual installation</a> instructions, updated the Chef / Vagrant automated installation (now using Ubuntu 12.04 and linking directly to the Chef Cookbook repository), and provided a VMware image of ALM application (535 MB <a href="http://dl.dropbox.com/u/9406373/alm_ubuntu_12.04_vmware.tar.gz">download</a>, username/password: alm). The VMware image file is still experimental and feedback is appreciated.</p>
 
 <p>An updated version of <a href="http://docs.vagrantup.com/v2/getting-started/index.html">Vagrant</a> (1.1) was released days after ALM 2.6, and this version now supports VMware and AWS. We will support these platforms in a future ALM release to again make it easier to test or install the ALM application.</p>
 
-<h4 id="toc_36">Other Changes</h4>
+<h4 id="toc_38">Other Changes</h4>
 
 <p>This release includes many small fixes and improvements. Of particular interest are the RSS feeds for the most popular articles by source, published in the last 7 days, 30 days, 12 months, or all-time. The RSS feeds are link from the most-cited lists for each source, e.g. <a href="http://alm.plos.org/sources/twitter">here</a>.</p>
 
-<h2 id="toc_37"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.5">ALM 2.5</a></h2>
+<h2 id="toc_39"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.5">ALM 2.5</a></h2>
 
 <p>ALM 2.5 was released on February 1st, 2013.</p>
 
@@ -496,13 +518,13 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>Rails 3.2.11</li>
 </ul>
 
-<h2 id="toc_38"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.4">ALM 2.4</a></h2>
+<h2 id="toc_40"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.4">ALM 2.4</a></h2>
 
 <p>ALM 2.4 was released on December 20, 2012.</p>
 
 <p>In this release we added a new source (<a href="http://scienceseeker.org/">ScienceSeeker</a>, a blog aggregator), fix many errors with sources and added tests for background and Rake tasks.</p>
 
-<h2 id="toc_39"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.3">ALM 2.3</a></h2>
+<h2 id="toc_41"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.3">ALM 2.3</a></h2>
 
 <p>ALM 2.3 was released on October 30, 2012.</p>
 
@@ -510,7 +532,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>updated API (v3)</li>
 </ul>
 
-<h2 id="toc_40"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.2">ALM 2.2</a></h2>
+<h2 id="toc_42"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.2">ALM 2.2</a></h2>
 
 <p>ALM 2.2 was released on October 5, 2012.</p>
 
@@ -520,7 +542,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>Rails 3.2.8</li>
 </ul>
 
-<h2 id="toc_41"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.1">ALM 2.1</a></h2>
+<h2 id="toc_43"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.1">ALM 2.1</a></h2>
 
 <p>ALM 2.1 was released on September 13, 2012.</p>
 
@@ -532,7 +554,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>Rails 3.2.7</li>
 </ul>
 
-<h1 id="toc_42"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.0">ALM 2.0</a></h1>
+<h1 id="toc_44"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.0">ALM 2.0</a></h1>
 
 <p>ALM 2.0 was released on July 31, 2012.</p>
 

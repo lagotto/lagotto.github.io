@@ -3,17 +3,17 @@
     <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ</title>
+    <title>Deployment</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Martin Fenner" />
 
     <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="FAQ" />
+    <meta property="dc:title" content="Deployment" />
     <meta property="dc:creator" content="" />
     <meta name="citation_publication_date" content=""/>
     <meta property="dc:format" content="text/html" />
     <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/docs/faq/" />
+    <meta property="dc:identifier" content="/docs/deployment/" />
     <meta property="dc:rights" content="CC-BY" />
     <meta property="dc:source" content="Article-Level Metrics" />
     <meta property="dc:subject" content="Scholarly Communication" />
@@ -22,7 +22,7 @@
     <!-- Google Scholar Metadata -->
     <meta name="citation_author" content=""/>
     <meta name="citation_publication_date" content=""/>
-    <meta name="citation_title" content="FAQ"/>
+    <meta name="citation_title" content="Deployment"/>
     <meta name="citation_journal_title" content="Article-Level Metrics"/>
 
     <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
@@ -104,7 +104,7 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>FAQ</h1>
+        <h1>Deployment</h1>
         <p class="subtitle">
         </p>
       </div>
@@ -113,40 +113,64 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p>Please add questions that are not listed here to the <a href="https://github.com/articlemetrics/lagotto/issues">Issue Tracker</a>.</p>
-
-<h3 id="toc_0">Where can I ask questions regarding Lagotto?</h3>
-
-<p>Please create an issue in the <a href="https://github.com/articlemetrics/lagotto/issues">Issue Tracker</a> or ask your question in the <a href="https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers">PLOS API Developer Google Group</a>.</p>
-
-<h3 id="toc_1">Where do I find videos and presentations about ALM?</h3>
-
-<p>Several videos, presentations and other information are available at the <a href="http://articlemetrics.github.io">community website</a>.</p>
-
-<h3 id="toc_2">What organizations are using Lagotto?</h3>
+            <p><a href="/docs/installation.md">Installation</a> installs all required software and code. From then on all code updates - including database migrations - are much easier as we no longer need to install Ruby, Nginx, MySQL, etc.:</p>
 
 <ul>
-<li><a href="http://articlemetrics.github.io/plos/">Public Library of Science (PLOS)</a></li>
-<li><a href="http://publications.copernicus.org/services/article_level_metrics.html">Copernicus Publications</a></li>
-<li><a href="http://pkp.sfu.ca/pkp-launches-article-level-metrics-for-ojs-journals/">Public Knowledge Project (PKP)</a></li>
-<li><a href="http://elifesciences.org/">eLife</a></li>
+<li>on local installations (e.g. using Virtualbox) update all code with <code>git pull</code>, run databases migrations if necessary with <code>bundle exec rake db:migrate</code>, if necessary update the installed Ruby gems via <code>bundle update</code>, and then restart the Rails application server with <code>touch tmp/restart.txt</code>.</li>
+<li>on remote installations (e.g. using AWS) use the <a href="http://capistranorb.com">Capistrano</a> deployment automation tool.</li>
 </ul>
 
-<p>Please contact us if you are using the ALM application and want your organization to be listed here.</p>
+<h2 id="toc_0">Deployment via Capistrano</h2>
 
-<h3 id="toc_3">What other services provide Article-Level Metrics?</h3>
+<p>Capistrano greatly simplifies the code updates via git, database migrations and server restarts on a remote machine. Capistrano assumes that the server has been provisioned using Vagrant/Chef or via manual installation (see <a href="/docs/installation.md">Installation</a>). Capistrano runs on your local machine.</p>
 
-<p>Article-Level Metrics is a very dynamic area, as of September 2014 the following organizations also provide comprehensive ALM data:</p>
+<p>To use Capistrano you need Ruby (at least 1.9.3) installed on your local machine. If you haven&#39;t done so, install <a href="http://bundler.io/">Bundler</a> to manage the dependencies for Lagotto:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">gem install bundler
+</code></pre></div>
+<p>Then go to the Lagotto git repo that you probably have already cloned in the installation step and install all required dependencies.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">git clone git://github.com/articlemetrics/lagotto.git
+<span class="nb">cd </span>lagotto
+bundle install
+</code></pre></div>
+<h4 id="toc_1">Edit deployment configuration</h4>
+
+<p>Edit the deployment configuration for a production server by renaming the file <code>config/deploy/production.rb.example</code> to <code>config/deploy/production.rb</code> and fill in the following information:</p>
 
 <ul>
-<li><a href="http://altmetric.com">altmetric.com</a></li>
-<li><a href="http://impactstory.org">ImpactStory</a></li>
-<li><a href="http://www.plumanalytics.com">Plum Analytics</a></li>
+<li>server for roles :app, :web, :db (name or IP address, could all be the same server)</li>
+<li>:deploy_user</li>
+<li>number of background workers, e.g. three workers: :delayed_job_args, &quot;-n 3&quot;</li>
+<li>SSH keys via :ssh_options</li>
 </ul>
 
-<h3 id="toc_4">Are there tools to interact with the Lagotto API?</h3>
+<p>A sample <code>config/deploy/production.rb</code> could look like this:</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">set</span> <span class="ss">:stage</span><span class="p">,</span> <span class="ss">:production</span>
+<span class="n">set</span> <span class="ss">:branch</span><span class="p">,</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;REVISION&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;BRANCH_NAME&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;master&quot;</span>
+<span class="n">set</span> <span class="ss">:deploy_user</span><span class="p">,</span> <span class="s1">&#39;ubuntu&#39;</span>
+<span class="n">set</span> <span class="ss">:rails_env</span><span class="p">,</span> <span class="ss">:production</span>
 
-<p>The <a href="http://ropensci.org/packages/alm.html">alm</a> package for the R statistical language is provided by the <a href="http://ropensci.org/">rOpenSci</a> project. Cameron Neylon has released <a href="https://github.com/articlemetrics/pyalm">pyalm</a>, an experimental Python wrapper for the Lagotto API. Both tools are Open Source software.</p>
+<span class="n">server</span> <span class="s1">&#39;EXAMPLE.ORG&#39;</span><span class="p">,</span> <span class="ss">roles</span><span class="p">:</span> <span class="sx">%w{web app db}</span>
+
+<span class="n">set</span> <span class="ss">:ssh_options</span><span class="p">,</span> <span class="p">{</span>
+  <span class="ss">user</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+  <span class="ss">keys</span><span class="p">:</span> <span class="sx">%w(~/.ssh/id_rsa)</span><span class="p">,</span>
+  <span class="n">auth_methods</span><span class="p">:</span> <span class="sx">%w(publickey)</span>
+<span class="p">}</span>
+
+<span class="c1"># Set number of delayed_job workers</span>
+<span class="n">set</span> <span class="ss">:delayed_job_args</span><span class="p">,</span> <span class="s2">&quot;-n 6&quot;</span>
+</code></pre></div>
+<h4 id="toc_2">Deploy</h4>
+
+<p>We deploy Lagotto with</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>cap production deploy
+</code></pre></div>
+<p>You can replace <code>production</code> with other environments, e.g. <code>staging</code>. You can pass in environment variables, e.g. to deploy a different git branch: <code>cap production deploy BRANCH_NAME=develop</code>.</p>
+
+<p>The first time this command is run it creates the folder structure required by Capistrano, by default in <code>/var/www/lagotto</code>. To make sure the expected folder structure is created successfully you can run:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>cap production deploy:check
+</code></pre></div>
+<p>On subsequent runs the command will pull the latest code from the Github repo, run database migrations, install the dependencies via Bundler, stop and start the background workers, updates the crontab file for Lagotto, and precompiles assets (CSS, Javascripts, images).</p>
 
 
             <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
@@ -155,12 +179,12 @@
   title="ctx_ver=Z39.88-2004
   &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
   &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=FAQ
+  &amp;rft.title=Deployment
   &amp;rft.creator=
   &amp;rft.date=
   &amp;rft.language=EN
   &amp;rft.rights=CC0
-  &amp;rft_id=http://articlemetrics.github.io/docs/faq/">
+  &amp;rft_id=http://articlemetrics.github.io/docs/deployment/">
 </span>
 
             

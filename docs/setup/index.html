@@ -113,7 +113,7 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p>To configure the ALM application, the following steps are necessary:</p>
+            <p>To configure Lagotto, the following steps are necessary:</p>
 
 <ul>
 <li>add users (we need at least one admin user)</li>
@@ -125,7 +125,7 @@
 
 <h2 id="toc_0">Adding Users</h2>
 
-<p>The ALM application supports the following user roles:</p>
+<p>Lagotto supports the following user roles:</p>
 
 <ul>
 <li>API user - only API key</li>
@@ -133,7 +133,7 @@
 <li>admin - full access to admin area</li>
 </ul>
 
-<p>The ALM application supports the following forms of authentication:</p>
+<p>Lagotto supports the following forms of authentication:</p>
 
 <ul>
 <li>username/password (<a href="/users/sign_in">Login</a>) for admin and staff users</li>
@@ -216,11 +216,11 @@
 
 <h2 id="toc_6">Starting Workers</h2>
 
-<p>The ALM application talks to external data sources to collect metrics about a set of articles. Metrics are added by calling external APIs in the background, using the <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a> queuing system. The results are stored in CouchDB. This can be done in one of two ways:</p>
+<p>Lagotto talks to external data sources to collect metrics about a set of articles. Metrics are added by calling external APIs in the background, using the <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a> queuing system. The results are stored in CouchDB. This can be done in one of two ways:</p>
 
 <h3 id="toc_7">Ad-hoc workers</h3>
 
-<p>To collect metrics once for a set of articles, or for testing purposes the workers can be run ad-hoc using the <a href="https://github.com/ddollar/foreman">foreman</a> utility that is installed with the ALM application. To make sure foreman detects the correct environment you are running (<code>development</code> or <code>production</code>), make sure the file <code>.env</code> in the root folder of your application has the correct information:</p>
+<p>To collect metrics once for a set of articles, or for testing purposes the workers can be run ad-hoc using the <a href="https://github.com/ddollar/foreman">foreman</a> utility that is installed with Lagotto. To make sure foreman detects the correct environment you are running (<code>development</code> or <code>production</code>), make sure the file <code>.env</code> in the root folder of your application has the correct information:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">RAILS_ENV</span><span class="o">=</span>development
 </code></pre></div>
 <p>You then have to decide what articles you want updated. This can be either a specific DOI, all articles, all articles for a list of specified sources, or all articles published in a specific time interval. Issue one of the following commands (and include <code>RAILS_ENV=production</code> in production mode):</p>
@@ -238,11 +238,11 @@ bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed
 </code></pre></div>
 <h3 id="toc_8">Background workers</h3>
 
-<p>In a continously updating production system we want to run the workers in the background with the above command. You can monitor the status of your workers in the admin dashboard (<code>/admin</code>).</p>
+<p>In a continously updating production system we want to run the workers in the background with the above command. You can monitor the status of your workers in the admin dashboard (<code>/status</code>).</p>
 
 <p>When we have to update the metrics for an article (determined by the staleness interval), a job is added to the background queue for that source. A delayed_job worker will then process this job in the background. We need to run at least one delayed_job to do this.</p>
 
-<h3 id="toc_9">List of background jobs that ALM uses</h3>
+<h3 id="toc_9">List of background jobs that Lagotto uses</h3>
 
 <p>The default priority for jobs is 5. We have the following background jobs sorted by decreasing priority:</p>
 
@@ -257,14 +257,14 @@ bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed
 
 <h2 id="toc_10">Configuring Maintenance Tasks</h2>
 
-<p>The ALM application uses a number of maintenance tasks in production mode - they are not necessary for a development instance.</p>
+<p>Lagotto uses a number of maintenance tasks in production mode - they are not necessary for a development instance.</p>
 
 <p>Many of the maintenance taks are <code>rake</code> tasks, and they are listed on a <a href="/docs/rake">separate page</a>. All rake tasks are issued from the application root folder. You want to prepend your rake command with <code>bundle exec</code> and <code>RAILS_ENV=production</code> should be appended to the rake command when running in production, e.g.</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:load &lt;IMPORT.TXT <span class="nv">RAILS_ENV</span><span class="o">=</span>production
 </code></pre></div>
 <h3 id="toc_11">Cron jobs</h3>
 
-<p>The ALM application uses the <a href="https://github.com/javan/whenever">Whenever</a> gem to make it easy to generate cron jobs. The configuration is stored in <code>config/schedule.rb</code>:</p>
+<p>Lagotto uses the <a href="https://github.com/javan/whenever">Whenever</a> gem to make it easy to generate cron jobs. The configuration is stored in <code>config/schedule.rb</code>:</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">env</span> <span class="ss">:PATH</span><span class="p">,</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;PATH&#39;</span><span class="o">]</span>
 <span class="n">set</span> <span class="ss">:environment</span><span class="p">,</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;RAILS_ENV&#39;</span><span class="o">]</span>
 <span class="n">set</span> <span class="ss">:output</span><span class="p">,</span> <span class="s2">&quot;log/cron.log&quot;</span>
@@ -314,7 +314,7 @@ bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>whenever
 </code></pre></div>
 <p>To write this information to your crontab file, use</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>whenever --update-crontab alm
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>whenever --update-crontab lagotto
 </code></pre></div>
 <p>The crontab is automatically updated when you run capistrano (see <a href="/docs/installation">Installation</a>).</p>
 
@@ -328,20 +328,20 @@ bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>pubmed
 
 <h3 id="toc_13">Reports</h3>
 
-<p>The ALM application generates a number of email reports:</p>
+<p>Lagotto generates a number of email reports:</p>
 
 <p><img src="/assets/profile.png" alt="Profile"></p>
 
 <p>The <strong>Article Statistics Report</strong> is available to all users, all other reports only to admin and staff users. Users can sign up for these reports in the account preferences.</p>
 
-<p>The ALM application installs the <strong>Postfix</strong> mailer and the default settings should work in most cases. Mail can otherwise me configure in <code>config/settings.yml</code>:</p>
+<p>Lagotto installs the <strong>Postfix</strong> mailer and the default settings should work in most cases. Mail can otherwise me configure in <code>config/settings.yml</code>:</p>
 <div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml">  <span class="l-Scalar-Plain">mail</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">address</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
     <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">25</span>
     <span class="l-Scalar-Plain">domain</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
 </code></pre></div>
 <p>We need to process CouchDB data for some sources (Mendeley, Pmc, Counter) in the <strong>Article Statistics Report</strong>, please install the CouchDB design document for this report:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X PUT -d @design_doc/reports.json <span class="s1">&#39;http://localhost:5984/alm/_design/reports&#39;</span>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X PUT -d @design_doc/reports.json <span class="s1">&#39;http://localhost:5984/lagotto/_design/reports&#39;</span>
 </code></pre></div>
 <p>The reports are generated via the cron jobs mentioned above. Make sure you have correct write permissions for the Article Statistics Report, it is recommended to run the rake task at least once to test for this:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake report:all_stats <span class="nv">RAILS_ENV</span><span class="o">=</span>production
