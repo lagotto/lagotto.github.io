@@ -1,9 +1,10 @@
 var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.org" },
              { name: "Copernicus Publications", url: "http://metricus.copernicus.org" },
              { name: "Public Knowledge Project", url: "http://pkp-alm.lib.sfu.ca/" },
-             { name: "ALM Labs (ALM Test Server)", url: "http://labs.crowdometer.org" },
+             { name: "Lagotto Labs Server", url: "http://labs.lagotto.io" },
              { name: "CrossRef Labs", url: "http://det.labs.crossref.org" },
-             { name: "eLife", url: "http://alm.svr.elifesciences.org/" }]
+             { name: "eLife", url: "http://lagotto.svr.elifesciences.org/" },
+             { name: "Pensoft", url: "http://alm.pensoft.net:81/" }]
 
 // queue requests, using queue.js library: https://github.com/mbostock/queue
 var queue = queue();
