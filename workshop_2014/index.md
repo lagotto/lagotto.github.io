@@ -7,14 +7,12 @@ published: true
 <h3><strong>December 4-6, 2014. Transparent House and PLOS SF office, San Francisco, CA</strong></h3>
 &nbsp;
 
-<h3><strong>Designing the Future</strong></h3>
-<br>
+<h3>Designing the Future</h3>
 Our communities are recognizing the value of ALM in their work. As this happens, it is critical to ensure secure and reliable provision of data to support the whole ecosystem. To support our collective goals, a shared infrastructure is required to enable the diverse needs of funders, publishers, researchers and their institutions, and technology providers.
 <br>
 The purpose of the workshop is to convene stakeholders across the research ecosystem to brainstorm the design of these systems. Over two days, we will create a map of the potential data flows between producers and consumers, shared infrastructure provision and value-add providers. In particular we will focus on the places where shared provision can support a range of downstream uses and help to create the transparency, governance and trust that will support widespread adoption.  On the third day, we will prototype ALM tools that support the new design proposed. 
 
-<h3><strong>Program</strong></h3>
-<br>
+<h3>Program</h3>
 The program will be comprised of a series of interactive sessions that will contribute to the final output: a proposed map of the future ALM infrastructure.  It will primarily focus on functional and technical needs. 
 <br>
 <ul>
@@ -27,7 +25,7 @@ The program will be comprised of a series of interactive sessions that will cont
 	<li>Aligning community interests: consolidation of stakeholder needs into an inclusive projection</li>
 </ul>
 
-<strong>Schedule</strong>
+Schedule
 <table>
 <tr><th><strong>Thu, Dec 4</th></strong><th>9am -10am</th><th>Welcome and intro</th></tr>
  <tr><td>&nbsp;</td><td>10am - 11am</td><td>Map introduction</td></tr>
@@ -47,7 +45,7 @@ The program will be comprised of a series of interactive sessions that will cont
  <tr><td>&nbsp;</td><td>4pm - 4.30pm</td><td>Closing</td></tr>
 </table>
 
-<strong>Participants</strong>
+Participants
 <table>
 <tr><th>Altmetric</th><th>Euan </th><th>Adie</th></tr>
  <tr><td>PKP</td><td>Juan Pablo </td><td>Alperin</td></tr>
@@ -80,10 +78,16 @@ The program will be comprised of a series of interactive sessions that will cont
 </table>
 
 
-<h3><strong>Logistics</strong></h3>
+<h3>Logistics</h3>
 <br>
-On Dec 4-5, we will convene at Transparent House. Please see the map below for location directions.  On Thursday and Friday, we have planned receptions following the last session each day.  The hackathon on Dec 6 will be held at the PLOS SF office.  
+Dec 4-5: Transparent House. Dec 6 hackathon: PLOS SF office.
+Please see map below for location directions.  
 
 As this will be a small event, we encourage you to find accommodations that best suit your interests and needs.  Recommended hotels within walking distance are highlighted in red.  
 <br>
 <iframe src="https://mapsengine.google.com/map/embed?mid=z4u5E7Sfv-88.k8ycbxA9qb-w" width="640" height="480"></iframe>
+
+
+
+
+
