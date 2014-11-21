@@ -26,7 +26,7 @@ The program will be comprised of a series of interactive sessions that will cont
 </ul>
 
 <table>
-<tr><th><strong>Thu Dec 4</th></strong><th>9am -10am</th><th>Welcome</th></tr>
+<tr><td><strong>Thu Dec 4</td></strong><td>9am -10am</td><td>Welcome</td></tr>
  <tr><td>&nbsp;</td><td>10am - 11am</td><td>Map introduction</td></tr>
  <tr><td>&nbsp;</td><td>11am - 12.30pm</td><td>ALM data exchange</td></tr>
  <tr><td>&nbsp;</td><td>12.30pm - 1.30pm</td><td>Lunch</td></tr>
@@ -46,7 +46,7 @@ The program will be comprised of a series of interactive sessions that will cont
 
 <h3>Participants</h3>
 <table>
-<tr><th>Altmetric</th><th>Euan </th><th>Adie</th></tr>
+<tr><td>Altmetric</td><td>Euan</td><td>Adie</td></tr>
  <tr><td>PKP</td><td>Juan Pablo </td><td>Alperin</td></tr>
  <tr><td>CrossRef</td><td>Geoffrey </td><td>Bilder</td></tr>
  <tr><td>PeerJ</td><td>Pete </td><td>Binfield</td></tr>
