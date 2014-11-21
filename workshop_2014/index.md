@@ -25,9 +25,8 @@ The program will be comprised of a series of interactive sessions that will cont
 	<li>Aligning community interests: consolidation of stakeholder needs into an inclusive projection</li>
 </ul>
 
-Schedule
 <table>
-<tr><th><strong>Thu, Dec 4</th></strong><th>9am -10am</th><th>Welcome and intro</th></tr>
+<tr><th><strong>Thu Dec 4</th></strong><th>9am -10am</th><th>Welcome</th></tr>
  <tr><td>&nbsp;</td><td>10am - 11am</td><td>Map introduction</td></tr>
  <tr><td>&nbsp;</td><td>11am - 12.30pm</td><td>ALM data exchange</td></tr>
  <tr><td>&nbsp;</td><td>12.30pm - 1.30pm</td><td>Lunch</td></tr>
@@ -36,7 +35,7 @@ Schedule
  <tr><td>&nbsp;</td><td>4.30 - 5pm</td><td>Summary of day's discussions</td></tr>
  <tr><td>&nbsp;</td><td>5.30pm - 7pm</td><td>Reception</td></tr>
  <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td><strong>Fri, Dec 5</td><strong><td>9am - 10am</td><td>Intro</td></tr>
+ <tr><td><strong>Fri Dec 5</td></strong><td>9am - 10am</td><td>Intro</td></tr>
  <tr><td>&nbsp;</td><td>10am - 11.30am</td><td>Map borders</td></tr>
  <tr><td>&nbsp;</td><td>&nbsp;</td><td>Networked article</td></tr>
  <tr><td>&nbsp;</td><td>11.30am - 1pm</td><td>Lunch</td></tr>
@@ -45,7 +44,7 @@ Schedule
  <tr><td>&nbsp;</td><td>4pm - 4.30pm</td><td>Closing</td></tr>
 </table>
 
-Participants
+<h3>Participants</h3>
 <table>
 <tr><th>Altmetric</th><th>Euan </th><th>Adie</th></tr>
  <tr><td>PKP</td><td>Juan Pablo </td><td>Alperin</td></tr>
@@ -79,7 +78,6 @@ Participants
 
 
 <h3>Logistics</h3>
-<br>
 Dec 4-5: Transparent House. Dec 6 hackathon: PLOS SF office.
 Please see map below for location directions.  
 
