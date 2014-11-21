@@ -19,8 +19,8 @@ The program will be comprised of a series of interactive sessions that will cont
 	<li>ALM data exchange: standard mechanisms for producers</li>
 	<li>ALM data delivery: requirements for establishing frictionless channels for data access</li>
 	<li>Infrastructure requirements: data scaling/performance needs</li>
-	<li>Map borders: linking data provision & ALM services</li>
-	<li>Networked article: linking events between articles & its associated objects</li>
+	<li>Map borders: boundaries separating data provision & ALM services</li>
+	<li>Networked article: linkages for tracking articles & associated scholarly objects</li>
 	<li>Designing for trust: technical and functional elements needed for system credibility</li>
 	<li>Aligning community interests: consolidation of stakeholder needs into an inclusive projection</li>
 </ul>
