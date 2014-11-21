@@ -10,8 +10,6 @@ published: true
 <h3><strong>Designing the Future</strong></h3>
 <br>
 Our communities are recognizing the value of ALM in their work. As this happens, it is critical to ensure secure and reliable provision of data to support the whole ecosystem. To support our collective goals, a shared infrastructure is required to enable the diverse needs of funders, publishers, researchers and their institutions, and technology providers.
-
-<h3><strong>Purpose & Aims</strong></h3>
 <br>
 The purpose of the workshop is to convene stakeholders across the research ecosystem to brainstorm the design of these systems. Over two days, we will create a map of the potential data flows between producers and consumers, shared infrastructure provision and value-add providers. In particular we will focus on the places where shared provision can support a range of downstream uses and help to create the transparency, governance and trust that will support widespread adoption.  On the third day, we will prototype ALM tools that support the new design proposed. 
 
@@ -31,8 +29,8 @@ The program will be comprised of a series of interactive sessions that will cont
 We welcome suggestions for additional areas not covered by this list.
 
 <strong>Schedule</strong>
-<table class="tableizer-table">
-<tr class="tableizer-firstrow"><th>Thu, Dec 4</th><th>9am -10am</th><th>Welcome and intro</th></tr>
+<table>
+<tr><th><strong>Thu, Dec 4</th><strong><th>9am -10am</th><th>Welcome and intro</th></tr>
  <tr><td>&nbsp;</td><td>10am - 11am</td><td>Map introduction</td></tr>
  <tr><td>&nbsp;</td><td>11am - 12.30pm</td><td>ALM data exchange</td></tr>
  <tr><td>&nbsp;</td><td>12.30pm - 1.30pm</td><td>Lunch</td></tr>
@@ -41,7 +39,7 @@ We welcome suggestions for additional areas not covered by this list.
  <tr><td>&nbsp;</td><td>4.30 - 5pm</td><td>Summary of day's discussions</td></tr>
  <tr><td>&nbsp;</td><td>5.30pm - 7pm</td><td>Reception</td></tr>
  <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>Fri, Dec 5</td><td>9am - 10am</td><td>Intro</td></tr>
+ <tr><td><strong>Fri, Dec 5</td><strong><td>9am - 10am</td><td>Intro</td></tr>
  <tr><td>&nbsp;</td><td>10am - 11.30am</td><td>Map borders</td></tr>
  <tr><td>&nbsp;</td><td>&nbsp;</td><td>Networked article</td></tr>
  <tr><td>&nbsp;</td><td>11.30am - 1pm</td><td>Lunch</td></tr>
@@ -50,7 +48,40 @@ We welcome suggestions for additional areas not covered by this list.
  <tr><td>&nbsp;</td><td>4pm - 4.30pm</td><td>Closing</td></tr>
 </table>
 
-<strong>Logistics</strong>
+<strong>Participants</strong>
+<table>
+<tr><th>Altmetric</th><th>Euan </th><th>Adie</th></tr>
+ <tr><td>PKP</td><td>Juan Pablo </td><td>Alperin</td></tr>
+ <tr><td>CrossRef</td><td>Geoffrey </td><td>Bilder</td></tr>
+ <tr><td>PeerJ</td><td>Pete </td><td>Binfield</td></tr>
+ <tr><td>rOpenSci</td><td>Scott </td><td>Chamberlain</td></tr>
+ <tr><td>PLOS</td><td>John </td><td>Chodacki</td></tr>
+ <tr><td>BMC</td><td>Rachel </td><td>Craven</td></tr>
+ <tr><td>Wellcome Trust</td><td>Kevin </td><td>Dolby</td></tr>
+ <tr><td>PLOS</td><td>Martin </td><td>Fenner</td></tr>
+ <tr><td>Scopus</td><td>Michael</td><td>Habib</td></tr>
+ <tr><td>University of Montreal</td><td>Stephanie </td><td>Haustein</td></tr>
+ <tr><td>VIVO</td><td>Kristi </td><td>Holmes</td></tr>
+ <tr><td>NISO</td><td>Nettie </td><td>Lagace</td></tr>
+ <tr><td>PLOS</td><td>Jennifer </td><td>Lin</td></tr>
+ <tr><td>Altmetric</td><td>Jean</td><td>Liu</td></tr>
+ <tr><td>Europe PMC</td><td>Jo </td><td>McEntyre</td></tr>
+ <tr><td>Plum Analytics</td><td>Andrea </td><td>Michalek</td></tr>
+ <tr><td>eLife</td><td>Ian </td><td>Mulvany</td></tr>
+ <tr><td>PLOS</td><td>Cameron </td><td>Neylon</td></tr>
+ <tr><td>ORCID</td><td>Rob </td><td>Peters</td></tr>
+ <tr><td>ImpactStory</td><td>Heather </td><td>Piwowar</td></tr>
+ <tr><td>ImpactStory</td><td>Jason </td><td>Priem</td></tr>
+ <tr><td>rOpenSci</td><td>Karthik </td><td>Ram</td></tr>
+ <tr><td>Highwire</td><td>John </td><td>Sack</td></tr>
+ <tr><td>CDL</td><td>Lisa </td><td>Schiff</td></tr>
+ <tr><td>PLOS</td><td>Jennifer </td><td>Song</td></tr>
+ <tr><td>Wikipedia</td><td>Dario </td><td>Taraborelli</td></tr>
+ <tr><td>CrossRef</td><td>Joe </td><td>Wass</td></tr>
+</table>
+
+
+<h3><strong>Logistics</strong></h3>
 <br>
 On Dec 4-5, we will convene at Transparent House. Program begins at 9am each day and concludes around 4.30pm.  Please see the map below for location directions.  On Thursday and Friday, we have planned receptions following the last session each day.  The hackathon on Dec 6 will be held at the PLOS SF office.  
 
