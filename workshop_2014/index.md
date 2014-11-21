@@ -26,11 +26,10 @@ The program will be comprised of a series of interactive sessions that will cont
 	<li>Designing for trust: technical and functional elements needed for system credibility</li>
 	<li>Aligning community interests: consolidation of stakeholder needs into an inclusive projection</li>
 </ul>
-We welcome suggestions for additional areas not covered by this list.
 
 <strong>Schedule</strong>
 <table>
-<tr><th><strong>Thu, Dec 4</th><strong><th>9am -10am</th><th>Welcome and intro</th></tr>
+<tr><th><strong>Thu, Dec 4</th></strong><th>9am -10am</th><th>Welcome and intro</th></tr>
  <tr><td>&nbsp;</td><td>10am - 11am</td><td>Map introduction</td></tr>
  <tr><td>&nbsp;</td><td>11am - 12.30pm</td><td>ALM data exchange</td></tr>
  <tr><td>&nbsp;</td><td>12.30pm - 1.30pm</td><td>Lunch</td></tr>
@@ -83,7 +82,7 @@ We welcome suggestions for additional areas not covered by this list.
 
 <h3><strong>Logistics</strong></h3>
 <br>
-On Dec 4-5, we will convene at Transparent House. Program begins at 9am each day and concludes around 4.30pm.  Please see the map below for location directions.  On Thursday and Friday, we have planned receptions following the last session each day.  The hackathon on Dec 6 will be held at the PLOS SF office.  
+On Dec 4-5, we will convene at Transparent House. Please see the map below for location directions.  On Thursday and Friday, we have planned receptions following the last session each day.  The hackathon on Dec 6 will be held at the PLOS SF office.  
 
 As this will be a small event, we encourage you to find accommodations that best suit your interests and needs.  Recommended hotels within walking distance are highlighted in red.  
 <br>
