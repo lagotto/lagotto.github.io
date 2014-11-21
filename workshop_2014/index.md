@@ -42,6 +42,7 @@ The program will be comprised of a series of interactive sessions that will cont
  <tr><td>&nbsp;</td><td>1pm - 2.30pm</td><td>Designing for trust</td></tr>
  <tr><td>&nbsp;</td><td>2.30pm - 4pm</td><td>Aligning community interests</td></tr>
  <tr><td>&nbsp;</td><td>4pm - 4.30pm</td><td>Closing</td></tr>
+ <tr><td><strong>Sat Dec 6</td></strong><td>9am - 4pm</td><td>Hackathon</td></tr>
 </table>
 
 <h3>Participants</h3>
