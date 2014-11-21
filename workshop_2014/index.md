@@ -65,7 +65,7 @@ We welcome suggestions for additional areas not covered by this list.
  <tr><td>NISO</td><td>Nettie </td><td>Lagace</td></tr>
  <tr><td>PLOS</td><td>Jennifer </td><td>Lin</td></tr>
  <tr><td>Altmetric</td><td>Jean</td><td>Liu</td></tr>
- <tr><td>Europe PMC</td><td>Jo </td><td>McEntyre</td></tr>
+ <tr><td>Europe PMC</td><td>Johanna</td><td>McEntyre</td></tr>
  <tr><td>Plum Analytics</td><td>Andrea </td><td>Michalek</td></tr>
  <tr><td>eLife</td><td>Ian </td><td>Mulvany</td></tr>
  <tr><td>PLOS</td><td>Cameron </td><td>Neylon</td></tr>
