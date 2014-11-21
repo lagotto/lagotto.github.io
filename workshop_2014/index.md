@@ -8,9 +8,9 @@ published: true
 &nbsp;
 
 <h3>Designing the Future</h3>
-Our communities are recognizing the value of ALM in their work. As this happens, it is critical to ensure secure and reliable provision of data to support the whole ecosystem. To support our collective goals, a shared infrastructure is required to enable the diverse needs of funders, publishers, researchers and their institutions, and technology providers.
-<br>
-The purpose of the workshop is to convene stakeholders across the research ecosystem to brainstorm the design of these systems. Over two days, we will create a map of the potential data flows between producers and consumers, shared infrastructure provision and value-add providers. In particular we will focus on the places where shared provision can support a range of downstream uses and help to create the transparency, governance and trust that will support widespread adoption.  On the third day, we will prototype ALM tools that support the new design proposed. 
+<p>Our communities are recognizing the value of ALM in their work. As this happens, it is critical to ensure secure and reliable provision of data to support the whole ecosystem. To support our collective goals, a shared infrastructure is required to enable the diverse needs of funders, publishers, researchers and their institutions, and technology providers.</p>
+
+<p>The purpose of the workshop is to convene stakeholders across the research ecosystem to brainstorm the design of these systems. Over two days, we will create a map of the potential data flows between producers and consumers, shared infrastructure provision and value-add providers. In particular we will focus on the places where shared provision can support a range of downstream uses and help to create the transparency, governance and trust that will support widespread adoption.  On the third day, we will prototype ALM tools that support the new design proposed. </p>
 
 <h3>Program</h3>
 The program will be comprised of a series of interactive sessions that will contribute to the final output: a proposed map of the future ALM infrastructure.  It will primarily focus on functional and technical needs. 
