@@ -56,7 +56,7 @@ The program will be comprised of a series of interactive sessions that will cont
  <tr><td>Wellcome Trust</td><td>Kevin </td><td>Dolby</td></tr>
  <tr><td>PLOS</td><td>Martin </td><td>Fenner</td></tr>
  <tr><td>Scopus</td><td>Michael</td><td>Habib</td></tr>
- <tr><td>University of Montreal</td><td>Stephanie </td><td>Haustein</td></tr>
+ <tr><td>University of Montreal</td><td>Stefanie </td><td>Haustein</td></tr>
  <tr><td>VIVO</td><td>Kristi </td><td>Holmes</td></tr>
  <tr><td>NISO</td><td>Nettie </td><td>Lagace</td></tr>
  <tr><td>PLOS</td><td>Jennifer </td><td>Lin</td></tr>
