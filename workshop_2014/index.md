@@ -68,6 +68,7 @@ The program will be comprised of a series of interactive sessions that will cont
  <tr><td>ORCID</td><td>Rob </td><td>Peters</td></tr>
  <tr><td>ImpactStory</td><td>Heather </td><td>Piwowar</td></tr>
  <tr><td>ImpactStory</td><td>Jason </td><td>Priem</td></tr>
+ <tr><td>PLOS</td><td>Kristen </td><td>Ratan</td></tr>
  <tr><td>rOpenSci</td><td>Karthik </td><td>Ram</td></tr>
  <tr><td>Highwire</td><td>John </td><td>Sack</td></tr>
  <tr><td>CDL</td><td>Lisa </td><td>Schiff</td></tr>
