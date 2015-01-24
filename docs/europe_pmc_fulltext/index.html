@@ -1,0 +1,101 @@
+<p>Search the Europe PMC fulltext corpus for scholarly works.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>europe_pmc_fulltext</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://www.ebi.ac.uk/europepmc/webservices/rest/search/query="DOI"+OR+"URL"&dataset=fulltext&format=json&resultType=lite</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>License</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;3.0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;hitCount&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+  <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;dataSet&quot;</span><span class="p">:</span> <span class="s2">&quot;fulltext&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;resultType&quot;</span><span class="p">:</span> <span class="s2">&quot;lite&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;synonym&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;\&quot;https://github.com/lh3/seqtk\&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;resultList&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;25104065&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;MED&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pmid&quot;</span><span class="p">:</span> <span class="s2">&quot;25104065&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pmcid&quot;</span><span class="p">:</span> <span class="s2">&quot;PMC4125989&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Genetic evidence of African slavery at the beginning of the trans-Atlantic slave trade.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorString&quot;</span><span class="p">:</span> <span class="s2">&quot;Martiniano R, Coelho C, Ferreira MT, Neves MJ, Pinhasi R, Bradley DG.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalTitle&quot;</span><span class="p">:</span> <span class="s2">&quot;Sci Rep&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalVolume&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubYear&quot;</span><span class="p">:</span> <span class="s2">&quot;2014&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;journalIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;2045-2322&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pageInfo&quot;</span><span class="p">:</span> <span class="s2">&quot;5994&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;pubType&quot;</span><span class="p">:</span> <span class="s2">&quot;journal article; research support, non-u.s. gov&#39;t&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;isOpenAccess&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;inEPMC&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;inPMC&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citedByCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;hasReferences&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;hasTextMinedTerms&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;hasDbCrossReferences&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;hasLabsLinks&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;hasTMAccessionNumbers&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;luceneScore&quot;</span><span class="p">:</span> <span class="s2">&quot;140.30156&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1038/srep05994&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/europe_pmc_fulltext.rb">here</a>.</p>
+
+<h2 id="toc_2">Further Documentation</h2>
+
+<ul>
+<li><a href="http://europepmc.org/RestfulWebService">Europe PMC RESTful Web Service</a></li>
+</ul>

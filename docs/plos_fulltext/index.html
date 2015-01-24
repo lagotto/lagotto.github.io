@@ -1,0 +1,78 @@
+<p>Search the fulltext content of PLOS articles for scholarly works.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>plos_fulltext</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://api.plos.org/search?q=everything:"DOI"+OR+everything:"URL"&fq=doc_type:full&fl=id,publication_date,title,cross_published_journal_name,author_display,article_type&wt=json&facet=false&rows=100&hl=false</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>License</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;numFound&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pcbi.1003833&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;cross_published_journal_name&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;PLOS Computational Biology&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;PLOS Collections&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;publication_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-09-11T00:00:00Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;article_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Editorial&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;author_display&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Nicolas P. Rougier&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Michael Droettboom&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Philip E. Bourne&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Ten Simple Rules for Better Figures&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/plos_fulltext.rb">here</a>.</p>

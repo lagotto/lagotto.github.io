@@ -1,122 +1,440 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Releases</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Martin Fenner" />
+<h2 id="toc_0">Lagotto 3.14 (January 19, 2015)</h2>
 
-    <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Releases" />
-    <meta property="dc:creator" content="" />
-    <meta name="citation_publication_date" content=""/>
-    <meta property="dc:format" content="text/html" />
-    <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/docs/releases/" />
-    <meta property="dc:rights" content="CC-BY" />
-    <meta property="dc:source" content="Article-Level Metrics" />
-    <meta property="dc:subject" content="Scholarly Communication" />
-    <meta property="dc:type" content="website" />
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.14">Lagotto 3.14</a> was released on January 19, 2015 with the following change:</p>
 
-    <!-- Google Scholar Metadata -->
-    <meta name="citation_author" content=""/>
-    <meta name="citation_publication_date" content=""/>
-    <meta name="citation_title" content="Releases"/>
-    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+<ul>
+<li>Turned status model into ActiveRecord model, added visualizations of status stats over time (<a href="https://github.com/articlemetrics/lagotto/issues/233">#233</a>)</li>
+</ul>
 
-    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
-    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+<h2 id="toc_1">Lagotto 3.13 (January 15, 2015)</h2>
 
-    <!-- Enable responsive viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.13">Lagotto 3.13</a> was released on January 15, 2015 with the following changes:</p>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<ul>
+<li>mention <a href="http://discuss.lagotto.io">Lagotto Support Forum</a> in <code>README.md</code> (<a href="https://github.com/articlemetrics/lagotto/issues/224">#224</a>)</li>
+<li>updated Chef cookbooks to use <code>shared</code> folder instead of <code>current</code> for better compatibility with Capistrano (<a href="https://github.com/articlemetrics/lagotto/issues/227">#227</a>)</li>
+<li>display rate-limiting information from headers sent by Twitter and Github (<a href="https://github.com/articlemetrics/lagotto/issues/228">#228</a>)</li>
+<li>added automated import from the DataONE (<a href="https://github.com/articlemetrics/lagotto/issues/231">#231</a>)</li>
+</ul>
 
-    <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+<p>The big change in this release is the switch from <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a> to <a href="https://github.com/mperham/sidekiq">Sidekiq</a> for background processing. Sidekiq requires the <code>redis</code> database that can be installed either via the updated Chef scripts, or manually, e.g. on Ubuntu:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">sudo apt-get install redis-server
+</code></pre></div>
+<p>Also, make sure the following ENV variable is set in your <code>.env</code> file:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="c"># number of threads Sidekiq uses</span>
+<span class="nv">CONCURRENCY</span><span class="o">=</span>25
+</code></pre></div>
+<p>No redis or sidekiq configuration is necessary, but make sure all <code>delayed_job</code> worker processes are killed when upgrading.</p>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/github.css">
+<h2 id="toc_2">Lagotto 3.12.7 (January 9, 2015)</h2>
 
-    <!-- Javascript -->
-    <script src="/js/d3.v3.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">ALM</a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/">Introduction</a></li>
-            <li><a href="/value">Value</a></li>            
-            <li><a href="/metrics">Metrics</a></li>
-            <li><a href="/research">Research</a></li>  
-            <li><a href="/conferences">Conferences</a></li>              
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/plos">Public Library of Science</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/docs/">Home</a></li>
-            <li><a href="/docs/installation">Installation</a></li>
-            <li><a href="/docs/setup">Setup</a></li>
-            <li><a href="/docs/sources">Sources</a></li>
-            <li><a href="/docs/api">API</a></li>
-            <li><a href="/docs/rake">Rake</a></li>
-            <li><a href="/docs/alerts">Alerts</a></li>
-            <li><a href="/docs/faq">FAQ</a></li>
-            <li><a href="/docs/releases">Releases</a></li>
-            <li><a href="/docs/roadmap">Roadmap</a></li>
-            <li><a href="/docs/contributors">Contributors</a></li>
-          </ul>
-        </li>
-        <li><a href="/examples">Examples</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/status">Status</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.12.7">Lagotto 3.12.7</a> was released on January 9, 2015 with the following change:</p>
 
-    <div class="container">
-      <div class="page-header">
-        <h1>Releases</h1>
-        <p class="subtitle">
-        </p>
-      </div>
+<ul>
+<li>proper handling of HTML <code>Page Not Found</code> errors (<a href="https://github.com/articlemetrics/lagotto/issues/229">#229</a>)</li>
+<li>API keys are no longer required for non-admin API calls (<a href="https://github.com/articlemetrics/lagotto/issues/230">#230</a>)</li>
+</ul>
 
-      <div class="content">
-        <div class="row">
-          <div class="col-md-9">
-            
-            <h3 id="toc_0"><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.5">Lagotto 3.5</a></h3>
+<h2 id="toc_3">Lagotto 3.12.6 (January 6, 2015)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.12.6">Lagotto 3.12.6</a> was released on January 6, 2015 with the following change:</p>
+
+<ul>
+<li>added <strong>works published last day</strong>, <strong>api responses last hour</strong>, and <strong>api requests last hour</strong> to <code>/heartbeat</code> API endpoint, and changed status page accordingly (<a href="https://github.com/articlemetrics/lagotto/issues/226">#226</a>)</li>
+</ul>
+
+<h2 id="toc_4">Lagotto 3.12.5 (January 6, 2015)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.12.5">Lagotto 3.12.5</a> was released on January 6, 2015 with the following change:</p>
+
+<ul>
+<li>keep <code>&lt;i&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;sup&gt;</code>, <code>&lt;sub&gt;</code>, and <code>&lt;sc&gt;</code> HTML tags in work titles, following the <a href="http://citationstyles.org/downloads/upgrade-notes.html#rich-text-markup-within-fields">CSL specification on rich text markup</a> (<a href="https://github.com/articlemetrics/lagotto/issues/225">#225</a>)</li>
+</ul>
+
+<h2 id="toc_5">Lagotto 3.12.4 (January 5, 2015)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.12.4">Lagotto 3.12.4</a> was released on January 5, 2015 with the following change:</p>
+
+<ul>
+<li>Store and display Scopus and Web of Science identifiers (<a href="https://github.com/articlemetrics/lagotto/issues/221">#221</a>)</li>
+</ul>
+
+<h2 id="toc_6">Lagotto 3.12.3 (January 4, 2015)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.12.3">Lagotto 3.12.3</a> was released on January 4, 2015 with the following change:</p>
+
+<ul>
+<li>added ORCID as new source (<a href="https://github.com/articlemetrics/lagotto/issues/220">#220</a>)</li>
+</ul>
+
+<p>To load the new source please run</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">RAILS_ENV</span><span class="o">=</span>production bundle <span class="nb">exec </span>rake db:seed
+</code></pre></div>
+<h2 id="toc_7">Lagotto 3.12.2 (January 4, 2015)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.12.2">Lagotto 3.12.2</a> was released on January 4, 2015 with the following changes:</p>
+
+<ul>
+<li>store blank values for works as <code>nil</code>, using the <a href="https://github.com/rubiety/nilify_blanks">nilify_blanks</a> gem (<a href="https://github.com/articlemetrics/lagotto/issues/218">#218</a>)</li>
+<li>Don&#39;t cache worker_count for sources, as otherwise the rate-limiting functionality doesn&#39;t work properly (<a href="https://github.com/articlemetrics/lagotto/issues/219">#219</a>)</li>
+</ul>
+
+<h2 id="toc_8">Lagotto 3.12.1 (January 4, 2015)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.12.1">Lagotto 3.12.1</a> was released on January 4, 2015 with the following changes:</p>
+
+<ul>
+<li>log responses from external APIs to JSON file in logstash format (<a href="https://github.com/articlemetrics/lagotto/issues/214">#214</a>)</li>
+<li>better handling of ActiveJob errors (<a href="https://github.com/articlemetrics/lagotto/issues/215">#215</a>)</li>
+<li>run daily works import at the end of the day using a new <code>cron:nightly</code>rake task, and write to separate <code>cron_import.log</code> (<a href="https://github.com/articlemetrics/lagotto/issues/216">#216</a>)</li>
+<li>show all URLs associated with a work (and don&#39;t show the citeulike URL if there are no events) (<a href="https://github.com/articlemetrics/lagotto/issues/217">#217</a>)</li>
+</ul>
+
+<p>Starting with this release, the raw responses from external sources are stored in a JSON file <code>log/agent.log</code> in logstash format, using the source name and work pid as tags:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span>
+  <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;{\&quot;total_rows\&quot;=&gt;328331, \&quot;offset\&quot;=&gt;121903, \&quot;rows\&quot;=&gt;[{\&quot;id\&quot;=&gt;\&quot;232944431433666561\&quot;, \&quot;key\&quot;=&gt;\&quot;10.1371/journal.pone.0042231\&quot;, \&quot;value\&quot;=&gt;{\&quot;_id\&quot;=&gt;\&quot;232944431433666561\&quot;, \&quot;_rev\&quot;=&gt;\&quot;1-40047ae514c178f154fa7b0f877f146a\&quot;, \&quot;text\&quot;=&gt;\&quot;Role of the Irr Protein in the Regulation of Iron Metabolism in Rhodobacter sphaeroides http://t.co/JbOupbjK\&quot;, \&quot;from_user_id\&quot;=&gt;38951828, \&quot;from_user_name\&quot;=&gt;\&quot;Test\&quot;, \&quot;geo\&quot;=&gt;nil, \&quot;profile_image_url_https\&quot;=&gt;\&quot;https://si0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png\&quot;, \&quot;iso_language_code\&quot;=&gt;\&quot;en\&quot;, \&quot;to_user_name\&quot;=&gt;nil, \&quot;entities\&quot;=&gt;{\&quot;urls\&quot;=&gt;[{\&quot;expanded_url\&quot;=&gt;\&quot;http://bit.ly/O0DVOi\&quot;, \&quot;indices\&quot;=&gt;[88, 108], \&quot;display_url\&quot;=&gt;\&quot;bit.ly/O0DVOi\&quot;, \&quot;url\&quot;=&gt;\&quot;http://t.co/JbOupbjK\&quot;}, {\&quot;expanded_url\&quot;=&gt;\&quot;http://www.plosone.org/article/info:doi%2F10.1371%2Fjournal.pone.0042231\&quot;, \&quot;display_url\&quot;=&gt;\&quot;http://www.plosone.org/article/info:doi%2F10.1371%2Fjournal.pone.0042231\&quot;, \&quot;url\&quot;=&gt;\&quot;http://www.plosone.org/article/info:doi%2F10.1371%2Fjournal.pone.0042231\&quot;}], \&quot;hashtags\&quot;=&gt;[], \&quot;user_mentions\&quot;=&gt;[]}, \&quot;to_user_id\&quot;=&gt;0, \&quot;id\&quot;=&gt;232944431433666560, \&quot;to_user_id_str\&quot;=&gt;\&quot;0\&quot;, \&quot;source\&quot;=&gt;\&quot;&amp;lt;a href=&amp;quot;http://twitterfeed.com&amp;quot; rel=&amp;quot;nofollow&amp;quot;&amp;gt;twitterfeed&amp;lt;/a&amp;gt;\&quot;, \&quot;from_user_id_str\&quot;=&gt;\&quot;38951828\&quot;, \&quot;from_user\&quot;=&gt;\&quot;TestCellBio\&quot;, \&quot;created_at\&quot;=&gt;\&quot;Tue, 07 Aug 2012 21:00:55 +0000\&quot;, \&quot;to_user\&quot;=&gt;nil, \&quot;id_str\&quot;=&gt;\&quot;232944431433666561\&quot;, \&quot;profile_image_url\&quot;=&gt;\&quot;http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png\&quot;, \&quot;metadata\&quot;=&gt;{\&quot;result_type\&quot;=&gt;\&quot;recent\&quot;}}}]}&quot;</span>,
+  <span class="s2">&quot;@timestamp&quot;</span>: <span class="s2">&quot;2015-01-04T01:13:53.387-08:00&quot;</span>,
+  <span class="s2">&quot;@version&quot;</span>: <span class="s2">&quot;1&quot;</span>,
+  <span class="s2">&quot;severity&quot;</span>: <span class="s2">&quot;INFO&quot;</span>,
+  <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;rwc-prod-alm03&quot;</span>,
+  <span class="s2">&quot;tags&quot;</span>: <span class="o">[</span>
+    <span class="s2">&quot;ActiveJob&quot;</span>,
+    <span class="s2">&quot;SourceJob&quot;</span>,
+    <span class="s2">&quot;2822afb7-1a37-4084-b3c2-b0b87f0370a0&quot;</span>,
+    <span class="s2">&quot;twitter&quot;</span>,
+    <span class="s2">&quot;10.1371/journal.pone.0042231&quot;</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>This file can be further processed with logstash and made available for download.</p>
+
+<h2 id="toc_9">Lagotto 3.12 (January 1, 2015)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.12">Lagotto 3.12</a> was released on January 1, 2015 with the following changes:</p>
+
+<ul>
+<li>increased size of <code>retrieval_statuses.events_url</code> database column to handle URLs longer than 255 characters (<a href="https://github.com/articlemetrics/lagotto/issues/205">#205</a>)</li>
+<li>upgraded to Rails 4.2 (<a href="https://github.com/articlemetrics/lagotto/issues/206">#206</a>), and migrated the background worker functionality to the new <a href="http://edgeguides.rubyonrails.org/active_job_basics.html">ActiveJob</a> library (<a href="https://github.com/articlemetrics/lagotto/issues/208">#208</a>)</li>
+<li>kept <code>db:articles:load</code> task for backwards compatibility (<a href="https://github.com/articlemetrics/lagotto/issues/207">#207</a>)</li>
+<li>added PLOS Fulltext Search as new source (<a href="https://github.com/articlemetrics/lagotto/issues/209">#209</a>)</li>
+<li>added Europe PMC Fulltext Search as new source (<a href="https://github.com/articlemetrics/lagotto/issues/210">#210</a>)</li>
+<li>added import of works via the PLOS Search API (<a href="https://github.com/articlemetrics/lagotto/issues/211">#211</a>)</li>
+<li>added tests of external APIs using <a href="https://github.com/vcr/vcr">vcr</a> (<a href="https://github.com/articlemetrics/lagotto/issues/212">#212</a>)</li>
+</ul>
+
+<p>The automatic import of works - configured in the <code>.env</code> file - has changed:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="c"># automatic import of works published on current or previous day</span>
+<span class="c"># using CrossRef, DataCite, or PLOS Search API, or no automatic import if left empty</span>
+<span class="c"># Possible parameters:</span>
+<span class="c"># crossref - all works in CrossRef REST API</span>
+<span class="c"># member - all works in CrossRef REST API for publishers registered in application</span>
+<span class="c"># sample - sample of 20 works from CrossRef REST API</span>
+<span class="c"># member_sample - sample of 20 works from CrossRef REST API for publishers registered in application</span>
+<span class="c"># datacite - all works in DataCite metadata index</span>
+<span class="c"># plos - all PLOS articles</span>
+<span class="nv">IMPORT</span><span class="o">=</span>
+</code></pre></div>
+<p>To load the new sources please run</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">RAILS_ENV</span><span class="o">=</span>production bundle <span class="nb">exec </span>rake db:seed
+</code></pre></div>
+<h2 id="toc_10">Lagotto 3.11 (December 24, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.11">Lagotto 3.11</a> was released on December 24, 2014 with the following changes:</p>
+
+<ul>
+<li>added Github source (stars and forks for Github repos as works) (<a href="https://github.com/articlemetrics/lagotto/issues/195">#195</a>)</li>
+<li>added authentication options ORCID and Github (<a href="https://github.com/articlemetrics/lagotto/issues/196">#196</a>)</li>
+<li>fixed bug where retrieval_statuses were not created properly for newly added sources (<a href="https://github.com/articlemetrics/lagotto/issues/197">#197</a>)</li>
+<li>import additional CAS attributes (e.g. name) via a second API call (<a href="https://github.com/articlemetrics/lagotto/issues/198">#198</a>)</li>
+<li>fixed a bug introduced in Lagotto 3.10 fetching data from CouchDB (<a href="https://github.com/articlemetrics/lagotto/issues/203">#203</a>)</li>
+<li>fixed a v3 API caching bug (<a href="https://github.com/articlemetrics/lagotto/issues/204">#204</a>)</li>
+</ul>
+
+<p>By default Lagotto uses Mozilla Persona for authentication. To use any of the other authentication options (cas, orcid, github), provide the options in the <code>.env</code> file:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="c"># authentication via orcid, github, cas or persona. Defaults to persona</span>
+<span class="nv">OMNIAUTH</span><span class="o">=</span>
+
+<span class="nv">GITHUB_CLIENT_ID</span><span class="o">=</span>
+<span class="nv">GITHUB_CLIENT_SECRET</span><span class="o">=</span>
+
+<span class="nv">ORCID_CLIENT_ID</span><span class="o">=</span>
+<span class="nv">ORCID_CLIENT_SECRET</span><span class="o">=</span>
+
+<span class="nv">CAS_URL</span><span class="o">=</span>
+<span class="nv">CAS_INFO_URL</span><span class="o">=</span>
+<span class="nv">CAS_PREFIX</span><span class="o">=</span>
+</code></pre></div>
+<p>To load the new Github source please run</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">RAILS_ENV</span><span class="o">=</span>production bundle <span class="nb">exec </span>rake db:seed
+</code></pre></div>
+<h2 id="toc_11">Lagotto 3.10 (December 18, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.10">Lagotto 3.10</a> was released on December 18, 2014 with the following changes:</p>
+
+<ul>
+<li>renamed <code>articles</code> to <code>works</code> to make it clear that the software can track all scholarly outputs (<a href="https://github.com/articlemetrics/lagotto/issues/190">#190</a>)</li>
+<li>support for any unique identifier, including URLs (<a href="https://github.com/articlemetrics/lagotto/issues/130">#130</a>)</li>
+<li>made import of works more modular, and added automatic import from DataCite (<a href="https://github.com/articlemetrics/lagotto/issues/191">#191</a>)</li>
+</ul>
+
+<p>If you are upgrading and have used DOIs as persistent identifier, please run the following rake task to fill in the new <code>pid_type</code> and <code>pid</code> fields:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">RAILS_ENV</span><span class="o">=</span>production bundle <span class="nb">exec </span>rake db:works:load_pids
+</code></pre></div>
+<p>To load the renamed filters, please run</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">RAILS_ENV</span><span class="o">=</span>production bundle <span class="nb">exec </span>rake db:seed
+</code></pre></div>
+<h2 id="toc_12">Lagotto 3.9.8 (December 17, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9.8">Lagotto 3.9.8</a> was released on December 18, 2014 with the following change:</p>
+
+<ul>
+<li>monitor worker processes directly instead of checking the PID file (<a href="https://github.com/articlemetrics/lagotto/issues/194">#194</a>)</li>
+</ul>
+
+<h2 id="toc_13">Lagotto 3.9.7 (December 11, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9.7">Lagotto 3.9.7</a> was released on December 11, 2014 with the following change:</p>
+
+<ul>
+<li>use more specific search string in <code>twitter_search</code>, and make the search string configurable in the source settings (<a href="https://github.com/articlemetrics/lagotto/issues/189">#189</a>)</li>
+</ul>
+
+<p>Please change <code>url</code> in the <code>twitter_search</code> source to</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">https://api.twitter.com/1.1/search/tweets.json?q=&quot;%{doi}&quot; OR &quot;%{query_url}&quot;&amp;count=100&amp;include_entities=1&amp;result_type=recent
+</code></pre></div>
+<p>Change <code>events_url</code> to</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">https://twitter.com/search?q=&quot;%{doi}&quot; OR &quot;%{query_url}&quot;&amp;f=realtime
+</code></pre></div>
+<h2 id="toc_14">Lagotto 3.9.6 (December 5, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9.6">Lagotto 3.9.6</a> was released on December 5, 2014 with the following changes:</p>
+
+<ul>
+<li>use logstash json format for logging only in production environment.</li>
+<li>consolidated cron jobs into one rake task each for hourly, daily, weekly and monthly tasks</li>
+<li>bugfix in automated CrossRef import</li>
+</ul>
+
+<h2 id="toc_15">Lagotto 3.9.5 (December 4, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9.5">Lagotto 3.9.5</a> was released on December 4, 2014 with the following change:</p>
+
+<ul>
+<li>use logstash json format for logging. Optionally store logs in redis using <code>ENV[&quot;LOGSTASH_TYPE&quot;]=redis</code> and <code>ENV[&quot;LOGSTASH_HOST&quot;]=example.com</code>.</li>
+</ul>
+
+<h2 id="toc_16">Lagotto 3.9.4 (December 2, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9.4">Lagotto 3.9.4</a> was released on December 2, 2014 with the following change:</p>
+
+<ul>
+<li>set <code>Delayed::Worker.sleep_delay</code> (the delayed_jobs polling interval of MySQL) via ENV[&quot;DJ_SLEEP_DELAY&quot;], defaulting to 5 sec (<a href="https://github.com/articlemetrics/lagotto/issues/188">#188</a>)</li>
+</ul>
+
+<h2 id="toc_17">Lagotto 3.9.3 (November 26, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9.3">Lagotto 3.9.3</a> was released on November 26, 2014 with the following change:</p>
+
+<ul>
+<li>improved HTTP caching by adding <code>rack::deflater</code> middleware and better use of <code>Last-Modified</code> header in v5 API (<a href="https://github.com/articlemetrics/lagotto/issues/187">#187</a>)</li>
+</ul>
+
+<h2 id="toc_18">Lagotto 3.9.2 (November 26, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9.2">Lagotto 3.9.2</a> was released on November 26, 2014 with the following change:</p>
+
+<ul>
+<li>fixed Facebook URL for installations using the depreciated Graph API (<a href="https://github.com/articlemetrics/lagotto/issues/186">#186</a>)</li>
+</ul>
+
+<h2 id="toc_19">Lagotto 3.9.1 (November 8, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9.1">Lagotto 3.9.1</a> was released on November 8, 2014 with the following changes:</p>
+
+<ul>
+<li>added support for the <a href="https://rubygems.org/gems/better_errors">better_errors</a> gem in development mode (<a href="https://github.com/articlemetrics/lagotto/issues/181">#181</a>)</li>
+<li>use Rails 4 binstubs for <code>rake</code>, <code>rails</code>, <code>cap</code> and <code>whenever</code> (<a href="https://github.com/articlemetrics/lagotto/issues/182">#182</a>)</li>
+<li>changed the layout of the static markdown files to resemble the rest of the site layout (<a href="https://github.com/articlemetrics/lagotto/issues/183">#183</a>)</li>
+<li>fixed a bug in the CrossRef automatic import rake task (<a href="https://github.com/articlemetrics/lagotto/issues/184">#184</a>)</li>
+<li>removed the <a href="https://github.com/miyagawa/faraday-cookie_jar">faraday_cookie_jar</a> gem, as it is a possible reason for utf-8 errors that can kill background workers (<a href="https://github.com/articlemetrics/lagotto/issues/185">#185</a>)</li>
+</ul>
+
+<h2 id="toc_20">Lagotto 3.9 (November 7, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.9">Lagotto 3.9</a> was released on November 7, 2014 with the following changes:</p>
+
+<ul>
+<li>switched from <strong>rabl</strong> to <strong>jbuilder</strong> for generating JSON API responses, fixing <a href="https://github.com/articlemetrics/lagotto/issues/179">#179</a>, and discontinuing XML support in the depreciated v3 API</li>
+<li>moved <code>SECRET_KEY_BASE</code> into the Rails 4.1 <code>secrets.yml</code> file</li>
+</ul>
+
+<h2 id="toc_21">Lagotto 3.8.1 (November 5, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.8.1">Lagotto 3.8.1</a> was released on November 5, 2014 with the following changes:</p>
+
+<ul>
+<li>fixed a bug precompiling assets: <code>...public/assets/manifest*&#39;: No such file or directory</code></li>
+<li>many other small bug fixes</li>
+<li>added new <code>LOG_LEVEL</code> option for rails and capistrano to <code>.env</code></li>
+</ul>
+
+<h2 id="toc_22">Lagotto 3.8 (November 4, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.8">Lagotto 3.8</a> was released on November 4, 2014 with the following changes:</p>
+
+<ul>
+<li>upgraded to Rails 4 and Rspec 3 (<a href="https://github.com/articlemetrics/lagotto/issues/129">#129</a>)</li>
+</ul>
+
+<p>Please change <code>SECRET_TOKEN</code> in your <code>.env</code> file to <code>SECRET_KEY_BASE</code>.</p>
+
+<h2 id="toc_23">Lagotto 3.7.1 (October 31, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.7.1">Lagotto 3.7.1</a> was released on October 31, 2014 with the following features and bug fixes:</p>
+
+<ul>
+<li>upgraded to Rails 4 asset pipeline (<a href="https://github.com/articlemetrics/lagotto/issues/172">#172</a>)</li>
+<li>show all open alerts, not just those from the last 24 hours (<a href="https://github.com/articlemetrics/lagotto/issues/173">#173</a>)</li>
+<li>handle multiple <code>.env</code> files via <code>DOTENV</code> ENV variable, default to <code>DOTENV=default</code> (<a href="https://github.com/articlemetrics/lagotto/issues/174">#174</a>)</li>
+<li>fixed an error picking up publisher-specific settings for the CrossRef source (<a href="https://github.com/articlemetrics/lagotto/issues/176">#176</a>)</li>
+<li>show an alert on the status page also when patch level version (e.g.. 3.7.x) is outdated, not just minor or major version differences.</li>
+</ul>
+
+<h2 id="toc_24">Lagotto 3.7 (October 28, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.7">Lagotto 3.7</a> was released on October 28, 2014 with the following features and bug fixes:</p>
+
+<ul>
+<li>simplified configuration: use ENV variables and consolidate configuration for Rails, Capistrano, Chef and Vagrant into a single <code>.env</code> file. See below for more information (<a href="https://github.com/articlemetrics/lagotto/issues/146">#146</a>)</li>
+<li>raise alert on the admin status page if not running the latest Lagotto version. This feature checks for the <a href="https://github.com/articlemetrics/lagotto/releases">latest release in the Lagotto Github repo</a> using pessimistic version constraints, e.g. <code>&quot;~&gt; 3.6.3&quot;</code> (<a href="https://github.com/articlemetrics/lagotto/issues/155">#155</a>)</li>
+<li>facelift of the admin panel layout (<a href="https://github.com/articlemetrics/lagotto/issues/156">#156</a>)</li>
+<li>adapted to changes in the Facebook API (<a href="https://github.com/articlemetrics/lagotto/issues/90">#90</a>). Lagotto now automatically
+fetches the authentication token from a given <code>app_key</code> and <code>app_secret</code>. Since the release of the v2.1 API in August 2014 the <strong>link_stat</strong> API endpoint is depreciated. New user accounts have to use the v2.1 API and only get the total count of Facebook activity, whereas users will older API keys can still use the <strong>link_stat</strong> API and get the number of shares, comments and likes in addition to the total count by adding the following <code>link_stat URL</code> in the Facebook configuration:</li>
+</ul>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class="o">{</span>access_token<span class="o">}</span><span class="p">&amp;</span><span class="nv">q</span><span class="o">=</span><span class="k">select </span>url, share_count, like_count, comment_count, click_count, total_count from link_stat where <span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;%{query_url}&#39;</span>
+</code></pre></div>
+<ul>
+<li>don&#39;t cache in Rails development mode (<a href="https://github.com/articlemetrics/lagotto/issues/157">#157</a>)</li>
+<li>many small bug fixes (<a href="https://github.com/articlemetrics/lagotto/issues/147">#147</a>, <a href="https://github.com/articlemetrics/lagotto/issues/148">#148</a>, <a href="https://github.com/articlemetrics/lagotto/issues/149">#149</a>, <a href="https://github.com/articlemetrics/lagotto/issues/150">#150</a>, <a href="https://github.com/articlemetrics/lagotto/issues/151">#151</a>, <a href="https://github.com/articlemetrics/lagotto/issues/152">#152</a>, <a href="https://github.com/articlemetrics/lagotto/issues/153">#153</a>, <a href="https://github.com/articlemetrics/lagotto/issues/154">#154</a>)</li>
+</ul>
+
+<p>Starting with the Lagotto 3.7 release all user-specific configuration options for Rails, as well as for the server configuration and deployment tools Vagrant, Chef and Capistrano are environment variables, and can be stored in a single <code>.env</code> file. An example file is provided (<code>.env.example</code>) and can be used without modifications for a development server. More information regarding ENV variables and <code>.env</code> is available <a href="https://github.com/bkeepers/dotenv">here</a>. The following configuration options need to be set:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="c"># Example configuration settings for this application</span>
+
+<span class="nv">APPLICATION</span><span class="o">=</span>lagotto
+
+<span class="c"># database settings</span>
+<span class="nv">DB_NAME</span><span class="o">=</span>lagotto
+<span class="nv">DB_USERNAME</span><span class="o">=</span>vagrant
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>
+<span class="nv">DB_HOST</span><span class="o">=</span>localhost
+
+<span class="c"># internal name of server</span>
+<span class="nv">HOSTNAME</span><span class="o">=</span>lagotto.local
+
+<span class="c"># public name of server</span>
+<span class="c"># can be HOSTNAME, or different if load balancer is used</span>
+<span class="nv">SERVERNAME</span><span class="o">=</span>lagotto.local
+
+<span class="c"># all instances of server used behind load balancer</span>
+<span class="c"># can be HOSTNAME, or comma-delimited string of HOSTNAME</span>
+<span class="nv">SERVERS</span><span class="o">=</span>lagotto.local
+
+<span class="c"># name used on navigation bar and in email subject line</span>
+<span class="nv">SITENAME</span><span class="o">=</span>ALM
+
+<span class="c"># couch_db database</span>
+<span class="nv">COUCHDB_URL</span><span class="o">=</span>http://localhost:5984/lagotto
+
+<span class="c"># email address for sending emails</span>
+<span class="nv">ADMIN_EMAIL</span><span class="o">=</span>admin@example.com
+
+<span class="c"># number of background workers</span>
+<span class="nv">WORKERS</span><span class="o">=</span>3
+
+<span class="c"># automatic import via CrossRef API.</span>
+<span class="c"># Use &#39;all&#39;, &#39;member&#39;, &#39;sample&#39;, &#39;member_sample&#39;, or leave empty</span>
+<span class="nv">IMPORT</span><span class="o">=</span>
+
+<span class="c"># persistent identifier used</span>
+<span class="nv">UID</span><span class="o">=</span>doi
+
+<span class="c"># keys</span>
+<span class="c"># run `rake secret` to generate these keys</span>
+<span class="nv">API_KEY</span><span class="o">=</span>8897f9349100728d66d64d56bc21254bb346a9ed21954933
+<span class="nv">SECRET_TOKEN</span><span class="o">=</span>c436de247c988eb5d0908407e700098fc3992040629bb8f98223cd221e94ee4d15626aae5d815f153f3dbbce2724ccb8569c4e26a0f6f663375f6f2697f1f3cf
+
+<span class="c"># mail settings</span>
+<span class="nv">MAIL_ADDRESS</span><span class="o">=</span>localhost
+<span class="nv">MAIL_PORT</span><span class="o">=</span>25
+<span class="nv">MAIL_DOMAIN</span><span class="o">=</span>localhost
+
+<span class="c"># vagrant settings</span>
+<span class="nv">PRIVATE_IP</span><span class="o">=</span>10.2.2.4
+
+<span class="nv">AWS_KEY</span><span class="o">=</span>
+<span class="nv">AWS_SECRET</span><span class="o">=</span>
+<span class="nv">AWS_KEYNAME</span><span class="o">=</span>
+<span class="nv">AWS_KEYPATH</span><span class="o">=</span>
+
+<span class="nv">DO_PROVIDER_TOKEN</span><span class="o">=</span>
+<span class="nv">DO_SIZE</span><span class="o">=</span>1GB
+<span class="nv">SSH_PRIVATE_KEY</span><span class="o">=</span><span class="s1">&#39;~/.ssh/id_rsa&#39;</span>
+
+<span class="c"># user and group who own application repository</span>
+<span class="nv">DEPLOY_USER</span><span class="o">=</span>vagrant
+<span class="nv">DEPLOY_GROUP</span><span class="o">=</span>vagrant
+
+<span class="c"># mysql server root password for chef</span>
+<span class="nv">DB_SERVER_ROOT_PASSWORD</span><span class="o">=</span>EZ<span class="nv">$zspyxF2</span>
+</code></pre></div>
+<p>The Mendeley configuration variable <code>secret</code> has been renamed to <code>client_secret</code> to be more consistent with other OAuth2 applications, please update your configuration.</p>
+
+<h2 id="toc_25">Lagotto 3.6.3 (October 12, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.6.3">Lagotto 3.6.3</a> was released on October 12, 2014 with the following features:</p>
+
+<ul>
+<li>faster filtering and sorting of articles (through additional indexes and caching)</li>
+<li>filter v5 API responses by source, and sort them by event count or date (#136)</li>
+<li>Turned very slow SQL insert statement into multiple background jobs (#137)</li>
+<li>many small bug fixes</li>
+</ul>
+
+<h2 id="toc_26">Lagotto 3.6.2 (October 10, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.6.2">Lagotto 3.6.2</a> was released on October 10, 2014 with the following features:</p>
+
+<ul>
+<li>improved caching of the admin dashboard</li>
+<li>optimized SQL queries for listing articles</li>
+</ul>
+
+<h2 id="toc_27">Lagotto 3.6 (October 8, 2014)</h2>
+
+<p><a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.6">Lagotto 3.6</a> was released on October 8, 2014 with the following features and bugfixes:</p>
+
+<ul>
+<li>added publisher information to articles and enabled import of publisher information from CrossRef</li>
+<li>list articles by publisher</li>
+<li>enabled publisher-specific source configuration for CrossRef and PMC Usage Stats</li>
+<li>associate user accounts with publishers, and allow these users to change publisher-specific source configuration</li>
+<li>Upgrade to Rails 3.2.19</li>
+<li>fixed problem with generation of monthly reports for counter, pmc and mendeley</li>
+<li>many small bug fixes</li>
+</ul>
+
+<p>Users upgrading from earlier versions need to make the following changes:</p>
+
+<ul>
+<li>Add at least one publisher, and associate at least one user account with this publisher (in the account profile for admin/staff accounts, by an admin for user accounts)</li>
+<li>Add publisher-specific settings to the <code>CrossRef</code> and <code>PMC</code> source. Add <code>Openurl username</code> to CrossRef if you plan to collect citation counts for articles where you are not the publisher.</li>
+</ul>
+
+<h2 id="toc_28">Lagotto 3.5 (September 14, 2014)</h2>
 
 <p>With this release the ALM application was renamed to Lagotto and the license changed
-from Apache 2.0 to a MIT license. Lagotto 3.5 was released on September 14, 2014
+from Apache 2.0 to a MIT license. <a href="https://github.com/articlemetrics/lagotto/releases/tag/v.3.5">Lagotto 3.5</a> was released on September 14, 2014
 with the following features and bugfixes:</p>
 
 <ul>
@@ -127,25 +445,25 @@ and simplified and tested the Chef cookbook</li>
 <li>improved caching of the admin dashboard by moving to model caching for slow queries</li>
 </ul>
 
-<h3 id="toc_1"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4.8">ALM 3.4.8</a></h3>
+<h2 id="toc_29">ALM 3.4.8 (August 28, 2014)</h2>
 
-<p>ALM 3.4.8 was released on August 28, 2014 with the following bugfix:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4.8">ALM 3.4.8</a> was released on August 28, 2014 with the following bugfix:</p>
 
 <ul>
 <li>don&#39;t send email alerts for delayed_job errors</li>
 </ul>
 
-<h3 id="toc_2"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4.2">ALM 3.4.2</a></h3>
+<h2 id="toc_30">ALM 3.4.2 (August 24, 2014)</h2>
 
-<p>ALM 3.4.2 was released on August 24, 2014 with the following bugfix:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4.2">ALM 3.4.2</a> was released on August 24, 2014 with the following bugfix:</p>
 
 <ul>
 <li>fixed issue with caching of the admin panel</li>
 </ul>
 
-<h2 id="toc_3"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4">ALM 3.4</a></h2>
+<h2 id="toc_31">ALM 3.4 (August 22, 2014)</h2>
 
-<p>ALM 3.4 was released on August 22, 2014 with the following new features:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.4">ALM 3.4</a> was released on August 22, 2014 with the following new features:</p>
 
 <ul>
 <li>better caching of the admin panel</li>
@@ -176,67 +494,67 @@ and simplified and tested the Chef cookbook</li>
 <p>There is one configuration change in error reporting: the <code>disabled_source_report</code> has been renamed to <code>fatal_error_report</code>, as an immediate email will now be sent for all errors with severity <code>FATAL</code>. To rename the report template in the database, run this rake task once (using the appropriate <code>RAILS_ENV</code>):</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">bundle exec rake mailer:rename_report RAILS_ENV=production
 </code></pre></div>
-<h3 id="toc_4"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.19">ALM 3.3.19</a></h3>
+<h2 id="toc_32">ALM 3.3.19 (August 18, 2014)</h2>
 
-<p>ALM 3.3.19 was released on August 18, 2014 with the following new feature:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.19">ALM 3.3.19</a> was released on August 18, 2014 with the following new feature:</p>
 
 <ul>
 <li>set background worker priority individually for every source</li>
 </ul>
 
-<h3 id="toc_5"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.14">ALM 3.3.14</a></h3>
+<h2 id="toc_33">ALM 3.3.14 (August 15, 2014)</h2>
 
-<p>ALM 3.3.14 was released on August 15, 2014 with the following bugfix:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.14">ALM 3.3.14</a> was released on August 15, 2014 with the following bugfix:</p>
 
 <ul>
 <li>fixed bug with oEmbed functionality</li>
 </ul>
 
-<h3 id="toc_6"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.12">ALM 3.3.12</a></h3>
+<h2 id="toc_34">ALM 3.3.12 (August 13, 2014)</h2>
 
-<p>ALM 3.3.12 was released on August 13, 2014 with the following new feature:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.12">ALM 3.3.12</a> was released on August 13, 2014 with the following new feature:</p>
 
 <ul>
 <li>added rake task to delete CouchDB history documents (which are no longer needed). Use <code>START_DATE</code> and <code>END_DATE</code>.</li>
 </ul>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">bundle exec rake couchdb:histories:delete START_DATE=2014-01-01
 </code></pre></div>
-<h3 id="toc_7"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.8">ALM 3.3.8</a></h3>
+<h2 id="toc_35">ALM 3.3.8 (August 8, 2014)</h2>
 
-<p>ALM 3.3.8 was released on August 8, 2014 with the following bugfix:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.8">ALM 3.3.8</a> was released on August 8, 2014 with the following bugfix:</p>
 
 <ul>
 <li>unescape URLs in the oembed controller</li>
 </ul>
 
-<h3 id="toc_8"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.5">ALM 3.3.5</a></h3>
+<h2 id="toc_36">ALM 3.35 (August 5, 2014)</h2>
 
-<p>ALM 3.3.5 was released on August 5, 2014 with the following bugfix:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.5">ALM 3.3.5</a> was released on August 5, 2014 with the following bugfix:</p>
 
 <ul>
 <li>handle larger delayed_job payloads (up to 16 MB)</li>
 </ul>
 
-<h3 id="toc_9"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.2">ALM 3.3.2</a></h3>
+<h2 id="toc_37">ALM 3.3.2 (August 3, 2014)</h2>
 
-<p>ALM 3.3.2 was released on August 3, 2014 with the following bugfixes:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.2">ALM 3.3.2</a> was released on August 3, 2014 with the following bugfixes:</p>
 
 <ul>
 <li>fixed a problem where the same cached response was used by both the v3 and v5 API</li>
 <li>fixed a bug where some dates from events where incorrently formatted</li>
 </ul>
 
-<h3 id="toc_10"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.1">ALM 3.3.1</a></h3>
+<h2 id="toc_38">ALM 3.3.1 (July 31, 2014)</h2>
 
-<p>ALM 3.3.1 was released on July 31, 2014 with the following bugfix:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3.1">ALM 3.3.1</a> was released on July 31, 2014 with the following bugfix:</p>
 
 <ul>
 <li>allow import of articles that contain non utf-8 characters in the title</li>
 </ul>
 
-<h2 id="toc_11"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3">ALM 3.3</a></h2>
+<h2 id="toc_39">ALM 3.3 (July 29, 2014)</h2>
 
-<p>ALM 3.3 was released on July 29, 2014 with the following features:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.3">ALM 3.3</a> was released on July 29, 2014 with the following features:</p>
 
 <ul>
 <li>import of articles via the CrossRef API</li>
@@ -246,9 +564,9 @@ and simplified and tested the Chef cookbook</li>
 <li>better support for multiple ALM servers</li>
 </ul>
 
-<h2 id="toc_12"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.2">ALM 3.2</a></h2>
+<h2 id="toc_40">ALM 3.2 (July 1, 2014)</h2>
 
-<p>ALM 3.2 was released on July 1, 2014 with the following features:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.2">ALM 3.2</a> was released on July 1, 2014 with the following features:</p>
 
 <ul>
 <li>removed all dependencies on retrieval_histories table (which will be dropped in a future release)</li>
@@ -258,18 +576,18 @@ and simplified and tested the Chef cookbook</li>
 <li>bug fixes</li>
 </ul>
 
-<h2 id="toc_13"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.1">ALM 3.1</a></h2>
+<h2 id="toc_41">ALM 3.1 (May 23, 2014)</h2>
 
-<p>ALM 3.1 was released on May 23, 2014 with the following features:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.1">ALM 3.1</a> was released on May 23, 2014 with the following features:</p>
 
 <ul>
 <li>display of all events for an article by date</li>
 <li>many bug fixes</li>
 </ul>
 
-<h1 id="toc_14"><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.0">ALM 3.0</a></h1>
+<h1 id="toc_42">ALM 3.0 (May 8, 2014)</h1>
 
-<p>ALM 3.0 was released on May 8, 2014 with the following features:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.3.0">ALM 3.0</a> was released on May 8, 2014 with the following features:</p>
 
 <ul>
 <li>rewrite of all sources</li>
@@ -279,9 +597,9 @@ and simplified and tested the Chef cookbook</li>
 <li>Rails 3.2.18</li>
 </ul>
 
-<h2 id="toc_15"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.14">ALM 2.14</a></h2>
+<h2 id="toc_43">ALM 2.14 (April 24, 2014)</h2>
 
-<p>ALM 2.14 was released on April 24, 2014 with the following new features:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.14">ALM 2.14</a> was released on April 24, 2014 with the following new features:</p>
 
 <ul>
 <li>extensive refactoring of background workers for sources</li>
@@ -291,9 +609,9 @@ and simplified and tested the Chef cookbook</li>
 <li>many bug fixes</li>
 </ul>
 
-<h3 id="toc_16"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.13.2">ALM 2.13.2</a></h3>
+<h2 id="toc_44">ALM 2.13.2 (March 27, 2014)</h2>
 
-<p>ALM 2.13.2 was released on March 27, 2014 with a focus on bug fixes:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.13.2">ALM 2.13.2</a> was released on March 27, 2014 with a focus on bug fixes:</p>
 
 <ul>
 <li>OAuth2 authentication for Mendeley</li>
@@ -304,7 +622,7 @@ and simplified and tested the Chef cookbook</li>
 <li>Rails 3.2.17</li>
 </ul>
 
-<h4 id="toc_17">Upgrade</h4>
+<h4 id="toc_45">Upgrade</h4>
 
 <p>Migrate to new date format (year, month, day):</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:date_parts <span class="nv">RAILS_ENV</span><span class="o">=</span>production
@@ -342,9 +660,9 @@ EXAMPLE
 insttoken
 EXAMPLE
 </code></pre></div>
-<h3 id="toc_18"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.12.1">ALM 2.12.1</a></h3>
+<h2 id="toc_46">ALM 2.12.1 (February 10, 2014)</h2>
 
-<p>ALM 2.12.1 was released on February 10, 2014 with the following changes:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.12.1">ALM 2.12.1</a> was released on February 10, 2014 with the following changes:</p>
 
 <ul>
 <li>hotfix for Facebook source</li>
@@ -354,15 +672,15 @@ EXAMPLE
 <li>updated documentation, in particular how we setup ALM</li>
 </ul>
 
-<h4 id="toc_19">Upgrade</h4>
+<h4 id="toc_47">Upgrade</h4>
 
 <p>Update Facebook configuration:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">URL
 https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class="o">{</span>access_token<span class="o">}</span><span class="p">&amp;</span><span class="nv">q</span><span class="o">=</span><span class="k">select </span>url, share_count, like_count, comment_count, click_count, total_count from link_stat where <span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;%{query_url}&#39;</span>
 </code></pre></div>
-<h3 id="toc_20"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.11.2">ALM 2.11.2</a></h3>
+<h2 id="toc_48">ALM 2.11.2 (January 22, 2014)</h2>
 
-<p>ALM 2.11.2 was released on January 22, 2014. Changes in this release include:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.11.2">ALM 2.11.2</a> was released on January 22, 2014. Changes in this release include:</p>
 
 <ul>
 <li>sources, status and api_requests in the admin dashboard are loaded via cached API requests for better performance</li>
@@ -374,7 +692,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>fixed bug that could cause wrong login credentials</li>
 </ul>
 
-<h4 id="toc_21">Upgrade</h4>
+<h4 id="toc_49">Upgrade</h4>
 
 <p>Update CouchDB design docs (needed for reports):</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X PUT -d @design-doc/reports.json <span class="s1">&#39;http://localhost:5984/alm/_design/reports&#39;</span>
@@ -382,9 +700,9 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <p>Remove HTML and XML from article titles:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>db:articles:sanitize_title
 </code></pre></div>
-<h3 id="toc_22"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.10.1">ALM 2.10.1</a></h3>
+<h2 id="toc_50">ALM 2.10.1 (November 13, 2013)</h2>
 
-<p>ALM 2.10.1 was released on November 13, 2013 with the following features:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.10.1">ALM 2.10.1</a> was released on November 13, 2013 with the following features:</p>
 
 <ul>
 <li>improve dashboard performance</li>
@@ -392,9 +710,9 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>merged DOI import code from CrossRef</li>
 </ul>
 
-<h3 id="toc_23"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.15">ALM 2.9.15</a></h3>
+<h2 id="toc_51">ALM 2.9.15 (November 3, 2013)</h2>
 
-<p>ALM 2.9.15 was released on November 3, 2013. This release contains fixes for the mailer functionality and two new reports:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.15">ALM 2.9.15</a> was released on November 3, 2013. This release contains fixes for the mailer functionality and two new reports:</p>
 
 <ul>
 <li>status report</li>
@@ -407,9 +725,9 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>DataCite</li>
 </ul>
 
-<h3 id="toc_24"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.7">ALM 2.9.7</a></h3>
+<h2 id="toc_52">ALM 2.9.7 (October 3, 2013)</h2>
 
-<p>ALM 2.9.7 was released on October 3, 2013. This release fixes many small bugs of the 2.9 release and adds the following new sources:</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9.7">ALM 2.9.7</a> was released on October 3, 2013. This release fixes many small bugs of the 2.9 release and adds the following new sources:</p>
 
 <ul>
 <li>PMC Europe Citations</li>
@@ -419,9 +737,9 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>OpenEdition</li>
 </ul>
 
-<h2 id="toc_25"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9">ALM 2.9</a></h2>
+<h2 id="toc_53">ALM 2.9 (September 16, 2013)</h2>
 
-<p>ALM 2.9 was released on September 16, 2013. This version contains numerous bug fixes, and some important parts of the application were refactored</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.9">ALM 2.9</a> was released on September 16, 2013. This version contains numerous bug fixes, and some important parts of the application were refactored</p>
 
 <ul>
 <li>all HTTP calls to external APIs now use the Faraday library, with automatic JSON decoding and central error logging</li>
@@ -433,11 +751,11 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 
 <p>The major new feature in this release is error tracking via filters. Filters can easily be added and customized, and they will generate a daily error report that is sent out via email</p>
 
-<h2 id="toc_26"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.8">ALM 2.8</a></h2>
+<h2 id="toc_54">ALM 2.8 (July 22, 2013)</h2>
 
-<p>ALM 2.8 was released on July 22, 2013. The development work focused on user account management.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.8">ALM 2.8</a> was released on July 22, 2013. The development work focused on user account management.</p>
 
-<h4 id="toc_27">User accounts</h4>
+<h4 id="toc_55">User accounts</h4>
 
 <p>Prior to this release, the ALM application allowed only a single user account. We can now have multiple user accounts, plus different roles for them:</p>
 
@@ -449,7 +767,7 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 
 <p>A new user admin dashboard facilitates user management.</p>
 
-<h4 id="toc_28">Social login</h4>
+<h4 id="toc_56">Social login</h4>
 
 <p>To facilitate account management for users and ALM admins, new user accounts can only be created via social login with one of these services:</p>
 
@@ -460,23 +778,23 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 
 <p>The ALM application can be configured to use one of these services (but not both), or to use the old system of only a single admin user. The documentation has been updated to reflect these changes.</p>
 
-<h4 id="toc_29">API keys</h4>
+<h4 id="toc_57">API keys</h4>
 
 <p>Now that API keys are created within the ALM application, we can check for valid API keys in every API request. This is currently only done to allow access to private sources for admins, and to enable create/update/delete in the REST API. For security reasons create/update/delete only works from requests originating from the same computer.</p>
 
-<h4 id="toc_30">Documentation</h4>
+<h4 id="toc_58">Documentation</h4>
 
 <p>The documentation in the wiki is now included in the application, making it easier for users to find documentation. We use the <a href="http://rubygems.org/gems/github-markdown">github-markdown gem</a> for this. The documentation has been updated with the changes in ALM 2.8, and other updates.</p>
 
-<h4 id="toc_31">Other Changes</h4>
+<h4 id="toc_59">Other Changes</h4>
 
 <p>Many small changes and bug fixes. We now use memcached for caching, and we added to cron jobs to clean up temporary tables (error_messages and api_requests).</p>
 
-<h2 id="toc_32"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.7">ALM 2.7</a></h2>
+<h2 id="toc_60">ALM 2.7 (May 16, 2013)</h2>
 
-<p>ALM 2.7 was released on May 16, 2013. The development work focused on adding Javascript libraries that talk to the ALM API and can be embedded in other web sites.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.7">ALM 2.7</a> was released on May 16, 2013. The development work focused on adding Javascript libraries that talk to the ALM API and can be embedded in other web sites.</p>
 
-<h4 id="toc_33">Javascript single article visualizations</h4>
+<h4 id="toc_61">Javascript single article visualizations</h4>
 
 <p>We added visualizations for single articles using the d3.js library, including time-based visualizations by day, month and year. We have created a new <a href="https://github.com/articlemetrics/almviz">Github repository</a> that will hold all future work on Javascript libraries talking to the ALM API. To make these visualizations easier we made two changes to the <a href="API">v3 ALM API</a>:</p>
 
@@ -485,31 +803,31 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>added metrics by day, month and year for every source</li>
 </ul>
 
-<h4 id="toc_34">Other Changes</h4>
+<h4 id="toc_62">Other Changes</h4>
 
 <p>We have made it easier to install the ALM application by adding and testing support for Amazon AWS via Vagrant. We added rake tasks to seed or delete articles, and to delete resolved errors and old API requests. Many small bugs were fixed and the ALM application was updated to use the latest Rails version (3.2.13).</p>
 
-<h2 id="toc_35"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.6">ALM 2.6</a></h2>
+<h2 id="toc_63">ALM 2.6 (March 19, 2013)</h2>
 
-<p>ALM 2.6 was released on March 19, 2013. The development work focused on two areas: API performance and easy installation.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.6">ALM 2.6</a> was released on March 19, 2013. The development work focused on two areas: API performance and easy installation.</p>
 
-<h4 id="toc_36">API Performance</h4>
+<h4 id="toc_64">API Performance</h4>
 
 <p>The API code was refactored, adding the <a href="https://github.com/drapergem/draper">Draper Decorator</a> between the model and the <a href="https://github.com/nesquena/rabl">RABL Views</a>. We added caching, using Russian Doll fragment caching as described <a href="http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works">here</a>. It required some extra work to make this work with RABL and Draper. We also added a visualization of API requests to the admin dashboard, using d3.js and the <a href="http://square.github.com/crossfilter/">crossfiler</a> library.</p>
 
-<h4 id="toc_37">Easy Installation</h4>
+<h4 id="toc_65">Easy Installation</h4>
 
 <p>To make it easier to install the ALM application, we have updated and throughoutly tested the <a href="installation">manual installation</a> instructions, updated the Chef / Vagrant automated installation (now using Ubuntu 12.04 and linking directly to the Chef Cookbook repository), and provided a VMware image of ALM application (535 MB <a href="http://dl.dropbox.com/u/9406373/alm_ubuntu_12.04_vmware.tar.gz">download</a>, username/password: alm). The VMware image file is still experimental and feedback is appreciated.</p>
 
 <p>An updated version of <a href="http://docs.vagrantup.com/v2/getting-started/index.html">Vagrant</a> (1.1) was released days after ALM 2.6, and this version now supports VMware and AWS. We will support these platforms in a future ALM release to again make it easier to test or install the ALM application.</p>
 
-<h4 id="toc_38">Other Changes</h4>
+<h4 id="toc_66">Other Changes</h4>
 
 <p>This release includes many small fixes and improvements. Of particular interest are the RSS feeds for the most popular articles by source, published in the last 7 days, 30 days, 12 months, or all-time. The RSS feeds are link from the most-cited lists for each source, e.g. <a href="http://alm.plos.org/sources/twitter">here</a>.</p>
 
-<h2 id="toc_39"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.5">ALM 2.5</a></h2>
+<h2 id="toc_67">ALM 2.5 (February 1, 2013)</h2>
 
-<p>ALM 2.5 was released on February 1st, 2013.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.5">ALM 2.5</a> was released on February 1, 2013.</p>
 
 <ul>
 <li>admin dashboard</li>
@@ -518,23 +836,23 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>Rails 3.2.11</li>
 </ul>
 
-<h2 id="toc_40"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.4">ALM 2.4</a></h2>
+<h2 id="toc_68">ALM 2.4 (December 20, 2012)</h2>
 
-<p>ALM 2.4 was released on December 20, 2012.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.4">ALM 2.4</a> was released on December 20, 2012.</p>
 
 <p>In this release we added a new source (<a href="http://scienceseeker.org/">ScienceSeeker</a>, a blog aggregator), fix many errors with sources and added tests for background and Rake tasks.</p>
 
-<h2 id="toc_41"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.3">ALM 2.3</a></h2>
+<h2 id="toc_69">ALM 2.3 (October 30, 2012)</h2>
 
-<p>ALM 2.3 was released on October 30, 2012.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.3">ALM 2.3</a> was released on October 30, 2012.</p>
 
 <ul>
 <li>updated API (v3)</li>
 </ul>
 
-<h2 id="toc_42"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.2">ALM 2.2</a></h2>
+<h2 id="toc_70">ALM 2.2 (October 5, 2012)</h2>
 
-<p>ALM 2.2 was released on October 5, 2012.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.2">ALM 2.2</a> was released on October 5, 2012.</p>
 
 <ul>
 <li>added Twitter Bootstrap CSS framework</li>
@@ -542,9 +860,9 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>Rails 3.2.8</li>
 </ul>
 
-<h2 id="toc_43"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.1">ALM 2.1</a></h2>
+<h2 id="toc_71">ALM 2.1 (September 13, 2012)</h2>
 
-<p>ALM 2.1 was released on September 13, 2012.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.1">ALM 2.1</a> was released on September 13, 2012.</p>
 
 <ul>
 <li>moved source code to Github</li>
@@ -554,9 +872,9 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>Rails 3.2.7</li>
 </ul>
 
-<h1 id="toc_44"><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.0">ALM 2.0</a></h1>
+<h2 id="toc_72">ALM 2.0 (July 31, 2012)</h2>
 
-<p>ALM 2.0 was released on July 31, 2012.</p>
+<p><a href="https://github.com/articlemetrics/alm/releases/tag/v.2.0">ALM 2.0</a> was released on July 31, 2012.</p>
 
 <ul>
 <li>Ruby 1.9.3 and Rails 3.2.3</li>
@@ -564,59 +882,3 @@ https://graph.facebook.com/fql?access_token<span class="o">=</span>%<span class=
 <li>major refactoring of background processes</li>
 <li>store source data in CouchDB</li>
 </ul>
-
-
-            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
-<span
-  class="Z3988"
-  title="ctx_ver=Z39.88-2004
-  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
-  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Releases
-  &amp;rft.creator=
-  &amp;rft.date=
-  &amp;rft.language=EN
-  &amp;rft.rights=CC0
-  &amp;rft_id=http://articlemetrics.github.io/docs/releases/">
-</span>
-
-            
-            <hr>
-            <footer class="footer" role="contentinfo">
-  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
-
-  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
-
-  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
-
-  <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
-  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
-</div>
-          </div>
-        </div>
-
-
-      </div>
-    </div> <!-- /container -->
-
-    <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  </body>
-</html>

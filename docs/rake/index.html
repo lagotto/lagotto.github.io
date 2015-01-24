@@ -1,127 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rake</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Martin Fenner" />
+<h2 id="toc_0">Introduction</h2>
 
-    <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Rake" />
-    <meta property="dc:creator" content="" />
-    <meta name="citation_publication_date" content=""/>
-    <meta property="dc:format" content="text/html" />
-    <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/docs/rake/" />
-    <meta property="dc:rights" content="CC-BY" />
-    <meta property="dc:source" content="Article-Level Metrics" />
-    <meta property="dc:subject" content="Scholarly Communication" />
-    <meta property="dc:type" content="website" />
-
-    <!-- Google Scholar Metadata -->
-    <meta name="citation_author" content=""/>
-    <meta name="citation_publication_date" content=""/>
-    <meta name="citation_title" content="Rake"/>
-    <meta name="citation_journal_title" content="Article-Level Metrics"/>
-
-    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
-    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
-
-    <!-- Enable responsive viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/github.css">
-
-    <!-- Javascript -->
-    <script src="/js/d3.v3.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">ALM</a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/">Introduction</a></li>
-            <li><a href="/value">Value</a></li>            
-            <li><a href="/metrics">Metrics</a></li>
-            <li><a href="/research">Research</a></li>  
-            <li><a href="/conferences">Conferences</a></li>              
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/plos">Public Library of Science</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/docs/">Home</a></li>
-            <li><a href="/docs/installation">Installation</a></li>
-            <li><a href="/docs/setup">Setup</a></li>
-            <li><a href="/docs/sources">Sources</a></li>
-            <li><a href="/docs/api">API</a></li>
-            <li><a href="/docs/rake">Rake</a></li>
-            <li><a href="/docs/alerts">Alerts</a></li>
-            <li><a href="/docs/faq">FAQ</a></li>
-            <li><a href="/docs/releases">Releases</a></li>
-            <li><a href="/docs/roadmap">Roadmap</a></li>
-            <li><a href="/docs/contributors">Contributors</a></li>
-          </ul>
-        </li>
-        <li><a href="/examples">Examples</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/status">Status</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="container">
-      <div class="page-header">
-        <h1>Rake</h1>
-        <p class="subtitle">
-        </p>
-      </div>
-
-      <div class="content">
-        <div class="row">
-          <div class="col-md-9">
-            
-            <p>There are several ALM-specific rake tasks that help with administration of the ALM application. They can be listed with the following command:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake -T
+<p>There are several ALM-specific rake tasks that help with administration of the ALM application. They can be listed with the following command:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake -T
 </code></pre></div>
-<p>Please append <code>RAILS_ENV=production</code> to all rake commands when running Rails in <code>production</code> mode.</p>
+<p>Please prepend <code>RAILS_ENV=production</code> to all rake commands when running Rails in <code>production</code> mode.</p>
 
-<h3 id="toc_0">db.rake</h3>
+<h2 id="toc_1">db.rake</h2>
 
-<p>Bulk-load articles via the CrossRef API:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:import
+<p>Bulk-load works via the CrossRef API:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:works:import:crossref
 </code></pre></div>
 <p>The command takes the following optional parameters via ENV variables</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">FROM_UPDATE_DATE</span><span class="o">=</span>2014-02-05
@@ -129,169 +16,181 @@
 <span class="nv">FROM_PUB_DATE</span><span class="o">=</span>2014-01-01
 <span class="nv">UNTIL_UPDATE_DATE</span><span class="o">=</span>2014-07-01
 <span class="nv">MEMBER</span><span class="o">=</span>340
-<span class="nv">TYPE</span><span class="o">=</span>journal-article
+<span class="nv">TYPE</span><span class="o">=</span>journal-work
 <span class="nv">ISSN</span><span class="o">=</span>1545-7885
 <span class="nv">SAMPLE</span><span class="o">=</span>50
 </code></pre></div>
 <ul>
-<li><code>FROM_UPDATE_DATE</code> means metadata updated since (inclusive) <code>{date}</code>, <code>UNTIL_UPDATE_DATE</code> means metadata updated until (inclusive) <code>{date}</code>.</li>
-<li><code>FROM_PUB_DATE</code> means article published since (inclusive) <code>{date}</code>, <code>UNTIL_PUB_DATE</code> published until (inclusive) <code>{date}</code>.</li>
-<li><code>MEMBER</code> is the CrossRef member_id, which you find by searching the member database, e.g. <code>http://api.crossref.org/members?query=elife</code>.</li>
-<li><code>TYPE</code> is the type of the resource, e.g. <code>journal-article</code>, a listing of available types can be found at <code>http://api.crossref.org/types</code>.</li>
+<li><code>FROM_UPDATE_DATE</code> means metadata updated since (inclusive) <code>{date}</code>, <code>UNTIL_UPDATE_DATE</code> means metadata updated until (inclusive) <code>{date}</code>, it defaults to today.</li>
+<li><code>FROM_PUB_DATE</code> means work published since (inclusive) <code>{date}</code>, <code>UNTIL_PUB_DATE</code> published until (inclusive) <code>{date}</code>.</li>
+<li><code>MEMBER</code> is the CrossRef member_id, which you find by searching the member database, e.g. <code>http://api.crossref.org/members?query=elife</code>.
+If you have <code>import=member</code> in <code>.env</code>, then the rake task will use the CrossRef member_id of all publishers added via the web interface.
+Using <code>MEMBER</code> as ENV variable will instead import DOIs for that CrossRef member.</li>
+<li><code>TYPE</code> is the type of the resource, e.g. <code>journal-work</code>, a listing of available types can be found at <code>http://api.crossref.org/types</code>.</li>
 <li><code>SAMPLE</code> returns a random sample of x DOIs and can be combined with the other parameters.</li>
 </ul>
 
 <p>For more information please see the <a href="https://github.com/CrossRef/rest-api-doc/blob/master/funder_kpi_api.md">CrossRef API documentation</a>.</p>
 
 <p>To load for example all eLife content created or updated in 2014, use the following command:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:import <span class="nv">MEMBER</span><span class="o">=</span>4374 FROM-UPDATE-DATE<span class="o">=</span>2014-01 UNTIL-UPDATE-DATE<span class="o">=</span>2014-12
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:works:import:crossref <span class="nv">MEMBER</span><span class="o">=</span>4374 <span class="nv">FROM_UPDATE_DATE</span><span class="o">=</span>2014 <span class="nv">UNTIL_UPDATE_DATE</span><span class="o">=</span>2014-12
+</code></pre></div>
+<p>When <code>import=member</code> or <code>import=member_sample</code> is set in the configuration, the <code>MEMBER</code> parameter can be ignored.</p>
+
+<p>Bulk-load works via the DataCite API:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:works:import:datacite
+</code></pre></div>
+<p>The command takes the following optional parameters via ENV variables</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">FROM_UPDATE_DATE</span><span class="o">=</span>2014-02-05
+<span class="nv">UNTIL_UPDATE_DATE</span><span class="o">=</span>2014-03
+<span class="nv">FROM_PUB_DATE</span><span class="o">=</span>2014-01-01
+<span class="nv">UNTIL_UPDATE_DATE</span><span class="o">=</span>2014-07-01
+<span class="nv">MEMBER</span><span class="o">=</span>CDL.DRYAD
+<span class="nv">TYPE</span><span class="o">=</span>Dataset
+</code></pre></div>
+<p>Bulk-load works via the PLOS Search API:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:works:import:plos
+</code></pre></div>
+<p>The command takes the following optional parameters via ENV variables</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">FROM_PUB_DATE</span><span class="o">=</span>2014-01-01
+<span class="nv">UNTIL_UPDATE_DATE</span><span class="o">=</span>2014-07-01
 </code></pre></div>
 <p>Bulk-load a file consisting of DOIs, one per line. It&#39;ll ignore (but count) invalid ones and those that already exist in the database:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:load &lt;DOI_DUMP
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:articles:load &lt;DOI_DUMP
 </code></pre></div>
 <p>Format for import file</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">DOI Date<span class="o">(</span>YYYY-MM-DD<span class="o">)</span> Title
 </code></pre></div>
 <p>The rake task splits on white space for the first two elements, and then takes the rest of the line (title) as one element including any whitespace in the title.</p>
 
-<p>Loads 25 sample articles</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:seed
+<p>Deletes works and associated rows in the retrieval_statuses table. Use <code>MEMBER</code> to delete works from a particular publisher, or `MEMBER=all&quot; to delete all works.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:works:delete <span class="nv">MEMBER</span><span class="o">=</span>340
 </code></pre></div>
-<p>Deletes all articles and associated rows in the retrieval_statuses table. For safety reasons doesn&#39;t work in the production environment (use the following rake task).</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:delete_all
-</code></pre></div>
-<p>Bulk-load a file consisting of DOIs, one per line. It&#39;ll ignore (but count) invalid DOIs, and will delete all articles with matching DOIs:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:delete &lt;DOI_DUMP
-</code></pre></div>
-<p>Format for import file:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">DOI Date<span class="o">(</span>YYYY-MM-DD<span class="o">)</span> Title
-</code></pre></div>
-<p>The rake task splits on white space for the first two elements, and then takes the rest of the line (title) as one element including any whitespace in the title.</p>
-
 <p>Removes all HTML and XML tags from title field (for legacy data).</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:articles:sanitize_title
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:works:sanitize_title
 </code></pre></div>
 <p>Isnstall sources. Provide one or more source names as arguments, e.g. <code>rake db:sources:install[pmc]</code> or install all available sources without arguments:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:sources:install
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:sources:install
 </code></pre></div>
 <p>Uninstall sources. Provide one or more source names as arguments, e.g. <code>rake db:sources:uninstall[pmc]</code>:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:sources:uninstall
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:sources:uninstall
 </code></pre></div>
 <p>Deletes all resolved alerts:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:alerts:delete
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:alerts:delete
 </code></pre></div>
 <p>Delete old API requests (only keep the last 10,000):</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:api_requests:delete
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:api_requests:delete
 </code></pre></div>
 <p>Delete all resolved API responses older than 24 hours:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake db:api_responses:delete
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake db:api_responses:delete
 </code></pre></div>
 <p>The last three rake tasks should run regularly, and can be set up to run as a daily cron task with <code>bundle exec whenever -w</code>.</p>
 
-<h3 id="toc_1">queue.rake</h3>
+<h2 id="toc_2">queue.rake</h2>
 
-<p>Queue all articles</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake queue:all
+<p>Queue all works</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake queue:all
 </code></pre></div>
-<p>Queue article with given DOI:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake queue:one<span class="o">[</span>DOI<span class="o">]</span>
-</code></pre></div>
-<p>Start job queue</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake queue:start
-</code></pre></div>
-<p>Stop job queue</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake queue:stop
+<p>Queue work with given pid:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake queue:one<span class="o">[</span>pid<span class="o">]</span>
 </code></pre></div>
 <p>By default the rake tasks above run for all sources. Do have them run for one or more specific sources, add the source names as parameters:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake queue:all<span class="o">[</span>mendeley,citeulike<span class="o">]</span>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake queue:all<span class="o">[</span>mendeley,citeulike<span class="o">]</span>
 </code></pre></div>
-<h3 id="toc_2">pmc.rake</h3>
+<h2 id="toc_3">pmc.rake</h2>
 
 <p>Import latest (i.e. last month&#39;s) PubMed Central usage stats.</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake pmc:update
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake pmc:update
 </code></pre></div>
 <p>Import all PubMed Central usage stats since month/year.</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake pmc:update <span class="nv">MONTH</span><span class="o">=</span>1 <span class="nv">YEAR</span><span class="o">=</span>2013
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake pmc:update <span class="nv">MONTH</span><span class="o">=</span>1 <span class="nv">YEAR</span><span class="o">=</span>2013
 </code></pre></div>
-<h3 id="toc_3">workers.rake</h3>
+<h2 id="toc_4">report.rake</h2>
 
-<p>Start all the workers.</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake workers:start_all
+<p>Generate all work stats reports.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:all_stats
 </code></pre></div>
-<p>Stop all the workers.</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake workers:stop_all
+<p>Generate CSV file with ALM stats for private and public sources.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:alm_private_stats
 </code></pre></div>
-<h3 id="toc_4">filter.rake</h3>
+<p>Generate CSV file with ALM stats for public sources.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:alm_stats
+</code></pre></div>
+<p>Generate CSV file with combined ALM private and public sources.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:combined_private_stats
+</code></pre></div>
+<p>Generate CSV file with combined ALM stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:combined_stats
+</code></pre></div>
+<p>Generate CSV file with Counter usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:counter
+</code></pre></div>
+<p>Generate CSV file with Counter combined usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:counter_combined_stats
+</code></pre></div>
+<p>Generate CSV file with Counter HTML usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:counter_html_stats
+</code></pre></div>
+<p>Generate CSV file with Counter PDF usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:counter_pdf_stats
+</code></pre></div>
+<p>Generate CSV file with cumulative Counter usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:counter_stats
+</code></pre></div>
+<p>Generate CSV file with Counter XML usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:counter_xml_stats
+</code></pre></div>
+<p>Generate CSV file with Mendeley stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:mendeley_stats
+</code></pre></div>
+<p>Generate CSV file with PMC usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:pmc
+</code></pre></div>
+<p>Generate CSV file with PMC combined usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:pmc_combined_stats
+</code></pre></div>
+<p>Generate CSV file with PMC HTML usage stats over time.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:pmc_html_stats
+</code></pre></div>
+<p>Generate CSV file with PMC PDF usage stats over time.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:pmc_pdf_stats
+</code></pre></div>
+<p>Generate CSV file with PMC cumulative usage stats.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:pmc_stats
+</code></pre></div>
+<p>Zip reports.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake report:zip
+</code></pre></div>
+<h2 id="toc_5">sidekiq.rake</h2>
+
+<p>Start Sidekiq background processes.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake sidekiq:start
+</code></pre></div>
+<p>Stop Sidekiq background processes.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake sidekiq:stop
+</code></pre></div>
+<p>Stop Sidekiq background processes to accept new work.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake sidekiq:quiet
+</code></pre></div>
+<p>Check status of Sidekiq background processes.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake sidekiq:monitor
+</code></pre></div>
+<h2 id="toc_6">filter.rake</h2>
 
 <p>Create alerts by filtering API responses</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake filter:all
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake filter:all
 </code></pre></div>
 <p>Unresolve all alerts that have been filtered (e.g. to re-run filters with new settings)</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake filter:unresolve
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake filter:unresolve
 </code></pre></div>
-<h3 id="toc_5">mailer.rake</h3>
+<h2 id="toc_7">mailer.rake</h2>
 
 <p>Send all reports</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake mailer:all
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake mailer:all
 </code></pre></div>
 <p>Send error report</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake mailer:error_report
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake mailer:error_report
 </code></pre></div>
 <p>Send status report</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bundle <span class="nb">exec </span>rake mailer:status_report
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">bin/rake mailer:status_report
 </code></pre></div>
-
-            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
-<span
-  class="Z3988"
-  title="ctx_ver=Z39.88-2004
-  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
-  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Rake
-  &amp;rft.creator=
-  &amp;rft.date=
-  &amp;rft.language=EN
-  &amp;rft.rights=CC0
-  &amp;rft_id=http://articlemetrics.github.io/docs/rake/">
-</span>
-
-            
-            <hr>
-            <footer class="footer" role="contentinfo">
-  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
-
-  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
-
-  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
-
-  <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
-  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
-</div>
-          </div>
-        </div>
-
-
-      </div>
-    </div> <!-- /container -->
-
-    <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  </body>
-</html>

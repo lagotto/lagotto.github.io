@@ -1,172 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roadmap</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Martin Fenner" />
+<h2 id="toc_0">4.0 Data-Push Model (December 2014)</h2>
 
-    <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Roadmap" />
-    <meta property="dc:creator" content="" />
-    <meta name="citation_publication_date" content=""/>
-    <meta property="dc:format" content="text/html" />
-    <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/docs/roadmap/" />
-    <meta property="dc:rights" content="CC-BY" />
-    <meta property="dc:source" content="Article-Level Metrics" />
-    <meta property="dc:subject" content="Scholarly Communication" />
-    <meta property="dc:type" content="website" />
+<p>In order for the Lagotto application to scale to millions of articles - e.g. the more than 10 million in the <a href="http://det.labs.crossref.org/">CrossRef Labs DET Server</a> - it makes more sense that third-parties are pushing data into the application (**push**) rather than Lagotto collecting data from external sources (**pull**). We have identified the following architecture and implementation steps:</p>
 
-    <!-- Google Scholar Metadata -->
-    <meta name="citation_author" content=""/>
-    <meta name="citation_publication_date" content=""/>
-    <meta name="citation_title" content="Roadmap"/>
-    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+<h3 id="toc_1">Add push API endpoint</h3>
 
-    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
-    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+<p>Add an API that takes push requests in a standardized format that describe events around articles. The API has the following features:</p>
 
-    <!-- Enable responsive viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<ul>
+<li>HTTP REST (POST and possibly GET)</li>
+<li>allow to push events for a single or multiple articles</li>
+<li>include at least the following information in the payload: article ID (DOI), source, timestamp, event information, depending on source (e.g. event_count, event_url, information about individual events)</li>
+<li>authentication via API token</li>
+</ul>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<h3 id="toc_2">Separate out agent functionality from source model</h3>
 
-    <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
+<p>We want to separate out the agent functionality from our sources, so that agents can be part of the Lagotto software, or run somewhere else and deposit their data via the new push API. Sources should become generic enough that we hopefully don&#39;t need to subclass the Source class anymore, but move all that functionality into a new <strong>Agent</strong> model. In the beginning all sources will have a corresponding agent, but that can change over time.</p>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/github.css">
+<h3 id="toc_3">Push all API responses through push API</h3>
 
-    <!-- Javascript -->
-    <script src="/js/d3.v3.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">ALM</a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/">Introduction</a></li>
-            <li><a href="/value">Value</a></li>            
-            <li><a href="/metrics">Metrics</a></li>
-            <li><a href="/research">Research</a></li>  
-            <li><a href="/conferences">Conferences</a></li>              
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementations <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/plos">Public Library of Science</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Development <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/docs/">Home</a></li>
-            <li><a href="/docs/installation">Installation</a></li>
-            <li><a href="/docs/setup">Setup</a></li>
-            <li><a href="/docs/sources">Sources</a></li>
-            <li><a href="/docs/api">API</a></li>
-            <li><a href="/docs/rake">Rake</a></li>
-            <li><a href="/docs/alerts">Alerts</a></li>
-            <li><a href="/docs/faq">FAQ</a></li>
-            <li><a href="/docs/releases">Releases</a></li>
-            <li><a href="/docs/roadmap">Roadmap</a></li>
-            <li><a href="/docs/contributors">Contributors</a></li>
-          </ul>
-        </li>
-        <li><a href="/examples">Examples</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/status">Status</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<p>All API responses from external sources should go through the new push API to make the workflow consistent. We can modify the <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/retrieval_status.rb#L41-L46">perform_get_data method</a> to achieve this.</p>
 
-    <div class="container">
-      <div class="page-header">
-        <h1>Roadmap</h1>
-        <p class="subtitle">
-        </p>
-      </div>
+<h3 id="toc_4">Rewrite F1000 source as internal agent</h3>
 
-      <div class="content">
-        <div class="row">
-          <div class="col-md-9">
-            
-            <p>TBD.</p>
+<p>Once we have separated out the agent functionality from sources in we can start rewriting our existing sources to more efficiently collect events from external sources. The <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/f1000.rb">F1000 source</a> is a good starting point, and the new agent should parse the F1000 XML file and then deposit the payload in the new push API. We can consider packaging the internal agent as Ruby gem if the functionality is decoupled enough.</p>
 
+<h3 id="toc_5">Add generic webmention endpoint</h3>
 
-            <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
-<span
-  class="Z3988"
-  title="ctx_ver=Z39.88-2004
-  &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
-  &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Roadmap
-  &amp;rft.creator=
-  &amp;rft.date=
-  &amp;rft.language=EN
-  &amp;rft.rights=CC0
-  &amp;rft_id=http://articlemetrics.github.io/docs/roadmap/">
-</span>
+<p>Use the <a href="http://webmention.io/">standard webmention format</a>, feed in data around events.</p>
 
-            
-            <hr>
-            <footer class="footer" role="contentinfo">
-  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+<h2 id="toc_6">4.1 Data-Level Metrics (December 2014)</h2>
 
-  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+<p>To fully support data-level metrics, the following changes need to be done in the Lagotto software:</p>
 
-  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
+<ul>
+<li>support for relationships between resources (*isNewVersionOf*, <em>isPartOf</em>, etc.)</li>
+<li>configuration changes to some sources, e.g. Europe PMC database links</li>
+<li>additional sources (e.g. usage stats for data)</li>
+</ul>
 
-  <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
-  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
-</div>
-          </div>
-        </div>
+<h3 id="toc_7">Support for relationships between resources</h3>
 
+<p>This is an important feature for data because of versioning and subsets of data (*isPartOf*). This functionality is also needed for journal articles, allowing us to describe the relationship between different versions of an article, and related content such as corrections, as well as component DOIs for figures and tables.</p>
 
-      </div>
-    </div> <!-- /container -->
+<h2 id="toc_8">4.2 Server-to-Server Replication (January 2015)</h2>
 
-    <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '']);
-  _gaq.push(['_trackPageview']);
+<p>As the number of Lagotto installations increases, we need to start thinking about server-to-server replication, so that multiple Lagotto servers are not all collecting the same information from external data sources.</p>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+<p>To make this replication performant, we ideally want to use a native database replication tool. Part of the implementation should therefore be a re-evaluation of MySQL and CouchDB as databases used in Lagotto.</p>
 
+<h2 id="toc_9">4.3 Archiving and Auditing of Raw Data (February 2015)</h2>
 
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  </body>
-</html>
+<p>We want to make all data collected by Lagotto available publicly. While monthly reports can be generated as CSV files and <a href="http://figshare.com/articles/Cumulative_PLOS_ALM_Report_February_2014/1189396">uploaded to a data repository such as figshare</a>, we need a different mechanism to include the raw data collected from external sources. A database is not the best place for this kind of data and we need to look at other services to handle this, e.g. <a href="http://www.fluentd.org/">fluentd</a> and <a href="http://aws.amazon.com/glacier/">Amazon Glacier</a>.</p>

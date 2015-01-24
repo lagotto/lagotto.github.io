@@ -1,0 +1,170 @@
+<p>ORCID is a persistent author identifier for connecting research and researchers.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>orcid</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>url</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>various</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON and XML</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://pub.orcid.org/v1.1/search/orcid-bio/?q=digital-object-ids:"DOI"</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>License</strong></td>
+<td valign="top" width=80%>CC0</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;message-version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;orcid-search-results&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;orcid-search-result&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;relevancy-score&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.7290998</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;orcid-profile&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;orcid&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;orcid-identifier&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;http://orcid.org/0000-0002-0159-2197&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-0002-0159-2197&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;orcid.org&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;orcid-bio&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;personal-details&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;given-names&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Jonathan A.&quot;</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;family-name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Eisen&quot;</span>
+              <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;biography&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;visibility&quot;</span><span class="p">:</span> <span class="kc">null</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;researcher-urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;researcher-url&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;url-name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;microBEnet&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;http://microBE.net&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;url-name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Tree of Life Blog&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;http://phylogenomics.blogspot.com&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;url-name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Lab Page&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;http://phylogenomics.wordpress.com&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;url-name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Twitter&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;http://twitter.com/phylogenomics&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">}</span>
+              <span class="p">],</span>
+              <span class="nt">&quot;visibility&quot;</span><span class="p">:</span> <span class="kc">null</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;keyword&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;evolution, genomics, microbiology, ecology, microbial diversity, citizen science, &quot;</span>
+                <span class="p">}</span>
+              <span class="p">],</span>
+              <span class="nt">&quot;visibility&quot;</span><span class="p">:</span> <span class="kc">null</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;external-identifiers&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;external-identifier&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;external-id-common-name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Scopus Author ID&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;external-id-reference&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;35247902700&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;external-id-url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.scopus.com/inward/authorDetails.url?authorID=35247902700&amp;partnerID=MN8TOARS&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;external-id-source&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;http://orcid.org/0000-0002-5982-8983&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-0002-5982-8983&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;orcid.org&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">}</span>
+              <span class="p">],</span>
+              <span class="nt">&quot;visibility&quot;</span><span class="p">:</span> <span class="kc">null</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;delegation&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;applications&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="kc">null</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;group-type&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="nt">&quot;client-type&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;num-found&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/orcid.rb">here</a>.</p>
+
+<h2 id="toc_2">Further Documentation</h2>
+
+<ul>
+<li><a href="http://support.orcid.org/knowledgebase/articles/132354-searching-with-the-public-api">Searching with the ORCID API</a></li>
+</ul>
