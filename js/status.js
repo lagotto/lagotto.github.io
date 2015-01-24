@@ -4,7 +4,8 @@ var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.o
              { name: "Lagotto Labs Server", url: "http://labs.lagotto.io" },
              { name: "CrossRef Labs", url: "http://det.labs.crossref.org" },
              { name: "eLife", url: "http://lagotto.svr.elifesciences.org/" },
-             { name: "Pensoft", url: "http://alm.pensoft.net:81/" }]
+             { name: "Pensoft", url: "http://alm.pensoft.net:81/" },
+             { name: "Making Data Count", url: "http://dlm.plos.org" },]
 
 // queue requests, using queue.js library: https://github.com/mbostock/queue
 var queue = queue();
@@ -35,9 +36,9 @@ function ready(error, data) {
     status = (data[i]["error"]) ? "Unknown" : "OK";
     label = (data[i]["error"]) ? "label-warning" : "label-success";
     version = (data[i]["error"]) ? "n/a" : data[i]["version"];
-    articles_count = (data[i]["error"]) ? "n/a" : data[i]["articles_count"];
+    works_count = (data[i]["articles_count"]) ? data[i]["articles_count"] : data[i]["works_count"];
 
-    var row = { name: sites[i]["name"], url: sites[i]["url"], status: status, label: label, version: version, articles_count: articles_count}
+    var row = { name: sites[i]["name"], url: sites[i]["url"], status: status, label: label, version: version, works_count: works_count}
 
     tr.append("td")
       .html(function(d) { return row["name"]; });
@@ -52,7 +53,7 @@ function ready(error, data) {
       .text(function(d) { return row["version"]; });
     tr.append("td")
       .attr("class", "number")
-      .text(function(d) { return number_with_delimiter(row["articles_count"]); });
+      .text(function(d) { return number_with_delimiter(row["works_count"]); });
   }
 }
 
