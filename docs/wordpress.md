@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: card
 title: Wordpress.com
 ---
 
-Wordpress.com is a blog hosting platform by the makers of the Wordpress blogging software. Search results are currently limited to the first 10 hits.
+Wordpress.com is a blog hosting platform by the makers of the Wordpress blogging software. Search results are currently limited to the first 20 hits.
 
 <table width=100% border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -44,7 +44,7 @@ Wordpress.com is a blog hosting platform by the makers of the Wordpress blogging
 </tr>
 <tr>
 <td valign="top" width=20%><strong>API URL</strong></td>
-<td valign="top" width=80%>http://en.search.wordpress.com/?q="DOI"&t=post&f=json&size=20</td>
+<td valign="top" width=80%>http://en.search.wordpress.com/?q="DOI"+OR+"URL"&t=post&f=json&size=20</td>
 </tr>
 <tr>
 <td valign="top" width=20%><strong>License</strong></td>
@@ -141,7 +141,7 @@ Wordpress.com is a blog hosting platform by the makers of the Wordpress blogging
 ```
 
 ## Source Code
-The source code is available [here](https://github.com/articlemetrics/alm/blob/master/app/models/sources/wordpress.rb).
+The source code is available [here](https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/wordpress.rb).
 
 ## Further Documentation
 * [WordPress.com Search](http://en.support.wordpress.com/wordpresscom-search/)

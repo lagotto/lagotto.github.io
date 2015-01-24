@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: card
 title: Scopus
 ---
 
@@ -130,7 +130,7 @@ title: Scopus
 ```
 
 ## Source Code
-The source code is available [here](https://github.com/articlemetrics/alm/blob/master/app/models/sources/scopus.rb).
+The source code is available [here](https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/scopus.rb).
 
 ## Further Documentation
 * [Scopus Cited-by Linking](http://www.developers.elsevier.com/cms/scopus-citedby-retrieval)

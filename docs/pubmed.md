@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: card
 title: "PubMed Central"
 ---
 
@@ -68,6 +68,9 @@ title: "PubMed Central"
 	</REFORM>
 </PubMedToPMCcitingformSET>
 ```
+
+## Source Code
+The source code is available [here](https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/pub_med.rb).
 
 ## API Documentation
 * [PubMed Central citation data](http://www.pubmedcentral.nih.gov/utils/)
