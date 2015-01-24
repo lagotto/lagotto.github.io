@@ -14,6 +14,8 @@ title: "Public Library of Science (PLOS)"
 
 <p>PLOS is committed to the open provision of these metrics. The entire dataset of all cumulative ALMs are made available as a <a href="ADDLINKHERE">summary file</a>, updated monthly. We also provide an <a href="http://api.plos.org/alm/using-the-alm-api/">API and accompanying documentation</a> for the automatic retrieval of ALM data. </p>
 
+<p>Licensing of PLOS ALM data is under Creative Commons Zero 1.0 Universal Public Domain Dedication <a href="http://creativecommons.org/about/cc0">(CC0)</a>.</p>
+
 <a id="usageInfo" name="usageInfo"></a>
 <h2>Viewed</h2>
 <p>PLOS provides data on each article for usage activity across the following sites:
