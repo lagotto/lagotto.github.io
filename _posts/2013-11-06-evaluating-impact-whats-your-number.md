@@ -156,7 +156,7 @@ citation-based bibliometrics currently in use, and the [PLOS
 Article-Level Metrics](http://article-level-metrics.plos.org/) project
 has always been an important part of this change. We and others are
 working on [open source tools that make it affordable for everyone to
-collect article-level metrics](https://github.com/articlemetrics/alm),
+collect article-level metrics](https://github.com/lagotto/lagotto),
 better tools to [analyze and visualize article-level
 metrics](http://almreports.plos.org), [standards for grouping metrics
 into categories](http://dx.doi.org/10.3789/isqv25no2.2013.04),

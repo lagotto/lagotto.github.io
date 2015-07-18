@@ -1,6 +1,6 @@
-articlemetrics.github.io
+lagotto.io
 ========================
 
-[![Build Status](https://travis-ci.org/articlemetrics/articlemetrics.github.io.png?branch=master)](https://travis-ci.org/articlemetrics/articlemetrics.github.io)
+[![Build Status](https://travis-ci.org/lagotto/lagotto.github.io.png?branch=master)](https://travis-ci.org/lagotto/lagotto.github.io)
 
-The community website for the ALM project.
+The community website for the Lagotto project.

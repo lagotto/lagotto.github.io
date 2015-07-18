@@ -10,7 +10,7 @@ authors:
 ---
 
 We have released the latest version of the [open source Article-Level
-Metrics application](https://github.com/articlemetrics/alm/releases) that PLOS
+Metrics application](https://github.com/lagotto/lagotto/releases) that PLOS
 is using to track how many times each article has been viewed, saved,
 discussed, recommended, and cited. Since it is an open source
 application, everyone can install this software and [collect metrics for

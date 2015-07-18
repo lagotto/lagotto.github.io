@@ -10,13 +10,13 @@ authors:
 ---
 
 The PLOS [Article-Level Metrics
-application](https://github.com/articlemetrics/alm) is open source
+application](https://github.com/lagotto/lagotto) is open source
 software that collects a variety of metrics about scholarly articles.
 The application talks to a number of APIs, and in return provides these
 metrics via an API. Work on this application therefore involves a lot of
 work on APIs, and some of the lessons I learned are summarized below,
 including changes we made in the latest [ALM
-2.8](https://github.com/articlemetrics/alm/releases/tag/v.2.8) release.
+2.8](https://github.com/lagotto/lagotto/releases/tag/v.2.8) release.
 Most of the things I mention are fairly obvious, but some of them could
 be starting points for a discussion. Good APIs are important for
 scholarly content, as we increasingly use computers to extract relevant
@@ -53,8 +53,7 @@ not only for improving the ALM API, but also to make the **rplos** and
 ### Document your API
 
 Documentation is important for all software, and that of course also
-includes APIs. The documentation for the PLOS ALM API is in the Github
-[wiki](https://github.com/articlemetrics/alm/wiki/API). In the latest
+includes APIs. The documentation for the Lagotto API is in [Github](https://github.com/lagotto/lagotto/blog/master/docs/api.md). In the latest
 ALM release we have included the documentation right in the ALM
 application to make it easier to use, e.g. with the documentation for
 the PubMed API right next to the PubMed configuration tab. You also see
@@ -157,6 +156,6 @@ fine-tuning the performance of the API during development.
 
 This is an area where we could do much better. There is a [PLOS API
 mailing list](https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers)
-and a [Github issue tracker](https://github.com/articlemetrics/alm/issues), and we would
+and a [Github issue tracker](https://github.com/lagotto/lagotto/issues), and we would
 love to get feedback in either of these places. Feedback is important,
 as we can’t possible anticipate all the uses of the API.

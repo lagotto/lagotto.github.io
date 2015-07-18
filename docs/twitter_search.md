@@ -69,7 +69,7 @@ The rate-limits for application-only authentication and search are 450 requests 
 </tr>
 <tr>
 <td valign="top" width=20%><strong>API URL</strong></td>
-<td valign="top" width=80%>https://api.twitter.com/1.1/search/tweets.json?q=\"DOI\"+OR+\"URL\"</td>
+<td valign="top" width=80%>https://api.twitter.com/1.1/search/tweets.json?q=\"DOI\"+OR+\"URL\"&count=100&include_entities=1&result_type=recent</td>
 </tr>
 <tr>
 <td valign="top" width=20%><strong>License</strong></td>
@@ -386,7 +386,7 @@ The rate-limits for application-only authentication and search are 450 requests 
 ```
 
 ## Source Code
-The source code is available [here](https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/twitter_search.rb).
+The source code is available [here](https://github.com/lagotto/lagotto/blob/master/app/models/sources/twitter_search.rb).
 
 ## Further Documentation
 * [Twitter Developer Documentation](https://dev.twitter.com/)

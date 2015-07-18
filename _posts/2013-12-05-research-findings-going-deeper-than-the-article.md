@@ -18,7 +18,7 @@ from both sources are displayed on the metrics tab of PLOS articles, are
 available through the [PLOS ALM
 API](http://api.plos.org/alm/using-the-alm-api/), and are available to
 all users of the [open source ALM
-application](https://github.com/articlemetrics/alm). These new sources
+application](https://github.com/lagotto/lagotto). These new sources
 are both related to research data, and they represent a new breed of
 metrics in our ALM suite.
 

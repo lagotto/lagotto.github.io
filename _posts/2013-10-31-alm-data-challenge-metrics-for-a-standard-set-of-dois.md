@@ -105,7 +105,7 @@ the limitations of the datasets).
 
 In a second step these 10,000 DOIs were loaded into an instance of the
 [PLOS Open Source ALM
-application](https://github.com/articlemetrics/alm) set up on Amazon AWS
+application](https://github.com/lagotto/lagotto) set up on Amazon AWS
 and started collecting metrics. You can visit the ALM application with
 these 10,000 DOIs at
 [http://almhack.crowdometer.org](http://almhack.crowdometer.org). Some

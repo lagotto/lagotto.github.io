@@ -85,7 +85,7 @@ URL](https://support.google.com/webmasters/answer/139066?hl=en) in
 their systems. PLOS encountered this change in Facebook’s methods when
 we noticed aberrant counts and investigated the elevated numbers. We
 have shared what we learned in
-the[ documentation](http://articlemetrics.github.io/docs/Facebook/) found
+the[ documentation](http://lagotto.io/docs/Facebook/) found
 on the new ALM community website about how the ALM application collects
 Facebook metrics. Later in 2013 we found that while the requirement for
 the canonical URL is automatically satisfied by many websites, meta

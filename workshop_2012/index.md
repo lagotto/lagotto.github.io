@@ -4,7 +4,7 @@ title: ALM Workshop 2012
 published: true
 ---
 
-Building off last year’s Beyond Impact Workshop; altmetrics11 &amp; 12; and a storm of activity they have since catalyzed, PLOS hosted the 2012 ALM Workshop on November 1-3, 2012 in San Francisco. We convened various groups across the research ecosystem – researchers, institutions, publishers, funders, technology and service providers – for 3 days of collaborative breakout sessions amongst and between these groups. The workshop wrapped on the last day with the <a href="http://articlemetrics.github.io/workshop_2012/hackathon/">Altmetrics Hackathon</a>.
+Building off last year’s Beyond Impact Workshop; altmetrics11 &amp; 12; and a storm of activity they have since catalyzed, PLOS hosted the 2012 ALM Workshop on November 1-3, 2012 in San Francisco. We convened various groups across the research ecosystem – researchers, institutions, publishers, funders, technology and service providers – for 3 days of collaborative breakout sessions amongst and between these groups. The workshop wrapped on the last day with the <a href="http://lagotto.io/workshop_2012/hackathon/">Altmetrics Hackathon</a>.
 
 <strong>Purpose and Aims</strong>
 <br>
@@ -20,4 +20,4 @@ We employed a blend of “unconference” and traditional programming.  As a gr
 
 <strong>Final Outputs</strong>
 <br>
-The full outputs of each session are archived <a href="http://articlemetrics.github.io/workshop_2012/outputs/">here</a>. The final technical documentation is found in the <a href="http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828">ALM Workshop 2012 Report</a>.
+The full outputs of each session are archived <a href="http://lagotto.io/workshop_2012/outputs/">here</a>. The final technical documentation is found in the <a href="http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828">ALM Workshop 2012 Report</a>.

@@ -1,15 +1,15 @@
 ---
 layout: card
-title: "DataCite"
+title: "DataCite Data"
 ---
 
-[DataCite](http://www.datacite.org) is a DOI registration agency for datasets.
+[DataCite](http://www.datacite.org) is a DOI registration agency for datasets. The DataCite Data source tracks events for DataCite DOIs instead of other works referenced by DataCite.
 
 <table width=100% border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td valign="top" width=30%><strong>ALM Name</strong></td>
-<td valign="top" width=70%>datacite</td>
+<td valign="top" width=70%>datacite_data</td>
 </tr>
 <tr>
 <td valign="top" width=20%><strong>ALM Configuration</strong></td>
@@ -44,7 +44,7 @@ title: "DataCite"
 </tr>
 <tr>
 <td valign="top" width=20%><strong>API URL</strong></td>
-<td valign="top" width=80%>http://search.datacite.org/api?q=relatedIdentifier:DOI&fl=relatedIdentifier,doi,creator,title,publisher,publicationYear&fq=is_active:true&fq=has_metadata:true&indent=true</td>
+<td valign="top" width=80%>http://search.datacite.org/api?q=doi:DOI&fl=relatedIdentifier,doi,creator,title,publisher,publicationYear&fq=is_active:true&fq=has_metadata:true&indent=true</td>
 </tr>
 </tbody>
 </table>
@@ -91,7 +91,7 @@ title: "DataCite"
 ```
 
 ## Source Code
-The source code is available [here](https://github.com/lagotto/lagotto/blob/master/app/models/sources/datacite.rb).
+The source code is available [here](https://github.com/lagotto/lagotto/blob/master/app/models/sources/datacite_data.rb).
 
 ## Further Documentation
 * [DataCite Metadata Search](http://search.datacite.org/help.html)

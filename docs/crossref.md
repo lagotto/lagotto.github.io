@@ -27,7 +27,7 @@ For articles without a publisher the `openurl_username` in the `Configuration` t
 </tr>
 <tr>
 <td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
-<td valign="top" width=80%>id (as doi)<br/>url (as http://dx.doi.org/DOI)<br/>contributor(s)</td>
+<td valign="top" width=80%>id (as doi)<br/>url (as http://doi.org/DOI)<br/>contributor(s)</td>
 </tr>
 <td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
 <td valign="top" width=80%>ISSN<br/>journal title<br/>journal abbreviation<br/>title<br/>volume<br/>issue<br/>first page<br/>year<br/>publication type<br/>citation count</td>
@@ -180,7 +180,7 @@ For articles without a publisher the `openurl_username` in the `Configuration` t
 ```
 
 ## Source Code
-The source code is available [here](https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/cross_ref.rb).
+The source code is available [here](https://github.com/lagotto/lagotto/blob/master/app/models/sources/cross_ref.rb).
 
 ## Further Documentation
 * [CrossRef Cited-by Linking](http://www.crossref.org/citedby.html)

@@ -2,8 +2,8 @@ safe: true
 lsi: false
 pygments: true
 
-relative_source: ../articlemetrics.github.io/
-destination: ../articlemetrics.github.io-pages/
+relative_source: ../lagotto.github.io/
+destination: ../lagotto.github.io-pages/
 
 # Settings for deploy rake task
 # Username and repo of Github repo, e.g.
@@ -12,7 +12,7 @@ destination: ../articlemetrics.github.io-pages/
 # repo defaults to USERNAME.github.io
 # Branch defaults to "source" for USERNAME.github.io
 # or "master" otherwise
-username: articlemetrics
+username: lagotto
 
 permalink: pretty
 
@@ -37,7 +37,7 @@ title: Article-Level Metrics
 name: ALM
 description: Article-Level Metrics - Alternative Measures to Gauge the Impact of Research
 tagline:
-url: http://articlemetrics.github.io
+url: http://lagotto.github.io
 authors:
  - name: Martin Fenner
    orcid: 0000-0003-1419-2405
@@ -55,8 +55,8 @@ authors:
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 
-production_url:  http://articlemetrics.github.io
-source_url:      http://github.com/articlemetrics/articlemetrics.github.io
+production_url:  http://lagotto.github.io
+source_url:      http://github.com/lagotto/lagotto.github.io
 tags_path:       /tags/
 rss_path:        rss.xml
 atom_path:       atom.xml
@@ -64,7 +64,7 @@ atom_path:       atom.xml
 comments :
   provider : disqus
   disqus :
-    short_name : articlemetrics
+    short_name : lagotto
 
 analytics :
     provider : google

@@ -11,14 +11,14 @@ Configuring Lagotto consists of three steps:
 * [Deployment](/docs/deployment) if you are using Lagotto in a production system
 * [Setup](/docs/setup)
 
-Lagotto is a typical Ruby on Rails web application with one unusual feature: it requires the CouchDB database. CouchDB is used to store the responses from external API calls, MySQL (or PostgreSQL, see below) is used for everything else. The application is used in production systems with Apache/Passenger, Nginx/Passenger and Nginx/Puma. Lagotto uses Ruby 2.x and Ruby on Rails 4.x. The application has extensive test coverage using [Rspec].
+Lagotto is a typical Ruby on Rails web application, using MySQL (or PostgreSQL, see below), Memcached, Redis, Nginx, and Passenger.CouchDB is used to store the data from some external sources, but is not reqquired. Lagotto uses Ruby 2.x and Ruby on Rails 4.x. The application has extensive test coverage using [Rspec].
 
 [Rspec]: http://rspec.info/
 
-Lagotto is Open Source software licensed with a [MIT License](https://github.com/articlemetrics/lagotto/blob/master/LICENSE.md), all dependencies (software and libraries) are also Open Source. Because of the background workers that talk to external APIs we recommend at least 1 Gb of RAM, and more if you have a large number of works.
+Lagotto is Open Source software licensed with a [MIT License](https://github.com/lagotto/lagotto/blob/master/LICENSE.md), all dependencies (software and libraries) are also Open Source. Because of the background workers that talk to external APIs we recommend at least 1 Gb of RAM, and more if you have a large number of works.
 
 #### Ruby
-Lagotto requires Ruby 2.x. [RVM] and [Rbenv] are Ruby version management tools for installing Ruby, unfortunately they also introduce additional dependencies, making them not the best choices in a production environment. The Chef script below installs Ruby 2.1 using a PPA for Ubuntu.
+Lagotto requires Ruby 2.x. [RVM] and [Rbenv] are Ruby version management tools for installing Ruby, unfortunately they also introduce additional dependencies, making them not the best choices in a production environment. The Chef script below installs Ruby 2.2 using a PPA for Ubuntu, this PPA is also recommended for manual installations on Ubuntu.
 
 [RVM]: http://rvm.io/
 [Rbenv]: https://github.com/sstephenson/rbenv
@@ -61,10 +61,7 @@ SERVERNAME=lagotto.local
 SERVERS=lagotto.local
 
 # name used on navigation bar and in email subject line
-SITENAME=ALM
-
-# couch_db database
-COUCHDB_URL=http://localhost:5984/lagotto
+SITENAME=Lagotto
 
 # email address for sending emails
 ADMIN_EMAIL=admin@example.com
@@ -73,8 +70,8 @@ ADMIN_EMAIL=admin@example.com
 CONCURRENCY=25
 
 # automatic import via CrossRef API.
-# Use 'crossref', 'member', 'sample', 'member_sample', 'datacite', 'dataone', 'plos', or leave empty
-IMPORT=
+# Use 'crossref', 'member', 'sample', 'member_sample', 'datacite', 'dataone', 'plos', or comment out
+# IMPORT=
 
 # keys
 # run `rake secret` to generate these keys
@@ -122,7 +119,7 @@ CAS_PREFIX=
 ```
 
 ## Automated Installation
-This is the recommended way to install Lagotto. The required applications and libraries will automatically be installed in a self-contained virtual machine running Ubuntu 14.04, using [Vagrant] and [Chef Solo].
+This is the recommended way to install Lagotto. The required applications and libraries will automatically be installed in a self-contained virtual machine running Ubuntu 14.04, using [Vagrant] (at least version 1.7.x) and [Chef Solo].
 
 The first step is to copy `.env.example` to `.env` and to set all variables - reasonable defaults are provided for many of them.
 
@@ -138,6 +135,8 @@ Vagrant needs three additional plugins and will complain if they are missing. Th
 vagrant plugin install vagrant-omnibus
 vagrant plugin install vagrant-librarian-chef
 vagrant plugin install vagrant-bindfs
+vagrant plugin install dotenv
+vagrant plugin install vagrant-capistrano-push
 ```
 
 The following providers have been tested with Lagotto:
@@ -217,7 +216,7 @@ The [Chef cookbooks](https://supermarket.getchef.com/) needed by the Lagotto coo
 Then install all the required software for Lagotto with:
 
 ```sh
-git clone git://github.com/articlemetrics/lagotto.git
+git clone git://github.com/lagotto/lagotto.git
 cd lagotto
 vagrant up
 ```
@@ -239,22 +238,18 @@ This uses the private SSH key provided by you in the `Vagrantfile` (the default 
 ## Manual installation
 These instructions assume a fresh installation of Ubuntu 14.04 and a user with sudo privileges. Installation on other Unix/Linux platforms should be similar, and Lagotto runs on several production systems with RHEL and CentOS.
 
-#### Add PPAs to install more recent versions of Ruby and CouchDB, and Nginx/Passenger
-We only need one Ruby version and manage gems with bundler, so there is no need to install `rvm` or `rbenv`. We want to install the latest CouchDB version from the official PPA, and we want to install Nginx precompiled with Passenger.
+#### Add PPAs/repositories to install more recent versions of Ruby and CouchDB, and Nginx/Passenger
+We only need one Ruby version and manage gems with bundler, so there is no need to install `rvm` or `rbenv`. We optionally want to install the latest CouchDB version from the official PPA (needed for the twitter_search, pmc and f1000 sources), and we want to install Nginx precompiled with Passenger.
 
 ```sh
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+sudo apt-get install apt-transport-https ca-certificates -y
 sudo apt-get install python-software-properties -y
+
 sudo apt-add-repository ppa:brightbox/ruby-ng
 sudo add-apt-repository ppa:couchdb/stable
 
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
-sudo apt-get install apt-transport-https ca-certificates -y
-
-# Create a file /etc/apt/sources.list.d/passenger.list and insert the following line:
-deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main
-
-sudo chown root: /etc/apt/sources.list.d/passenger.list
-sudo chmod 600 /etc/apt/sources.list.d/passenger.list
+echo 'deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main' | sudo tee --append /etc/apt/sources.list > /dev/null
 ```
 
 #### Update package lists
@@ -264,10 +259,10 @@ sudo apt-get update
 ```
 
 #### Install Ruby and required packages
-Also install the `curl` and `git` packages, the `libmysqlclient-dev` library required by the `myslq2` gem, and `nodejs` as Javascript runtime. When running Lagotto on a local machine we also want to install `avahi-daemon` and `libnss-mdns`for zeroconf networking - this allows us to reach the server at `http://lagotto.local`.
+Also install the `make`, `curl` and `git` packages, the `libmysqlclient-dev` library required by the `myslq2` gem, and `nodejs` as Javascript runtime. When running Lagotto on a local machine we also want to install `avahi-daemon` and `libnss-mdns`for zeroconf networking - this allows us to reach the server at `http://lagotto.local`.
 
 ```sh
-sudo apt-get install ruby2.1 ruby2.1-dev curl git libmysqlclient-dev nodejs avahi-daemon libnss-mdns -y
+sudo apt-get install ruby2.2 ruby2.2-dev make curl git libmysqlclient-dev nodejs avahi-daemon libnss-mdns -y
 ```
 
 #### Install databases
@@ -319,7 +314,7 @@ You may have to set the permissions first, depending on your server setup. Passe
 mkdir -p /var/www
 sudo chmod 755 /var/www
 cd /var/www
-git clone git://github.com/articlemetrics/lagotto.git
+git clone git://github.com/lagotto/lagotto.git
 ```
 
 #### Install Bundler and Ruby gems required by the application
@@ -332,16 +327,22 @@ cd /var/www/lagotto
 bundle install
 ```
 
-#### Install Lagotto databases
-We just setup an empty database for CouchDB. With MySQL we also include all data to get started, including a default user account (`DB_USERNAME` from your `.env` file). Use `RAILS_ENV=production` in your `.env` file if you set up Passenger to run in the production environment.
+#### Install Node, Bower, and npm and bower modules required by the application
+[Bower](http://bower.io/) is used to install frontend dependencies (Javascript and CSS libraries). Because of permission issues we don't install Bower globally. Bower modules are installed via a npm postinstall hook.
 
-It is possible to connect Lagotto to MySQL and/or CouchDB running on a different server, please change `DB_HOST` and `COUCHDB_URL` in your `.env` file accordingly. We are using the default installation for redis.
+```sh
+cd /var/www/lagotto/frontend
+npm install
+```
+
+#### Install Lagotto databases
+We just setup an empty database for CouchDB (optional). With MySQL we also include all data to get started, including a default user account (`DB_USERNAME` from your `.env` file). Use `RAILS_ENV=production` in your `.env` file if you set up Passenger to run in the production environment.
+
+It is possible to connect Lagotto to MySQL unning on a different server, please change `DB_HOST` in your `.env` file accordingly. We are using the default installation for redis.
 
 ```sh
 cd /var/www/lagotto
 rake db:setup RAILS_ENV=production
-curl -X PUT http://localhost:5984/lagotto
-# should return {"ok":true}
 ```
 
 #### Restart Nginx
