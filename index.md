@@ -1,13 +1,9 @@
 ---
 layout: page
-title: "About Article-Level Metrics"
+title: "About Lagotto"
 ---
-<!-- this page provides information on the following:
-- full description of what ALMs are
-- summary of ALM application as a data harvester
-- range of article activity captured through the 5 categories
--->
-## ALM
+
+## Lagotto
 
 Traditionally, the impact of research articles has been measured by the publication journal. But a more informative view is one that examines the overall performance and reach of the articles themselves. Article-Level Metrics capture the manifold ways in which research is disseminated and used, including:
 
@@ -25,9 +21,9 @@ Each of the metrics fall under one of these activities. But as an entire set, th
 
 ALM offer a dynamic and real-time view of the latest activity. Researchers can stay up-to-date with their published work and share information about the impact of their publications with collaborators, funders, institutions, and the research community at large. These metrics are also a powerful way to navigate and discover others’ work. They can be customized based on the unique needs of researchers, publishers, institutional decision-makers, and funders.
 
-## ALM Application
+## Lagotto Application
 
-The ALM application collects and aggregates the data from external sources where article activity is occurring. It was developed in 2009 as an open source application by PLOS. To date, the community of [contributors to the application](/docs/Contributors) has rapidly grown as more publishers and other providers are implementing the system.
+The Lagotto application collects and aggregates the data from external sources where article activity is occurring. It was developed in 2009 as an open source application by PLOS. To date, the community of [contributors to the application](/docs/Contributors) has rapidly grown as more publishers and other providers are implementing the system.
 
 The application retrieves data from a wide set of services ([sources](/docs/Sources)). Some of these sources represent the actual channels where users are directly viewing, sharing, discussing, citing, recommending the articles (e.g., Twitter and Mendeley). Others are third-party vendors which provide this information (e.g., CrossRef for citations). All data is fetched via an API from the sources. Each source has a unique set of specifications for query volume, frequency, and speed. In order to ensure that the metrics reflect the latest activity, we queue each article for every source to be refreshed based upon its publication date and the upper thresholds for each source. The system then programmatically harvests data for each article and each source at its appointed time.
 
