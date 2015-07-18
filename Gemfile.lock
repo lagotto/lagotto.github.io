@@ -1,5 +1,5 @@
 GEM
-  remote: http://production.cf.rubygems.org/
+  remote: https://rubygems.org/
   specs:
     RedCloth (4.2.9)
     blankslate (2.1.2.4)
@@ -62,3 +62,6 @@ PLATFORMS
 DEPENDENCIES
   github-pages (~> 15)
   rake (~> 10.1.1)
+
+BUNDLED WITH
+   1.10.5
