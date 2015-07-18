@@ -3,17 +3,17 @@
     <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lagotto 4.2 released</title>
+    <title>Lagotto 4.0 released</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Martin Fenner" />
 
     <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Lagotto 4.2 released" />
+    <meta property="dc:title" content="Lagotto 4.0 released" />
     <meta property="dc:creator" content="" />
-    <meta name="citation_publication_date" content="2015-07-13T00:00:00+00:00"/>
+    <meta name="citation_publication_date" content="2015-05-05T00:00:00+00:00"/>
     <meta property="dc:format" content="text/html" />
     <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/blog/2015/07/13/lagotto-4.2-released/" />
+    <meta property="dc:identifier" content="/blog/2015/05/05/lagotto-4.0-released/" />
     <meta property="dc:rights" content="CC-BY" />
     <meta property="dc:source" content="Lagotto" />
     <meta property="dc:subject" content="Scholarly Communication" />
@@ -21,8 +21,8 @@
 
     <!-- Google Scholar Metadata -->
     <meta name="citation_author" content="Martin Fenner"/>
-    <meta name="citation_publication_date" content="2015-07-13"/>
-    <meta name="citation_title" content="Lagotto 4.2 released"/>
+    <meta name="citation_publication_date" content="2015-05-05"/>
+    <meta name="citation_title" content="Lagotto 4.0 released"/>
     <meta name="citation_journal_title" content="Lagotto"/>
 
     <link rel="alternate" type="application/rss+xml" title="Lagotto" href="/rss.xml" />
@@ -104,8 +104,8 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>Lagotto 4.2 released</h1>
-        <p class="subtitle">13 July 2015 by
+        <h1>Lagotto 4.0 released</h1>
+        <p class="subtitle">05 May 2015 by
           
 <a href="http://orcid.org/0000-0003-1419-2405">Martin Fenner</a>
         </p>
@@ -115,30 +115,38 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p><a href="https://github.com/lagotto/lagotto/releases/tag/v.4.2">Lagotto 4.2</a> was released on July 13, 2015 with the following changes:</p>
+            <p><a href="https://github.com/lagotto/lagotto/releases/tag/v.4.0">Lagotto 4.0</a> was released on May 5, 2015 with the following changes:</p>
 
 <ul>
-<li>export CSV summary report to Zenodo data repository (<a href="https://github.com/lagotto/lagotto/issues/339">#339</a>)</li>
-<li>process pmc import and parsing in the background (<a href="https://github.com/lagotto/lagotto/issues/363">#363</a>)</li>
-<li>allow wildcard searches for works in the API and admin frontend (<a href="https://github.com/lagotto/lagotto/issues/368">#368</a>)</li>
-<li>added missing author information to v6 API (<a href="https://github.com/lagotto/lagotto/issues/370">#370</a>)</li>
-<li>make sure DOIs are stored in lowercase(<a href="https://github.com/lagotto/lagotto/issues/372">#372</a>)</li>
-<li>optionally load all DataONE member nodes as publishers (<a href="https://github.com/lagotto/lagotto/issues/374">#374</a>)</li>
-<li>added methods to fetch metadata for DataCite DOIs, and to look up the DOI registration agency (<a href="https://github.com/lagotto/lagotto/issues/376">#376</a>)</li>
-<li>added registration agency column to works (<a href="https://github.com/lagotto/lagotto/issues/377">#377</a>)</li>
-<li>store temporary files in tmp folder (<a href="https://github.com/lagotto/lagotto/issues/378">#378</a>)</li>
-<li>fixed name inconsistencies for EuropePMC sources (<a href="https://github.com/lagotto/lagotto/issues/379">#379</a>)</li>
+<li>normalized responses from external sources to be stored in MySQL. CouchDB is no longer required for the core Lagotto functionality (<a href="https://github.com/lagotto/lagotto/issues/213">#213</a>)</li>
+<li>show more CSL information in API and admin dashboard (<a href="https://github.com/lagotto/lagotto/issues/284">#284</a>)</li>
+<li>started new v6 API (<a href="https://github.com/lagotto/lagotto/issues/287">#287</a>)</li>
+<li>show related works (references and versions) in new v6 API and admin dashboard (<a href="https://github.com/lagotto/lagotto/issues/296">#296</a>)</li>
+<li>added <code>ads</code> and <code>ads_fulltext</code> data sources. <code>ads</code> finds ArXiV preprints that became peer-reviewed papers, <code>ads_fulltext</code> allows fulltext search for all ArXiV preprints (<a href="https://github.com/lagotto/lagotto/issues/297">#297</a>)</li>
+<li>import couchdb data into mysql for 4.0 upgrade (<a href="https://github.com/lagotto/lagotto/issues/301">#301</a>)</li>
 </ul>
 
-<p>The following new ENV variables must be set in the <code>.env</code> file to use the new Zenodo export functionality:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">CREATOR=Public Library of Science
-ZENODO_KEY=YOUR_KEY_HERE
-ZENODO_URL=https://zenodo.org/api/
-#ZENODO_URL=https://sandbox.zenodo.org/api/ for testing
-SITENAMELONG=&quot;PLOS ALM&quot;
-</code></pre></div>
-<p>A <code>ZENODO_KEY</code> can be obtained by creating a Zenodo account and then a personal access token on the profile page.</p>
+<h3 id="toc_0">Upgrading</h3>
 
+<p>Starting with Lagotto 4.0 frontend assets are installed via <a href="https://www.npmjs.com/">NPM</a> and <a href="http://bower.io/">Bower</a>. This is done automatically when using Chef/Vagrant. When not using Chef/Vagarant please copy <code>frontend/node_modules</code>, <code>frontend/bower_components</code>, <code>frontend/package.json</code>, <code>frontend/bower.json</code> and <code>frontend/.bowerrc</code> into <code>shared</code> and run <code>npm install</code> (not <code>npm -g install</code>) from <code>shared/frontend</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">cd /var/www/lagotto/shared/frontend
+mkdir node_modules
+mkdir bower_components
+wget https://raw.githubusercontent.com/lagotto/lagotto/4-0-stable/frontend/package.json
+wget https://raw.githubusercontent.com/lagotto/lagotto/4-0-stable/frontend/bower.json
+wget https://raw.githubusercontent.com/lagotto/lagotto/4-0-stable/frontend/.bowerrc
+npm install
+</code></pre></div>
+<p>CouchDB is no longer needed for core Lagotto functionality, but is still used to store responses from some of the sources (e.g. <code>F1000</code>).</p>
+
+<p>Make sure to run the data migrations in addition to the database migrations. This happens automatically if using capistrano, otherwise run <code>rake data:migrate</code>.</p>
+
+<p>After upgrading the code and running the database migrations, old monthly and daily data stored in CouchDB should be imported via:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">bundle exec rake couchdb:import
+</code></pre></div>
+<p>Starting with the new v6 API, API versions (currently defaulting to version 6) and authentication via API key (needed for admin functionality) are provided via the HTTP header, e.g. in curl:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">- H &quot;Accept: application/json; version=6&quot; -H &quot;Authorization: Token token=API_KEY&quot;
+</code></pre></div>
 
   <h3>Tags</h3>
   <ul class="tag_box inline">
@@ -160,12 +168,12 @@ SITENAMELONG=&quot;PLOS ALM&quot;
   title="ctx_ver=Z39.88-2004
   &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
   &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Lagotto 4.2 released
+  &amp;rft.title=Lagotto 4.0 released
   &amp;rft.creator=
-  &amp;rft.date=2015-07-13
+  &amp;rft.date=2015-05-05
   &amp;rft.language=EN
   &amp;rft.rights=CC0
-  &amp;rft_id=http://lagotto.io/blog/2015/07/13/lagotto-4.2-released/">
+  &amp;rft_id=http://lagotto.io/blog/2015/05/05/lagotto-4.0-released/">
 </span>
 
             
