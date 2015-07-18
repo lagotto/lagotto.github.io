@@ -33,11 +33,11 @@ markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "strikethrough", "superscript", "autolink", "tables", "with_toc_data"]
 
-title: Article-Level Metrics
-name: ALM
-description: Article-Level Metrics - Alternative Measures to Gauge the Impact of Research
+title: Lagotto
+name: Lagotto
+description: Lagotto - Tracking events around scholarly works
 tagline:
-url: http://lagotto.github.io
+url: http://lagotto.io
 authors:
  - name: Martin Fenner
    orcid: 0000-0003-1419-2405
@@ -45,7 +45,6 @@ authors:
    gravatar: abfd3f212a9252ecb14687a2c62f934b
    github: mfenner
    twitter: mfenner
-   description: Technical Lead PLOS Article-Level Metrics
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
