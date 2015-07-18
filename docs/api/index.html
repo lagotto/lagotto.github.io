@@ -1,43 +1,55 @@
-<h2 id="toc_0">Basic information</h2>
+<h2 id="toc_0">Basic Information</h2>
 
 <ul>
-<li>Version 4 of the API (write/update/delete for admin users) was released January 22, 2014 (ALM 2.11).</li>
-<li>Version 5 of the API was released April 24, 2014 (ALM 2.14).</li>
-<li>Since the 3.10 release (December 18, 2014) Lagotto uses <code>works</code> instead of <code>articles</code> internally. The v4 and v5 API still use <code>articles</code> to not break existing integrations.</li>
+<li>a live version of the API (using <a href="http://swagger.io/">Swagger</a>) is <a href="/api">here</a></li>
+<li>version 5 of the API was released April 24, 2014 (ALM 2.14).</li>
+<li>version 6 of the API was released April, 2015 (Lagotto 4.0).</li>
 </ul>
 
 <h3 id="toc_1">Base URL</h3>
 
 <ul>
-<li>API calls to the version 4 APIs start with <code>/api/v4/</code></li>
-<li>API calls to the version 5 APIs start with <code>/api/v5/</code></li>
+<li>API calls start with <code>/api/</code>. API versioning is done via the request header, e.g. <code>Accept: application/json; version=6</code>, and currently defaults to <code>version=6</code>.</li>
 </ul>
 
 <h3 id="toc_2">Supported Media Types</h3>
 
 <ul>
-<li>JSON</li>
+<li>application/json</li>
 </ul>
 
-<p>The media type is set in the header, e.g. &quot;Accept: application/json&quot;, but defaults to this format anyway. Media type negotiation via file extension (e.g. &quot;.json&quot;) is not supported. <code>JSONP</code> and <code>CORS</code> are supported.</p>
+<p>The default media type is JSON. The media type is set in the header, e.g. &quot;Accept: application/json&quot;, but defaults to this format anyway. Media type negotiation via file extension (e.g. &quot;.json&quot;) is not supported. <code>JSONP</code> and <code>CORS</code> are supported.</p>
 
 <h3 id="toc_3">API Key</h3>
 
 <p>Almost all information regarding works (with the exception of sources that don&#39;t allow redistribution of data) is available without API keys since the Lagotto 3.12.7 release (January 9, 2015). An API key is required to add/update works, and to access some of the internal data of the application. A key can be obtained by registering as API user with the ALM application and this shouldn&#39;t take more than a few minutes. By default the ALM application uses <a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a>, but it can also be configured to use other services usch as OAuth and CAS. For the PLOS ALM application you need to sign in with your <a href="http://register.plos.org/ambra-registration/register.action">PLOS account</a>.</p>
 
-<p>For the v5 API the API key shoould be part of the URL in the format <code>?api_key=API_KEY</code>. The v4 API uses a username/password pair and HTTP Basic authentication. Only admin and staff users can use this API.</p>
+<p>For the v5 API the API key shoould be part of the URL in the format <code>?api_key=API_KEY</code>. The v6 API requires the API key in the header in the format <code>Authorization: Token token=API_KEY</code>.</p>
 
-<h3 id="toc_4">Query for one or several works</h3>
+<h3 id="toc_4">Meta</h3>
 
-<p>Specify one or more works by a comma-separated list of DOIs in the <code>ids</code> parameter. These DOIs have to be URL-escaped, e.g. <code>%2F</code> for <code>/</code>:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles?ids<span class="o">=</span>10.1371%2Fjournal.pone.0036240
-/api/v5/articles?ids<span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413
+<p>Every API response starts with a <code>meta</code> object that starts with basic information such as <code>message-type</code> and number of results (<code>total</code>).</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;meta&quot;: {
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;message-type&quot;: &quot;work-list&quot;,
+  &quot;message-version&quot;: &quot;6.0.0&quot;,
+  &quot;total&quot;: 1077,
+  &quot;total_pages&quot;: 2,
+  &quot;page&quot;: 1
+}
 </code></pre></div>
-<p>Queries for up to 50 works at a time are supported.</p>
+<h3 id="toc_5">Query for one or several works</h3>
 
-<h3 id="toc_5">Metrics</h3>
+<p>Specify one or more works by a comma-separated list of pids in the <code>ids</code> parameter. These DOIs have to be URL-escaped, e.g. <code>%2F</code> for <code>/</code>:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles?ids<span class="o">=</span>doi:10.1371%2Fjournal.pone.0036240
+/api/v5/articles?ids<span class="o">=</span>doi:10.1371%2Fjournal.pone.0036240,doi:10.1371%2Fjournal.pbio.0020413
+</code></pre></div>
+<p>Queries for up to 50 works at a time are supported. With many ids, in particular DOIs or URLs, the size limit of the query URL might be reached. It is therefore advisable to put the ids into the body of a POST, and include an <code>X-HTTP-Method-Override: GET</code> header:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -d <span class="s2">&quot;ids=10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413&quot;</span> -H <span class="s2">&quot;Authorization: Token token=API_KEY&quot;</span> -H <span class="s2">&quot;X-HTTP-Method-Override: GET&quot;</span> <span class="s2">&quot;http://alm.plos.org/api/works&quot;</span>
+</code></pre></div>
+<h3 id="toc_6">Events</h3>
 
-<p>The metrics for every source are returned as total number, and separated in categories, e.g. <code>html</code> and <code>pdf</code> views for usage data, <code>readers</code> for bookmarking services, and <code>likes</code> and <code>comments</code> for social media. The same 5 categories are always returned for every source to simplify parsing of API responses:</p>
+<p>The events for every source are returned as total number, and separated in categories, e.g. <code>html</code> and <code>pdf</code> views for usage data, <code>readers</code> for bookmarking services, and <code>likes</code> and <code>comments</code> for social media:</p>
 
 <ul>
 <li><p><strong>CiteULike</strong>: readers</p></li>
@@ -48,20 +60,11 @@
 <li><p><strong>Counter, PubMed Central</strong>: html, pdf</p></li>
 </ul>
 
-<h3 id="toc_6">Search</h3>
+<p>Some events can only be obtained by substracting from <code>total</code>, e.g. <code>Counter</code> xml downloads: <code>total</code> - (<code>html</code> + <code>pdf</code>).</p>
+
+<h3 id="toc_7">Search</h3>
 
 <p>Search is not supported by the API, users have to provide specific identifiers or retrieve batches of 50 documents, sorted by descending date or source event count.</p>
-
-<h3 id="toc_7">Signposts</h3>
-
-<p>Several metrics are aggregated and available in all API queries:</p>
-
-<ul>
-<li>Viewed: counter + pmc (PLOS only)</li>
-<li>Discussed: facebook (+ twitter at PLOS)</li>
-<li>Saved: mendeley + citeulike</li>
-<li>Cited: crossref (scopus at PLOS)</li>
-</ul>
 
 <h3 id="toc_8">Date and Time Format</h3>
 
@@ -75,386 +78,183 @@
 </code></pre></div>
 <p><code>date-parts</code> is a nested array of year, month, day, with only the year being required.</p>
 
-<h3 id="toc_9">Null</h3>
+<h2 id="toc_9">Additional Parameters</h2>
 
-<p>The API returns <code>null</code> if no query was made, and <code>0</code> if the external API returns 0 events.</p>
+<h3 id="toc_10">type=doi|pmid|pmcid|arxiv|scp|wos|ark|url</h3>
 
-<h2 id="toc_10">Additional Parameters</h2>
-
-<h3 id="toc_11">type=doi|pmid|pmcid</h3>
-
-<p>The API supports queries for DOI, PubMed ID, PubMed Central ID, Scopus ID, Web of Science ID, and publisher URL. The default <code>doi</code> is used if no type is given in the query. The following queries are all for the same work:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles?ids<span class="o">=</span>10.1371%2Fjournal.pmed.1001361
-/api/v5/articles?ids<span class="o">=</span>23300388<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>pmid
-/api/v5/articles?ids<span class="o">=</span>PMC3531501<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>pmcid
-/api/v5/articles?ids<span class="o">=</span>84871667565<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>scp
-/api/v5/articles?ids<span class="o">=</span>000312934200011<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>wos
-/api/v5/articles?ids<span class="o">=</span>http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.1001361<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>url
+<p>The API supports queries for DOI, PubMed ID, PubMed Central ID, ArXiV ID, Scopus ID, Web of Science ID, ark, and publisher URL. The pid is used if no type is given in the query. The following queries are all for the same work:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/works?ids<span class="o">=</span>doi:10.1371%2Fjournal.pmed.1001361
+/api/works?ids<span class="o">=</span>10.1371%2Fjournal.pmed.1001361<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>doi
+/api/works?ids<span class="o">=</span>23300388<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>pmid
+/api/works?ids<span class="o">=</span>PMC3531501<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>pmcid
+/api/works?ids<span class="o">=</span>84871667565<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>scp
+/api/works?ids<span class="o">=</span>000312934200011<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>wos
+/api/works?ids<span class="o">=</span>http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.1001361<span class="p">&amp;</span><span class="nb">type</span><span class="o">=</span>url
 </code></pre></div>
-<h3 id="toc_12">info=summary|detail</h3>
+<h3 id="toc_11">publisher_id=x</h3>
 
-<p>With the <strong>summary</strong> parameter no source information or metrics are provided, only work metadata such as DOI, other unique identifiers, URL, title or publication date. The only exception are summary statistics, aggregating metrics from several sources (views, shares, bookmarks and citations).</p>
-
-<p>With the <strong>detail</strong> parameter all raw data sent by the source are provided. The <strong>history</strong> parameter has been depreciated with the ALM 3.0 release, you can use the <code>by day</code>, <code>by month</code> and <code>by year</code>response instead.</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles?ids<span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nv">info</span><span class="o">=</span>detail
+<p>Only show works from a given publisher, using the publisher CrossRef ID. The response format is the same as the default response.</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/works?publisher_id<span class="o">=</span>340
 </code></pre></div>
-<h3 id="toc_13">source_id=x</h3>
+<h3 id="toc_12">sort=x</h3>
 
-<p>Only provide metrics for a given source, using the source name. Only one source name can be given. The response format is the same as the default response.</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles<span class="p">&amp;</span><span class="nv">ids</span><span class="o">=</span>10.1371%2Fjournal.pone.0036240,10.1371%2Fjournal.pbio.0020413<span class="p">&amp;</span><span class="nv">source_id</span><span class="o">=</span>mendeley
-</code></pre></div>
-<h3 id="toc_14">order=x</h3>
+<p>Results are sorted by descending event count when given the source name, e.g. <code>&amp;sort=wikipedia</code>. Otherwise (the default) results are sorted by descending publication date. When using <code>&amp;source=x</code>, we can only sort by publication date or that source, not a different source.</p>
 
-<p>Results are sorted by descending event count when given the source name, e.g. <code>&amp;order=wikipedia</code>. Otherwise (the default) results are sorted by date descending. When using <code>&amp;source=x</code>, we can only sort by data or that source, not a different source.</p>
+<h3 id="toc_13">page|per_page</h3>
 
-<h3 id="toc_15">publisher_id=x</h3>
+<p>Results of the v6 API are paged with 1000 results per page. Use <code>per_page</code> to pick a smaller number (0-1000) of results per page, and use <code>page</code> to page through the results.</p>
 
-<p>Only provide metrics for works by a given publisher, using the <code>publisher_id</code>. The response format is the same as the default response.</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">/api/v5/articles?publisher_id<span class="o">=</span>340
-</code></pre></div>
-<h3 id="toc_16">page|per_page</h3>
+<h2 id="toc_14">Example Responses</h2>
 
-<p>Results of the v5 API are paged with 50 results per page. Use <code>per_page</code> to pick a smaller number (1-50) of results per page, and use <code>page</code> to page through the results.</p>
-
-<h2 id="toc_17">Example Response</h2>
+<h4 id="toc_15">/api/works/</h4>
 <div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;total_pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message-type&quot;</span><span class="p">:</span> <span class="s2">&quot;work-list&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message-version&quot;</span><span class="p">:</span> <span class="s2">&quot;6.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1077</span><span class="p">,</span>
+    <span class="nt">&quot;total_pages&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;works&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pcbi.1000204&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Defrosting the Digital Library: Bibliographic Tools for the Next Generation Web&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;canonical_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.ploscompbiol.org/article/info:doi/10.1371/journal.pcbi.1000204&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;pmid&quot;</span><span class="p">:</span> <span class="s2">&quot;18974831&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;pmcid&quot;</span><span class="p">:</span> <span class="s2">&quot;2568856&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;scp&quot;</span><span class="p">:</span> <span class="s2">&quot;55449101991&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;wos&quot;</span><span class="p">:</span> <span class="s2">&quot;000261480700019&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://doi.org/10.1371/journal.pgen.1003182&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;publisher_id&quot;</span><span class="p">:</span> <span class="mi">340</span><span class="p">,</span>
+      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Alternative Oxidase Expression in the Mouse Enables Bypassing Cytochrome &lt;i&gt;c&lt;/i&gt; Oxidase Blockade and Limits Mitochondrial ROS Overproduction&quot;</span><span class="p">,</span>
       <span class="nt">&quot;issued&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;date-parts&quot;</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">[</span>
-            <span class="mi">2008</span><span class="p">,</span>
-            <span class="mi">10</span><span class="p">,</span>
-            <span class="mi">31</span>
+            <span class="mi">2013</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="mi">3</span>
           <span class="p">]</span>
         <span class="p">]</span>
       <span class="p">},</span>
-      <span class="nt">&quot;viewed&quot;</span><span class="p">:</span> <span class="mi">80546</span><span class="p">,</span>
-      <span class="nt">&quot;saved&quot;</span><span class="p">:</span> <span class="mi">2260</span><span class="p">,</span>
-      <span class="nt">&quot;discussed&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-      <span class="nt">&quot;cited&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
-      <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-22T00:40:15Z&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;sources&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;citeulike&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CiteULike&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.citeulike.org/doi/10.1371%2Fjournal.pcbi.1000204&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="mi">473</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">473</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-20T09:25:36Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;crossref&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CrossRef&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;group_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cited&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">27</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;by_day&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">],</span>
-          <span class="nt">&quot;by_month&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-              <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2014</span><span class="p">,</span>
-              <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-              <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">27</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-              <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2014</span><span class="p">,</span>
-              <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-              <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
-            <span class="p">}</span>
-          <span class="p">],</span>
-          <span class="nt">&quot;by_year&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-              <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2014</span><span class="p">,</span>
-              <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">27</span>
-            <span class="p">}</span>
-          <span class="p">],</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-22T00:40:15Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nature&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-01T20:17:33Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pubmed&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;PubMed Central&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&amp;cmd=link&amp;LinkName=pubmed_pmc_refs&amp;from_uid=18974831&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">16</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-18T08:01:51Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;scopus&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Scopus&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.scopus.com/inward/citedby.url?partnerID=HzOxMe3b&amp;scp=55449101991&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">51</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-01T15:02:52Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;counter&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Counter&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="mi">7351</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="mi">66069</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">73836</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-21T12:04:49Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;researchblogging&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Blogging&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://researchblogging.org/post-search/list?article=10.1371%2Fjournal.pcbi.1000204&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">7</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-05-06T14:07:07Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pmc&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;PubMed Central Usage Stats&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2568856&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="mi">1526</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="mi">5184</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">6710</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-09T13:38:43Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;facebook&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Facebook&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">18</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-11T12:55:20Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mendeley&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mendeley&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.mendeley.com/catalog/defrosting-digital-library-bibliographic-tools-next-generation-web/&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="mi">1787</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1787</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-11T15:07:16Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;twitter&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Twitter&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">12</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-17T13:21:56Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;wikipedia&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Wikipedia&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://en.wikipedia.org/w/index.php?search=\&quot;10.1371%2Fjournal.pcbi.1000204\&quot;&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">7</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-17T21:21:05Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;scienceseeker&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;ScienceSeeker&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://scienceseeker.org/posts/?filter0=citation&amp;modifier0=doi&amp;value0=10.1371%2Fjournal.pcbi.1000204&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-03T13:32:39Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;f1000&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;F1000Prime&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-04-15T08:06:14Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;figshare&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Figshare&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">3</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-20T05:03:53Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pmceurope&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;PMC Europe Citations&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://europepmc.org/abstract/MED/18974831#fragment-related-citations&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">17</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-19T07:00:58Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pmceuropedata&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;PMC Europe Database Citations&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://europepmc.org/abstract/MED/18974831#fragment-related-bioentities&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-05-31T05:00:14Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;wordpress&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Wordpress.com&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://en.search.wordpress.com/?q=\&quot;10.1371%2Fjournal.pcbi.1000204\&quot;&amp;t=post&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">13</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-20T06:37:38Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;reddit&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Reddit&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.reddit.com/search?q=\&quot;10.1371%2Fjournal.pcbi.1000204\&quot;&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-19T02:10:13Z&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;datacite&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;DataCite&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;events_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://search.datacite.org/ui?q=relatedIdentifier:10.1371%2Fjournal.pcbi.1000204&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;metrics&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;html&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;readers&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;update_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-06-20T23:00:47Z&quot;</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
+      <span class="nt">&quot;container-title&quot;</span><span class="p">:</span> <span class="s2">&quot;PLOS Genetics&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="s2">&quot;e1003182&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;DOI&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pgen.1003182&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;events&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;crossref&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="nt">&quot;counter&quot;</span><span class="p">:</span> <span class="mi">6702</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-16T06:14:07Z&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://doi.org/10.1371/journal.pgen.1003145&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;publisher_id&quot;</span><span class="p">:</span> <span class="mi">340</span><span class="p">,</span>
+      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The Telomere Capping Complex CST Has an Unusual Stoichiometry, Makes Multipartite Interaction with G-Tails, and Unfolds Higher-Order G-Tail Structures&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;issued&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;date-parts&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">[</span>
+            <span class="mi">2013</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="mi">3</span>
+          <span class="p">]</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;container-title&quot;</span><span class="p">:</span> <span class="s2">&quot;PLOS Genetics&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="s2">&quot;e1003145&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;DOI&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pgen.1003145&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;events&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;crossref&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;counter&quot;</span><span class="p">:</span> <span class="mi">5282</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-12T08:19:11Z&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://doi.org/10.1371/journal.pgen.1003147&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;publisher_id&quot;</span><span class="p">:</span> <span class="mi">340</span><span class="p">,</span>
+      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;A Genome-Wide Integrative Genomic Study Localizes Genetic Factors Influencing Antibodies against Epstein-Barr Virus Nuclear Antigen 1 (EBNA-1)&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;issued&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;date-parts&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">[</span>
+            <span class="mi">2013</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="mi">10</span>
+          <span class="p">]</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;container-title&quot;</span><span class="p">:</span> <span class="s2">&quot;PLOS Genetics&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="s2">&quot;e1003147&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;DOI&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pgen.1003147&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;PMID&quot;</span><span class="p">:</span> <span class="s2">&quot;23326239&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;PMCID&quot;</span><span class="p">:</span> <span class="s2">&quot;3542101&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;events&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;europe_pmc&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="nt">&quot;crossref&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+        <span class="nt">&quot;counter&quot;</span><span class="p">:</span> <span class="mi">6355</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-12T08:01:33Z&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://doi.org/10.1371/journal.pgen.1003144&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;publisher_id&quot;</span><span class="p">:</span> <span class="mi">340</span><span class="p">,</span>
+      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Starvation, Together with the SOS Response, Mediates High Biofilm-Specific Tolerance to the Fluoroquinolone Ofloxacin&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;issued&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;date-parts&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">[</span>
+            <span class="mi">2013</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="mi">3</span>
+          <span class="p">]</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;container-title&quot;</span><span class="p">:</span> <span class="s2">&quot;PLOS Genetics&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="s2">&quot;e1003144&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;DOI&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pgen.1003144&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;events&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;crossref&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+        <span class="nt">&quot;counter&quot;</span><span class="p">:</span> <span class="mi">6722</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-12T08:19:12Z&quot;</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="toc_18">v4 API</h2>
+<h4 id="toc_16">/api/works/doi:10.1371/journal.pgen.1003182</h4>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message-type&quot;</span><span class="p">:</span> <span class="s2">&quot;work&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message-version&quot;</span><span class="p">:</span> <span class="s2">&quot;6.0.0&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;work&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://doi.org/10.1371/journal.pgen.1003182&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;publisher_id&quot;</span><span class="p">:</span> <span class="mi">340</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Alternative Oxidase Expression in the Mouse Enables Bypassing Cytochrome &lt;i&gt;c&lt;/i&gt; Oxidase Blockade and Limits Mitochondrial ROS Overproduction&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;issued&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;date-parts&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="mi">2013</span><span class="p">,</span>
+          <span class="mi">1</span><span class="p">,</span>
+          <span class="mi">3</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;container-title&quot;</span><span class="p">:</span> <span class="s2">&quot;PLOS Genetics&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="s2">&quot;e1003182&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;DOI&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pgen.1003182&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;events&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;crossref&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+      <span class="nt">&quot;counter&quot;</span><span class="p">:</span> <span class="mi">6702</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-16T06:14:07Z&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_17">Create/Update/Delete</h2>
 
-<p>The v4 API is only available to users with admin prileges and uses basic authentication with username and password instead of an API key. The API supports the following REST actions:</p>
+<p>These actions are limited to users with admin privileges, authenticated with the API key via HTTP header. The API supports the following REST actions:</p>
 
 <table width=100% border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -465,55 +265,48 @@
 </tr>
 <tr>
 <td valign="top" width=30%>GET</td>
-<td valign="top" width=40%>/api/v4/articles</td>
+<td valign="top" width=40%>/api/works</td>
 <td valign="top" width=30%>index</td>
 </tr>
 <tr>
 <td valign="top" width=30%>POST</td>
-<td valign="top" width=40%>/api/v4/articles</td>
+<td valign="top" width=40%>/api/works</td>
 <td valign="top" width=30%>create</td>
 </tr>
 <tr>
 <td valign="top" width=30%>GET</td>
-<td valign="top" width=40%>/api/v4/articles/info:doi/DOI</td>
+<td valign="top" width=40%>/api/works/info:doi/DOI</td>
 <td valign="top" width=30%>show</td>
 </tr>
 <tr>
 <td valign="top" width=30%>PUT</td>
-<td valign="top" width=40%>/api/v4/articles/info:doi/DOI</td>
+<td valign="top" width=40%>/api/works/info:doi/DOI</td>
 <td valign="top" width=30%>update</td>
 </tr>
 <tr>
 <td valign="top" width=30%>DELETE</td>
-<td valign="top" width=40%>/api/v4/articles/info:doi/DOI</td>
+<td valign="top" width=40%>/api/works/info:doi/DOI</td>
 <td valign="top" width=30%>delete</td>
-</tr>
-<tr>
-<td valign="top" width=30%>GET</td>
-<td valign="top" width=40%>/api/v4/alerts</td>
-<td valign="top" width=30%>index</td>
 </tr>
 </tbody>
 </table>
 
-<p>The API response to get a list of works or a single work is the same as for the v5 API. You can also use one of the other supported identifiers instead of the DOI.</p>
-
-<h3 id="toc_19">Create work</h3>
+<h3 id="toc_18">Create work</h3>
 
 <p>A sample curl API call to create a new work would look like this:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;doi&quot;:&quot;10.1371/journal.pone.0036790&quot;,&quot;year&quot;:2012,&quot;month&quot;:5,&quot;day&quot;:15,&quot;title&quot;:&quot;Test title&quot;}}&#39;</span> http://HOST/api/v4/articles
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -H <span class="s2">&quot;Authentication: Token token=API_KEY&quot;</span> -d <span class="s1">&#39;{&quot;work&quot;:{&quot;doi&quot;:&quot;10.1371/journal.pone.0036790&quot;,&quot;year&quot;:2012,&quot;month&quot;:5,&quot;day&quot;:15,&quot;title&quot;:&quot;Test title&quot;}}&#39;</span> http://HOST/api/works
 </code></pre></div>
 <p>When a work has been created successfully, the server reponds with <code>Status 201 Created</code> and the following JSON (the <code>data</code> object will include all work attributes):</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">$ </span>curl -i -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -H <span class="s2">&quot;Accept: application/json&quot;</span> -u login:pwd -d <span class="s1">&#39;{&quot;article&quot;:{&quot;doi&quot;:&quot;10.7554/eLife.09002&quot;,&quot;year&quot;:2013,&quot;month&quot;:5,&quot;day&quot;:21,&quot;title&quot;:&quot;Structure of a pore-blocking toxin in complex with a eukaryotic voltage-dependent K+ channel&quot;}}&#39;</span> http://alm.example.org/api/v4/articles
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">$ </span>curl -i -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -H <span class="s2">&quot;Authentication: Token token=API_KEY&quot;</span> -d <span class="s1">&#39;{&quot;work&quot;:{&quot;doi&quot;:&quot;10.7554/eLife.09002&quot;,&quot;year&quot;:2013,&quot;month&quot;:5,&quot;day&quot;:21,&quot;title&quot;:&quot;Structure of a pore-blocking toxin in complex with a eukaryotic voltage-dependent K+ channel&quot;}}&#39;</span> http://HOST/api/works
 HTTP/1.1 201 Created
 Status: 201 Created
 Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
 
-<span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Article created.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span><span class="s2">&quot;doi&quot;</span>:<span class="s2">&quot;10.7554/eLife.09002&quot;</span>,<span class="s2">&quot;title&quot;</span>:<span class="s2">&quot;Structure of a pore-blocking toxin in complex with a eukaryotic voltage-dependent K+ channel&quot;</span>,<span class="s2">&quot;canonical_url&quot;</span>:null,<span class="s2">&quot;mendeley_uuid&quot;</span>:null,<span class="s2">&quot;pmid&quot;</span>:null,<span class="s2">&quot;pmcid&quot;</span>:null,<span class="s2">&quot;views&quot;</span>:0,<span class="s2">&quot;shares&quot;</span>:0,<span class="s2">&quot;bookmarks&quot;</span>:0,<span class="s2">&quot;citations&quot;</span>:0,<span class="s2">&quot;sources&quot;</span>:<span class="o">[{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;pmc&quot;</span>,<span class="s2">&quot;display_name&quot;</span>:<span class="s2">&quot;PubMed Central Usage Stats&quot;</span>,<span class="s2">&quot;events_url&quot;</span>:null,<span class="s2">&quot;metrics&quot;</span>:<span class="o">[]}</span>,<span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;copernicus&quot;</span>,
+<span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Work created.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;work&quot;</span>:<span class="o">{</span><span class="s2">&quot;doi&quot;</span>:<span class="s2">&quot;10.7554/eLife.09002&quot;</span>,<span class="s2">&quot;title&quot;</span>:<span class="s2">&quot;Structure of a pore-blocking toxin in complex with a eukaryotic voltage-dependent K+ channel&quot;</span>,<span class="s2">&quot;canonical_url&quot;</span>:null,<span class="s2">&quot;mendeley_uuid&quot;</span>:null,<span class="s2">&quot;pmid&quot;</span>:null,<span class="s2">&quot;pmcid&quot;</span>:null,<span class="s2">&quot;views&quot;</span>:0,<span class="s2">&quot;shares&quot;</span>:0,<span class="s2">&quot;bookmarks&quot;</span>:0,<span class="s2">&quot;citations&quot;</span>:0,<span class="s2">&quot;sources&quot;</span>:<span class="o">[{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;pmc&quot;</span>,<span class="s2">&quot;display_name&quot;</span>:<span class="s2">&quot;PubMed Central Usage Stats&quot;</span>,<span class="s2">&quot;events_url&quot;</span>:null,<span class="s2">&quot;metrics&quot;</span>:<span class="o">[]}</span>,<span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;copernicus&quot;</span>,
  ... more ...
 </code></pre></div>
 <p>When a work with the specified DOI already exists, the server returns HTTP 400 error with a JSON body indicating the work exists:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">$ </span>curl -i -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -H <span class="s2">&quot;Accept: application/json&quot;</span> -u login:pwd -d <span class="s1">&#39;{&quot;article&quot;:{&quot;doi&quot;:&quot;10.7554/eLife.09002&quot;,&quot;year&quot;:2013,&quot;month&quot;:5,&quot;day&quot;:21,&quot;title&quot;:&quot;Structure of a pore-blocking toxin in complex with a eukaryotic voltage-dependent K+ channel&quot;}}&#39;</span> http://alm.example.org/api/v4/articles
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">$ </span>curl -i -X POST -H <span class="s2">&quot;Content-Type: aapplication/json&quot;</span> -H <span class="s2">&quot;Authentication: Token token=API_KEY&quot;</span> -d <span class="s1">&#39;{&quot;work&quot;:{&quot;doi&quot;:&quot;10.7554/eLife.09002&quot;,&quot;year&quot;:2013,&quot;month&quot;:5,&quot;day&quot;:21,&quot;title&quot;:&quot;Structure of a pore-blocking toxin in complex with a eukaryotic voltage-dependent K+ channel&quot;}}&#39;</span> http://HOST/api/works
 HTTP/1.1 400 Bad Request
 Status: 400 Bad Request
 Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
@@ -529,30 +322,28 @@ Content-Type: application/json<span class="p">;</span> <span class="nv">charset<
 <li><p>The JSON must be valid, this means that string variables such as the DOI must be quoted in the request.
 The day, month and year are integers and can be left unquoted.</p></li>
 <li><p>The publication date can&#39;t be in the future (as understood by the server&#39;s date).</p></li>
-<li><p>The login details must be correct and at must be a local login, not a third-party login such as Persona.</p></li>
-<li><p>The login must have the &#39;Admin&#39; role assigned.</p></li>
-<li><p>The DOI must not already exist in the database.</p></li>
+<li><p>The API key must be valid, and for a user with role admin.</p></li>
 </ul>
 
-<h3 id="toc_20">Update work</h3>
+<h3 id="toc_19">Update work</h3>
 
 <p>A sample curl API call to update a work would look like this:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;article&quot;:{&quot;pmid&quot;:&quot;22615813&quot;}}&#39;</span> http://HOST/api/v4/articles/doi/10.1371/journal.pone.0036790
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -H <span class="s2">&quot;Authentication: Token token=API_KEY&quot;</span> -d <span class="s1">&#39;{&quot;work&quot;:{&quot;pmid&quot;:&quot;22615813&quot;}}&#39;</span> http://HOST/api/works/doi:10.1371/journal.pone.0036790
 </code></pre></div>
 <p>When a work has been updated successfully, the server reponds with <code>Status 200 Ok</code> and the following JSON (the <code>data</code> object will include all work attributes):</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Article updated.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Work updated.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
 </code></pre></div>
-<h3 id="toc_21">Delete work</h3>
+<h3 id="toc_20">Delete work</h3>
 
 <p>A sample curl API call to delete a work would look like this:</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -u USERNAME:PASSWORD -d <span class="s1">&#39;{&quot;work&quot;:{&quot;pmid&quot;:&quot;22615813&quot;}}&#39;</span> http://HOST/api/v4/articles/doi/10.1371/journal.pone.0036790
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -H <span class="s2">&quot;Authentication: Token token=API_KEY&quot;</span> -d <span class="s1">&#39;{&quot;work&quot;:{&quot;pmid&quot;:&quot;22615813&quot;}}&#39;</span> http://HOST/api/works/doi:10.1371/journal.pone.0036790
 </code></pre></div>
 <p>When a work has been deleted successfully, the server reponds with <code>Status 200 Ok</code> and the following JSON (the <code>data</code> object will include all work attributes):</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Article deleted.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span><span class="s2">&quot;success&quot;</span>:<span class="s2">&quot;Work deleted.&quot;</span>,<span class="s2">&quot;error&quot;</span>:null,<span class="s2">&quot;data&quot;</span>:<span class="o">{</span> ... <span class="o">}</span>
 </code></pre></div>
-<h3 id="toc_22">Get alerts</h3>
+<h3 id="toc_21">Get alerts</h3>
 
-<p>The same query parameters as in the admin web interface are supported:</p>
+<p>The alerts API endpoint is only available to authenticated admin users. The same query parameters as in the admin web interface are supported:</p>
 
 <ul>
 <li>source</li>
@@ -563,23 +354,51 @@ The day, month and year are integers and can be left unquoted.</p></li>
 
 <p>By default the API returns all alerts, add <code>&amp;unresolved=1</code> to only retrieve unresolved alerts, as in the admin web interface. An example API response would be:</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="o">{</span>
-  <span class="s2">&quot;total&quot;</span>: 1,
-  <span class="s2">&quot;total_pages&quot;</span>: 1,
-  <span class="s2">&quot;page&quot;</span>: 1,
-  <span class="s2">&quot;error&quot;</span>: null,
-  <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+  <span class="s2">&quot;meta&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;ok&quot;</span>,
+    <span class="s2">&quot;message-type&quot;</span>: <span class="s2">&quot;alert-list&quot;</span>,
+    <span class="s2">&quot;message-version&quot;</span>: <span class="s2">&quot;6.0.0&quot;</span>,
+    <span class="s2">&quot;total&quot;</span>: 152,
+    <span class="s2">&quot;total_pages&quot;</span>: 4,
+    <span class="s2">&quot;page&quot;</span>: 1
+  <span class="o">}</span>,
+  <span class="s2">&quot;alerts&quot;</span>: <span class="o">[</span>
     <span class="o">{</span>
-      <span class="s2">&quot;id&quot;</span>: 228,
+      <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;39586c14-8d3e-4f83-9636-d36ca2d6b958&quot;</span>,
+      <span class="s2">&quot;level&quot;</span>: <span class="s2">&quot;FATAL&quot;</span>,
+      <span class="s2">&quot;class_name&quot;</span>: <span class="s2">&quot;StandardError&quot;</span>,
+      <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;No Sidekiq process running, Sidekiq process started at 2015-04-16T06:24:14Z.&quot;</span>,
+      <span class="s2">&quot;hostname&quot;</span>: <span class="s2">&quot;lagotto-4-0-unstable.local&quot;</span>,
+      <span class="s2">&quot;unresolved&quot;</span>: <span class="nb">true</span>,
+      <span class="s2">&quot;timestamp&quot;</span>: <span class="s2">&quot;2015-04-16T06:24:15Z&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;018a1fb6-60e3-4b63-b84f-f33204163917&quot;</span>,
+      <span class="s2">&quot;level&quot;</span>: <span class="s2">&quot;ERROR&quot;</span>,
+      <span class="s2">&quot;class_name&quot;</span>: <span class="s2">&quot;NameError&quot;</span>,
+      <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;uninitialized constant DeleteEventJob::Relation&quot;</span>,
+      <span class="s2">&quot;hostname&quot;</span>: <span class="s2">&quot;lagotto-4-0-unstable.local&quot;</span>,
+      <span class="s2">&quot;unresolved&quot;</span>: <span class="nb">true</span>,
+      <span class="s2">&quot;timestamp&quot;</span>: <span class="s2">&quot;2015-04-16T06:21:51Z&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;ecccba25-4c11-4396-b1d1-5534ca60c27d&quot;</span>,
+      <span class="s2">&quot;level&quot;</span>: <span class="s2">&quot;FATAL&quot;</span>,
+      <span class="s2">&quot;class_name&quot;</span>: <span class="s2">&quot;StandardError&quot;</span>,
+      <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;No Sidekiq process running, Sidekiq process started at 2015-04-16T06:14:24Z.&quot;</span>,
+      <span class="s2">&quot;hostname&quot;</span>: <span class="s2">&quot;lagotto-4-0-unstable.local&quot;</span>,
+      <span class="s2">&quot;unresolved&quot;</span>: <span class="nb">true</span>,
+      <span class="s2">&quot;timestamp&quot;</span>: <span class="s2">&quot;2015-04-16T06:14:24Z&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;12b40b31-e347-4ec7-ac26-545844be872a&quot;</span>,
       <span class="s2">&quot;level&quot;</span>: <span class="s2">&quot;ERROR&quot;</span>,
       <span class="s2">&quot;class_name&quot;</span>: <span class="s2">&quot;NoMethodError&quot;</span>,
-      <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;undefined method `name&#39; for nil:NilClass&quot;</span>,
+      <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;undefined method `DOI&#39; for #&lt;Work:0x00000007f00008&gt;&quot;</span>,
       <span class="s2">&quot;status&quot;</span>: 422,
-      <span class="s2">&quot;hostname&quot;</span>: <span class="s2">&quot;example.org&quot;</span>,
-      <span class="s2">&quot;target_url&quot;</span>: null,
-      <span class="s2">&quot;source&quot;</span>: null,
-      <span class="s2">&quot;work&quot;</span>: null,
-      <span class="s2">&quot;unresolved&quot;</span>: <span class="nb">true</span>,
-      <span class="s2">&quot;create_date&quot;</span>: <span class="s2">&quot;2014-08-19T20:23:05Z&quot;</span>
+      <span class="s2">&quot;hostname&quot;</span>: <span class="s2">&quot;lagotto-4-0-unstable.local&quot;</span>,
+      <span class="s2">&quot;unresolved&quot;</span>: <span class="nb">false</span>,
+      <span class="s2">&quot;timestamp&quot;</span>: <span class="s2">&quot;2015-04-16T05:01:30Z&quot;</span>
     <span class="o">}</span>
   <span class="o">]</span>
 <span class="o">}</span>

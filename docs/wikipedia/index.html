@@ -3,9 +3,7 @@
 <p>We are collecting the number of Wikipedia articles (<code>namespace=0</code>) in the <a href="https://meta.wikimedia.org/wiki/List_of_Wikipedias#All_Wikipedias_ordered_by_number_of_articles">25 most popular wikipedias</a> and Wikimedia Commons (<code>namespace=6</code>):</p>
 <div class="highlight"><pre><code class="sh language-sh" data-lang="sh">en nl de sv fr it ru es pl war ceb ja vi pt zh uk ca no <span class="k">fi </span>fa id cs ko hu ar commons
 </code></pre></div>
-<p>We would for example use <code>en.wikipedia.org</code> as <code>HOST</code> in the <code>API URL</code> below.</p>
-
-<p>Because of the extensive load-balancing on Wikipedia&#39;s servers, pagination (for more than 50 results) is not reliable and we therefore don&#39;t collect links to individual Wikipedia pages. We are not counting the number of hits in the user or file namespaces.</p>
+<p>We would for example use <code>en.wikipedia.org</code> as <code>HOST</code> in the <code>API URL</code> below. We are not counting the number of hits in the user or file namespaces.</p>
 
 <table width=100% border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -15,7 +13,7 @@
 </tr>
 <tr>
 <td valign="top" width=20%><strong>ALM Configuration</strong></td>
-<td valign="top" width=80%>job_batch_size: 100</td>
+<td valign="top" width=80%>default</td>
 </tr>
 <tr>
 <td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
@@ -46,27 +44,58 @@
 </tr>
 <tr>
 <td valign="top" width=20%><strong>API URL</strong></td>
-<td valign="top" width=80%>http://HOST/w/api.php?action=query&list=search&format=json&srsearch=\"DOI\"+OR+\"URL\"&srnamespace=NAMESPACE&srwhat=text&srinfo=totalhits&srprop=timestamp&srlimit=1</td>
+<td valign="top" width=80%>http://HOST/w/api.php?action=query&list=search&format=json&srsearch=\"DOI\"+OR+\"URL\"&srnamespace=NAMESPACE&srwhat=text&srinfo=totalhits&srprop=timestamp&srlimit=50&sroffset=%{sroffset}&continue=</td>
 </tr>
 </tbody>
 </table>
 
 <h2 id="toc_0">Example Response</h2>
 <div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&quot;query-continue&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;search&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;sroffset&quot;</span><span class="p">:</span> <span class="mi">1</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
+  <span class="nt">&quot;batchcomplete&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;searchinfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;totalhits&quot;</span><span class="p">:</span> <span class="mi">685</span>
+      <span class="nt">&quot;totalhits&quot;</span><span class="p">:</span> <span class="mi">8</span>
     <span class="p">},</span>
     <span class="nt">&quot;search&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Calliotropis tiara&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-04-14T14:52:39Z&quot;</span>
+        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;File:Cercopithecus lomamiensis Female.jpg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-29T21:27:22Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;File:Cercopithecus lomamiensis Juv.jpg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-29T21:28:03Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;File:Cercopithecus lomamiensis (Lesula).png&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-29T21:25:48Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;File:Cercopithecus lomamiensis MaleP.jpg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-29T21:29:00Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;File:Cercopithecus lomamiensis Male.jpg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-29T21:28:22Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;File:Journal.pone.0044271.g001.png&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-29T21:14:47Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;File:Cercopithecus hamlyni booms - journal.pone.0044271.s015.ogg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-24T14:34:48Z&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;File:Cercopithecus lomamiensis booms - journal.pone.0044271.s016.ogg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-24T14:34:48Z&quot;</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}</span>
@@ -74,7 +103,7 @@
 </code></pre></div>
 <h2 id="toc_1">Source Code</h2>
 
-<p>The source code is available <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/wikipedia.rb">here</a>.</p>
+<p>The source code is available <a href="https://github.com/lagotto/lagotto/blob/master/app/models/sources/wikipedia.rb">here</a>.</p>
 
 <h2 id="toc_2">Further Documentation</h2>
 

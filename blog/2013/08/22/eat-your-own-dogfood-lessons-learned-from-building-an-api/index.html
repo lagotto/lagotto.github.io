@@ -15,7 +15,7 @@
     <meta property="dc:language" content="en" />
     <meta property="dc:identifier" content="/blog/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api/" />
     <meta property="dc:rights" content="CC-BY" />
-    <meta property="dc:source" content="Article-Level Metrics" />
+    <meta property="dc:source" content="Lagotto" />
     <meta property="dc:subject" content="Scholarly Communication" />
     <meta property="dc:type" content="website" />
 
@@ -23,10 +23,10 @@
     <meta name="citation_author" content="Martin Fenner"/>
     <meta name="citation_publication_date" content="2013-08-22"/>
     <meta name="citation_title" content="Eat your own dogfood: lessons learned from building an API"/>
-    <meta name="citation_journal_title" content="Article-Level Metrics"/>
+    <meta name="citation_journal_title" content="Lagotto"/>
 
-    <link rel="alternate" type="application/rss+xml" title="Article-Level Metrics" href="/rss.xml" />
-    <link rel="alternate" type="application/atom+xml" title="Article-Level Metrics" href="/atom.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Lagotto" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Lagotto" href="/atom.xml" />
 
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,7 +58,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">ALM</a>
+      <a class="navbar-brand" href="#">Lagotto</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -66,10 +66,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/">Introduction</a></li>
-            <li><a href="/value">Value</a></li>            
+            <li><a href="/value">Value</a></li>
             <li><a href="/metrics">Metrics</a></li>
-            <li><a href="/research">Research</a></li>  
-            <li><a href="/conferences">Conferences</a></li>              
+            <li><a href="/research">Research</a></li>
+            <li><a href="/conferences">Conferences</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -115,13 +115,13 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p>The PLOS <a href="https://github.com/articlemetrics/alm">Article-Level Metrics
+            <p>The PLOS <a href="https://github.com/lagotto/lagotto">Article-Level Metrics
 application</a> is open source
 software that collects a variety of metrics about scholarly articles.
 The application talks to a number of APIs, and in return provides these
 metrics via an API. Work on this application therefore involves a lot of
 work on APIs, and some of the lessons I learned are summarized below,
-including changes we made in the latest <a href="https://github.com/articlemetrics/alm/releases/tag/v.2.8">ALM
+including changes we made in the latest <a href="https://github.com/lagotto/lagotto/releases/tag/v.2.8">ALM
 2.8</a> release.
 Most of the things I mention are fairly obvious, but some of them could
 be starting points for a discussion. Good APIs are important for
@@ -159,8 +159,7 @@ not only for improving the ALM API, but also to make the <strong>rplos</strong> 
 <h3 id="toc_1">Document your API</h3>
 
 <p>Documentation is important for all software, and that of course also
-includes APIs. The documentation for the PLOS ALM API is in the Github
-<a href="https://github.com/articlemetrics/alm/wiki/API">wiki</a>. In the latest
+includes APIs. The documentation for the Lagotto API is in <a href="https://github.com/lagotto/lagotto/blog/master/docs/api.md">Github</a>. In the latest
 ALM release we have included the documentation right in the ALM
 application to make it easier to use, e.g. with the documentation for
 the PubMed API right next to the PubMed configuration tab. You also see
@@ -266,7 +265,7 @@ fine-tuning the performance of the API during development.</p>
 
 <p>This is an area where we could do much better. There is a <a href="https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers">PLOS API
 mailing list</a>
-and a <a href="https://github.com/articlemetrics/alm/issues">Github issue tracker</a>, and we would
+and a <a href="https://github.com/lagotto/lagotto/issues">Github issue tracker</a>, and we would
 love to get feedback in either of these places. Feedback is important,
 as we can’t possible anticipate all the uses of the API.</p>
 
@@ -283,7 +282,7 @@ as we can’t possible anticipate all the uses of the API.</p>
   &amp;rft.date=2013-08-22
   &amp;rft.language=EN
   &amp;rft.rights=CC0
-  &amp;rft_id=http://articlemetrics.github.io/blog/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api/">
+  &amp;rft_id=http://lagotto.io/blog/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api/">
 </span>
 
             
@@ -291,7 +290,7 @@ as we can’t possible anticipate all the uses of the API.</p>
               <div id="disqus_thread"></div>
 <script type="text/javascript">
     
-    var disqus_shortname = 'articlemetrics'; // required: replace example with your forum shortname
+    var disqus_shortname = 'lagotto'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -305,18 +304,19 @@ as we can’t possible anticipate all the uses of the API.</p>
             
             <hr>
             <footer class="footer" role="contentinfo">
-  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=watch&count=true"
+  <iframe src="http://ghbtns.com/github-btn.html?user=lagotto&repo=lagotto&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
 
-  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=articlemetrics&repo=alm&type=fork&count=true"
+  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=lagotto&repo=lagotto&type=fork&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
 
-  <iframe src="http://ghbtns.com/github-btn.html?user=articlemetrics&type=follow&count=true"
+  <iframe src="http://ghbtns.com/github-btn.html?user=lagotto&type=follow&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
 
   <p>Maintained by the core team with the help of our <a href="/docs/Contributors">contributors</a>.<br/>
-  Source code for <a href="https://github.com/articlemetrics/alm">ALM application</a> and <a href="https://github.com/articlemetrics/articlemetrics.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/articlemetrics/alm/blob/master/LICENSE.md">Apache 2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
+  Source code for <a href="https://github.com/lagotto/lagotto">Lagotto application</a> and <a href="https://github.com/lagotto/lagotto.github.io">this website</a> available on Github. <br/> Code licensed under <a href="https://github.com/lagotto/alm/blob/master/LICENSE.md">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
 </div>
+
           </div>
         </div>
 

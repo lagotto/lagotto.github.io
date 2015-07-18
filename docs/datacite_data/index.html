@@ -1,0 +1,93 @@
+<p><a href="http://www.datacite.org">DataCite</a> is a DOI registration agency for datasets. The DataCite Data source tracks events for DataCite DOIs instead of other works referenced by DataCite.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>datacite_data</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>url (as DOI)<br/>contributor (as creator)</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>title<br/>publisher</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON or XML</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://search.datacite.org/api?q=doi:DOI&fl=relatedIdentifier,doi,creator,title,publisher,publicationYear&fq=is_active:true&fq=has_metadata:true&indent=true</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;responseHeader&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;QTime&quot;</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;numFound&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.5061/DRYAD.8515&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;relatedIdentifier&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;HasPart:DOI:10.5061/DRYAD.8515/1&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;HasPart:DOI:10.5061/DRYAD.8515/2&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;IsReferencedBy:DOI:10.1371/JOURNAL.PPAT.1000446&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;IsReferencedBy:DOI:&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Ollomo, Benjamin&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Durand, Patrick&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Prugnolle, Franck&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Douzery, Emmanuel J. P.&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Arnathau, Céline&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Nkoghe, Dieudonné&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Leroy, Eric&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Renaud, François&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Dryad Digital Repository&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Data from: A new malaria agent in African hominids.&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;publicationYear&quot;</span><span class="p">:</span> <span class="s2">&quot;2011&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/lagotto/lagotto/blob/master/app/models/sources/datacite_data.rb">here</a>.</p>
+
+<h2 id="toc_2">Further Documentation</h2>
+
+<ul>
+<li><a href="http://search.datacite.org/help.html">DataCite Metadata Search</a></li>
+</ul>

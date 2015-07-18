@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Article-Level Metrics</title>
- <link href="http://articlemetrics.github.io/atom.xml" rel="self"/>
- <link href="http://articlemetrics.github.io"/>
- <updated>2015-01-24T10:20:20+00:00</updated>
- <id>http://articlemetrics.github.io</id>
+ <title>Lagotto</title>
+ <link href="http://lagotto.io/atom.xml" rel="self"/>
+ <link href="http://lagotto.io"/>
+ <updated>2015-07-18T07:36:51+00:00</updated>
+ <id>http://lagotto.io</id>
  
  <author>
    <name>Martin Fenner</name>
@@ -17,9 +17,9 @@
  
  <entry>
    <title>ALM in R</title>
-   <link href="http://articlemetrics.github.io/examples/2014/04/14/alm-in-r/"/>
+   <link href="http://lagotto.io/examples/2014/04/14/alm-in-r/"/>
    <updated>2014-04-14T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2014/04/14/alm-in-r</id>
+   <id>http://lagotto.io/examples/2014/04/14/alm-in-r</id>
    <content type="html">&lt;p&gt;The ALM application is now being used by other publishers. Since other publishers use this same application, we can access altmetrics data from all of them with a single client. rOpenSci has made an R client for interacting with the ALM application from R, called &lt;code&gt;alm&lt;/code&gt;. &lt;/p&gt;
 
 &lt;p&gt;There are now four publishers that are using the ALM app - that is, that you can get altmetrics data from: PLOS, Crossref, Publick Knowledge Project (PKP), and Copernicus. More are likely coming on line.&lt;/p&gt;
@@ -123,9 +123,9 @@ alm&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;doi &lt;span class=&quot;o&quot
  
  <entry>
    <title>The Mystery of the Missing ALM</title>
-   <link href="http://articlemetrics.github.io/blog/2014/03/07/the-mystery-of-the-missing-alm/"/>
+   <link href="http://lagotto.io/blog/2014/03/07/the-mystery-of-the-missing-alm/"/>
    <updated>2014-03-07T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2014/03/07/the-mystery-of-the-missing-alm</id>
+   <id>http://lagotto.io/blog/2014/03/07/the-mystery-of-the-missing-alm</id>
    <content type="html">&lt;p&gt;&lt;em&gt;What is ten years old and has 1.2 billion interactions a day?&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;No, it’s not the Large Hadron Collider. Nor is it a philosophical
@@ -201,7 +201,7 @@ URL&lt;/a&gt; in
 their systems. PLOS encountered this change in Facebook’s methods when
 we noticed aberrant counts and investigated the elevated numbers. We
 have shared what we learned in
-the&lt;a href=&quot;http://articlemetrics.github.io/docs/Facebook/&quot;&gt; documentation&lt;/a&gt; found
+the&lt;a href=&quot;http://lagotto.io/docs/Facebook/&quot;&gt; documentation&lt;/a&gt; found
 on the new ALM community website about how the ALM application collects
 Facebook metrics. Later in 2013 we found that while the requirement for
 the canonical URL is automatically satisfied by many websites, meta
@@ -258,9 +258,9 @@ that is also relevant to scholarly publishers and article-level metrics.&lt;/p&g
  
  <entry>
    <title>Most cited 2014 articles on Wikipedia</title>
-   <link href="http://articlemetrics.github.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia/"/>
+   <link href="http://lagotto.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia/"/>
    <updated>2014-02-25T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia</id>
+   <id>http://lagotto.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia</id>
    <content type="html">&lt;p id=&quot;example&quot; data-api_key=&quot;64aJra4M7NPHVAWxxCZ5&quot;&gt;Although we need access to the article metadata for complex queries, we can retrieve a set of most-recent or most-cited articles via the ALM API. The following Wikipedias were covered: English, Dutch, German, Swedish and French. This is not a complete set of 2014 articles, and some articles were published in 2013. Data generated live from &lt;a href=&quot;http://alm.labs.crossref.org&quot;&gt;alm.labs.crossref.org&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
@@ -328,9 +328,9 @@ that is also relevant to scholarly publishers and article-level metrics.&lt;/p&g
  
  <entry>
    <title>One Step Closer to Article-Level Metrics openly available for all Scholarly Content</title>
-   <link href="http://articlemetrics.github.io/blog/2014/02/24/alms/"/>
+   <link href="http://lagotto.io/blog/2014/02/24/alms/"/>
    <updated>2014-02-24T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2014/02/24/alms</id>
+   <id>http://lagotto.io/blog/2014/02/24/alms</id>
    <content type="html">&lt;p&gt;Since PLOS embarked on the Article-Level Metrics (ALM) work in 2009, we
 have always imagined a future in which ALMs would be freely available
 regardless of publisher. Metrics would be compiled to facilitate
@@ -341,7 +341,7 @@ community.&lt;/p&gt;
 
 &lt;p&gt;PLOS built the ALM application to handle our own substantial publishing
 enterprise, and it has been running well for us for almost exactly 5
-years now. We made the &lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;ALM software available as open source
+years now. We made the &lt;a href=&quot;https://github.com/lagotto/lagotto&quot;&gt;ALM software available as open source
 software&lt;/a&gt; in 2011, and last year
 a number of &lt;a href=&quot;http://blogs.plos.org/plos/2013/10/even-more-journals-display-alms/&quot;&gt;publishers have started to use the ALM
 software&lt;/a&gt;
@@ -354,10 +354,10 @@ have seen the discussion shift from WHAT (are ALMs and should we
 care) to HOW (can we implement ALM)?&lt;/p&gt;
 
 &lt;p&gt;As part of this increased interest in ALM we today are launching the
-&lt;a href=&quot;http://articlemetrics.github.io/&quot;&gt;ALM community site&lt;/a&gt;. This site
+&lt;a href=&quot;http://lagotto.io/&quot;&gt;ALM community site&lt;/a&gt;. This site
 contains a lot of content previously available in a number of separate
 places, and we plan to add more content in the coming months. We like
-the &lt;a href=&quot;http://articlemetrics.github.io/examples/&quot;&gt;Examples&lt;/a&gt; section which
+the &lt;a href=&quot;http://lagotto.io/examples/&quot;&gt;Examples&lt;/a&gt; section which
 showcases ALM visualizations of done with d3.js and R, with source code
 and data openly available to make it easier for people to get started
 using ALM data.&lt;/p&gt;
@@ -403,9 +403,9 @@ soon coming.&lt;/p&gt;
  
  <entry>
    <title>Most cited PLOS articles on Wikipedia with Dinosaur in the title</title>
-   <link href="http://articlemetrics.github.io/examples/2014/02/23/most-cited-plos-articles-on-wikipedia-with-dinosaur-in-the-title/"/>
+   <link href="http://lagotto.io/examples/2014/02/23/most-cited-plos-articles-on-wikipedia-with-dinosaur-in-the-title/"/>
    <updated>2014-02-23T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2014/02/23/most-cited-plos-articles-on-wikipedia-with-dinosaur-in-the-title</id>
+   <id>http://lagotto.io/examples/2014/02/23/most-cited-plos-articles-on-wikipedia-with-dinosaur-in-the-title</id>
    <content type="html">&lt;p id=&quot;example&quot; data-api_key=&quot;Cyr783ZiaqNNe4ysByfj&quot;&gt;Although we need access to the article metadata for complex queries, we can retrieve a set of most-recent or most-cited articles via the ALM API. Data generated live from &lt;a href=&quot;http://alm.plos.org&quot;&gt;alm.plos.org&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
@@ -473,9 +473,9 @@ soon coming.&lt;/p&gt;
  
  <entry>
    <title>HTML views and PDF downloads over time</title>
-   <link href="http://articlemetrics.github.io/examples/2014/02/23/html-views-and-pdf-downloads-over-time/"/>
+   <link href="http://lagotto.io/examples/2014/02/23/html-views-and-pdf-downloads-over-time/"/>
    <updated>2014-02-23T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2014/02/23/html-views-and-pdf-downloads-over-time</id>
+   <id>http://lagotto.io/examples/2014/02/23/html-views-and-pdf-downloads-over-time</id>
    <content type="html">&lt;p id=&quot;example2&quot; data-api_key=&quot;Cyr783ZiaqNNe4ysByfj&quot; data-doi=&quot;10.1371/journal.pmed.1000097&quot;&gt;Usage data from the PLOS website for the article &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pmed.1000097&quot;&gt;Preferred Reporting Items for Systematic Reviews and Meta-Analyses: The PRISMA Statement&lt;/a&gt;, published July 2009. This article shows the ratio of HTML views to PDF downloads typical for PLOS but is unusual in that the usage data start to increase two years after publication. Data generated live from &lt;a href=&quot;http://alm.plos.org&quot;&gt;alm.plos.org&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div id=&quot;example2&quot;&gt;&lt;/div&gt;
@@ -485,7 +485,7 @@ soon coming.&lt;/p&gt;
 &lt;h3 id=&quot;toc_0&quot;&gt;Source code&lt;/h3&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; * ALMViz&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt; * See https://github.com/articlemetrics/almviz for more details&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * See https://github.com/lagotto/almviz for more details&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; *&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt; * @brief Article level metrics visualization controller.&lt;/span&gt;
@@ -1067,9 +1067,9 @@ soon coming.&lt;/p&gt;
  
  <entry>
    <title>Articles with Events from 10,000 Random DOIs</title>
-   <link href="http://articlemetrics.github.io/examples/2014/02/23/articles-with-events-from-10000-random-dois/"/>
+   <link href="http://lagotto.io/examples/2014/02/23/articles-with-events-from-10000-random-dois/"/>
    <updated>2014-02-23T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2014/02/23/articles-with-events-from-10000-random-dois</id>
+   <id>http://lagotto.io/examples/2014/02/23/articles-with-events-from-10000-random-dois</id>
    <content type="html">&lt;p id=&quot;example1&quot; data-api_key=&quot;qzcE4ciMj438fLPqyRdE&quot;&gt;Total number of articles with at least one event, using 10,000 random CrossRef DOIs from 2011 and 2012. This chart gives a good first impression of what percentage of articles that will have metrics from a paticular data source. Data generated live from &lt;a href=&quot;http://almhack.crowdometer.org&quot;&gt;almhack.crowdometer.org&lt;/a&gt;. More info at &lt;a href=&quot;/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois/&quot;&gt;this blog post.&lt;/a&gt;&lt;/p&gt;
 
 &lt;div id=&quot;example1&quot;&gt;&lt;/div&gt;
@@ -1151,9 +1151,9 @@ soon coming.&lt;/p&gt;
  
  <entry>
    <title>Views vs. Citations for PLOS Biology Articles</title>
-   <link href="http://articlemetrics.github.io/examples/2013/12/11/views-vs-citations-for-plos-biology/"/>
+   <link href="http://lagotto.io/examples/2013/12/11/views-vs-citations-for-plos-biology/"/>
    <updated>2013-12-11T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2013/12/11/views-vs-citations-for-plos-biology</id>
+   <id>http://lagotto.io/examples/2013/12/11/views-vs-citations-for-plos-biology</id>
    <content type="html">&lt;p&gt;Bubble charts can help visualize a large set of articles, e.g. all articles published by a journal in a given year. Source data in CSV format available &lt;a href=&quot;/data/alm_report_plos_biology_2013-05-20.csv&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2013-12-11_figure_3.svg&quot; alt=&quot;Fig. 3&quot;&gt;&lt;/p&gt;
@@ -1222,9 +1222,9 @@ par&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;opar&lt;span class=&quot;p&quot
  
  <entry>
    <title>PLOS Biology 2010 Citation Counts</title>
-   <link href="http://articlemetrics.github.io/examples/2013/12/11/plos-biology-2010-citation-counts/"/>
+   <link href="http://lagotto.io/examples/2013/12/11/plos-biology-2010-citation-counts/"/>
    <updated>2013-12-11T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2013/12/11/plos-biology-2010-citation-counts</id>
+   <id>http://lagotto.io/examples/2013/12/11/plos-biology-2010-citation-counts</id>
    <content type="html">&lt;p&gt;Citation counts between journal articles vary widely within a journal, making the median (or mean) journal citation count a poor proxy for an individual article. A density plot rather than a histogram was used to better show the right skewed distribution. Source data in CSV format available &lt;a href=&quot;/data/alm_report_plos_biology_2013-05-20.csv&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2013-12-11_figure_1.svg&quot; alt=&quot;Fig. 1&quot;&gt;&lt;/p&gt;
@@ -1276,9 +1276,9 @@ par&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;opar&lt;span class=&quot;p&quot
  
  <entry>
    <title>Different Recommendation Sites for PLOS Biology Articles</title>
-   <link href="http://articlemetrics.github.io/examples/2013/12/11/different-recommendation-sites-plos-biology/"/>
+   <link href="http://lagotto.io/examples/2013/12/11/different-recommendation-sites-plos-biology/"/>
    <updated>2013-12-11T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2013/12/11/different-recommendation-sites-plos-biology</id>
+   <id>http://lagotto.io/examples/2013/12/11/different-recommendation-sites-plos-biology</id>
    <content type="html">&lt;p&gt;There is relatively little overlap between the PLOS Biology research articles recommended by F1000Prime and those articles mentioned in Wikipedia, indicating different audiences. Source data in CSV format available &lt;a href=&quot;/data/alm_report_plos_biology_2013-05-20.csv&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2013-12-11_figure_5.svg&quot; alt=&quot;Fig. 5&quot;&gt;&lt;/p&gt;
@@ -1331,9 +1331,9 @@ par&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;opar&lt;span class=&quot;p&quot
  
  <entry>
    <title>Articles with Events from PLOS Biology</title>
-   <link href="http://articlemetrics.github.io/examples/2013/12/11/articles-with-events-from-plos-biology/"/>
+   <link href="http://lagotto.io/examples/2013/12/11/articles-with-events-from-plos-biology/"/>
    <updated>2013-12-11T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/examples/2013/12/11/articles-with-events-from-plos-biology</id>
+   <id>http://lagotto.io/examples/2013/12/11/articles-with-events-from-plos-biology</id>
    <content type="html">&lt;p&gt;Percentage of all PLOS Biology research articles published until May 20, 2013 that were mentioned at least once by each of the listed data sources. The numbers for Facebook and Twitter are much higher for more recently published articles. Source data in CSV format available &lt;a href=&quot;/data/alm_report_plos_biology_2013-05-20.csv&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2013-12-11_figure_4.svg&quot; alt=&quot;Fig. 4&quot;&gt;&lt;/p&gt;
@@ -1384,15 +1384,15 @@ par&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;opar&lt;span class=&quot;p&quot
  
  <entry>
    <title>Research findings: going deeper than the article</title>
-   <link href="http://articlemetrics.github.io/blog/2013/12/05/research-findings-going-deeper-than-the-article/"/>
+   <link href="http://lagotto.io/blog/2013/12/05/research-findings-going-deeper-than-the-article/"/>
    <updated>2013-12-05T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2013/12/05/research-findings-going-deeper-than-the-article</id>
+   <id>http://lagotto.io/blog/2013/12/05/research-findings-going-deeper-than-the-article</id>
    <content type="html">&lt;p&gt;We have recently released two new Article-Level Metrics (ALM) data
 sources: &lt;strong&gt;Europe PMC Database Citations&lt;/strong&gt; and &lt;strong&gt;DataCite&lt;/strong&gt;. The data
 from both sources are displayed on the metrics tab of PLOS articles, are
 available through the &lt;a href=&quot;http://api.plos.org/alm/using-the-alm-api/&quot;&gt;PLOS ALM
 API&lt;/a&gt;, and are available to
-all users of the &lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;open source ALM
+all users of the &lt;a href=&quot;https://github.com/lagotto/lagotto&quot;&gt;open source ALM
 application&lt;/a&gt;. These new sources
 are both related to research data, and they represent a new breed of
 metrics in our ALM suite.&lt;/p&gt;
@@ -1553,9 +1553,9 @@ better practices for handling data-publication interactions.&lt;/p&gt;
  
  <entry>
    <title>Evaluating Impact: What’s your number?</title>
-   <link href="http://articlemetrics.github.io/blog/2013/11/06/evaluating-impact-whats-your-number/"/>
+   <link href="http://lagotto.io/blog/2013/11/06/evaluating-impact-whats-your-number/"/>
    <updated>2013-11-06T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2013/11/06/evaluating-impact-whats-your-number</id>
+   <id>http://lagotto.io/blog/2013/11/06/evaluating-impact-whats-your-number</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;a href=&quot;http://www.nature.com/spoton/event/spoton-london-2013-whats-your-number-altmetrics-session/&quot;&gt;What’s
 your number?&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt; This
 Saturday, we (MF) will be addressing this very question at the SpotOn
@@ -1701,7 +1701,7 @@ longer.&lt;/p&gt;
 citation-based bibliometrics currently in use, and the &lt;a href=&quot;http://article-level-metrics.plos.org/&quot;&gt;PLOS
 Article-Level Metrics&lt;/a&gt; project
 has always been an important part of this change. We and others are
-working on &lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;open source tools that make it affordable for everyone to
+working on &lt;a href=&quot;https://github.com/lagotto/lagotto&quot;&gt;open source tools that make it affordable for everyone to
 collect article-level metrics&lt;/a&gt;,
 better tools to &lt;a href=&quot;http://almreports.plos.org&quot;&gt;analyze and visualize article-level
 metrics&lt;/a&gt;, &lt;a href=&quot;http://dx.doi.org/10.3789/isqv25no2.2013.04&quot;&gt;standards for grouping metrics
@@ -1741,9 +1741,9 @@ disappoint… &lt;em&gt;that is up to all of us in the research community.&lt;/e
  
  <entry>
    <title>ALM Data Challenge: Metrics for a Standard Set of DOIs</title>
-   <link href="http://articlemetrics.github.io/bloga/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois/"/>
+   <link href="http://lagotto.io/bloga/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois/"/>
    <updated>2013-10-31T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/bloga/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois</id>
+   <id>http://lagotto.io/bloga/2013/10/31/alm-data-challenge-metrics-for-a-standard-set-of-dois</id>
    <content type="html">&lt;p&gt;As part of the ALM workshop described in more detail in the &lt;a href=&quot;http://blogs.plos.org/tech/risingtides/&quot;&gt;previous
 post&lt;/a&gt; we also met for an ALM
 Data Challenge which took place in the PLOS offices on October 12.&lt;/p&gt;
@@ -1843,7 +1843,7 @@ is a required field, we set the date to January 1st for each DOI (one of
 the limitations of the datasets).&lt;/p&gt;
 
 &lt;p&gt;In a second step these 10,000 DOIs were loaded into an instance of the
-&lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;PLOS Open Source ALM
+&lt;a href=&quot;https://github.com/lagotto/lagotto&quot;&gt;PLOS Open Source ALM
 application&lt;/a&gt; set up on Amazon AWS
 and started collecting metrics. You can visit the ALM application with
 these 10,000 DOIs at
@@ -1891,9 +1891,9 @@ worth repeating.&lt;/p&gt;
  
  <entry>
    <title>Rising Tides & the Open Horizon for ALM</title>
-   <link href="http://articlemetrics.github.io/blog/2013/10/24/risingtides/"/>
+   <link href="http://lagotto.io/blog/2013/10/24/risingtides/"/>
    <updated>2013-10-24T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2013/10/24/risingtides</id>
+   <id>http://lagotto.io/blog/2013/10/24/risingtides</id>
    <content type="html">&lt;p&gt;With support from the Sloan Foundation, PLOS hosted the &lt;a href=&quot;http://article-level-metrics.plos.org/alm-workshop-2013/&quot;&gt;second annual
 ALM workshop&lt;/a&gt;
 on Oct 10-12, 2013. Presentation slides and links to post-workshop
@@ -1971,10 +1971,10 @@ monographs to research data to software.&lt;/p&gt;
  
  <entry>
    <title>Announcing the release of ALM 2.9 – now with more errors</title>
-   <link href="http://articlemetrics.github.io/blog/2013/10/09/announcing-the-release-of-alm-2-9-now-with-more-errors/"/>
+   <link href="http://lagotto.io/blog/2013/10/09/announcing-the-release-of-alm-2-9-now-with-more-errors/"/>
    <updated>2013-10-09T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2013/10/09/announcing-the-release-of-alm-2-9-now-with-more-errors</id>
-   <content type="html">&lt;p&gt;We have released the latest version of the &lt;a href=&quot;https://github.com/articlemetrics/alm/releases&quot;&gt;open source Article-Level
+   <id>http://lagotto.io/blog/2013/10/09/announcing-the-release-of-alm-2-9-now-with-more-errors</id>
+   <content type="html">&lt;p&gt;We have released the latest version of the &lt;a href=&quot;https://github.com/lagotto/lagotto/releases&quot;&gt;open source Article-Level
 Metrics application&lt;/a&gt; that PLOS
 is using to track how many times each article has been viewed, saved,
 discussed, recommended, and cited. Since it is an open source
@@ -2041,9 +2041,9 @@ will allow us to improve the overall quality of our ALM data.&lt;/p&gt;
  
  <entry>
    <title>Article-Level Metrics – Learning to Walk, Run & Do Algebra</title>
-   <link href="http://articlemetrics.github.io/blog/2013/09/05/article-level-metrics-learning-to-walk-run-do-algebra/"/>
+   <link href="http://lagotto.io/blog/2013/09/05/article-level-metrics-learning-to-walk-run-do-algebra/"/>
    <updated>2013-09-05T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2013/09/05/article-level-metrics-learning-to-walk-run-do-algebra</id>
+   <id>http://lagotto.io/blog/2013/09/05/article-level-metrics-learning-to-walk-run-do-algebra</id>
    <content type="html">&lt;p&gt;Article-Level Metrics (ALM) may have outgrown the infant stage, but the
 “terrible two’s and three’s” have now arrived when it must learn to
 walk, run, and… do algebra.&lt;/p&gt;
@@ -2181,16 +2181,16 @@ yesterday, and it is not too late to register
  
  <entry>
    <title>Eat your own dogfood: lessons learned from building an API</title>
-   <link href="http://articlemetrics.github.io/blog/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api/"/>
+   <link href="http://lagotto.io/blog/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api/"/>
    <updated>2013-08-22T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api</id>
-   <content type="html">&lt;p&gt;The PLOS &lt;a href=&quot;https://github.com/articlemetrics/alm&quot;&gt;Article-Level Metrics
+   <id>http://lagotto.io/blog/2013/08/22/eat-your-own-dogfood-lessons-learned-from-building-an-api</id>
+   <content type="html">&lt;p&gt;The PLOS &lt;a href=&quot;https://github.com/lagotto/lagotto&quot;&gt;Article-Level Metrics
 application&lt;/a&gt; is open source
 software that collects a variety of metrics about scholarly articles.
 The application talks to a number of APIs, and in return provides these
 metrics via an API. Work on this application therefore involves a lot of
 work on APIs, and some of the lessons I learned are summarized below,
-including changes we made in the latest &lt;a href=&quot;https://github.com/articlemetrics/alm/releases/tag/v.2.8&quot;&gt;ALM
+including changes we made in the latest &lt;a href=&quot;https://github.com/lagotto/lagotto/releases/tag/v.2.8&quot;&gt;ALM
 2.8&lt;/a&gt; release.
 Most of the things I mention are fairly obvious, but some of them could
 be starting points for a discussion. Good APIs are important for
@@ -2228,8 +2228,7 @@ not only for improving the ALM API, but also to make the &lt;strong&gt;rplos&lt;
 &lt;h3 id=&quot;toc_1&quot;&gt;Document your API&lt;/h3&gt;
 
 &lt;p&gt;Documentation is important for all software, and that of course also
-includes APIs. The documentation for the PLOS ALM API is in the Github
-&lt;a href=&quot;https://github.com/articlemetrics/alm/wiki/API&quot;&gt;wiki&lt;/a&gt;. In the latest
+includes APIs. The documentation for the Lagotto API is in &lt;a href=&quot;https://github.com/lagotto/lagotto/blog/master/docs/api.md&quot;&gt;Github&lt;/a&gt;. In the latest
 ALM release we have included the documentation right in the ALM
 application to make it easier to use, e.g. with the documentation for
 the PubMed API right next to the PubMed configuration tab. You also see
@@ -2335,7 +2334,7 @@ fine-tuning the performance of the API during development.&lt;/p&gt;
 
 &lt;p&gt;This is an area where we could do much better. There is a &lt;a href=&quot;https://groups.google.com/forum/?fromgroups#!forum/plos-api-developers&quot;&gt;PLOS API
 mailing list&lt;/a&gt;
-and a &lt;a href=&quot;https://github.com/articlemetrics/alm/issues&quot;&gt;Github issue tracker&lt;/a&gt;, and we would
+and a &lt;a href=&quot;https://github.com/lagotto/lagotto/issues&quot;&gt;Github issue tracker&lt;/a&gt;, and we would
 love to get feedback in either of these places. Feedback is important,
 as we can’t possible anticipate all the uses of the API.&lt;/p&gt;
 </content>
@@ -2343,9 +2342,9 @@ as we can’t possible anticipate all the uses of the API.&lt;/p&gt;
  
  <entry>
    <title>Apples & Oranges – they don’t compare</title>
-   <link href="http://articlemetrics.github.io/blog/2013/08/08/apples-oranges-they-dont-compare/"/>
+   <link href="http://lagotto.io/blog/2013/08/08/apples-oranges-they-dont-compare/"/>
    <updated>2013-08-08T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2013/08/08/apples-oranges-they-dont-compare</id>
+   <id>http://lagotto.io/blog/2013/08/08/apples-oranges-they-dont-compare</id>
    <content type="html">&lt;p&gt;One of the challenges of introducing new metrics to measure the
 scholarly impact of journal articles is that we want these metrics to be
 consistent and reproducible. This task ranges from easy (single
@@ -2451,9 +2450,9 @@ doi:&lt;a href=&quot;http://dx.doi.org/10.3789/isqv25no2.2013.02&quot;&gt;10.378
  
  <entry>
    <title>Let’s stop wandering the altmetrics grocery store…</title>
-   <link href="http://articlemetrics.github.io/blog/2013/08/01/lets-stop-wandering-the-altmetrics-grocery-store/"/>
+   <link href="http://lagotto.io/blog/2013/08/01/lets-stop-wandering-the-altmetrics-grocery-store/"/>
    <updated>2013-08-01T00:00:00+00:00</updated>
-   <id>http://articlemetrics.github.io/blog/2013/08/01/lets-stop-wandering-the-altmetrics-grocery-store</id>
+   <id>http://lagotto.io/blog/2013/08/01/lets-stop-wandering-the-altmetrics-grocery-store</id>
    <content type="html">&lt;p&gt;As a research community, we have long gone hungry for ways to assess
 research. With journal-based evaluation, we were feeding off of flies –
 perfect for a frog but not enough for a researcher. Today, we have

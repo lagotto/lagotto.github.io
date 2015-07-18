@@ -1,8 +1,20 @@
-<h2 id="toc_0">4.0 Data-Push Model (December 2014)</h2>
+<h2 id="toc_0">4.3 Archiving and Auditing of Raw Data (July 2015)</h2>
+
+<p>We want to make all data collected by Lagotto available publicly. While monthly reports can be generated as CSV files and <a href="http://figshare.com/articles/Cumulative_PLOS_ALM_Report_February_2014/1189396">uploaded to a data repository such as figshare</a>, we need a different mechanism to include the raw data collected from external sources. A database is not the best place for this kind of data and we need to look at other services to handle this, e.g. <a href="http://www.fluentd.org/">fluentd</a> and <a href="http://aws.amazon.com/glacier/">Amazon Glacier</a>.</p>
+
+<p>After this release we will have the following export formats:</p>
+
+<ul>
+<li>API (currently at version 6)</li>
+<li>monthly export of summary stats in CSV format</li>
+<li>monthly export of detailed data in JSON format</li>
+</ul>
+
+<h2 id="toc_1">4.4 Data-Push Model (August 2015)</h2>
 
 <p>In order for the Lagotto application to scale to millions of articles - e.g. the more than 10 million in the <a href="http://det.labs.crossref.org/">CrossRef Labs DET Server</a> - it makes more sense that third-parties are pushing data into the application (**push**) rather than Lagotto collecting data from external sources (**pull**). We have identified the following architecture and implementation steps:</p>
 
-<h3 id="toc_1">Add push API endpoint</h3>
+<h3 id="toc_2">Add push API endpoint</h3>
 
 <p>Add an API that takes push requests in a standardized format that describe events around articles. The API has the following features:</p>
 
@@ -13,42 +25,18 @@
 <li>authentication via API token</li>
 </ul>
 
-<h3 id="toc_2">Separate out agent functionality from source model</h3>
+<h3 id="toc_3">Separate out agent functionality from source model</h3>
 
 <p>We want to separate out the agent functionality from our sources, so that agents can be part of the Lagotto software, or run somewhere else and deposit their data via the new push API. Sources should become generic enough that we hopefully don&#39;t need to subclass the Source class anymore, but move all that functionality into a new <strong>Agent</strong> model. In the beginning all sources will have a corresponding agent, but that can change over time.</p>
 
-<h3 id="toc_3">Push all API responses through push API</h3>
+<h3 id="toc_4">Push all API responses through push API</h3>
 
-<p>All API responses from external sources should go through the new push API to make the workflow consistent. We can modify the <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/retrieval_status.rb#L41-L46">perform_get_data method</a> to achieve this.</p>
+<p>All API responses from external sources should go through the new push API to make the workflow consistent. We can modify the <a href="https://github.com/lagotto/lagotto/blob/master/app/models/retrieval_status.rb#L41-L46">perform_get_data method</a> to achieve this.</p>
 
-<h3 id="toc_4">Rewrite F1000 source as internal agent</h3>
+<h3 id="toc_5">Rewrite F1000 source as internal agent</h3>
 
-<p>Once we have separated out the agent functionality from sources in we can start rewriting our existing sources to more efficiently collect events from external sources. The <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/f1000.rb">F1000 source</a> is a good starting point, and the new agent should parse the F1000 XML file and then deposit the payload in the new push API. We can consider packaging the internal agent as Ruby gem if the functionality is decoupled enough.</p>
+<p>Once we have separated out the agent functionality from sources in we can start rewriting our existing sources to more efficiently collect events from external sources. The <a href="https://github.com/lagotto/lagotto/blob/master/app/models/sources/f1000.rb">F1000 source</a> is a good starting point, and the new agent should parse the F1000 XML file and then deposit the payload in the new push API. We can consider packaging the internal agent as Ruby gem if the functionality is decoupled enough.</p>
 
-<h3 id="toc_5">Add generic webmention endpoint</h3>
+<h3 id="toc_6">Add generic webmention endpoint</h3>
 
 <p>Use the <a href="http://webmention.io/">standard webmention format</a>, feed in data around events.</p>
-
-<h2 id="toc_6">4.1 Data-Level Metrics (December 2014)</h2>
-
-<p>To fully support data-level metrics, the following changes need to be done in the Lagotto software:</p>
-
-<ul>
-<li>support for relationships between resources (*isNewVersionOf*, <em>isPartOf</em>, etc.)</li>
-<li>configuration changes to some sources, e.g. Europe PMC database links</li>
-<li>additional sources (e.g. usage stats for data)</li>
-</ul>
-
-<h3 id="toc_7">Support for relationships between resources</h3>
-
-<p>This is an important feature for data because of versioning and subsets of data (*isPartOf*). This functionality is also needed for journal articles, allowing us to describe the relationship between different versions of an article, and related content such as corrections, as well as component DOIs for figures and tables.</p>
-
-<h2 id="toc_8">4.2 Server-to-Server Replication (January 2015)</h2>
-
-<p>As the number of Lagotto installations increases, we need to start thinking about server-to-server replication, so that multiple Lagotto servers are not all collecting the same information from external data sources.</p>
-
-<p>To make this replication performant, we ideally want to use a native database replication tool. Part of the implementation should therefore be a re-evaluation of MySQL and CouchDB as databases used in Lagotto.</p>
-
-<h2 id="toc_9">4.3 Archiving and Auditing of Raw Data (February 2015)</h2>
-
-<p>We want to make all data collected by Lagotto available publicly. While monthly reports can be generated as CSV files and <a href="http://figshare.com/articles/Cumulative_PLOS_ALM_Report_February_2014/1189396">uploaded to a data repository such as figshare</a>, we need a different mechanism to include the raw data collected from external sources. A database is not the best place for this kind of data and we need to look at other services to handle this, e.g. <a href="http://www.fluentd.org/">fluentd</a> and <a href="http://aws.amazon.com/glacier/">Amazon Glacier</a>.</p>

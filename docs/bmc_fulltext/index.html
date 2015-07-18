@@ -1,0 +1,79 @@
+<p>Search the fulltext content of BioMed Central articles for scholarly works.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>bmc_fulltext</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://www.biomedcentral.com/search/results?terms=URL&format=json</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>License</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;entries&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;arxId&quot;</span><span class="p">:</span> <span class="s2">&quot;s13007-014-0041-7&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;blurbTitle&quot;</span><span class="p">:</span> <span class="s2">&quot;Mapping mutations from SNP data&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;blurbText&quot;</span><span class="p">:</span> <span class="s2">&quot;This article describes a software tool that can be used to map SNPs identified in high-throughput sequencing data from bulked segregant populations. The software maps SNPs present in annotated coding sequences, which may represent candidate causative mutations.&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;imageUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;/content/figures/s13007-014-0041-7-toc.gif&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;articleUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;/content/10/1/41&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;articleFullUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.plantmethods.com/content/10/1/41&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;software&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1186/s13007-014-0041-7&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;isOpenAccess&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;isFree&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;isHighlyAccessed&quot;</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;bibliograhyTitle&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;Mapping mutations in plant genomes with the user-friendly web application CandiSNP&lt;/p&gt;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;authorNames&quot;</span><span class="p">:</span> <span class="s2">&quot;        \n    &lt;span class=\&quot;author-names\&quot;&gt;    Etherington GJ, Monaghan J, Zipfel C and MacLean D&lt;/span&gt;\n    &quot;</span><span class="p">,</span>
+      <span class="nt">&quot;longCitation&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;em&gt;Plant Methods&lt;/em&gt; 2014, &lt;strong&gt;10&lt;/strong&gt;:41&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;LIVE&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;abstractPath&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.plantmethods.com/content/10/1/41/abstract&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;journal Id&quot;</span><span class="p">:</span> <span class="s2">&quot;10088&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;published Date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-12-30&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/lagotto/lagotto/blob/master/app/models/sources/bmc_fulltext.rb">here</a>.</p>

@@ -1,0 +1,509 @@
+<p>Search the Nature.com corpus for scholarly works using their <a href="http://www.nature.com/developers/documentation/api-references/opensearch-api/">OpenSearch</a> API.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>nature_opensearch</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://www.nature.com/opensearch/request?query="DOI"+OR+"URL"&httpAccept=application/json&startRecord=1</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>License</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;nature.com OpenSearch: urn:uuid:87b647d0-d324-4d30-87cd-06f416627f07&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;namespaces&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;feed&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;nature.com OpenSearch: \&quot;https://github.com/najoshi/sickle\&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subtitle&quot;</span><span class="p">:</span> <span class="s2">&quot;The nature.com OpenSearch service provides a structured resource discovery facility for content hosted on nature.com.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;urn:uuid:87b647d0-d324-4d30-87cd-06f416627f07&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nature.com&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.nature.com&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;interfaces@nature.com&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rights&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2015 Nature Publication Group&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.nature.com/opensearch/common/imgs/npg_icon.jpg&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;dc:publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Publishing Group&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dc:language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dc:rights&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2015 Nature Publication Group&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;prism:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2015 Nature Publication Group&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;prism:rightsAgent&quot;</span><span class="p">:</span> <span class="s2">&quot;permissions@nature.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;opensearch:totalResults&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="nt">&quot;opensearch:startIndex&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;opensearch:itemsPerPage&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="nt">&quot;opensearch:Query&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;sru:numberOfRecords&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="nt">&quot;sru:resultSetId&quot;</span><span class="p">:</span> <span class="s2">&quot;66eb80c0-c391-4a04-b327-3e4d59a9bf17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;sru:resultSetTTL&quot;</span><span class="p">:</span> <span class="s2">&quot;3600&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;sru:echoedSearchRetrieveRequest&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;sru:version&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;sru:query&quot;</span><span class="p">:</span> <span class="s2">&quot;\&quot;https://github.com/najoshi/sickle\&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sru:startRecord&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sru:maximumRecords&quot;</span><span class="p">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sru:recordPacking&quot;</span><span class="p">:</span> <span class="s2">&quot;packed&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sru:recordSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;pam&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sru:sortKeys&quot;</span><span class="p">:</span> <span class="s2">&quot;,pam,0&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;sru:extraResponseData&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;npg:collection&quot;</span><span class="p">:</span> <span class="s2">&quot;journals_nature,journals_palgrave,lab_animal,-international_abstracts_in_operations_research&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;npg:context&quot;</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;npg:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2015 Nature Publication Group&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;npg:entry&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;npg:databaseTitle&quot;</span><span class="p">:</span> <span class="s2">&quot;nature.com OpenSearch&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;npg:datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;npg:httpAccept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;npg:responseId&quot;</span><span class="p">:</span> <span class="s2">&quot;87b647d0-d324-4d30-87cd-06f416627f07&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Community transcriptomics reveals unexpected high microbial diversity in acidophilic biofilm communities&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2014.200&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2014.200&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;info:srw/schema/11/pam-v2.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordPacking&quot;</span><span class="p">:</span> <span class="s2">&quot;packed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pam:message&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;pam:article&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;xhtml:head&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;dc:identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;doi:10.1038/ismej.2014.200&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:title&quot;</span><span class="p">:</span> <span class="s2">&quot;Community transcriptomics reveals unexpected high microbial diversity in acidophilic biofilm communities&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:productCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ismej&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Daniela S Aliaga Goltsman&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Luis R Comolli&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Brian C Thomas&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Jillian F Banfield&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:publicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;The ISME Journal&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:issn&quot;</span><span class="p">:</span> <span class="s2">&quot;1751-7362&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:eIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;1751-7370&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1038/ismej.2014.200&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Publishing Group&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;A fundamental question in microbial ecology relates to community structure, and how this varies across environment types. It is widely believed that some environments, such as those at very low pH, host simple communities based on the low number of taxa, possibly due to the extreme environmental conditions. However, most analyses of species richness have relied on methods that provide relatively low ribosomal RNA (rRNA) sampling depth. Here we used community transcriptomics to analyze the microbial diversity of natural acid mine drainage biofilms from the Richmond Mine at Iron Mountain, California. Our analyses target deep pools of rRNA gene transcripts recovered from both natural and laboratory-grown biofilms across varying developmental stages. In all, 91.8% of the âˆ¼254 million Illumina reads mapped to rRNA genes represented in the SILVA database. Up to 159 different taxa, including Bacteria, Archaea and Eukaryotes, were identified. Diversity measures, ordination and hierarchical clustering separate environmental from laboratory-grown biofilms. In part, this is due to the much larger number of rare members in the environmental biofilms. Although &lt;i&gt;Leptospirillum&lt;/i&gt; bacteria generally dominate biofilms, we detect a wide variety of other &lt;i&gt;Nitrospira&lt;/i&gt; organisms present at very low abundance. Bacteria from the &lt;i&gt;Chloroflexi&lt;/i&gt; phylum were also detected. The results indicate that the primary characteristic that has enabled prior extensive cultivation-independent â€˜omicâ€™ analyses is not simplicity but rather the high dominance by a few taxa. We conclude that a much larger variety of organisms than previously thought have adapted to this extreme environment, although only few are selected for at any one time.&lt;/p&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:publicationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-11-04&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:coverDate&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:aggregationType&quot;</span><span class="p">:</span> <span class="s2">&quot;aop&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:volume&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:number&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:startingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:endingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2014.200&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:channel&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:section&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;dc:subject&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Environmental microbiology&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:genre&quot;</span><span class="p">:</span> <span class="s2">&quot;Research&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2014 International Society for Microbial Ecology&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;sru:recordPosition&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;sru:extraRecordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Predicting the response of the deep-ocean microbiome to geochemical perturbations by hydrothermal vents&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2015.4&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2015.4&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;info:srw/schema/11/pam-v2.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordPacking&quot;</span><span class="p">:</span> <span class="s2">&quot;packed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pam:message&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;pam:article&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;xhtml:head&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;dc:identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;doi:10.1038/ismej.2015.4&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:title&quot;</span><span class="p">:</span> <span class="s2">&quot;Predicting the response of the deep-ocean microbiome to geochemical perturbations by hydrothermal vents&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:productCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ismej&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Daniel C Reed&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;John A Breier&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Houshuo Jiang&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Karthik Anantharaman&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Christopher A Klausmeier&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Brandy M Toner&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Cathrine Hancock&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Kevin Speer&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Andreas M Thurnherr&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Gregory J Dick&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:publicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;The ISME Journal&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:issn&quot;</span><span class="p">:</span> <span class="s2">&quot;1751-7362&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:eIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;1751-7370&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1038/ismej.2015.4&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Publishing Group&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;Submarine hydrothermal vents perturb the deep-ocean microbiome by injecting reduced chemical species into the water column that act as an energy source for chemosynthetic organisms. These systems thus provide excellent natural laboratories for studying the response of microbial communities to shifts in marine geochemistry. The present study explores the processes that regulate coupled microbial-geochemical dynamics in hydrothermal plumes by means of a novel mathematical model, which combines thermodynamics, growth and reaction kinetics, and transport processes derived from a fluid dynamics model. Simulations of a plume located in the ABE vent field of the Lau basin were able to reproduce metagenomic observations well and demonstrated that the magnitude of primary production and rate of autotrophic growth are largely regulated by the energetics of metabolisms and the availability of electron donors, as opposed to kinetic parameters. Ambient seawater was the dominant source of microbes to the plume and sulphur oxidisers constituted almost 90% of the modelled community in the neutrally-buoyant plume. Data from drifters deployed in the region allowed the different time scales of metabolisms to be cast in a spatial context, which demonstrated spatial succession in the microbial community. While growth was shown to occur over distances of tens of kilometers, microbes persisted over hundreds of kilometers. Given that high-temperature hydrothermal systems are found less than 100 km apart on average, plumes may act as important vectors between different vent fields and other environments that are hospitable to similar organisms, such as oil spills and oxygen minimum zones.&lt;/p&gt;\n&lt;span&gt;&lt;i&gt;The ISME Journal&lt;/i&gt; advance online publication, 6 February 2015; doi:&lt;span&gt;10.1038/ismej.2015.4&lt;/span&gt;&lt;/span&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:publicationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-06&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:coverDate&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:aggregationType&quot;</span><span class="p">:</span> <span class="s2">&quot;aop&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:volume&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:number&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:startingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:endingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2015.4&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:channel&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:section&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;dc:subject&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:genre&quot;</span><span class="p">:</span> <span class="s2">&quot;Research&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2015 International Society for Microbial Ecology&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;sru:recordPosition&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;sru:extraRecordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Stable-isotope probing and metagenomics reveal predation by protozoa drives &lt;i&gt;E. coli&lt;/i&gt; removal in slow sand filters&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2014.175&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2014.175&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;info:srw/schema/11/pam-v2.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordPacking&quot;</span><span class="p">:</span> <span class="s2">&quot;packed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pam:message&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;pam:article&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;xhtml:head&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;dc:identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;doi:10.1038/ismej.2014.175&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:title&quot;</span><span class="p">:</span> <span class="s2">&quot;Stable-isotope probing and metagenomics reveal predation by protozoa drives &lt;i&gt;E. coli&lt;/i&gt; removal in slow sand filters&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:productCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ismej&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Sarah-Jane Haig&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Melanie Schirmer&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Rosalinda D&#39;Amore&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Joseph Gibbs&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Robert L Davies&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Gavin Collins&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Christopher Quince&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:publicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;The ISME Journal&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:issn&quot;</span><span class="p">:</span> <span class="s2">&quot;1751-7362&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:eIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;1751-7370&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1038/ismej.2014.175&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Publishing Group&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;Stable-isotope probing and metagenomics were applied to study samples taken from laboratory-scale slow sand filters 0.5, 1, 2, 3 and 4â€‰h after challenging with &lt;sup&gt;13&lt;/sup&gt;C-labelled &lt;i&gt;Escherichia coli&lt;/i&gt; to determine the mechanisms and organisms responsible for coliform removal. Before spiking, the filters had been continuously operated for 7 weeks using water from the River Kelvin, Glasgow as their influent source. Direct counts and quantitative PCR assays revealed a clear predatorâ€“prey response between protozoa and &lt;i&gt;E. coli&lt;/i&gt;. The importance of top-down trophic-interactions was confirmed by metagenomic analysis, identifying several protozoan and viral species connected to &lt;i&gt;E. coli&lt;/i&gt; attrition, with protozoan grazing responsible for the majority of the removal. In addition to top-down mechanisms, indirect mechanisms, such as algal reactive oxygen species-induced lysis, and mutualistic interactions between algae and fungi, were also associated with coliform removal. The findings significantly further our understanding of the processes and trophic interactions underpinning &lt;i&gt;E. coli&lt;/i&gt; removal. This study provides an example for similar studies, and the opportunity to better understand, manage and enhance &lt;i&gt;E. coli&lt;/i&gt; removal by allowing the creation of more complex trophic interaction models.&lt;/p&gt;\n&lt;span&gt;&lt;i&gt;The ISME Journal&lt;/i&gt; advance online publication, 3 October 2014; doi:&lt;span&gt;10.1038/ismej.2014.175&lt;/span&gt;&lt;/span&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:publicationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-03&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:coverDate&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:aggregationType&quot;</span><span class="p">:</span> <span class="s2">&quot;aop&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:volume&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:number&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:startingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:endingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2014.175&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:channel&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:section&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;dc:subject&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Water microbiology&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:genre&quot;</span><span class="p">:</span> <span class="s2">&quot;Research&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2014 International Society for Microbial Ecology&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;sru:recordPosition&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;sru:extraRecordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Aquifer environment selects for microbial species cohorts in sediment and groundwater&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2015.2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2015.2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;info:srw/schema/11/pam-v2.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordPacking&quot;</span><span class="p">:</span> <span class="s2">&quot;packed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pam:message&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;pam:article&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;xhtml:head&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;dc:identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;doi:10.1038/ismej.2015.2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:title&quot;</span><span class="p">:</span> <span class="s2">&quot;Aquifer environment selects for microbial species cohorts in sediment and groundwater&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:productCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ismej&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Laura A Hug&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Brian C Thomas&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Christopher T Brown&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Kyle R Frischkorn&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Kenneth H Williams&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Susannah G Tringe&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Jillian F Banfield&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:publicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;The ISME Journal&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:issn&quot;</span><span class="p">:</span> <span class="s2">&quot;1751-7362&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:eIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;1751-7370&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1038/ismej.2015.2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Publishing Group&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;Little is known about the biogeography or stability of sediment-associated microbial community membership because these environments are biologically complex and generally difficult to sample. High-throughput-sequencing methods provide new opportunities to simultaneously genomically sample and track microbial community members across a large number of sampling sites or times, with higher taxonomic resolution than is associated with 16â€‰S ribosomal RNA gene surveys, and without the disadvantages of primer bias and gene copy number uncertainty. We characterized a sediment community at 5â€‰m depth in an aquifer adjacent to the Colorado River and tracked its most abundant 133 organisms across 36 different sediment and groundwater samples. We sampled sites separated by centimeters, meters and tens of meters, collected on seven occasions over 6 years. Analysis of 1.4 terabase pairs of DNA sequence showed that these 133 organisms were more consistently detected in saturated sediments than in samples from the vadose zone, from distant locations or from groundwater filtrates. Abundance profiles across aquifer locations and from different sampling times identified organism cohorts that comprised subsets of the 133 organisms that were consistently associated. The data suggest that cohorts are partly selected for by shared environmental adaptation.&lt;/p&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:publicationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-03&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:coverDate&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:aggregationType&quot;</span><span class="p">:</span> <span class="s2">&quot;aop&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:volume&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:number&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:startingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:endingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ismej.2015.2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:channel&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:section&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;dc:subject&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:genre&quot;</span><span class="p">:</span> <span class="s2">&quot;Research&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2015 International Society for Microbial Ecology&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;sru:recordPosition&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="nt">&quot;sru:extraRecordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Biology of a widespread uncultivated archaeon that contributes to carbon fixation in the subsurface&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ncomms6497&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ncomms6497&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;info:srw/schema/11/pam-v2.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordPacking&quot;</span><span class="p">:</span> <span class="s2">&quot;packed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pam:message&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;pam:article&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;xhtml:head&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;dc:identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;doi:10.1038/ncomms6497&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:title&quot;</span><span class="p">:</span> <span class="s2">&quot;Biology of a widespread uncultivated archaeon that contributes to carbon fixation in the subsurface&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:productCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ncomms&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Alexander J. Probst&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Thomas Weinmaier&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Kasie Raymann&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Alexandra Perras&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Joanne B. Emerson&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Thomas Rattei&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Gerhard Wanner&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Andreas Klingl&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Ivan A. Berg&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Marcos Yoshinaga&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Bernhard Viehweger&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Kai-Uwe Hinrichs&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Brian C. Thomas&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Sandra Meck&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Anna K. Auerbach&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Matthias Heise&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Arno Schintlmeister&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Markus Schmid&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Michael Wagner&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Simonetta Gribaldo&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Jillian F. Banfield&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Christine Moissl-Eichinger&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:publicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Communications&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:issn&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:eIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;2041-1723&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1038/ncomms6497&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Publishing Group&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;Subsurface microbial life contributes significantly to biogeochemical cycling, yet it remains largely uncharacterized, especially its archaeal members. This &#39;microbial dark matter&#39; has been explored by recent studies that were, however, mostly based on DNA sequence information only. Here, we use diverse techniques including ultrastuctural analyses to link genomics to biology for the SM1 Euryarchaeon lineage, an uncultivated group of subsurface archaea. Phylogenomic analyses reveal this lineage to belong to a widespread group of archaea that we propose to classify as a new euryarchaeal order (â€˜&lt;i&gt;Candidatus&lt;/i&gt; Altiarchaealesâ€™). The representative, double-membraned species â€˜&lt;i&gt;Candidatus&lt;/i&gt; Altiarchaeum hamiconexumâ€™ has an autotrophic metabolism that uses a not-yet-reported Factor&lt;sub&gt;420&lt;/sub&gt;-free reductive acetyl-CoA pathway, confirmed by stable carbon isotopic measurements of archaeal lipids. Our results indicate that this lineage has evolved specific metabolic and structural features like nano-grappling hooks empowering this widely distributed archaeon to predominate anaerobic groundwater, where it may represent an important carbon dioxide sink.&lt;/p&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:publicationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-11-26&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:coverDate&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:aggregationType&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:volume&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:number&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:startingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:endingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ncomms6497&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:channel&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:section&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;dc:subject&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:genre&quot;</span><span class="p">:</span> <span class="s2">&quot;Research&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2014 Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;sru:recordPosition&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;sru:extraRecordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Extraordinary phylogenetic diversity and metabolic versatility in aquifer sediment&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ncomms3120&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ncomms3120&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;info:srw/schema/11/pam-v2.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordPacking&quot;</span><span class="p">:</span> <span class="s2">&quot;packed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pam:message&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;pam:article&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;xhtml:head&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;dc:identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;doi:10.1038/ncomms3120&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:title&quot;</span><span class="p">:</span> <span class="s2">&quot;Extraordinary phylogenetic diversity and metabolic versatility in aquifer sediment&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:productCode&quot;</span><span class="p">:</span> <span class="s2">&quot;ncomms&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Cindy J. Castelle&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Laura A. Hug&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Kelly C. Wrighton&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Brian C. Thomas&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Kenneth H. Williams&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Dongying Wu&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Susannah G. Tringe&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Steven W. Singer&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Jonathan A. Eisen&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Jillian F. Banfield&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:publicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Communications&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:issn&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:eIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;2041-1723&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1038/ncomms3120&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Publishing Group&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;Microorganisms in the subsurface represent a substantial but poorly understood component of the Earthâ€™s biosphere. Subsurface environments are complex and difficult to characterize; thus, their microbiota have remained as a â€˜dark matterâ€™ of the carbon and other biogeochemical cycles. Here we deeply sequence two sediment-hosted microbial communities from an aquifer adjacent to the Colorado River, CO, USA. No single organism represents more than ~1% of either community. Remarkably, many bacteria and archaea in these communities are novel at the phylum level or belong to phyla lacking a sequenced representative. The dominant organism in deeper sediment, RBG-1, is a member of a new phylum. On the basis of its reconstructed complete genome, RBG-1 is metabolically versatile. Its wide respiration-based repertoire may enable it to respond to the fluctuating redox environment close to the water table. We document extraordinary microbial novelty and the importance of previously unknown lineages in sediment biogeochemical transformations.&lt;/p&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:publicationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-27&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:coverDate&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:aggregationType&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:volume&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:number&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:startingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:endingPage&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/ncomms3120&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:channel&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:section&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;dc:subject&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:genre&quot;</span><span class="p">:</span> <span class="s2">&quot;Research&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2013 Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;sru:recordPosition&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nt">&quot;sru:extraRecordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Sailfish enables alignment-free isoform quantification from RNA-seq reads using lightweight algorithms&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/nbt.2862&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/nbt.2862&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-25T18:11:11+00:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;info:srw/schema/11/pam-v2.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordPacking&quot;</span><span class="p">:</span> <span class="s2">&quot;packed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sru:recordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;pam:message&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;pam:article&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;xhtml:head&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;dc:identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;doi:10.1038/nbt.2862&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:title&quot;</span><span class="p">:</span> <span class="s2">&quot;Sailfish enables alignment-free isoform quantification from RNA-seq reads using lightweight algorithms&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:productCode&quot;</span><span class="p">:</span> <span class="s2">&quot;nbt&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:creator&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Rob Patro&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Stephen M Mount&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Carl Kingsford&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:publicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Biotechnology&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:issn&quot;</span><span class="p">:</span> <span class="s2">&quot;1087-0156&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:eIssn&quot;</span><span class="p">:</span> <span class="s2">&quot;1546-1696&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1038/nbt.2862&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature Publishing Group&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;dc:description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;We introduce Sailfish, a computational method for quantifying the abundance of previously annotated RNA isoforms from RNA-seq data. Because Sailfish entirely avoids mapping reads, a time-consuming step in all current methods, it provides quantification estimates much faster than do existing approaches (typically 20 times faster) without loss of accuracy. By facilitating frequent reanalysis of data and reducing the need to optimize parameters, Sailfish exemplifies the potential of lightweight algorithms for efficiently processing sequencing reads.&lt;/p&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:publicationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-04-20&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:coverDate&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:aggregationType&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:volume&quot;</span><span class="p">:</span> <span class="s2">&quot;32&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:number&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:startingPage&quot;</span><span class="p">:</span> <span class="s2">&quot;462&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:endingPage&quot;</span><span class="p">:</span> <span class="s2">&quot;464&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dx.doi.org/10.1038/nbt.2862&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:channel&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;prism:section&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;dc:subject&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;Transcriptomics&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;RNA sequencing&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Software&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Genome informatics&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;prism:genre&quot;</span><span class="p">:</span> <span class="s2">&quot;Research&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;prism:copyright&quot;</span><span class="p">:</span> <span class="s2">&quot;Â© 2014 Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;sru:recordPosition&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="nt">&quot;sru:extraRecordData&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/lagotto/lagotto/blob/master/app/models/sources/nature_opensearch.rb">here</a>.</p>
+
+<h2 id="toc_2">Further Documentation</h2>
+
+<ul>
+<li><a href="http://www.nature.com/developers/documentation/api-references/opensearch-api/">Nature.com Developers OpenSearch API</a></li>
+</ul>

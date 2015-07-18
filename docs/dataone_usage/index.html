@@ -1,0 +1,118 @@
+<p><a href="http://www.dataone.org">DataONE</a> is a network of repositories for ecological and environmental data. The DataONE Usage source tracks the number of downloads of these datasets, and implements the recommendations from the <a href="http://www.projectcounter.org/r4/APPD.pdf">COUNTER code of practice</a>, but does not exclude robots that look like legitimate users.</p>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>Lagotto Name</strong></td>
+<td valign="top" width=70%>dataone_usage</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Lagotto Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Lagotto Core Attributes</strong></td>
+<td valign="top" width=80%>total</td>
+</tr>
+<td valign="top" width=20%><strong>Lagotto Other Attributes</strong></td>
+<td valign="top" width=80%>none</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON or XML</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>https://cn.dataone.org/cn/v1/query/logsolr/select?facet=true&facet.range=dateLogged&facet.range.end=2015-07-17T23:59:59Z&facet.range.gap=%2B1MONTH&facet.range.start=2011-07-07T00:00:00Z&fq=event:read&q=pid:PID%20AND%20isRepeatVisit:false%20AND%20inPartialRobotList:false&wt=json</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_0">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;responseHeader&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;QTime&quot;</span><span class="p">:</span> <span class="mi">828</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;facet&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;pid:doi\\:10.5063/F1PC3085&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;facet.range.start&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-09-01T01:01:01Z&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;facet.range&quot;</span><span class="p">:</span> <span class="s2">&quot;dateLogged&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;facet.range.gap&quot;</span><span class="p">:</span> <span class="s2">&quot;+1MONTH&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;facet.range.end&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-07-17T24:59:59Z&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;wt&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;fq&quot;</span><span class="p">:</span> <span class="s2">&quot;event:read&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;numFound&quot;</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
+    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;facet_counts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;facet_queries&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;facet_fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;facet_dates&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;facet_ranges&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;dateLogged&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;counts&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;2014-09-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">13</span><span class="p">,</span>
+          <span class="s2">&quot;2014-10-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">20</span><span class="p">,</span>
+          <span class="s2">&quot;2014-11-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">10</span><span class="p">,</span>
+          <span class="s2">&quot;2014-12-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">4</span><span class="p">,</span>
+          <span class="s2">&quot;2015-01-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">12</span><span class="p">,</span>
+          <span class="s2">&quot;2015-02-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">5</span><span class="p">,</span>
+          <span class="s2">&quot;2015-03-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">4</span><span class="p">,</span>
+          <span class="s2">&quot;2015-04-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">4</span><span class="p">,</span>
+          <span class="s2">&quot;2015-05-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">2</span><span class="p">,</span>
+          <span class="s2">&quot;2015-06-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">0</span><span class="p">,</span>
+          <span class="s2">&quot;2015-07-01T01:01:01Z&quot;</span><span class="p">,</span>
+          <span class="mi">0</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;gap&quot;</span><span class="p">:</span> <span class="s2">&quot;+1MONTH&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-09-01T01:01:01Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-01T01:01:01Z&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_1">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/lagotto/lagotto/blob/master/app/models/sources/dataone_usage.rb">here</a>.</p>
+
+<h2 id="toc_2">Further Documentation</h2>
+
+<ul>
+<li><a href="http://mdc.lagotto.io/dataone-usage-stats/">DataONE usage stats</a></li>
+</ul>

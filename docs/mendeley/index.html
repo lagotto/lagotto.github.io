@@ -1,8 +1,5 @@
 <p><a href="http://www.mendeley.com">Mendeley</a> is a reference manager and social bookmarking tool.</p>
 
-<p>The Mendeley API returns incomplete API responses for articles where they don&#39;t have enough information, and we ignore those:</p>
-<div class="highlight"><pre><code class="json language-json" data-lang="json">    <span class="p">{</span> <span class="err">uuid:</span> <span class="nt">&quot;182cf980-6d0c-11df-a2b2-0026b95e3eb7&quot;</span> <span class="p">}</span>
-</code></pre></div>
 <p>Mendeley uses OAuth2 authentification, we automatically obtain the access token using the <strong>client_id</strong> and <strong>secret</strong>.</p>
 
 <h2 id="toc_0">Required configuration fields</h2>
@@ -50,86 +47,81 @@
 </tr>
 <tr>
 <td valign="top" width=20%><strong>API URL</strong></td>
-<td valign="top" width=80%>https://api-oauth2.mendeley.com/oapi/documents/details/DOI/?type=doi&consumer_key=API_KEY</td>
+<td valign="top" width=80%>https://api.mendeley.com/catalog?doi=DOI&view=stats</td>
 </tr>
 </tbody>
 </table>
 
 <h2 id="toc_1">Example Response</h2>
-<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span> <span class="err">abstract:</span> <span class="nt">&quot;Background: The whole blood interferon-gamma assay (QuantiFERON-TB-2G; QFT) has not been fully evaluated as a baseline tuberculosis screening test in Japanese healthcare students commencing clinical contact. The aim of this study was to compare the results from the QFT with those from the tuberculin skin test (TST) in a population deemed to be at a low risk for infection with Mycobacterium tuberculosis. Methodology/Principal Findings: Healthcare students recruited at Okayama University received both the TST and the QFT to assess the level of agreement between these two tests. The interleukin-10 levels before and after exposure to M tuberculosis-specific antigens (early-secreted antigenic target 6-kDa protein ESAT-6 and culture filtrate protein 10 CFP-10) were also measured. Of the 536 healthcare students, most of whom had been vaccinated with bacillus-Calmette-Guérin (BCG), 207 (56%) were enrolled in this study. The agreement between the QFT and the TST results was poor, with positive result rates of 1.4% vs. 27.5%, respectively. A multivariate analysis also revealed that the induration diameter of the TST was not affected by the interferon-gamma concentration after exposure to either of the antigens but was influenced by the number of BCG needle scars (p=0.046). The whole blood interleukin-10 assay revealed that after antigen exposure, the median increases in interleukin-10 concentration was higher in the subgroup with the small increase in interferon-gamma concentration than in the subgroup with the large increase in interferon-gamma concentration (0.3 vs. 0 pg/mL; p=0.004). Conclusions/Significance: As a baseline screening test for low-risk Japanese healthcare students at their course entry, QFT yielded quite discordant results, compared with the TST, probably because of the low specificity of the TST results in the BCG-vaccinated population. We also found, for the first time, that the change in the interleukin-10 level after exposure to specific antigens was inversely associated with that in the interferon-gamma level in a low-risk population.&quot;</span><span class="p">,</span>
-<span class="err">website:</span> <span class="nt">&quot;http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1950083&amp;tool=pmcentrez&amp;rendertype=abstract&quot;</span><span class="p">,</span>
-<span class="err">identifiers:</span> <span class="err">{</span>
-  <span class="err">oai_id:</span> <span class="nt">&quot;oai:pubmedcentral.nih.gov:1950083&quot;</span><span class="p">,</span>
-  <span class="err">other:</span> <span class="nt">&quot;07-PONE-RA-00987R2&quot;</span><span class="p">,</span>
-  <span class="err">pmid:</span> <span class="nt">&quot;17726533&quot;</span><span class="p">,</span>
-  <span class="err">pmc_id:</span> <span class="nt">&quot;1950083&quot;</span><span class="p">,</span>
-  <span class="err">doi:</span> <span class="nt">&quot;10.1371/journal.pone.0000803&quot;</span>
-<span class="p">}</span><span class="err">,</span>
-<span class="err">stats:</span> <span class="p">{</span>
-  <span class="err">readers:</span> <span class="err">5,</span>
-  <span class="err">discipline:</span> <span class="err">[</span>
-  <span class="err">{</span>
-    <span class="err">id:</span> <span class="err">19,</span>
-    <span class="err">name:</span> <span class="nt">&quot;Medicine&quot;</span><span class="p">,</span>
-    <span class="err">value:</span> <span class="err">80</span>
-  <span class="p">}</span><span class="err">,</span>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">[</span>
   <span class="p">{</span>
-    <span class="err">id:</span> <span class="err">3,</span>
-    <span class="err">name:</span> <span class="nt">&quot;Biological Sciences&quot;</span><span class="p">,</span>
-    <span class="err">value:</span> <span class="err">20</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0f9144ee-87c1-3295-b317-dd32957ebaed&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The \&quot;island rule\&quot; and deep-sea gastropods: Re-examining the evidence&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;journal&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John J.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Welch&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+    <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;PLoS ONE&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;identifiers&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1371/journal.pone.0008776&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;scopus&quot;</span><span class="p">:</span> <span class="s2">&quot;2-s2.0-77649287097&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;isbn&quot;</span><span class="p">:</span> <span class="s2">&quot;1932-6203&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;issn&quot;</span><span class="p">:</span> <span class="s2">&quot;19326203&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;pmid&quot;</span><span class="p">:</span> <span class="s2">&quot;20098740&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.mendeley.com/research/island-rule-deepsea-gastropods-reexamining-evidence&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;reader_count&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
+    <span class="nt">&quot;reader_count_by_academic_status&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Professor&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;Associate Professor&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;Post Doc&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="nt">&quot;Ph.D. Student&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="nt">&quot;Researcher (at an Academic Institution)&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="nt">&quot;Researcher (at a non-Academic Institution)&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;Student (Postgraduate)&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;Student (Master)&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="nt">&quot;Student (Bachelor)&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="nt">&quot;Doctoral Student&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;reader_count_by_subdiscipline&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Environmental Sciences&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Ecology&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;Miscellaneous&quot;</span><span class="p">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;Earth Sciences&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Miscellaneous&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;Paleontology&quot;</span><span class="p">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;Biological Sciences&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Zoology and Animal Science&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;Miscellaneous&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+        <span class="nt">&quot;Marine Biology&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;Ornithology&quot;</span><span class="p">:</span> <span class="mi">1</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;reader_count_by_country&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Portugal&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;United States&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="nt">&quot;Mexico&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;Brazil&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;United Kingdom&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;group_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;BACKGROUND: One of the most intriguing patterns in mammalian biogeography is the \&quot;island rule\&quot;, which states that colonising species have a tendency to converge in body size, with larger species evolving decreased sizes and smaller species increased sizes. It has recently been suggested that an analogous pattern holds for the colonisation of the deep-sea benthos by marine Gastropoda. In particular, a pioneering study showed that gastropods from the Western Atlantic showed the same graded trend from dwarfism to gigantism that is evident in island endemic mammals. However, subsequent to the publication of the gastropod study, the standard tests of the island rule have been shown to yield false positives at a very high rate, leaving the result open to doubt. METHODOLOGY/PRINCIPAL FINDINGS: The evolution of gastropod body size in the deep sea is reexamined. Using an extended and updated data set, and improved statistical methods, it is shown that some results of the previous study may have been artifactual, but that its central conclusion is robust. It is further shown that the effect is not restricted to a single gastropod clade, that its strength increases markedly with depth, but that it applies even in the mesopelagic zone. CONCLUSIONS/SIGNIFICANCE: The replication of the island rule in a distant taxonomic group and a partially analogous ecological situation could help to uncover the causes of the patterns observed--which are currently much disputed. The gastropod pattern is evident at intermediate depths, and so cannot be attributed to the unique features of abyssal ecology.&quot;</span>
   <span class="p">}</span>
-  <span class="err">],</span>
-  <span class="err">country:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="err">name:</span> <span class="nt">&quot;United Kingdom&quot;</span><span class="p">,</span>
-    <span class="err">value:</span> <span class="err">20</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="err">name:</span> <span class="nt">&quot;Germany&quot;</span><span class="p">,</span>
-    <span class="err">value:</span> <span class="err">20</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="err">name:</span> <span class="nt">&quot;Australia&quot;</span><span class="p">,</span>
-    <span class="err">value:</span> <span class="err">20</span>
-  <span class="p">}</span>
-  <span class="p">]</span><span class="err">,</span>
-  <span class="err">status:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="err">name:</span> <span class="nt">&quot;Post Doc&quot;</span><span class="p">,</span>
-    <span class="err">value:</span> <span class="err">60</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="err">name:</span> <span class="nt">&quot;Senior Lecturer&quot;</span><span class="p">,</span>
-    <span class="err">value:</span> <span class="err">20</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="err">name:</span> <span class="nt">&quot;Researcher (at a non-Academic Institution)&quot;</span><span class="p">,</span>
-    <span class="err">value:</span> <span class="err">20</span>
-  <span class="p">}</span>
-  <span class="p">]</span>
-  <span class="err">},</span>
-  <span class="err">issue:</span> <span class="s2">&quot;8&quot;</span><span class="err">,</span>
-  <span class="err">pages:</span> <span class="s2">&quot;7&quot;</span><span class="err">,</span>
-  <span class="err">public_file_hash:</span> <span class="s2">&quot;66a757a2f75fa5434b3cdd8a36d743d4a808416e&quot;</span><span class="err">,</span>
-  <span class="err">editors:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="err">forename:</span> <span class="nt">&quot;Madhukar&quot;</span><span class="p">,</span>
-    <span class="err">surname:</span> <span class="nt">&quot;Pai&quot;</span>
-  <span class="p">}</span>
-  <span class="p">]</span><span class="err">,</span>
-  <span class="err">publication_outlet:</span> <span class="s2">&quot;PLoS ONE&quot;</span><span class="err">,</span>
-  <span class="err">type:</span> <span class="s2">&quot;Journal Article&quot;</span><span class="err">,</span>
-  <span class="err">mendeley_url:</span> <span class="s2">&quot;http://api.mendeley.com/research/whole-blood-interferongamma-assay-for-baseline-tuberculosis-screening-among-japanese-healthcare-students/&quot;</span><span class="err">,</span>
-  <span class="err">publisher:</span> <span class="s2">&quot;Public Library of Science&quot;</span><span class="err">,</span>
-  <span class="err">uuid:</span> <span class="s2">&quot;182cf980-6d0c-11df-a2b2-0026b95e3eb7&quot;</span><span class="err">,</span>
+<span class="p">]</span>
 </code></pre></div>
 <h2 id="toc_2">Source Code</h2>
 
-<p>The source code is available <a href="https://github.com/articlemetrics/lagotto/blob/master/app/models/sources/mendeley.rb">here</a>.</p>
+<p>The source code is available <a href="https://github.com/lagotto/lagotto/blob/master/app/models/sources/mendeley.rb">here</a>.</p>
 
 <h2 id="toc_3">Further Documentation</h2>
 
 <ul>
-<li><a href="http://apidocs.mendeley.com">Mendeley API Documentation</a></li>
+<li><a href="http://dev.mendeley.com/methods/">Mendeley API Documentation</a></li>
 <li><a href="https://groups.google.com/forum/?fromgroups#!forum/mendeley-open-api-developers">Mendeley Open API Developers Google Group</a></li>
 </ul>

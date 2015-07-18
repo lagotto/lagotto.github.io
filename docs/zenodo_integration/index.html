@@ -1,0 +1,59 @@
+<p>Lagotto currently integrates with <a href="http://www.zenodo.org">Zenodo</a> to upload monthly summary reports as well as API snapshots. This document describes building onto this integration in order to add additional files to Zenodo.</p>
+
+<p>This document is targeted at developers or those interested in adding to the Zenodo integration.</p>
+
+<h3 id="toc_0">Exporting generic data to Zenodo with ZenodoDataExport</h3>
+
+<p>There is a <code>ZenodoDataExport</code> model which represents a grouping of files that are to be uploaded to Zenodo as a single <a href="https://zenodo.org/dev#restapi-res-dep">deposition</a>.</p>
+
+<p>Here&#39;s an example pulled from <code>lib/tasks/report.rake</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">data_export = ZenodoDataExport.create!(
+  name: &quot;alm_combined_stats_report&quot;,
+  files: [alm_combined_stats_zip_record.filepath],
+  publication_date: publication_date,
+  title: title,
+  description: description,
+  creators: [ ENV[&#39;CREATOR&#39;] ],
+  keywords: ZENODO_KEYWORDS,
+  code_repository_url: ENV[&quot;GITHUB_URL&quot;]
+)
+
+DataExportJob.perform_later(id: data_export.id)
+</code></pre></div>
+<p>There are two steps involved with uploading data to Zenodo:</p>
+
+<ul>
+<li>First, create the <code>ZenodoDataExport</code> which adds a record the <code>data_exports</code> table in the Lagotto database. <em>This will not perform the upload.</em></li>
+<li>Next, create a <code>DataExportJob</code> for the newly created ZenodoDataExport which will handle uploading the data to Zenodo in the background.</li>
+</ul>
+
+<p>This is all there is to exporting new kinds of data to Zenodo: make sure the file(s) exist locally, create a <code>ZenodoDataExport</code>, and queue up a <code>DataExportJob</code>.</p>
+
+<p><em>Note: The <code>DataExportJob</code> that runs in the background requires that Redis and Sidekiq are both running. If they are not running then the upload to Zenodo will not start.</em></p>
+
+<h4 id="toc_1">ZenodoDataExport Attributes</h4>
+
+<p>There are a number of attributes you can use to specify what information the resulting Zenodo deposition should have.</p>
+
+<p>Let&#39;s take a moment to briefly walk thru the attributes from the above example:</p>
+
+<ul>
+<li><p><strong>name</strong>: this is the internal name of the export used by Lagotto. It is not used to generate data for Zenodo, only so that you or another developer or sysadmin can make sense of the export. For example, there are many monthly reports and the name field is used to indicate the specific report this data export is for.</p></li>
+<li><p><strong>files</strong>: a list of filepaths that exist on the local system that are to be uploaded to Zenodo. These will show up as individual <a href="https://zenodo.org/dev#restapi-res-files"> files</a> on the deposition.</p></li>
+<li><p><strong>publication_date</strong>: the publication_date to use for the Zenodo deposition</p></li>
+<li><p><strong>title</strong>: the title to use for the Zenodo deposition</p></li>
+<li><p><strong>description</strong>: the description to use for the Zenodo deposition</p></li>
+<li><p><strong>creators</strong>: an array of names to be used as the creators for the Zenodo deposition</p></li>
+<li><p><strong>keywords</strong>: the keywords to associate with the Zenodo deposition (used for searching in Zenodo)</p></li>
+<li><p><strong>code_repository_url</strong>: the URL that is associated with the code-base that generated this data export. E.g. the Lagotto Github URL.</p></li>
+<li><p><strong>url</strong>: this is set after the upload to Zenodo is complete. It will be the publicly accessible URL of the deposition on Zenodo.</p></li>
+</ul>
+
+<h4 id="toc_2">When something goes wrong</h4>
+
+<p>If something goes wrong with the upload the following things will happen:</p>
+
+<ul>
+<li>the <code>failed_at</code> timestamp will be set on the ZenodoDataExport record</li>
+<li>an <code>Alert</code> record will be created which contains backtrace of any exceptions that have occurred</li>
+</ul>

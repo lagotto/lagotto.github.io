@@ -1,0 +1,131 @@
+<p>Search the fulltext content of the Astrophysics Data System (ADS) for scholarly works.</p>
+
+<h2 id="toc_0">Required configuration fields</h2>
+
+<ul>
+<li><strong>access_token</strong>: can be obtained by creating an account <a href="http://hourly.adslabs.org/">here</a>.</li>
+</ul>
+
+<table width=100% border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width=30%><strong>ALM Name</strong></td>
+<td valign="top" width=70%>ads_fulltext</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Configuration</strong></td>
+<td valign="top" width=80%>default</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>ALM Core Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<td valign="top" width=20%><strong>ALM Other Attributes</strong></td>
+<td valign="top" width=80%>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Protocol</strong></td>
+<td valign="top" width=70%>REST</td>
+</tr>
+<tr>
+<td valign="top" width=30%><strong>Format</strong></td>
+<td valign="top" width=70%>JSON</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Rate-limiting</strong></td>
+<td valign="top" width=80%>yes</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Authentication</strong></td>
+<td valign="top" width=80%>yes</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>Restriction by IP Address</strong></td>
+<td valign="top" width=80%>no</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>API URL</strong></td>
+<td valign="top" width=80%>http://adsws-staging.elasticbeanstalk.com/v1/search/query?fl=title%2Cauthor%2Ccitation%2Cpubdate%2Cdoi%2Cidentifier&q=body%3ADOI&access_token=ACCESS_TOKEN&rows=100&start=0</td>
+</tr>
+<tr>
+<td valign="top" width=20%><strong>License</strong></td>
+<td valign="top" width=80%>unknown</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_1">Example Response</h2>
+<div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;responseHeader&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;QTime&quot;</span><span class="p">:</span> <span class="mi">988</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;fl&quot;</span><span class="p">:</span> <span class="s2">&quot;title,author,citation,pubdate,doi,identifier&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sort&quot;</span><span class="p">:</span> <span class="s2">&quot;date desc&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;body:10.1371/journal.pmed.0020124&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;wt&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;12345&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;rows&quot;</span><span class="p">:</span> <span class="s2">&quot;100&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;numFound&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;arXiv:1311.3611&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;2013arXiv1311.3611W&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;pubdate&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Wenmackers, Sylvia&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Vanpoucke, Danny E. P.&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Models and Simulations in Material Science: Two Cases Without Error Bars&quot;</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;arXiv:1306.1059&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;2013arXiv1306.1059B&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;pubdate&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-06-00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Berk, Richard&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Brown, Lawrence&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Buja, Andreas&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Zhang, Kai&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Zhao, Linda&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Valid post-selection inference&quot;</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;arXiv:1007.2876&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;2010arXiv1007.2876L&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;pubdate&quot;</span><span class="p">:</span> <span class="s2">&quot;2010-07-00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;citation&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;2010arXiv1004.4704R&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;2011arXiv1109.5235C&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;2012arXiv1207.6839F&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;Lyons, Russell&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;The Spread of Evidence-Poor Medicine via Flawed Social-Network Analysis&quot;</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_2">Source Code</h2>
+
+<p>The source code is available <a href="https://github.com/lagotto/lagotto/blob/master/app/models/sources/ads_fulltext.rb">here</a>.</p>
