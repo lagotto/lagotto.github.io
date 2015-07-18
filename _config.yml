@@ -3,7 +3,7 @@ lsi: false
 pygments: true
 
 relative_source: ../lagotto.github.io/
-#destination: ../lagotto.github.io-pages/
+destination: ../lagotto.github.io-pages/
 
 # Settings for deploy rake task
 # Username and repo of Github repo, e.g.
