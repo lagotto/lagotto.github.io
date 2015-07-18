@@ -3,17 +3,17 @@
     <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALM Workshop 2012</title>
+    <title>Lagotto 4.2 released</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Martin Fenner" />
 
     <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="ALM Workshop 2012" />
+    <meta property="dc:title" content="Lagotto 4.2 released" />
     <meta property="dc:creator" content="" />
-    <meta name="citation_publication_date" content=""/>
+    <meta name="citation_publication_date" content="2015-07-13T00:00:00+00:00"/>
     <meta property="dc:format" content="text/html" />
     <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/workshop_2012/" />
+    <meta property="dc:identifier" content="/2015/07/13/lagotto-4.2-released/" />
     <meta property="dc:rights" content="CC-BY" />
     <meta property="dc:source" content="Lagotto" />
     <meta property="dc:subject" content="Scholarly Communication" />
@@ -21,8 +21,8 @@
 
     <!-- Google Scholar Metadata -->
     <meta name="citation_author" content=""/>
-    <meta name="citation_publication_date" content=""/>
-    <meta name="citation_title" content="ALM Workshop 2012"/>
+    <meta name="citation_publication_date" content="2015-07-13"/>
+    <meta name="citation_title" content="Lagotto 4.2 released"/>
     <meta name="citation_journal_title" content="Lagotto"/>
 
     <link rel="alternate" type="application/rss+xml" title="Lagotto" href="/rss.xml" />
@@ -104,8 +104,9 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>ALM Workshop 2012</h1>
-        <p class="subtitle">
+        <h1>Lagotto 4.2 released</h1>
+        <p class="subtitle">13 July 2015 by
+          
         </p>
       </div>
 
@@ -113,23 +114,47 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p>Building off last year’s Beyond Impact Workshop; altmetrics11 &amp; 12; and a storm of activity they have since catalyzed, PLOS hosted the 2012 ALM Workshop on November 1-3, 2012 in San Francisco. We convened various groups across the research ecosystem – researchers, institutions, publishers, funders, technology and service providers – for 3 days of collaborative breakout sessions amongst and between these groups. The workshop wrapped on the last day with the <a href="http://lagotto.io/workshop_2012/hackathon/">Altmetrics Hackathon</a>.</p>
+            <p><a href="https://github.com/lagotto/lagotto/releases/tag/v.4.2">Lagotto 4.2</a> was released on July 13, 2015 with the following changes:</p>
 
-<p><strong>Purpose and Aims</strong>
-<br>
 <ul>
-    <li>Amplify awareness of social capital, mechanisms, and tools for using impact metrics that currently exist across target groups</li>
-    <li>Discuss community-specific forms of measurable impact and examine convergence areas between audiences</li>
-    <li>Cross-pollinate ideas between groups to better inform community-specific uses</li>
-    <li>Coordinate plans for building best-practices, development of tools, and outreach/advocacy of altmetrics</li>
+<li>export CSV summary report to Zenodo data repository (<a href="https://github.com/lagotto/lagotto/issues/339">#339</a>)</li>
+<li>process pmc import and parsing in the background (<a href="https://github.com/lagotto/lagotto/issues/363">#363</a>)</li>
+<li>allow wildcard searches for works in the API and admin frontend (<a href="https://github.com/lagotto/lagotto/issues/368">#368</a>)</li>
+<li>added missing author information to v6 API (<a href="https://github.com/lagotto/lagotto/issues/370">#370</a>)</li>
+<li>make sure DOIs are stored in lowercase(<a href="https://github.com/lagotto/lagotto/issues/372">#372</a>)</li>
+<li>optionally load all DataONE member nodes as publishers (<a href="https://github.com/lagotto/lagotto/issues/374">#374</a>)</li>
+<li>added methods to fetch metadata for DataCite DOIs, and to look up the DOI registration agency (<a href="https://github.com/lagotto/lagotto/issues/376">#376</a>)</li>
+<li>added registration agency column to works (<a href="https://github.com/lagotto/lagotto/issues/377">#377</a>)</li>
+<li>store temporary files in tmp folder (<a href="https://github.com/lagotto/lagotto/issues/378">#378</a>)</li>
+<li>fixed name inconsistencies for EuropePMC sources (<a href="https://github.com/lagotto/lagotto/issues/379">#379</a>)</li>
 </ul>
-<strong>Format</strong>
-<br>
-We employed a blend of “unconference” and traditional programming.  As a group, we generated a list of issue topics of interest to the participants.  A smaller group, which coalesced during a clustering process, served as the basis for our first breakout session. The aim of this session was to articulate a concrete problem statement for each topic.  The groups then generated an initial list of potential solutions in the second session.  And from a subset of these solutions, the final session was aimed at designing an action plan.</p>
 
-<p><strong>Final Outputs</strong>
-<br>
-The full outputs of each session are archived <a href="http://lagotto.io/workshop_2012/outputs/">here</a>. The final technical documentation is found in the <a href="http://figshare.com/articles/ALM_Workshop_2012_Report.pdf/98828">ALM Workshop 2012 Report</a>.</p>
+<p>The following new ENV variables must be set in the <code>.env</code> file to use the new Zenodo export functionality:
+```
+CREATOR=Public Library of Science
+ZENODO_KEY=YOUR_KEY_HERE
+ZENODO_URL=<a href="https://zenodo.org/api/">https://zenodo.org/api/</a></p>
+
+<h1 id="toc_0">ZENODO_URL=<a href="https://sandbox.zenodo.org/api/">https://sandbox.zenodo.org/api/</a> for testing</h1>
+
+<p>SITENAMELONG=&quot;PLOS ALM&quot;
+```</p>
+
+<p>A <code>ZENODO_KEY</code> can be obtained by creating a Zenodo account and then a personal access token on the profile page.</p>
+
+
+  <h3>Tags</h3>
+  <ul class="tag_box inline">
+    <li><span class="glyphicon glyphicon-tags"></span></li>
+    
+    
+  
+    <li><a href="/tags/">releases <span>1</span></a></li>
+  
+
+
+
+  </ul>
 
 
             <!-- COinS metadata (for citation managers like Zotero etc), goes in body text -->
@@ -138,14 +163,30 @@ The full outputs of each session are archived <a href="http://lagotto.io/worksho
   title="ctx_ver=Z39.88-2004
   &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
   &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=ALM Workshop 2012
+  &amp;rft.title=Lagotto 4.2 released
   &amp;rft.creator=
-  &amp;rft.date=
+  &amp;rft.date=2015-07-13
   &amp;rft.language=EN
   &amp;rft.rights=CC0
-  &amp;rft_id=http://lagotto.io/workshop_2012/">
+  &amp;rft_id=http://lagotto.io/2015/07/13/lagotto-4.2-released/">
 </span>
 
+            
+              <hr>
+              <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'lagotto'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
             
             <hr>
             <footer class="footer" role="contentinfo">

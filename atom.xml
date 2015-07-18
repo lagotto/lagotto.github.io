@@ -4,7 +4,7 @@
  <title>Lagotto</title>
  <link href="http://lagotto.io/atom.xml" rel="self"/>
  <link href="http://lagotto.io"/>
- <updated>2015-07-18T08:06:03+00:00</updated>
+ <updated>2015-07-18T08:16:19+00:00</updated>
  <id>http://lagotto.io</id>
  
  <author>
@@ -14,6 +14,41 @@
  </author>
 
 
+ 
+ <entry>
+   <title>Lagotto 4.2 released</title>
+   <link href="http://lagotto.io/2015/07/13/lagotto-4.2-released/"/>
+   <updated>2015-07-13T00:00:00+00:00</updated>
+   <id>http://lagotto.io/2015/07/13/lagotto-4.2-released</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/lagotto/lagotto/releases/tag/v.4.2&quot;&gt;Lagotto 4.2&lt;/a&gt; was released on July 13, 2015 with the following changes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;export CSV summary report to Zenodo data repository (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/339&quot;&gt;#339&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;process pmc import and parsing in the background (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/363&quot;&gt;#363&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;allow wildcard searches for works in the API and admin frontend (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/368&quot;&gt;#368&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;added missing author information to v6 API (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/370&quot;&gt;#370&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;make sure DOIs are stored in lowercase(&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/372&quot;&gt;#372&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;optionally load all DataONE member nodes as publishers (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/374&quot;&gt;#374&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;added methods to fetch metadata for DataCite DOIs, and to look up the DOI registration agency (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/376&quot;&gt;#376&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;added registration agency column to works (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/377&quot;&gt;#377&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;store temporary files in tmp folder (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/378&quot;&gt;#378&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;fixed name inconsistencies for EuropePMC sources (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/379&quot;&gt;#379&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following new ENV variables must be set in the &lt;code&gt;.env&lt;/code&gt; file to use the new Zenodo export functionality:
+```
+CREATOR=Public Library of Science
+ZENODO_KEY=YOUR_KEY_HERE
+ZENODO_URL=&lt;a href=&quot;https://zenodo.org/api/&quot;&gt;https://zenodo.org/api/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;toc_0&quot;&gt;ZENODO_URL=&lt;a href=&quot;https://sandbox.zenodo.org/api/&quot;&gt;https://sandbox.zenodo.org/api/&lt;/a&gt; for testing&lt;/h1&gt;
+
+&lt;p&gt;SITENAMELONG=&amp;quot;PLOS ALM&amp;quot;
+```&lt;/p&gt;
+
+&lt;p&gt;A &lt;code&gt;ZENODO_KEY&lt;/code&gt; can be obtained by creating a Zenodo account and then a personal access token on the profile page.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>ALM in R</title>
