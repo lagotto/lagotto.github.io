@@ -3,17 +3,17 @@
     <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lagotto 4.1 released</title>
+    <title>Lagotto 4.1.1 released</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Martin Fenner" />
 
     <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Lagotto 4.1 released" />
+    <meta property="dc:title" content="Lagotto 4.1.1 released" />
     <meta property="dc:creator" content="" />
-    <meta name="citation_publication_date" content="2015-06-17T00:00:00+00:00"/>
+    <meta name="citation_publication_date" content="2015-07-06T00:00:00+00:00"/>
     <meta property="dc:format" content="text/html" />
     <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/blog/2015/06/17/lagotto-4.1-released/" />
+    <meta property="dc:identifier" content="/blog/2015/07/06/lagotto-4.1.1-released/" />
     <meta property="dc:rights" content="CC-BY" />
     <meta property="dc:source" content="Lagotto" />
     <meta property="dc:subject" content="Scholarly Communication" />
@@ -21,8 +21,8 @@
 
     <!-- Google Scholar Metadata -->
     <meta name="citation_author" content="Martin Fenner"/>
-    <meta name="citation_publication_date" content="2015-06-17"/>
-    <meta name="citation_title" content="Lagotto 4.1 released"/>
+    <meta name="citation_publication_date" content="2015-07-06"/>
+    <meta name="citation_title" content="Lagotto 4.1.1 released"/>
     <meta name="citation_journal_title" content="Lagotto"/>
 
     <link rel="alternate" type="application/rss+xml" title="Lagotto" href="/rss.xml" />
@@ -104,8 +104,8 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>Lagotto 4.1 released</h1>
-        <p class="subtitle">17 June 2015 by
+        <h1>Lagotto 4.1.1 released</h1>
+        <p class="subtitle">06 July 2015 by
           
 <a href="http://orcid.org/0000-0003-1419-2405">Martin Fenner</a>
         </p>
@@ -115,48 +115,13 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p><a href="https://github.com/lagotto/lagotto/releases/tag/v.4.1">Lagotto 4.1</a> was released on June 17, 2015 with the following changes:</p>
+            <p><a href="https://github.com/lagotto/lagotto/releases/tag/v.4.1.1">Lagotto 4.1.1</a> was released on July 6, 2015 with the following fixes:</p>
 
 <ul>
-<li>refactored <code>/heartbeat</code> endpoint to use sinatra so that it works if the database is down (<a href="https://github.com/lagotto/lagotto/issues/302">#302</a>)</li>
-<li>fixed a bug in source and publisher caching (<a href="https://github.com/lagotto/lagotto/issues/306">#306</a>)</li>
-<li>upgraded source to use v.1.2 ORCID API (<a href="https://github.com/lagotto/lagotto/issues/308">#308</a>)</li>
-<li>fetch metadata from pubmed if there is a pmid but no doi (<a href="https://github.com/lagotto/lagotto/issues/309">#309</a>)</li>
-<li>added recommendations, similar works that are also tracked (<a href="https://github.com/lagotto/lagotto/issues/310">#310</a>)</li>
-<li>use CrossRef REST API for metadata of articles fetched via CrossRef CitedBy (<a href="https://github.com/lagotto/lagotto/issues/312">#312</a>)</li>
-<li>use CrossRef date indexed if date issued is in the future (<a href="https://github.com/lagotto/lagotto/issues/314">#314</a>)</li>
-<li>pass member id as integer to CrossRef REST API, fixing a CrossRef import issue (<a href="https://github.com/lagotto/lagotto/issues/320">#320</a>)</li>
-<li>optionally serve v3 API responses for single works as array for backward compatibility (<a href="https://github.com/lagotto/lagotto/issues/321">#321</a>)</li>
-<li>upgraded capistrano gem, use capistrano-passenger (<a href="https://github.com/lagotto/lagotto/issues/323">#323</a>)</li>
-<li>workaround to support 4-byte utf-8 characters, e.g. emojis (<a href="https://github.com/lagotto/lagotto/issues/324">#324</a>)</li>
-<li>allow update of works on import (<a href="https://github.com/lagotto/lagotto/issues/325">#325</a>)</li>
-<li>added optional Bugsnag error tracking, using two <code>ENV</code> variables (<a href="https://github.com/lagotto/lagotto/issues/326">#326</a>)</li>
-<li>use different path for RSS urls rather than file extension <code>.rss</code> (<a href="https://github.com/lagotto/lagotto/issues/328">#328</a>)</li>
-<li>handle timeout errors more gracefully (<a href="https://github.com/lagotto/lagotto/issues/330">#330</a>)</li>
-<li>avoid ActiveRecord connection pool issues (<a href="https://github.com/lagotto/lagotto/issues/331">#331</a>)</li>
-<li>automatically track metrics for works from article_coverage_curated source (<a href="https://github.com/lagotto/lagotto/issues/332">#332</a>)</li>
-<li>use <a href="http://doi.org">http://doi.org</a> instead of <a href="http://dx.doi.org">http://dx.doi.org</a> for encoding DOIs as URLs (<a href="https://github.com/lagotto/lagotto/issues/333">#333</a>)</li>
-<li>use http URI of the primary identifier as the PID in the API (<a href="https://github.com/lagotto/lagotto/issues/334">#334</a>)</li>
-<li>automatically track metrics for blog posts referencing a work (<a href="https://github.com/lagotto/lagotto/issues/335">#335</a>)</li>
-<li>automatically track metrics for works mentioned in the body of another work, using the sources <code>europe_pmc_fulltext</code>, <code>plos_fulltext</code> and <code>bmc_fulltext</code> (<a href="https://github.com/lagotto/lagotto/issues/336">#336</a>)</li>
+<li>adapted CSV parsing to 4.0 data model (<a href="https://github.com/lagotto/lagotto/issues/315">#315</a>)</li>
+<li>fixed a bug in pmc feed parsing (<a href="https://github.com/lagotto/lagotto/issues/354">#354</a>)</li>
+<li>don&#39;t import PLOS issue images. (<a href="https://github.com/lagotto/lagotto/issues/356">#356</a>)</li>
 </ul>
-
-<p>This release includes numerous other small bug fixes. While the release fixes on bug fixes, new features were also introduced:</p>
-
-<h3 id="toc_0">Recommendations</h3>
-
-<p>A list of similar works that we also track, generated by common relations, e.g. other works tracked by Lagotto cited
-by the same paper or bookmarked in the same ORCID profile. Available in the v6 API, e.g. <a href="http://alm.plos.org/api/works/doi:10.1371/journal.pmed.1000097/recommendations">here</a>.</p>
-
-<h3 id="toc_1">Identifiers as URIs</h3>
-
-<p>Starting with this release, the <code>id</code> for a work in the v6 API will always be a URL, e.g. <code>http://doi.org/10.1371/journal.pmed.1000097</code>, and the use of <code>dx.doi.org</code> has been
-changed to <code>doi.org</code> in all places.</p>
-
-<h3 id="toc_2">Second-order Events</h3>
-
-<p>Lagotto 4.1 adds support for second-order events, i.e. it will track news items and blog posts that discuss a work in Lagotto.
-We do the same for scholarly articles that mention a tracked work in the body text (where we can search the fulltext), e.g. informal citations to datasets.</p>
 
 
   <h3>Tags</h3>
@@ -179,12 +144,12 @@ We do the same for scholarly articles that mention a tracked work in the body te
   title="ctx_ver=Z39.88-2004
   &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
   &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Lagotto 4.1 released
+  &amp;rft.title=Lagotto 4.1.1 released
   &amp;rft.creator=
-  &amp;rft.date=2015-06-17
+  &amp;rft.date=2015-07-06
   &amp;rft.language=EN
   &amp;rft.rights=CC0
-  &amp;rft_id=http://lagotto.io/blog/2015/06/17/lagotto-4.1-released/">
+  &amp;rft_id=http://lagotto.io/blog/2015/07/06/lagotto-4.1.1-released/">
 </span>
 
             

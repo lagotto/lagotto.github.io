@@ -5,8 +5,8 @@
         <description>Lagotto - Lagotto - Tracking events around scholarly works</description>
         <link>http://lagotto.iorss.xml</link>
         <link>http://lagotto.io</link>
-        <lastBuildDate>2015-07-18T08:47:50+00:00</lastBuildDate>
-        <pubDate>2015-07-18T08:47:50+00:00</pubDate>
+        <lastBuildDate>2015-07-18T09:11:41+00:00</lastBuildDate>
+        <pubDate>2015-07-18T09:11:41+00:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -42,8 +42,23 @@ SITENAMELONG=&amp;quot;PLOS ALM&amp;quot;
         </item>
 
         <item>
+                <title>Lagotto 4.1.1 released</title>
+                <description>&lt;p&gt;&lt;a href=&quot;https://github.com/lagotto/lagotto/releases/tag/v.4.1.1&quot;&gt;Lagotto 4.1.1&lt;/a&gt; was released on July 6, 2015 with the following fixes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;adapted CSV parsing to 4.0 data model (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/315&quot;&gt;#315&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;fixed a bug in pmc feed parsing (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/354&quot;&gt;#354&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;don&amp;#39;t import PLOS issue images. (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/356&quot;&gt;#356&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://lagotto.io/blog/2015/07/06/lagotto-4.1.1-released/</link>
+                <guid>http://lagotto.io/blog/2015/07/06/lagotto-4.1.1-released</guid>
+                <pubDate>2015-07-06T00:00:00+00:00</pubDate>
+        </item>
+
+        <item>
                 <title>Lagotto 4.1 released</title>
-                <description>&lt;p&gt;Lagotto 4.1](&lt;a href=&quot;https://github.com/lagotto/lagotto/releases/tag/v.4.1&quot;&gt;https://github.com/lagotto/lagotto/releases/tag/v.4.1&lt;/a&gt;) was released on June 17, 2015 with the following changes:&lt;/p&gt;
+                <description>&lt;p&gt;&lt;a href=&quot;https://github.com/lagotto/lagotto/releases/tag/v.4.1&quot;&gt;Lagotto 4.1&lt;/a&gt; was released on June 17, 2015 with the following changes:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;refactored &lt;code&gt;/heartbeat&lt;/code&gt; endpoint to use sinatra so that it works if the database is down (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/302&quot;&gt;#302&lt;/a&gt;)&lt;/li&gt;
