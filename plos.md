@@ -118,6 +118,7 @@ The context provided in the average usage is limited to the PLOS corpus as usage
 
 ## Discontinued metrics
 PLOS no longer collects data from the following discontinued services:
+
 * Postgenomic
 * Bloglines
 * Connotea
