@@ -1,5 +1,4 @@
 var sites = [{ name: "Public Library of Science (PLOS)", url: "http://alm.plos.org" },
-             { name: "Copernicus Publications", url: "http://metricus.copernicus.org" },
              { name: "Public Knowledge Project", url: "http://pkp-alm.lib.sfu.ca/" },
              { name: "Lagotto Labs Server", url: "http://labs.lagotto.io" },
              { name: "CrossRef Labs", url: "http://det.labs.crossref.org" },
@@ -36,7 +35,7 @@ function ready(error, data) {
     status = (data[i]["error"]) ? "Unknown" : "OK";
     label = (data[i]["error"]) ? "label-warning" : "label-success";
     version = (data[i]["error"]) ? "n/a" : data[i]["version"];
-    works_count = (data[i]["articles_count"]) ? data[i]["articles_count"] : data[i]["works_count"];
+    works_count = (data[i]["error"]) ? "n/a" : data[i]["works_count"];
 
     var row = { name: sites[i]["name"], url: sites[i]["url"], status: status, label: label, version: version, works_count: works_count}
 
