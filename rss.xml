@@ -5,8 +5,8 @@
         <description>Lagotto - Lagotto - Tracking events around scholarly works</description>
         <link>http://lagotto.iorss.xml</link>
         <link>http://lagotto.io</link>
-        <lastBuildDate>2015-07-18T08:27:44+00:00</lastBuildDate>
-        <pubDate>2015-07-18T08:27:44+00:00</pubDate>
+        <lastBuildDate>2015-07-18T08:29:16+00:00</lastBuildDate>
+        <pubDate>2015-07-18T08:29:16+00:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -40,8 +40,8 @@ ZENODO_URL=&lt;a href=&quot;https://zenodo.org/api/&quot;&gt;https://zenodo.org/
 
 &lt;p&gt;A &lt;code&gt;ZENODO_KEY&lt;/code&gt; can be obtained by creating a Zenodo account and then a personal access token on the profile page.&lt;/p&gt;
 </description>
-                <link>http://lagotto.io/2015/07/13/lagotto-4.2-released/</link>
-                <guid>http://lagotto.io/2015/07/13/lagotto-4.2-released</guid>
+                <link>http://lagotto.io/blog/2015/07/13/lagotto-4.2-released/</link>
+                <guid>http://lagotto.io/blog/2015/07/13/lagotto-4.2-released</guid>
                 <pubDate>2015-07-13T00:00:00+00:00</pubDate>
         </item>
 

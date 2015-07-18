@@ -78,7 +78,7 @@ http://lagotto.io/atom.xml
 http://lagotto.io/blog/page2/
 http://lagotto.io/blog/page3/
 
-http://lagotto.io/2015/07/13/lagotto-4.2-released/
+http://lagotto.io/blog/2015/07/13/lagotto-4.2-released/
 http://lagotto.io/examples/2014/04/14/alm-in-r/
 http://lagotto.io/blog/2014/03/07/the-mystery-of-the-missing-alm/
 http://lagotto.io/examples/2014/02/25/most-cited-2014-articles-on-wikipedia/
