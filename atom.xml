@@ -4,7 +4,7 @@
  <title>Lagotto</title>
  <link href="http://lagotto.io/atom.xml" rel="self"/>
  <link href="http://lagotto.io"/>
- <updated>2015-07-18T15:18:30+00:00</updated>
+ <updated>2015-07-20T00:15:17+00:00</updated>
  <id>http://lagotto.io</id>
  
  <author>
@@ -14,6 +14,55 @@
  </author>
 
 
+ 
+ <entry>
+   <title>Lagotto 4.3 released</title>
+   <link href="http://lagotto.io/blog/2015/07/20/lagotto-4.3-released/"/>
+   <updated>2015-07-20T00:00:00+00:00</updated>
+   <id>http://lagotto.io/blog/2015/07/20/lagotto-4.3-released</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/lagotto/lagotto/releases/tag/v.4.3&quot;&gt;Lagotto 4.3&lt;/a&gt; was released on July 20, 2015 with the following changes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;created snapshop of Lagotto JSON API responses for works, that is then automatically deposited in Zenodo (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/343&quot;&gt;#343&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;fixed failing rspec acceptance tests (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/380&quot;&gt;#380&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;added registration_agency check to some sources (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/381&quot;&gt;#381&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;added foreign_key constraints (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/382&quot;&gt;#382&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;added DataONE identifier (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/384&quot;&gt;#384&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;added two sources for DataONE usage stats (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/394&quot;&gt;#394&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;enamed Github organization from &lt;code&gt;articlemetrics&lt;/code&gt; to &lt;code&gt;lagotto&lt;/code&gt; (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/397&quot;&gt;#397&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;fixed nginx installation issue where nodejs can&amp;#39;t be found (&lt;a href=&quot;https://github.com/lagotto/lagotto/issues/399&quot;&gt;#399&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;toc_0&quot;&gt;JSON API snapshots&lt;/h3&gt;
+
+&lt;p&gt;The snapshots of the Lagotto JSON API require the same ENV variables as the CSV export. Run &lt;code&gt;bundle exec rake api:snapshot:all&lt;/code&gt; to create the snapshots and export them to Zenodo. More information is available in the &lt;code&gt;setup&lt;/code&gt; documentation.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_1&quot;&gt;Foreign keys&lt;/h3&gt;
+
+&lt;p&gt;This release adds foreign keys (supported in Rails core since &lt;a href=&quot;http://weblog.rubyonrails.org/2014/12/19/Rails-4-2-final/&quot;&gt;Rails 4.2&lt;/a&gt;) to the database to enforce referential integrity.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_2&quot;&gt;Registration agency checks&lt;/h3&gt;
+
+&lt;p&gt;Some sources now check for the work registration agency, allowing different functionality, e.g. for CrossRef or DataCite DOIs.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_3&quot;&gt;DataONE usage stats&lt;/h3&gt;
+
+&lt;p&gt;This release adds two sources that collect usage stats from the DataONE repository network. The &lt;code&gt;dataone_counter&lt;/code&gt; source collects COUNTER-compliant usage stats, whereas the &lt;code&gt;dataone_usage&lt;/code&gt; source also includes machine usage from some useragents.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Lagotto 4.2.1 released</title>
+   <link href="http://lagotto.io/blog/2015/07/13/lagotto-4.2.1-released/"/>
+   <updated>2015-07-13T00:00:00+00:00</updated>
+   <id>http://lagotto.io/blog/2015/07/13/lagotto-4.2.1-released</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/lagotto/lagotto/releases/tag/v.4.2.1&quot;&gt;Lagotto 4.2.1&lt;/a&gt; was released on July 13, 2015 with the following changes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;automatically archive all Lagotto releases in zenodo and register a DOI&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Lagotto 4.2 released</title>

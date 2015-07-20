@@ -3,17 +3,17 @@
     <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lagotto 4.1.1 released</title>
+    <title>Lagotto 4.3 released</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Martin Fenner" />
 
     <!-- RDFa Metadata (in DublinCore) -->
-    <meta property="dc:title" content="Lagotto 4.1.1 released" />
+    <meta property="dc:title" content="Lagotto 4.3 released" />
     <meta property="dc:creator" content="" />
-    <meta name="citation_publication_date" content="2015-07-06T00:00:00+00:00"/>
+    <meta name="citation_publication_date" content="2015-07-20T00:00:00+00:00"/>
     <meta property="dc:format" content="text/html" />
     <meta property="dc:language" content="en" />
-    <meta property="dc:identifier" content="/blog/2015/07/06/lagotto-4.1.1-released/" />
+    <meta property="dc:identifier" content="/blog/2015/07/20/lagotto-4.3-released/" />
     <meta property="dc:rights" content="CC-BY" />
     <meta property="dc:source" content="Lagotto" />
     <meta property="dc:subject" content="Scholarly Communication" />
@@ -21,8 +21,8 @@
 
     <!-- Google Scholar Metadata -->
     <meta name="citation_author" content="Martin Fenner"/>
-    <meta name="citation_publication_date" content="2015-07-06"/>
-    <meta name="citation_title" content="Lagotto 4.1.1 released"/>
+    <meta name="citation_publication_date" content="2015-07-20"/>
+    <meta name="citation_title" content="Lagotto 4.3 released"/>
     <meta name="citation_journal_title" content="Lagotto"/>
 
     <link rel="alternate" type="application/rss+xml" title="Lagotto" href="/rss.xml" />
@@ -104,8 +104,8 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>Lagotto 4.1.1 released</h1>
-        <p class="subtitle">06 July 2015 by
+        <h1>Lagotto 4.3 released</h1>
+        <p class="subtitle">20 July 2015 by
           
 <a href="http://orcid.org/0000-0003-1419-2405">Martin Fenner</a>
         </p>
@@ -115,13 +115,34 @@
         <div class="row">
           <div class="col-md-9">
             
-            <p><a href="https://github.com/lagotto/lagotto/releases/tag/v.4.1.1">Lagotto 4.1.1</a> was released on July 6, 2015 with the following fixes:</p>
+            <p><a href="https://github.com/lagotto/lagotto/releases/tag/v.4.3">Lagotto 4.3</a> was released on July 20, 2015 with the following changes:</p>
 
 <ul>
-<li>adapted CSV parsing to 4.0 data model (<a href="https://github.com/lagotto/lagotto/issues/315">#315</a>)</li>
-<li>fixed a bug in pmc feed parsing (<a href="https://github.com/lagotto/lagotto/issues/354">#354</a>)</li>
-<li>don&#39;t import PLOS issue images. (<a href="https://github.com/lagotto/lagotto/issues/356">#356</a>)</li>
+<li>created snapshop of Lagotto JSON API responses for works, that is then automatically deposited in Zenodo (<a href="https://github.com/lagotto/lagotto/issues/343">#343</a>)</li>
+<li>fixed failing rspec acceptance tests (<a href="https://github.com/lagotto/lagotto/issues/380">#380</a>)</li>
+<li>added registration_agency check to some sources (<a href="https://github.com/lagotto/lagotto/issues/381">#381</a>)</li>
+<li>added foreign_key constraints (<a href="https://github.com/lagotto/lagotto/issues/382">#382</a>)</li>
+<li>added DataONE identifier (<a href="https://github.com/lagotto/lagotto/issues/384">#384</a>)</li>
+<li>added two sources for DataONE usage stats (<a href="https://github.com/lagotto/lagotto/issues/394">#394</a>)</li>
+<li>enamed Github organization from <code>articlemetrics</code> to <code>lagotto</code> (<a href="https://github.com/lagotto/lagotto/issues/397">#397</a>)</li>
+<li>fixed nginx installation issue where nodejs can&#39;t be found (<a href="https://github.com/lagotto/lagotto/issues/399">#399</a>)</li>
 </ul>
+
+<h3 id="toc_0">JSON API snapshots</h3>
+
+<p>The snapshots of the Lagotto JSON API require the same ENV variables as the CSV export. Run <code>bundle exec rake api:snapshot:all</code> to create the snapshots and export them to Zenodo. More information is available in the <code>setup</code> documentation.</p>
+
+<h3 id="toc_1">Foreign keys</h3>
+
+<p>This release adds foreign keys (supported in Rails core since <a href="http://weblog.rubyonrails.org/2014/12/19/Rails-4-2-final/">Rails 4.2</a>) to the database to enforce referential integrity.</p>
+
+<h3 id="toc_2">Registration agency checks</h3>
+
+<p>Some sources now check for the work registration agency, allowing different functionality, e.g. for CrossRef or DataCite DOIs.</p>
+
+<h3 id="toc_3">DataONE usage stats</h3>
+
+<p>This release adds two sources that collect usage stats from the DataONE repository network. The <code>dataone_counter</code> source collects COUNTER-compliant usage stats, whereas the <code>dataone_usage</code> source also includes machine usage from some useragents.</p>
 
 
   <h3>Tags</h3>
@@ -144,12 +165,12 @@
   title="ctx_ver=Z39.88-2004
   &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
   &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-  &amp;rft.title=Lagotto 4.1.1 released
+  &amp;rft.title=Lagotto 4.3 released
   &amp;rft.creator=
-  &amp;rft.date=2015-07-06
+  &amp;rft.date=2015-07-20
   &amp;rft.language=EN
   &amp;rft.rights=CC0
-  &amp;rft_id=http://lagotto.io/blog/2015/07/06/lagotto-4.1.1-released/">
+  &amp;rft_id=http://lagotto.io/blog/2015/07/20/lagotto-4.3-released/">
 </span>
 
             
