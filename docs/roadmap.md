@@ -36,7 +36,7 @@ All API responses from external sources should go through the new push API to ma
 
 ### Rewrite F1000 source as internal agent
 
-Once we have separated out the agent functionality from sources in we can start rewriting our existing sources to more efficiently collect events from external sources. The [F1000 source](https://github.com/lagotto/lagotto/blob/master/app/models/sources/f1000.rb) is a good starting point, and the new agent should parse the F1000 XML file and then deposit the payload in the new push API. We can consider packaging the internal agent as Ruby gem if the functionality is decoupled enough.
+Once we have separated out the agent functionality from sources in we can start rewriting our existing sources to more efficiently collect events from external sources. The [F1000 source](https://github.com/lagotto/lagotto/blob/master/app/models/agents/f1000.rb) is a good starting point, and the new agent should parse the F1000 XML file and then deposit the payload in the new push API. We can consider packaging the internal agent as Ruby gem if the functionality is decoupled enough.
 
 ### Add generic webmention endpoint
 

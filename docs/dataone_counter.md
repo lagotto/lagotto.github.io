@@ -116,7 +116,7 @@ title: "DataCONE Counter"
 ```
 
 ## Source Code
-The source code is available [here](https://github.com/lagotto/lagotto/blob/master/app/models/sources/dataone_counter.rb).
+The source code is available [here](https://github.com/lagotto/lagotto/blob/master/app/models/agents/dataone_counter.rb).
 
 ## Further Documentation
 * [DataONE usage stats](http://mdc.lagotto.io/dataone-usage-stats/)

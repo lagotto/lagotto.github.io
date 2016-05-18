@@ -265,4 +265,4 @@ Most sources return information about each individual event (citation, bookmark,
 </table>
 
 ## Creating a new source
-Basically, each of the APIs that the ALM application is calling will be defined as a **source**. The ALM application provides a number of services to each source to help it get what it needs. Note the samples provided at [http://github.com/lagotto/lagotto/tree/master/app/models/sources](http://github.com/lagotto/lagotto/tree/master/app/models/sources).
+Basically, each of the APIs that the ALM application is calling will be defined as a **source**. The ALM application provides a number of services to each source to help it get what it needs. Note the samples provided at [http://github.com/lagotto/lagotto/tree/master/app/models/agents](http://github.com/lagotto/lagotto/tree/master/app/models/sources).
